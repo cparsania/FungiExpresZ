@@ -4,16 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param sample_names
-#' @param bioproject_groups
 #'
 #' @rdname mod_add_sample_group
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 
 add_sample_group_ui <-  function(id){
@@ -56,7 +50,7 @@ add_sample_group_ui <-  function(id){
                                         hr(),
                                         
                                         ## select group members 1 
-                                        pickerInput(
+                                        shinyWidgets::pickerInput(
                                           inputId = ns("group_members1"),
                                           label = "Group members", 
                                           choices = "", 
@@ -76,7 +70,7 @@ add_sample_group_ui <-  function(id){
                                                   placeholder = "group name"),
                                         
                                         ## select group members 2
-                                        pickerInput(
+                                        shinyWidgets::pickerInput(
                                           inputId = ns("group_members2"),
                                           label = "Group members", 
                                           choices = "", 
@@ -151,7 +145,7 @@ add_sample_group_ui <-  function(id){
                                       tags$h4(tags$b("Example data snap")),
                                       wellPanel(
                                         
-                                        tags$img(src='example_data_group_info.png', 
+                                        tags$img(src="www/example_data_group_info.png", 
                                                  style="display: block; margin-left: auto; margin-right: auto;" , 
                                                  height = "50%", width = "50%")
                                       )
@@ -184,8 +178,14 @@ add_sample_group_ui <-  function(id){
 
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session 
+#' @param sample_names internal
+#' @param bioproject_groups internal
+#'
 #' @rdname mod_add_sample_group
-#' @export
 #' @keywords internal
     
 add_sample_group <- function(input, output, session, sample_names , bioproject_groups){
@@ -194,7 +194,7 @@ add_sample_group <- function(input, output, session, sample_names , bioproject_g
     req(sample_names())
     
     ## update group 1 choices 
-    updatePickerInput(inputId = "group_members1" , session = session, choices = sample_names() , 
+    shinyWidgets::updatePickerInput(inputId = "group_members1" , session = session, choices = sample_names() , 
                       choicesOpt = list(
                         content = sprintf("<span class='label label-%s'>%s</span>", 
                                           c("success"), 
@@ -203,15 +203,13 @@ add_sample_group <- function(input, output, session, sample_names , bioproject_g
     )
     
     ## update group 2 choices
-    updatePickerInput(inputId = "group_members2" , session = session, choices = sample_names() , 
+    shinyWidgets::updatePickerInput(inputId = "group_members2" , session = session, choices = sample_names() , 
                       choicesOpt = list(
                         content = sprintf("<span class='label label-%s'>%s</span>", 
                                           c("success"), 
                                           sample_names())
                       ))
   })
-  
-  
   
   ## get user defined  column groups 
   user_uploaded_column_groups <- eventReactive(input$set_groups, {
@@ -327,7 +325,8 @@ add_sample_group <- function(input, output, session, sample_names , bioproject_g
     }
     
     ll <- rlang::set_names(group_members,group_names)
-    tbl <- tibble(groups = names(ll) , group_members = ll) %>% unnest()
+    tbl <- tibble(groups = names(ll) , group_members = ll) %>% 
+      tidyr::unnest()
     
     shinyWidgets::sendSweetAlert(session = session , title = "Success!" ,text = "Groups assigned successfully." ,type = "success" )  
     
@@ -342,7 +341,8 @@ add_sample_group <- function(input, output, session, sample_names , bioproject_g
   # default column grouping
   # As per the current settings, as soon as data change default group will be returned regardless of user uploaded groups available or not. 
   observe({
-    tbl <- tibble(groups = "All selected samples" , group_members = as.list(sample_names())) %>% unnest()
+    tbl <- tibble(groups = "All selected samples" , group_members = as.list(sample_names())) %>% 
+      tidyr::unnest()
     sample_groups$final_sample_groups <- tbl
   })
   

@@ -4,17 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param gene_set
-#' @param genome
-#' @param ui_id
 #'
 #' @rdname mod_functional_analysis
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 functional_analysis_ui <- function(id){
   
@@ -133,14 +126,16 @@ functional_analysis_ui <- function(id){
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'table' && input['",ns("perform_go_analysis_trigger"),"'] "),
                      DT::dataTableOutput(outputId = ns("functional_out_data") , 
-                                     width = "auto", height = "auto") %>% withSpinner(color = "#18BC9C")
+                                     width = "auto", height = "auto") %>% 
+                       shinycssloaders::withSpinner(color = "#18BC9C")
     ),
     
     ####
     ## dotplot panel 
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'dotplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
-                     plotOutput(outputId = ns("go_enrichment_dotplot") , height = "auto") %>% withSpinner(color = "#18BC9C"),
+                     plotOutput(outputId = ns("go_enrichment_dotplot") , height = "auto") %>% 
+                       shinycssloaders::withSpinner(color = "#18BC9C"),
                      hr(),
                      fluidRow(
                        column(
@@ -193,7 +188,8 @@ functional_analysis_ui <- function(id){
     ## barplot panel 
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'barplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
-                     plotOutput(outputId = ns("go_enrichment_bar_plot") , height = "auto") %>% withSpinner(color = "#18BC9C"),
+                     plotOutput(outputId = ns("go_enrichment_bar_plot") , height = "auto") %>% 
+                       shinycssloaders::withSpinner(color = "#18BC9C"),
                      hr(),
                      fluidRow(
                        column(
@@ -250,7 +246,8 @@ functional_analysis_ui <- function(id){
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'emapplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
                      
-                     plotOutput(outputId = ns("go_enrichment_emapplot") , height = "auto")%>% withSpinner(color = "#18BC9C"),
+                     plotOutput(outputId = ns("go_enrichment_emapplot") , height = "auto")%>% 
+                       shinycssloaders::withSpinner(color = "#18BC9C"),
                      
                      hr(),
                      fluidRow(
@@ -283,7 +280,12 @@ functional_analysis_ui <- function(id){
                                   ## emap plot layout type
                                   shiny::selectInput(inputId = ns("emap_plot_layout_type") , multiple = F,
                                                      label = "Layout" ,
-                                                     choices = c("Circular" = "circle" ,"KK" = "kk" , "Auto" ="auto" , "Tree" ="tree") , selected = "auto"),
+                                                     choices = c("Circular" = "circle" ,
+                                                                 "KK" = "kk" , 
+                                                                 "Matrix" ="matrix" , 
+                                                                 "Linear"= "linear",
+                                                                 "Tree" ="tree") , 
+                                                     selected = "kk"),
                                   
                                   # emap plot number of category to display 
                                   shiny::numericInput(inputId = ns("emap_plot_number_of_category") , 
@@ -303,7 +305,8 @@ functional_analysis_ui <- function(id){
     ## cnetplot panel
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'cnetplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
-                     plotOutput(outputId = ns("go_enrichment_cnetplot") , height = "auto")%>% withSpinner(color = "#18BC9C"),
+                     plotOutput(outputId = ns("go_enrichment_cnetplot") , height = "auto")%>% 
+                       shinycssloaders::withSpinner(color = "#18BC9C"),
                      hr(),
                      fluidRow(
                        column(
@@ -330,7 +333,12 @@ functional_analysis_ui <- function(id){
                                   ## cnet plot layout type 
                                   shiny::selectInput(inputId = ns("cnet_plot_layout_type") , multiple = F, 
                                                      label = "Layout" , 
-                                                     choices = c("Circular" = "circle" ,"KK" = "kk" , "Auto" ="auto" , "Tree" ="tree") , selected = "kk"),
+                                                     choices = c("Circular" = "circle" ,
+                                                                 "KK" = "kk" , 
+                                                                 "Linear" ="linear",
+                                                                 "Matrix" = "matrix",
+                                                                 "Tree" ="tree") , 
+                                                     selected = "kk"),
                                   
                                   # cnet plot number of category to display 
                                   shiny::numericInput(inputId = ns("cnet_plot_number_of_category") , 
@@ -354,7 +362,8 @@ functional_analysis_ui <- function(id){
     ####
     
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'upsetplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
-                     plotOutput(outputId = ns("go_enrichment_upsetpot") , height = "auto")%>% withSpinner(color = "#18BC9C"),
+                     plotOutput(outputId = ns("go_enrichment_upsetpot") , height = "auto")%>% 
+                       shinycssloaders::withSpinner(color = "#18BC9C"),
                      hr(),
                      fluidRow(
                        column(
@@ -486,7 +495,8 @@ functional_analysis_ui <- function(id){
     ####
     
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'heatplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
-                     plotOutput(outputId = ns("go_enrichment_heatplot") , height = "auto")%>% withSpinner(color = "#18BC9C"),
+                     plotOutput(outputId = ns("go_enrichment_heatplot") , height = "auto")%>% 
+                       shinycssloaders::withSpinner(color = "#18BC9C"),
                      hr(),
                      fluidRow(
                        column(
@@ -537,8 +547,15 @@ functional_analysis_ui <- function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output 
+#' @param session session
+#' @param gene_set internal
+#' @param genome internal
+#' @param ui_id internal
+#'
 #' @rdname mod_functional_analysis
-#' @export
 #' @keywords internal
     
 functional_analysis_server <- function(input, output, session , gene_set = NULL, genome = NULL , ui_id = NULL){
@@ -663,7 +680,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
       
       ## wrap long terms 
       dotplot_out$data <- dotplot_out$data %>% as_tibble() %>% 
-        mutate(Description = factor(str_wrap(Description , 25) , levels = str_wrap(levels(Description) , 25)) ) 
+        dplyr::mutate(Description = factor(stringr::str_wrap(Description , 25) , levels = stringr::str_wrap(levels(Description) , 25)) ) 
       
       dotplot_out <- callModule(module  = plot_title_and_axis_label_server , 
                                 id = "dot_plot_title_and_legend" ,
@@ -686,7 +703,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
       ## wrap long terms 
       dotplot_out$data <- dotplot_out$data %>% 
         as_tibble() %>% 
-        mutate(Description = str_wrap(Description , 25)  %>% 
+        dplyr::mutate(Description = stringr::str_wrap(Description , 25)  %>% 
                  fct_reorder(GeneRatio , .desc = F))
       
       dotplot_out <- callModule(module  = plot_title_and_axis_label_server , 
@@ -741,7 +758,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
     ## wrap long terms
     barplot_out$data <- barplot_out$data %>%
       as_tibble() %>%
-      mutate(Description = str_wrap(Description , 25)  %>%
+      dplyr::mutate(Description = stringr::str_wrap(Description , 25)  %>%
                fct_reorder(GeneRatio, .desc = F))
     
     
@@ -793,7 +810,8 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
     emapplot_out$layers[[geom_text_repel_index]] <- NULL
     print("node label size ")
     print(input$emap_node_label_size)
-    emapplot_out <- emapplot_out %+% geom_text_repel(aes(label = name , x = x, y = y  , size = input$emap_node_label_size ))
+    emapplot_out <- emapplot_out %+% 
+      ggrepel::geom_text_repel(aes(label = name , x = x, y = y  , size = input$emap_node_label_size ))
     return(emapplot_out)
   })
   
@@ -945,7 +963,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
     ## wrap long text 
     heatplot_out$data <- heatplot_out$data %>% 
       as_tibble() %>% 
-      mutate(categoryID = factor(str_wrap(categoryID , 25) , levels = levels(categoryID) %>% str_wrap(25))) 
+      dplyr::mutate(categoryID = factor(stringr::str_wrap(categoryID , 25) , levels = levels(categoryID) %>% stringr::str_wrap(25))) 
     return(heatplot_out)
   })
   

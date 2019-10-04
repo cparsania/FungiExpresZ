@@ -4,16 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param parent_id 
-#' @param input_text
-#' 
+#'
 #' @rdname mod_word_cloud
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 
 
@@ -30,7 +24,7 @@ word_cloud_ui <- function(id){
                column(width = 12,
                       div(style="height:1000px",
                           plotOutput(outputId = ns("wordcloud_plot")) %>% 
-                            withSpinner(color = "#18BC9C")  
+                            shinycssloaders::withSpinner(color = "#18BC9C")  
                       )
                       
                )
@@ -87,8 +81,14 @@ word_cloud_ui <- function(id){
 
 # Module Server
 
+#' @param input session input
+#'
+#' @param output session output 
+#' @param session session
+#' @param parent_id internal 
+#' @param input_text internal 
+#'
 #' @rdname mod_word_cloud
-#' @export
 #' @keywords internal
 
 word_cloud_server <- function(input, output, session ,parent_id, input_text){
@@ -141,7 +141,7 @@ word_cloud_server <- function(input, output, session ,parent_id, input_text){
     ## perform normalization
     # if(TRUE){
     #   m <- m %>%
-    #     mutate_if(is.numeric , normalize_between_docs)
+    #     dplyr::mutate_if(is.numeric , normalize_between_docs)
     # 
     # }
     
@@ -160,13 +160,13 @@ word_cloud_server <- function(input, output, session ,parent_id, input_text){
   
   ## wc plot function 
   get_wc_plot  = function(word, freq,palatte,max_words) {
-    wordcloud(words = word, freq = freq,
+    wordcloud::wordcloud(words = word, freq = freq,
               fixed.asp = FALSE,
               min.freq = 0.1,
               max.words=max_words,
               random.order=FALSE,
               rot.per=0,
-              colors=brewer.pal(8, palatte))
+              colors=RColorBrewer::brewer.pal(8, palatte))
   }
   
   ## render wc plot 

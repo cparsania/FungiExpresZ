@@ -4,15 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param gene_names
 #'
 #' @rdname mod_add_gene_groups
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 add_gene_groups_ui <-  function(id){
   ns <- NS(id)
@@ -94,7 +89,7 @@ add_gene_groups_ui <-  function(id){
                      tags$h4(tags$b("Example data snap")),
                      wellPanel(
                        
-                       tags$img(src='example_data_gene_group_info.png', 
+                       tags$img(src="www/example_data_gene_group_info.png" , 
                                 style="display: block; margin-left: auto; margin-right: auto;" , 
                                 height = "50%", width = "50%")
                      ),
@@ -117,8 +112,13 @@ add_gene_groups_ui <-  function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session
+#' @param gene_names internal
+#'
 #' @rdname mod_add_gene_groups
-#' @export
 #' @keywords internal
     
 add_gene_groups <- function(input, output, session, gene_names){
@@ -232,7 +232,8 @@ add_gene_groups <- function(input, output, session, gene_names){
     }
     
     ll <- rlang::set_names(gene_group_members,gene_group_names)
-    tbl <- tibble(gene_groups = names(ll) , gene_group_members = ll) %>% unnest()
+    tbl <- tibble(gene_groups = names(ll) , gene_group_members = ll) %>% 
+      tidyr::unnest()
     return(tbl)
     
   })
@@ -244,7 +245,8 @@ add_gene_groups <- function(input, output, session, gene_names){
   # default gene grouping.
   # As per the current settings, as soon as data change default group will be returned regardless of user uploaded groups available or not. 
   observe({
-    tbl <- tibble(gene_groups = "All genes" , gene_group_members = as.list(gene_names())) %>% unnest()
+    tbl <- tibble(gene_groups = "All genes" , gene_group_members = as.list(gene_names())) %>% 
+      tidyr::unnest()
     print("group assignemnt changed ")
     group_info$final_gene_groups = tbl   
   })

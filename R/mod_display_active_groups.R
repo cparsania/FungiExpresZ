@@ -4,15 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param group_data
 #'
 #' @rdname mod_display_active_groups
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 display_active_groups_ui <- function(id){
   ns <- NS(id)
@@ -46,7 +41,7 @@ display_active_groups_ui <- function(id){
                               tags$div(style = "overflow-x:auto;",
                                        DT::dataTableOutput(outputId = ns("active_group_info"),
                                                            width = "100%")  %>%
-                                         withSpinner(color = "#18BC9C")                 
+                                         shinycssloaders::withSpinner(color = "#18BC9C")                 
                               )
              )
              
@@ -57,8 +52,13 @@ display_active_groups_ui <- function(id){
 }    
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output 
+#' @param session session
+#' @param group_data 
+#'
 #' @rdname mod_display_active_groups
-#' @export
 #' @keywords internal
     
 display_active_groups_server <- function(input, output, session , group_data){
@@ -71,9 +71,9 @@ display_active_groups_server <- function(input, output, session , group_data){
     group_member <- col_names[2]
     
     wide <- group_data()$row_groups %>%  
-      group_by(!!as.symbol(group_name)) %>%
-      nest() %>% 
-      mutate(group_member := map_chr(data , ~(.x %>% pull(1) %>% paste0(collapse = ",")))) %>%
+      dplyr::group_by(!!as.symbol(group_name)) %>%
+      tidyr::nest() %>% 
+      dplyr::mutate(group_member := map_chr(data , ~(.x %>% pull(1) %>% paste0(collapse = ",")))) %>%
       dplyr::select(-data)
     
     return(wide)
@@ -89,9 +89,9 @@ display_active_groups_server <- function(input, output, session , group_data){
     group_member <- col_names[2]
     
     wide <- group_data()$column_groups %>%  
-      group_by(!!as.symbol(group_name)) %>%
-      nest() %>% 
-      mutate(group_member := map_chr(data , ~(.x %>% pull(1) %>% paste0(collapse = ",")))) %>%
+      dplyr::group_by(!!as.symbol(group_name)) %>%
+      tidyr::nest() %>% 
+      dplyr::mutate(group_member := map_chr(data , ~(.x %>% pull(1) %>% paste0(collapse = ",")))) %>%
       dplyr::select(-data) 
     
     return(wide)

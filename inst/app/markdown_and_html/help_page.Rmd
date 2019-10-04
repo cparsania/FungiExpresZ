@@ -1,0 +1,86 @@
+---
+title: "Step by step guide to use FungiExpresZ"
+#author: "Chirag Parsania"
+output:
+    prettydoc::html_pretty:
+      #bookdown::html_document2:
+        number_sections: true
+        toc: TRUE
+        #theme: "cyaman"
+        fig_caption: TRUE
+        toc_depth: 2
+        #toc_float: TRUE  
+    # word_document:
+    #    toc: TRUE
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.align="center", fig.show="hold")
+```
+
+
+# Introduction  
+<div style="text-align: justify"> In the post genomic era, more and more gene expression data are being available in the public domain, and therefore, one of the common practice for the researchers is to compare their own experiments, as a proof of principle, with already published data. However, availability of the most public data in raw fastq format requires efficient programming skills and also consume lots of time to make them available for downstream analysis. In addition, once the raw fastq data processed to normalized gene expression values (e.g fpkm, rpkm etc.), downstream analysis and elegant data visualization (e.g ggplot2) also require programming expertise.
+
+To overcome programming and data processing hurdle, we have collated and processed (using the same analysis pipeline) over a thousands of publicly available RNA sequencing (RNA-seq) data-sets from Sequence Read Archive (SRA) database of National Center for Biotechnology Information (NCBI), of different fungi from diverse experimental conditions and deposited their gene expression information (e.g. fpkm) to the server. Along with, using R-shiny and ggplot2, we have created a user-friendly web-based server for visualization and analysis of gene expression data. Together, we named application as **Fungi** gene **EXPRES**sion database and vi**Z**ualisation server (**FungiExpresZ**).
+
+The web server is set up specifically with bench scientists in mind, who have little to no experience with processing high-throughput data. The server contains programs for twelve commonly used analyses and figure plotting functions (e.g. clustering, heatmap, PCA plot, scatter plot, density plot, box plot, joy plot  etc.). Besides, FungiExpresZ implements widely used gene ontology (GO) analysis R package : **ClusterProfiler** which allow users to perform GO analysis and four different GO visualizations including GO network plots. GO analysis can be done directly from the plots for the genes selected by mouse drag  (scatter plot) or for the gene cluster identified through un-supervises k-means clustering and shown in line plot and heatmap. In addtion, user supplied gene groups and sample group information allow users to plot several different dimentions of data at a time smoothly.  
+
+Plots can be downloaded in high resolution image in the three different formats, .pdf, .png or .svg. Data points in some plot types (e.g. scatter) can be selected to display gene information (e.g. gene annotation, Gene Ontology, etc.) and expression levels (e.g. fpkm) across all public RNA-seq data-sets stored on the server. Additionally, it can also process and integrate user-upload data with pre-processed public data stored on the server. For easy search on pre processed data and to quickly identify biological condition of interest, FungiExpresZ provides efficient text based search on certain experimental condition  related attributes such as genotype, strain, tissue, experiment title, study title, description etc.
+
+This is the first and only gene expression database for different fungal species. Both the server and fungal data repository will be updated regularly (e.g. quarterly) to add new Bioinformatics analysis functions and figure types as well as to include more data-sets to enrich the FungiExpresZ database. We strongly believe that a rich central fungal data repository along with the data visualization software can facilitate understanding of fungi. An example illustrating the server functions and how they can be used with the stored pre-processed public gene expression data for understanding fungal functions and physiology is provided under the tab “Example for illustration” on FungiExpresZ.
+
+This document gives step by step instruction to use FungiExpresZ.
+  
+
+The Figure 1.1 is graphical workflow. 
+</div>
+
+# Graphical workflow
+
+<br>
+```{r home-screen, fig.cap="Fig 1: graphical workflow of FungiExpresZ",out.extra='style="background-color: black; padding:1px; display: inline-block;"' , out.width="80%" ,  out.height="80%" }
+#home_screen_view <- c("./fe_graphical_overview.pdf")
+#knitr::include_graphics(home_screen_view)
+knitr::include_graphics("./fe_graphical_workflow.jpg")
+
+```
+
+
+# Current exploratory plot options 
+
+<br>
+```{r , fig.cap="Fig 2: Current available exploratory gene expression plots in  FungiExpresZ",out.extra='style="background-color: black; padding:1px; display: inline-block;"' , out.width="80%" ,  out.height="80%"  }
+
+knitr::include_graphics("./fig2.jpg")
+
+```
+
+# Implication of gene groups and sample groups in exploratory plots 
+
+<br>
+```{r , fig.cap="Fig 3: Implication of gene groups and sample groups",out.extra='style="background-color: black; padding:1px; display: inline-block;"' , out.width="80%" ,  out.height="80%" }
+
+knitr::include_graphics("./fig3.jpg")
+
+```
+
+
+# GO analysis and visualisations
+
+<br>
+```{r , fig.cap="Fig 4: GO analysis and visualisations in FungiExpresZ",out.extra='style="background-color: black; padding:1px; display: inline-block;"' , out.width="80%" ,  out.height="80%" }
+
+knitr::include_graphics("./fig5.jpg")
+
+```
+
+
+
+<br><br><br>
+
+
+
+

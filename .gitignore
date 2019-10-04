@@ -1,0 +1,15 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+packrat/lib*/
+packrat/src/
+inst/doc
+
+dev/
+
+packrat/
+
+rsconnect/
+
+FungiExpresZ.Rproj

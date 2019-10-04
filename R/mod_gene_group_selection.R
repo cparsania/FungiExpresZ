@@ -4,17 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param gene_group_info
-#' @param current_session_data_matrix
-#' @param generate_plot_action
 #'
 #' @rdname mod_gene_group_selection
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 gene_group_selection_ui <- function(id){
   ns <- NS(id)
@@ -37,8 +30,15 @@ gene_group_selection_ui <- function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session input 
+#' @param session session
+#' @param gene_group_info internal 
+#' @param current_session_data_matrix internal
+#' @param generate_plot_action internal
+#'
 #' @rdname mod_gene_group_selection
-#' @export
 #' @keywords internal
     
 gene_group_selection <- function(input, output, session,  gene_group_info , current_session_data_matrix , generate_plot_action){
@@ -48,7 +48,7 @@ gene_group_selection <- function(input, output, session,  gene_group_info , curr
     req(gene_group_info())
     gene_groups <- gene_group_info() %>% dplyr::pull(1) %>% unique()
     
-    updatePickerInput(inputId = "select_gene_clusters" , 
+    shinyWidgets::updatePickerInput(inputId = "select_gene_clusters" , 
                       session = session, 
                       choices = gene_groups, 
                       #selected = gene_groups %>% .[1] ,

@@ -1,0 +1,14 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+dev_history.R
+^dev$
+$run_dev.*
+^README\.Rmd$
+^CODE_OF_CONDUCT\.md$
+^LICENSE\.md$
+^packrat/
+^\.Rprofile$
+^app\.R$
+^/Users/chiragparsania/Documents/Projects/1_My_PhD/9_bioseqc/fungiexpresz_r_package/FungiExpresZ/Dockerfile$
+^Dockerfile$

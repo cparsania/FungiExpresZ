@@ -4,24 +4,12 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param plot_title
-#' @param axis_x_title
-#' @param axis_y_title
-#' @param color_legend_title
-#' @param fill_legend_title
-#' @param my_ggplot
-#' @param aspect_ratio
-#' @param apply_theme
-#' @param ...
-#' 
+#'
 #' @rdname mod_plot_title_and_axis_label
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
+#' 
 plot_title_and_axis_label_ui <- function(id) { 
   
   ns = NS(id)
@@ -183,8 +171,20 @@ plot_title_and_axis_label_ui <- function(id) {
     
 # Module Server
     
+#' @param input internal
+#' @param output internal 
+#' @param session internal
+#' @param plot_title internal
+#' @param axis_x_title internal
+#' @param axis_y_title internal
+#' @param color_legend_title internal
+#' @param fill_legend_title internal
+#' @param my_ggplot internal
+#' @param aspect_ratio internal
+#' @param apply_theme internal
+#' @param ... Other parameters passed to \code{decorate_ggplot} and ultimately \code{ggplot2::theme}
+#'
 #' @rdname mod_plot_title_and_axis_label
-#' @export
 #' @keywords internal
     
 plot_title_and_axis_label_server <- function(input, output, session, 

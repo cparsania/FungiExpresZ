@@ -4,18 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param file_name
-#' @param plot
-#' @param legend_pos
-#' @param isComplexHeatmap
 #'
 #' @rdname mod_export_base_graphics
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 #' 
 export_base_graphics_ui <- function(id){
@@ -77,8 +69,16 @@ export_base_graphics_ui <- function(id){
 }    
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session 
+#' @param file_name internal
+#' @param plot internal
+#' @param legend_pos internal
+#' @param isComplexHeatmap internal
+#'
 #' @rdname mod_export_base_graphics
-#' @export
 #' @keywords internal
     
 export_base_graphics = function(input, output, session , file_name, plot ,

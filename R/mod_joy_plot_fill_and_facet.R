@@ -2,17 +2,13 @@
   
 #' @title   joy_plot_fill_and_facet_ui and joyplot_fill_and_facet
 #' @description  A shiny Module.
-#'
+#' 
+#' 
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param joyplot
 #'
 #' @rdname mod_joy_plot_fill_and_facet
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 joy_plot_fill_and_facet_ui <- function(id){
   ns = NS(id)
@@ -189,10 +185,14 @@ joy_plot_fill_and_facet_ui <- function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session 
+#' @param joyplot a joy plot object 
+#'
 #' @rdname mod_joy_plot_fill_and_facet
-#' @export
 #' @keywords internal
-    
 joyplot_fill_and_facet <- function(input, output, session, joyplot){
   
   joyplot <- joyplot 
@@ -213,10 +213,10 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
   ## fill ggplot 
   if(input$fill_plot == "sample_groups"){
     joyplot  <- joyplot + 
-      stat_density_ridges(geom = "density_ridges_gradient" , 
+      ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes( fill = groups) , 
                           col = input$plot_ridges_col , scale = 1 ) + 
-      scale_fill_viridis(name = input$fill_plot , 
+      viridis::scale_fill_viridis(name = input$fill_plot , 
                          option = input$plot_fill_choice , 
                          direction = ifelse(input$plot_fill_direction , -1,1), 
                          discrete = T)
@@ -225,10 +225,10 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
     print(input$plot_fill_choice)
     print(input$plot_fill_direction)
     joyplot  <- joyplot + 
-      stat_density_ridges(geom = "density_ridges_gradient" , 
+      ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes( fill = samples) , 
                           col = input$plot_ridges_col, scale = 1 ) + 
-      scale_fill_viridis(name = input$fill_plot , 
+      viridis::scale_fill_viridis(name = input$fill_plot , 
                          option = input$plot_fill_choice , 
                          direction = ifelse(input$plot_fill_direction , -1,1), 
                          discrete = T)
@@ -236,10 +236,10 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
   } else if(input$fill_plot == "gene_groups"){
     print(input$plot_fill_choice)
     print(input$plot_fill_direction)
-    joyplot  <- joyplot + stat_density_ridges(geom = "density_ridges_gradient" , 
+    joyplot  <- joyplot + ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                                               mapping = aes( fill = gene_groups) , 
                                               col = input$plot_ridges_col, scale = 1 ) + 
-      scale_fill_viridis(name = input$fill_plot , 
+      viridis::scale_fill_viridis(name = input$fill_plot , 
                          option = input$plot_fill_choice , 
                          direction = ifelse(input$plot_fill_direction , -1,1), 
                          discrete = T)
@@ -247,26 +247,26 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
     
   }else if(input$fill_plot == "probability"){
     joyplot <- joyplot  + 
-      stat_density_ridges(geom = "density_ridges_gradient" , 
+      ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes( fill = 0.5 - abs(0.5 - ..ecdf..)) , 
                           calc_ecdf = TRUE , 
                           col = input$plot_ridges_col, scale = 1 ) + 
-      scale_fill_viridis(name = input$fill_plot , 
+      viridis::scale_fill_viridis(name = input$fill_plot , 
                          option = input$plot_fill_choice , 
                          direction = ifelse(input$plot_fill_direction , -1,1))
     
     
   } else if (input$fill_plot == "value"){
     joyplot <- joyplot  + 
-      stat_density_ridges(geom = "density_ridges_gradient" , 
+      ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes(fill = ..x..) , 
                           col = input$plot_ridges_col, scale = 1 ) + 
-      scale_fill_viridis(name = input$fill_plot , 
+      viridis::scale_fill_viridis(name = input$fill_plot , 
                          option = input$plot_fill_choice , 
                          direction = ifelse(input$plot_fill_direction , -1,1))
   } else if(input$fill_plot == "alternate") {
     joyplot <- joyplot  + 
-      stat_density_ridges(geom = "density_ridges_gradient" , 
+      ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes(fill = !!joyplot$mapping$y) , ## fake aesthatic
                           col = input$plot_ridges_col , scale = 1 ) + 
       scale_fill_cyclical(values  = c(input$fill_alt_1 , input$fill_alt_2))
@@ -275,13 +275,13 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
     print(input$plot_fill_choice)
     print(input$plot_fill_direction)
     joyplot <- joyplot +
-      stat_density_ridges(geom = "density_ridges_gradient" , 
+      ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes(fill = ..quantile..) , 
                           col = input$plot_ridges_col , 
                           calc_ecdf = TRUE , 
                           quantiles = 4, 
                           quantile_lines = T, scale = 1 ) + 
-      scale_fill_viridis(name = input$fill_plot , 
+      viridis::scale_fill_viridis(name = input$fill_plot , 
                          option = input$plot_fill_choice , 
                          direction = ifelse(input$plot_fill_direction , -1,1), 
                          discrete = T)

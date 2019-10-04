@@ -5,16 +5,10 @@
 #'
 #' @param id shiny id
 #' @param fill_attribute
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param gp
-#' @param times
 #'
 #' @rdname mod_ggplot_fill_colour
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 ggplot_fill_colour_ui <- function(id , fill_attribute  ="Samples"){
   ns  <- NS(id)
@@ -63,8 +57,14 @@ ggplot_fill_colour_ui <- function(id , fill_attribute  ="Samples"){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session
+#' @param gp internal
+#' @param times internal
+#'
 #' @rdname mod_ggplot_fill_colour
-#' @export
 #' @keywords internal
     
 ggplot_fill_colour <- function(input, output, session, gp , times ){

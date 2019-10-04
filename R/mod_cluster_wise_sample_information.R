@@ -4,16 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param parent_id
-#' @param cluster_wise_sample_information
-#' 
+#'
 #' @rdname mod_cluster_wise_sample_information
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 cluster_wise_sample_information_ui <- function(id){
   ns = NS(id)
@@ -66,7 +60,7 @@ cluster_wise_sample_information_ui <- function(id){
                                 paste0("input['",ns("sample_infor_view_type"),"'] == 'table' "), 
                               
                               DT::dataTableOutput(outputId = ns("selected_cluster_sample_infor_table_output"),width = "100%")  %>% 
-                                withSpinner(color = "#18BC9C")            
+                                shinycssloaders::withSpinner(color = "#18BC9C")            
              ),
              
              ## sample infor wc output 
@@ -83,8 +77,14 @@ cluster_wise_sample_information_ui <- function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session 
+#' @param parent_id internal
+#' @param cluster_wise_sample_information internal
+#'
 #' @rdname mod_cluster_wise_sample_information
-#' @export
 #' @keywords internal
     
 cluster_wise_sample_information_server <- function(input, output, session, parent_id,cluster_wise_sample_information ){
@@ -104,7 +104,7 @@ cluster_wise_sample_information_server <- function(input, output, session, paren
   
   ## update cluster names
   observe({
-    updatePickerInput(inputId = "select_column_cluster", 
+    shinyWidgets::updatePickerInput(inputId = "select_column_cluster", 
                       session = session ,
                       choices = cluster_names())
   })

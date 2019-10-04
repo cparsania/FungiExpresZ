@@ -4,15 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param user_selected_sra_sample_info_tibble
 #'
 #' @rdname mod_display_sra_sample_info
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 display_sra_sample_info_ui <- function(id){
   ns <- NS(id)
@@ -33,7 +28,7 @@ display_sra_sample_info_ui <- function(id){
              shinyBS::bsModal(id = ns("sra_sample_info_popup"),
                               trigger = ns("show_sra_sample_info_action"),
                               
-                              pickerInput(
+                              shinyWidgets::pickerInput(
                                 inputId = ns("sra_run_accession"),
                                 label = "Select run accesssion", 
                                 choices = "",
@@ -48,7 +43,7 @@ display_sra_sample_info_ui <- function(id){
                               
                               
                               DT::dataTableOutput(outputId = ns("sra_sample_info_to_display"),width = "100%")  %>% 
-                                withSpinner(color = "#18BC9C")                 
+                                shinycssloaders::withSpinner(color = "#18BC9C")                 
              )
              
     )
@@ -58,10 +53,14 @@ display_sra_sample_info_ui <- function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session
+#' @param user_selected_sra_sample_info_tibble 
+#'
 #' @rdname mod_display_sra_sample_info
-#' @export
 #' @keywords internal
-    
 display_sra_sample_info_server <- function(input, output, session, user_selected_sra_sample_info_tibble){
   req(user_selected_sra_sample_info_tibble())
   
@@ -69,7 +68,7 @@ display_sra_sample_info_server <- function(input, output, session, user_selected
   
   observe({
     req(user_selected_sra_sample_info_tibble())
-    updatePickerInput(inputId = "sra_run_accession" , session = session,
+    shinyWidgets::updatePickerInput(inputId = "sra_run_accession" , session = session,
                       choices = user_selected_sra_sample_info_tibble() %>% pull("run_accession")
     )
   })

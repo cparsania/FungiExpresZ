@@ -4,16 +4,11 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
 #'
 #' @rdname mod_download_go_data
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
-
 download_go_data_ui <- function(id){
   ns = NS(id)
   tagList(
@@ -23,7 +18,7 @@ download_go_data_ui <- function(id){
     tags$div(fluidRow(
       column(width = 12,
              DT::dataTableOutput(outputId = ns("display_go_data"))  %>% 
-               withSpinner(color = "#18BC9C")       
+               shinycssloaders::withSpinner(color = "#18BC9C")       
       )
     ), style = "margin:auto ;  width: 1000px;" )
   )
@@ -31,16 +26,14 @@ download_go_data_ui <- function(id){
     
 # Module Server
     
-#' @param input 
+#' @param input session input
 #'
-#' @param output 
-#' @param session 
+#' @param output session output 
+#' @param session session 
 #' @param ah_data 
 #'
 #' @rdname mod_download_go_data
-#' @export
 #' @keywords internal
-    
 download_go_data_server <- function(input, output, session , ah_data ){
   
   ns <- session$ns
@@ -51,8 +44,8 @@ download_go_data_server <- function(input, output, session , ah_data ){
   go_data <- reactive({
     ah_data %>% 
       dplyr::select(1,2,6) %>% ## columns are genome,species,orgdb_cols    
-      mutate(!!as.symbol(action_button_column_name) := shinyInput(downloadButton,
-                                                                  len = n(), 
+      dplyr::mutate(!!as.symbol(action_button_column_name) := shinyInput(downloadButton,
+                                                                  len = dplyr::n(), 
                                                                   id = 'button_', 
                                                                   label = "Download .txt", 
                                                                   ns = ns, 
@@ -65,15 +58,15 @@ download_go_data_server <- function(input, output, session , ah_data ){
   ## Prepare GO data to be displayed 
   output$display_go_data <- DT::renderDataTable({
     
-    datatable(go_data() %>% 
+    DT::datatable(go_data() %>% 
                 dplyr::select(2,1,!!as.symbol(action_button_column_name)) %>% 
                 janitor::clean_names(case = "snake"),
               escape = FALSE, 
               selection = 'none',
               options = 
                 list(
-                  preDrawCallback = JS('function() { Shiny.unbindAll(this.api().table().node()); }'),
-                  drawCallback = JS('function() { Shiny.bindAll(this.api().table().node()); } '),
+                  preDrawCallback = DT::JS('function() { Shiny.unbindAll(this.api().table().node()); }'),
+                  drawCallback = DT::JS('function() { Shiny.bindAll(this.api().table().node()); } '),
                   searchHighlight = TRUE,
                   scrollX =TRUE
                 )
@@ -99,20 +92,20 @@ download_go_data_server <- function(input, output, session , ah_data ){
   
   ## assign data to reactive values 
   observeEvent(input$select_button,{
-    selectedRow <- as.numeric(str_split(input$select_button, "button_",)[[1]][2])
+    selectedRow <- as.numeric(stringr::str_split(input$select_button, "button_",)[[1]][2])
     
     ## go data to be downloaded 
     dd <- go_data() %>% 
       dplyr::slice(selectedRow) %>% 
-      pull(orgdb_cols) %>% 
+      dplyr::pull(orgdb_cols) %>% 
       .[[1]]
     
     ## go data file name to be downloaded 
     download_file_name <- go_data() %>% 
-      slice(selectedRow) %>% 
-      pull(2) %>% ## column 1 is species name 
+      dplyr::slice(selectedRow) %>% 
+      dplyr::pull(2) %>% ## column 1 is species name 
       paste(.  , "_go_data_", Sys.time() , ".txt",sep = "") %>% 
-      str_replace_all("\\s+" , "_")
+      stringr::str_replace_all("\\s+" , "_")
     
     ## assign to reactive values 
     go_data_download_related_stuff$go_data <- dd

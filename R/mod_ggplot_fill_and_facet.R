@@ -4,16 +4,10 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
-#' @param ggplot
-#' @param allow_x_var_selection
 #'
 #' @rdname mod_ggplot_fill_and_facet
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 ggplot_fill_and_facet_ui <- function(id){
   ns = NS(id)
@@ -142,10 +136,15 @@ ggplot_fill_and_facet_ui <- function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output 
+#' @param session session 
+#' @param ggplot internal
+#' @param allow_x_var_selection internal
+#'
 #' @rdname mod_ggplot_fill_and_facet
-#' @export
 #' @keywords internal
-    
 ggplot_fill_and_facet <- function(input, output, session, ggplot , allow_x_var_selection = TRUE){
   
   observe({

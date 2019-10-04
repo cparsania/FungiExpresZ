@@ -4,16 +4,13 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
-#' @param session internal
 #'
 #' @rdname mod_download_gene_expression_matrix
 #'
 #' @keywords internal
-#' @export 
 #' @importFrom shiny NS tagList 
 download_gene_expression_matrix <- function(id){
+  
   ns = NS(id)
   tagList(
     br(),
@@ -22,7 +19,7 @@ download_gene_expression_matrix <- function(id){
     tags$div(fluidRow(
       column(width = 12,
              DT::dataTableOutput(outputId = ns("display_gene_expression_download_table"))  %>% 
-               withSpinner(color = "#18BC9C")       
+               shinycssloaders::withSpinner(color = "#18BC9C")       
       )
     ), style = "margin:auto ;  width: 1000px;" )
   )
@@ -31,10 +28,13 @@ download_gene_expression_matrix <- function(id){
     
 # Module Server
     
+#' @param input session input
+#'
+#' @param output session output
+#' @param session session 
+#'
 #' @rdname mod_download_gene_expression_matrix
-#' @export
 #' @keywords internal
-    
 download_gene_expression_matrix_server <- function(input, output, session){
   
   gene_expr_data_download_related_stuff <- reactiveValues()
@@ -53,8 +53,8 @@ download_gene_expression_matrix_server <- function(input, output, session){
         ncol() - 1 %>% ##  -1 because first column is gene names 
         tibble::tibble(`# sra_samples` = .  , )
     }) %>% 
-      mutate(expression_mat_data_file =  names(expr_files)) %>% ## expression_mat_data_file must not be changed.
-      dplyr::select(2,everything())
+      dplyr::mutate(expression_mat_data_file =  names(expr_files)) %>% ## expression_mat_data_file must not be changed.
+      dplyr::select(2,dplyr::everything())
   }
   
   ## function below is with side effect. it has inputs defined within it 
@@ -64,7 +64,7 @@ download_gene_expression_matrix_server <- function(input, output, session){
     
     ## rds file to species name mapping 
     ref_annot_to_expr_rds %>% 
-      left_join(species_table , by = stats::setNames(right_col,left_col) )  %>% 
+      dplyr::left_join(species_table , by = stats::setNames(right_col,left_col) )  %>% 
       dplyr::select(3,2) %>% ## 3rd column is species & 2nd column is expression_mat_data_file
       dplyr::left_join(species_wise_sra_sample_count())
   }
@@ -81,8 +81,8 @@ download_gene_expression_matrix_server <- function(input, output, session){
     action_button_column_name = "action"
     
     with_downlod_bttn_added <- display_gene_expression_data() %>% 
-      mutate(!!as.symbol(action_button_column_name) := shinyInput(downloadButton,
-                                                                  len = n(), 
+      dplyr::mutate(!!as.symbol(action_button_column_name) := shinyInput(downloadButton,
+                                                                  len = dplyr::n(), 
                                                                   id = 'button_', 
                                                                   label = "Download .txt", 
                                                                   ns = ns, 
@@ -98,8 +98,8 @@ download_gene_expression_matrix_server <- function(input, output, session){
                   selection = 'none',
                   options = 
                     list(
-                      preDrawCallback = JS('function() { Shiny.unbindAll(this.api().table().node()); }'),
-                      drawCallback = JS('function() { Shiny.bindAll(this.api().table().node()); } '),
+                      preDrawCallback = DT::JS('function() { Shiny.unbindAll(this.api().table().node()); }'),
+                      drawCallback = DT::JS('function() { Shiny.bindAll(this.api().table().node()); } '),
                       searchHighlight = TRUE,
                       scrollX =TRUE
                     )
@@ -141,7 +141,7 @@ download_gene_expression_matrix_server <- function(input, output, session){
     download_file_from <- display_gene_expression_data() %>% 
       slice(selectedRow) %>% 
       pull("expression_mat_data_file") %>% 
-      paste(get_expression_mats_dir_path() , . , sep = "")
+      paste(get_expression_mats_dir_path() , . , sep = "/")
     
     ## assign to reactive values 
     gene_expr_data_download_related_stuff$download_file_from <- download_file_from

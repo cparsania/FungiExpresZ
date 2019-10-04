@@ -1,17 +1,58 @@
-#' @import shiny
-#' @import shinyBS
-#' @import shinyWidgets
+#' app_ui
+#' @import ggplot2
+#' @import png
+#' @import ggridges
+#' @import wordcloud
+#' @import clusterProfiler
 #' @import shinycssloaders
-#' @import DT
-
+#' @import ggcorrplot
+#' @import jcolors
+#' @import prettydoc
+#' @import svglite
+#' @import circlize
+#' @import GGally
+#' @import ggfortify
+#' @import ggrepel
+#' @import ComplexHeatmap
+#' @import shinyWidgets
+#' @import ggpubr
+#' @import shiny
+#' @import golem
+#' @import htmltools
+#' @import processx
+#' @import attempt
+#' @import shinythemes
+#' @import viridis
+#' @import formattable
+#' @import colourpicker
+#' @import ggalt
+#' @import gtools
+#' @importFrom  scales hue_pal
+#' @importFrom  shinyjs hide
+#' @importFrom  shinyjs show
+#' @importFrom  shinyjs enable
+#' @importFrom  shinyjs disable
+#' @importFrom  shinyjs useShinyjs
+#' @importFrom DT renderDataTable
+#' @importFrom DT dataTableProxy
+#' @importFrom DT selectRows
+#' @importFrom DT dataTableOutput
+#' @importFrom DT JS
+#' @importFrom DT datatable
+#' 
+#' @keywords internal
+#' 
 app_ui <- function() {
+  
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
       
-      tags$head(includeScript("./google_analytics.js")),
+      #tags$head(includeScript("./google_analytics.js")),
+      #tags$head(includeScript("./inst/app/www/google_analytics.js")),
+      #tags$head(includeScript("www/google_analytics.js")),
       theme = shinythemes::shinytheme("flatly"),
       shinyjs::useShinyjs(),
       
@@ -64,23 +105,24 @@ ul.nav.navbar-nav {
                               h2("Inputs"),
                               
                               ## upload data
-                              bsCollapse(
+                              shinyBS::bsCollapse(
                                 open = c("Select / Upload data" , "Assign Groups"),
                                 multiple = T,
                                 
                                 
-                                bsCollapsePanel(
+                                shinyBS::bsCollapsePanel(
                                   title = "Select / Upload data", style = "primary",
                                   
                                   radioButtons(inputId = "data_selection", 
                                                label = "", 
-                                               choices = c("Select data" = "select_sample", "Upload / Use example data" = "upload_user_data"),
+                                               choices = c("Select data" = "select_sample", 
+                                                           "Upload / Use example data" = "upload_user_data"),
                                                inline = F),
                                   
                                   ## select data action button
                                   conditionalPanel(
                                     condition = "input.data_selection =='select_sample'",
-                                    actionBttn(
+                                    shinyWidgets::actionBttn(
                                       inputId = "select_sample_trigger",
                                       label = "Select", color = "success",
                                       style = "gradient", size = "md",
@@ -90,7 +132,7 @@ ul.nav.navbar-nav {
                                   
                                   
                                   ## Select datatrigger
-                                  bsModal(
+                                  shinyBS::bsModal(
                                     id = "trigger_select_sample_data",
                                     title = fluidRow(
                                       fluidRow(column(11, offset = 1,tags$h2(tags$b("Sequence Read Archive (SRA) Run Inforamation Table"))))
@@ -148,7 +190,7 @@ ul.nav.navbar-nav {
                                           selected = "", 
                                           multiple = T, 
                                           width = "100%",
-                                          options = pickerOptions(liveSearch = TRUE, 
+                                          options = shinyWidgets::pickerOptions(liveSearch = TRUE, 
                                                                   size = 10 , 
                                                                   selectedTextFormat = "count > 10" ,
                                                                   maxOptions = 1,
@@ -166,7 +208,7 @@ ul.nav.navbar-nav {
                                           label = "Genotype",
                                           choices = NULL, choicesOpt = F,
                                           selected = "", multiple = T, width = "100%",
-                                          options = pickerOptions(liveSearch = TRUE, 
+                                          options = shinyWidgets::pickerOptions(liveSearch = TRUE, 
                                                                   size = 10 , 
                                                                   selectedTextFormat = "count > 10" ,
                                                                   maxOptions = 1,
@@ -230,7 +272,7 @@ ul.nav.navbar-nav {
                                     
                                     ## SRA info table 
                                     div(DT::dataTableOutput(outputId = "pre_loaded_data_sra_sample_info" , width = "auto") %>% 
-                                          withSpinner(color = "#18BC9C") , style = "font-size:80%"),
+                                          shinycssloaders::withSpinner(color = "#18BC9C") , style = "font-size:80%"),
                                     
                                     
                                     br(), br(),
@@ -279,7 +321,7 @@ ul.nav.navbar-nav {
                                   ## upload data  action button
                                   conditionalPanel(
                                     condition = "input.data_selection =='upload_user_data'",
-                                    actionBttn(
+                                    shinyWidgets::actionBttn(
                                       inputId = "upload_sample_trigger",
                                       label = "Upload", color = "success",
                                       style = "gradient", size = "md",
@@ -288,18 +330,18 @@ ul.nav.navbar-nav {
                                   ),
                                   
                                   ## upload data trigger
-                                  bsModal(size = "large",
+                                  shinyBS::bsModal(size = "large",
                                           id = "trigger_upload_user_data", title = "Upload Data",
                                           trigger = "upload_sample_trigger",
                                           
                                           ## upload sample data checkbox
-                                          materialSwitch(
+                                          shinyWidgets::materialSwitch(
                                             inputId = "upload_sample_data",
                                             label = tags$b("Upload example data"),
                                             value = FALSE,
                                             status = "info"
                                           ),
-                                          progressBar(id = "upload_sample_data_pb", value = 0, status = "success", striped = TRUE),
+                                          shinyWidgets::progressBar(id = "upload_sample_data_pb", value = 0, status = "success", striped = TRUE),
                                           
                                           hr(),
                                           
@@ -375,7 +417,7 @@ ul.nav.navbar-nav {
                                                    br(),
                                                    
                                                    wellPanel(
-                                                     pickerInput(
+                                                     shinyWidgets::pickerInput(
                                                        inputId = "user_selected_species",
                                                        label = "",
                                                        choices = rlang::set_names(species_table$genome , species_table$species),
@@ -388,7 +430,8 @@ ul.nav.navbar-nav {
                                                      
                                                      ## show random gene id  for selected species 
                                                      tags$div( tags$h4(tags$b("Values in the first column of file being uploaded must have below id type :")) ,
-                                                               textOutput(outputId = "sample_selected_species_gene_id") %>% withSpinner(color = "#18BC9C")) 
+                                                               textOutput(outputId = "sample_selected_species_gene_id") %>% 
+                                                                 shinycssloaders::withSpinner(color = "#18BC9C")) 
                                                      
                                                      
                                                    ),
@@ -408,7 +451,7 @@ ul.nav.navbar-nav {
                                                    # decide whether user data to join with existing data
                                                    tags$h2(tags$b("Step 5: Join data (optional)")),
                                                    wellPanel(
-                                                     materialSwitch(
+                                                     shinyWidgets::materialSwitch(
                                                        inputId = "join_user_data",
                                                        label = ,
                                                        value = FALSE,
@@ -452,8 +495,7 @@ ul.nav.navbar-nav {
                               ),
                               hr(),
                               
-                              ## Display active group info 
-                              
+                              ## Display active group info in the side panel
                               conditionalPanel(condition = "true" ,
                                                
                                                shinyBS::bsCollapse(id = "display_active_group_collapse_panel",
@@ -478,8 +520,21 @@ ul.nav.navbar-nav {
                                                                    )
                                                                    
                                                )
+                              ),
+                              br(),
+                               ## display website statistics in side panel 
+                              shinyBS::bsCollapse(id = "display_live_statistics",
+                                                  open = "Usage",
+                                                  shinyBS::bsCollapsePanel(title = "Usage", 
+                                                                           style = "primary",
+                                                                           tags$div(
+                                                                             HTML("<script type=\"text/javascript\" src=\"//rf.revolvermaps.com/0/0/7.js?i=5cen61amuqv&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;sx=0\" async=\"async\"></script>")
+                                                                             
+                                                                           )
+                                                  )
+                                                  
                               )
-                              
+                            
                               
                               ## upload data ends
                             ),
@@ -504,9 +559,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         multiple = T, open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## select plot variable
@@ -563,9 +618,9 @@ ul.nav.navbar-nav {
                                   # plot output
                                   conditionalPanel(
                                     condition = "input.generate_scatter && output.scatter_plot_status==true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       multiple = T, open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty column
@@ -597,7 +652,7 @@ ul.nav.navbar-nav {
                                             ## scatter plot Advance options
                                             column(
                                               width = 3,
-                                              dropdownButton(
+                                              shinyWidgets::dropdownButton(
                                                 inputId = "scatter_plot_options",
                                                 icon = icon("cogs"),
                                                 label = "Advance options",
@@ -739,7 +794,7 @@ ul.nav.navbar-nav {
                                     
                                     ### Triggered actions
                                     ## set X-Y limits
-                                    bsModal(
+                                    shinyBS::bsModal(
                                       id = "scatter_xy_limits", title = "Set axis limits", trigger = "trigger_scatter_xy_limits",
                                       
                                       column(
@@ -786,20 +841,20 @@ ul.nav.navbar-nav {
                                     ## show scatter plot brushed data
                                     conditionalPanel(
                                       condition = "input.scatterplot_data_or_functional_analysis == 'show_scatterplot_data'",
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Selected points",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Selected points", style = "primary",
-                                          DT::dataTableOutput(outputId = "brush_table", width = "auto")  %>% withSpinner(color = "#18BC9C")
+                                          DT::dataTableOutput(outputId = "brush_table", width = "auto")  %>% shinycssloaders::withSpinner(color = "#18BC9C")
                                         )
                                       )
                                     ),
                                     ## show scatter plot functional analysis
                                     conditionalPanel(
                                       condition = "input.scatterplot_data_or_functional_analysis == 'scatterplot_functional_analysis'",
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Functional analysis",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Functional analysis", style = "primary",
                                           functional_analysis_ui(id = "scatterplot_functional_analysis_ui")
                                         )
@@ -822,9 +877,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           # select plot variables
@@ -870,9 +925,9 @@ ul.nav.navbar-nav {
                                   
                                   conditionalPanel(
                                     condition = "input.generate_multi_scatter && output.multi_scatter_plot_status==true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       multiple = T, open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty column
@@ -957,9 +1012,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## corr heat box : select plot variables
@@ -1001,9 +1056,9 @@ ul.nav.navbar-nav {
                                   
                                   conditionalPanel(
                                     condition = "input.generate_corr_heatbox && output.corr_heatbox_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       multiple = T, open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty column
@@ -1223,13 +1278,13 @@ ul.nav.navbar-nav {
                                   
                                   ## show corr heatbox  data 
                                   conditionalPanel(condition = "input.generate_corr_heatbox && output.corr_heatbox_status == true",
-                                                   bsCollapse(
+                                                   shinyBS::bsCollapse(
                                                      open = "CorrHeatboxData",
-                                                     bsCollapsePanel(
+                                                     shinyBS::bsCollapsePanel(
                                                        title = "CorrHeatboxData", 
                                                        style = "primary",
-                                                       DT::dataTableOutput(outputId = "corr_heatbox_data", width = "auto")%>% 
-                                                         withSpinner(color = "#18BC9C")
+                                                       DT::dataTableOutput(outputId = "corr_heatbox_data", width = "auto") %>% 
+                                                         shinycssloaders::withSpinner(color = "#18BC9C")
                                                      )
                                                    )
                                   )
@@ -1251,9 +1306,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## select density plot variables 
@@ -1295,9 +1350,9 @@ ul.nav.navbar-nav {
                                   ## display density plot
                                   conditionalPanel(
                                     condition = "input.generate_density && output.density_plot_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty col
@@ -1371,9 +1426,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## select histogram  variables
@@ -1413,9 +1468,9 @@ ul.nav.navbar-nav {
                                   ## display histogram
                                   conditionalPanel(
                                     condition = "input.generate_histogram && output.histogram_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty col
@@ -1503,9 +1558,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## select joy plot variables 
@@ -1548,9 +1603,9 @@ ul.nav.navbar-nav {
                                   ## display Joy plot
                                   conditionalPanel(
                                     condition = "input.generate_joy_plot && output.joy_plot_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty col
@@ -1620,9 +1675,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## select x variable
@@ -1664,9 +1719,9 @@ ul.nav.navbar-nav {
                                   ## display box plot
                                   conditionalPanel(
                                     condition = "input.generate_box && output.box_plot_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty cols
@@ -1832,9 +1887,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## select x variable
@@ -1877,9 +1932,9 @@ ul.nav.navbar-nav {
                                   ## display violin plot
                                   conditionalPanel(
                                     condition = "input.generate_violin && output.violin_plot_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty cols
@@ -2062,9 +2117,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           shinyWidgets::pickerInput(
@@ -2117,9 +2172,9 @@ ul.nav.navbar-nav {
                                   ),
                                   conditionalPanel(
                                     condition = "input.generate_barplot && output.barplot_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       multiple = T, open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 2), ## empty column
@@ -2287,9 +2342,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           # PCA plot select variables
@@ -2330,9 +2385,9 @@ ul.nav.navbar-nav {
                                   ),
                                   conditionalPanel(
                                     condition = "input.generate_pca_plot && output.pca_plot_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       multiple = T, open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           #column(width = 2), ## empty column
@@ -2341,7 +2396,7 @@ ul.nav.navbar-nav {
                                             plotOutput(outputId = "pca_plot", 
                                                        brush = "pca_plot_brush", 
                                                        height = "auto", 
-                                                       width = "auto") #%>% withSpinner(color = "#18BC9C")
+                                                       width = "auto") #%>% shinycssloaders::withSpinner(color = "#18BC9C")
                                           ),
                                           
                                           ### show / hide sample groups 
@@ -2352,7 +2407,7 @@ ul.nav.navbar-nav {
                                                                           label = "Show / Hide sample groups", 
                                                                           choices = "",
                                                                           
-                                                 ) %>% withSpinner(color = "#18BC9C")
+                                                 ) %>% shinycssloaders::withSpinner(color = "#18BC9C")
                                                  
                                           )
                                         ),
@@ -2487,7 +2542,7 @@ ul.nav.navbar-nav {
                                     
                                     ## set axis and plot titles
                                     
-                                    bsModal(
+                                    shinyBS::bsModal(
                                       id = "pca_plot_edit_titles", title = "Title and labels", trigger = "trigger_pca_plot_edit_titles",
                                       ## plot titles
                                       h4(tags$b("Title")),
@@ -2502,11 +2557,11 @@ ul.nav.navbar-nav {
                                     column(width = 12,
                                            conditionalPanel(
                                              condition = "output.pac_plot_brushed_data_table_status==true",
-                                             bsCollapse(
+                                             shinyBS::bsCollapse(
                                                open = "Selected SRA points sample information (Does not apply to user uploaded data)",
-                                               bsCollapsePanel(
+                                               shinyBS::bsCollapsePanel(
                                                  title = "Selected SRA points sample information (Does not apply to user uploaded data)", style = "primary",
-                                                 DT::dataTableOutput(outputId = "pca_brushed_datatable", width = "auto")  %>% withSpinner(color = "#18BC9C")
+                                                 DT::dataTableOutput(outputId = "pca_brushed_datatable", width = "auto")  %>% shinycssloaders::withSpinner(color = "#18BC9C")
                                                )
                                              )
                                            )
@@ -2527,9 +2582,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           
                                           ## select x variable
@@ -2714,9 +2769,9 @@ ul.nav.navbar-nav {
                                   ## line plot plot panel 
                                   conditionalPanel(
                                     condition = "input.generate_lineplot && output.line_plot_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(
                                           column(width = 1), ## empty column
@@ -2907,20 +2962,20 @@ ul.nav.navbar-nav {
                                     ## show lineplot data
                                     conditionalPanel(
                                       condition = "input.lineplot_data_or_functional_analysis == 'show_lineplot_data'",
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Clustered data",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Clustered data", style = "primary",
-                                          DT::dataTableOutput(outputId = "line_plot_clustred_data", width = "auto")%>% withSpinner(color = "#18BC9C")
+                                          DT::dataTableOutput(outputId = "line_plot_clustred_data", width = "auto")%>% shinycssloaders::withSpinner(color = "#18BC9C")
                                         )
                                       )
                                     ),
                                     ## show lineplot functional analysis
                                     conditionalPanel(
                                       condition = "input.lineplot_data_or_functional_analysis == 'lineplot_functional_analysis'",
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Functional analysis",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Functional analysis", style = "primary",
                                           functional_analysis_ui(id = "lineplot_functional_analysis_ui")
                                         )
@@ -2930,7 +2985,7 @@ ul.nav.navbar-nav {
                                   ),
                                   
                                   ## triggered action
-                                  bsModal(
+                                  shinyBS::bsModal(
                                     id = "line_edit_titles", title = "Edit titles", trigger = "trigger_line_edit_titles",
                                     ## plot titles
                                     
@@ -2952,9 +3007,9 @@ ul.nav.navbar-nav {
                                   fluidRow(
                                     column(
                                       width = 12,
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Select plot variables",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           column(
                                             width = 12, style = "overflow-x:auto;",
@@ -3060,9 +3115,9 @@ ul.nav.navbar-nav {
                                                 width = 4, style = "min-width:150px",
                                                 
                                                 # heatmap row options
-                                                bsCollapse(
+                                                shinyBS::bsCollapse(
                                                   open = "Row options",
-                                                  bsCollapsePanel(
+                                                  shinyBS::bsCollapsePanel(
                                                     title = "Row options", style = "primary",
                                                     
                                                     ## Row names"
@@ -3275,9 +3330,9 @@ ul.nav.navbar-nav {
                                                 width = 4, style = "min-width:150px",
                                                 
                                                 ## heatmap column options
-                                                bsCollapse(
+                                                shinyBS::bsCollapse(
                                                   open = "Column options",
-                                                  bsCollapsePanel("Column options",
+                                                  shinyBS::bsCollapsePanel("Column options",
                                                                   style = "primary",
                                                                   
                                                                   ## heatmap show / hide column names  
@@ -3458,9 +3513,9 @@ ul.nav.navbar-nav {
                                                 width = 4, style = "min-width:150px",
                                                 
                                                 # heatmap legend options
-                                                bsCollapse(
+                                                shinyBS::bsCollapse(
                                                   open = "Legend options",
-                                                  bsCollapsePanel("Legend options",
+                                                  shinyBS::bsCollapsePanel("Legend options",
                                                                   style = "primary",
                                                                   textInput(inputId = "heatmap_legend_name", 
                                                                             label = tags$h4(tags$b("Legend name")),
@@ -3576,9 +3631,9 @@ ul.nav.navbar-nav {
                                   ## heatmap plot panel 
                                   conditionalPanel(
                                     condition = "input.generate_heatmap && output.heatmap_status == true",
-                                    bsCollapse(
+                                    shinyBS::bsCollapse(
                                       open = "Plot",
-                                      bsCollapsePanel(
+                                      shinyBS::bsCollapsePanel(
                                         title = "Plot", style = "primary",
                                         fluidRow(style = "overflow-y:auto; max-height:2000px; position:auto;",
                                                  column(width = 1), ## empty column
@@ -3587,7 +3642,7 @@ ul.nav.navbar-nav {
                                                  column(
                                                    width = 11, 
                                                    plotOutput(outputId = "heatmap", height = "auto", width = "auto") %>%
-                                                     withSpinner(color = "#18BC9C")
+                                                     shinycssloaders::withSpinner(color = "#18BC9C")
                                                  ),
                                                  column(width = 1) ## empty column
                                         ),
@@ -3665,9 +3720,9 @@ ul.nav.navbar-nav {
                                     ## display heatmap clusters 
                                     conditionalPanel(
                                       condition = "input.heatmap_data_or_functional_analysis == 'show_heatmap_clusters'",
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Heatmap clusters",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Heatmap clusters", style = "primary",
                                           
                                           ## heatmap cluster side :  row or column 
@@ -3697,7 +3752,7 @@ ul.nav.navbar-nav {
                                           ),
                                           hr(),
                                           ## hm cluster data output 
-                                          DT::dataTableOutput(outputId = "heatmap_display_cluster_data", width = "auto") %>% withSpinner(color = "#18BC9C")
+                                          DT::dataTableOutput(outputId = "heatmap_display_cluster_data", width = "auto") %>% shinycssloaders::withSpinner(color = "#18BC9C")
                                           
                                         )
                                       )
@@ -3707,11 +3762,11 @@ ul.nav.navbar-nav {
                                     ## display heatmap expr mat 
                                     conditionalPanel(
                                       condition = "input.heatmap_data_or_functional_analysis == 'show_heatmap_data'",
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Heatmap all data + gene annotation",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Heatmap all data + gene annotation", style = "primary",
-                                          DT::dataTableOutput(outputId = "heatmap_data", width = "auto")%>% withSpinner(color = "#18BC9C")
+                                          DT::dataTableOutput(outputId = "heatmap_data", width = "auto")%>% shinycssloaders::withSpinner(color = "#18BC9C")
                                         )
                                       )
                                     ), 
@@ -3719,9 +3774,9 @@ ul.nav.navbar-nav {
                                     ## heatmap functional analysis 
                                     conditionalPanel(
                                       condition = "input.heatmap_data_or_functional_analysis == 'heatmap_functional_analysis'",  
-                                      bsCollapse(
+                                      shinyBS::bsCollapse(
                                         open = "Functional analysis",
-                                        bsCollapsePanel(
+                                        shinyBS::bsCollapsePanel(
                                           title = "Functional analysis", style = "primary",
                                           functional_analysis_ui(id = "heatmap_functional_analysis_ui")
                                         )
@@ -3730,9 +3785,9 @@ ul.nav.navbar-nav {
                                     
                                     ## heatmap sample information 
                                     conditionalPanel(condition = "input.heatmap_data_or_functional_analysis == 'display_sample_inforamtion' " , 
-                                                     bsCollapse(
+                                                     shinyBS::bsCollapse(
                                                        open = "Sample information",
-                                                       bsCollapsePanel(
+                                                       shinyBS::bsCollapsePanel(
                                                          title = "Sample information", style = "primary",
                                                          fluidRow(
                                                            column(
@@ -3769,9 +3824,8 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          
-                          includeHTML("./markdown/Tutorial.html")
-                          #includeHTML("./markdown/help_page.html")       
+                          includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
+                          #includeHTML(system.file( "markdown", "Tutorial.html" , package = "FungiExpresZ"))
                  ),
                  
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -3815,7 +3869,8 @@ ul.nav.navbar-nav {
                              }
                              ")),
                           
-                          includeHTML("./markdown/newz_and_update.html")
+                          #includeHTML("./markdown/newz_and_update.html")
+                          includeHTML(system.file("app","markdown_and_html","newz_and_update.html" , package = "FungiExpresZ"))
                           
                  ),
                  
@@ -3844,15 +3899,15 @@ ul.nav.navbar-nav {
       
       tags$style(type='text/css', "#app_footer { text-align: center;}"),
       tags$div(id = "app_footer",tags$b("FungiExpresZ"), "is developed by ", tags$b("Chirag Parsania"), "from Chris Wong Lab at University of Macau. For any query or suggestions, please contact", a("Chirag Parsania", href = "mailto:chirag.parsania@gmail.com") ,"."),
-      br(),br(),
-      
-      fluidRow(
-        column(width = 1, offset = 6,
-               
-               HTML("<script type=\"text/javascript\" src=\"//rf.revolvermaps.com/0/0/6.js?i=5cen61amuqv&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80\" async=\"async\"></script>")
-               
-        )
-      ),
+      # fluidRow(
+      #   column(width = 3, offset = 6,
+      #          
+      #          # HTML("<script type=\"text/javascript\" src=\"//rf.revolvermaps.com/0/0/6.js?i=5cen61amuqv&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80\" async=\"async\"></script>")
+      #          
+      #          HTML("<script type=\"text/javascript\" src=\"//rf.revolvermaps.com/0/0/7.js?i=5cen61amuqv&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;sx=0\" async=\"async\"></script>")
+      #          
+      #   )
+      # ),
       
       
       br(), br(), br(), br(), br(), br(), br(), br()
@@ -3870,10 +3925,20 @@ golem_add_external_resources <- function(){
  
   tags$head(
     golem::activate_js(),
-    golem::favicon()
+    golem::favicon(ico = "www/favicon.ico" , rel = "shortcut icon"),
+    golem::favicon(ico = "www/apple-touch-icon.png" , rel = "apple-touch-icon"),
+    golem::favicon(ico = "www/favicon-32x32.png" , rel = "icon"),
+    golem::favicon(ico = "www/favicon-16x16.png" , rel = "icon"),
+    golem::favicon(ico = "www/site.webmanifest" , rel = "manifest"),
+    tags$script(src="www/google_analytics.js")
+    
+    #tags$html("www/markdown/Tutorial.html"),
+    #tags$html("www/markdown/newz_and_update.html")
     # Add here all the external resources
     # If you have a custom.css in the inst/app/www
     # Or for example, you can add shinyalert::useShinyalert() here
     #tags$link(rel="stylesheet", type="text/css", href="www/custom.css")
+    
+    #tags$head(includeScript("www/google_analytics.js"))
   )
 }

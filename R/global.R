@@ -2,12 +2,11 @@
 ## get_expression_mats_dir_path ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-#' get_expression_mats_dir_path
-#'
-#' @return
-#' @export
-#'
-#' @examples
+#' Get absolute path for the expression matrix .rds files. 
+#' It returns the character string indicating to absolute directory path of expression matrix .rds files.
+#' @return A character vector of a string.
+#' 
+#' @keywords internal
 get_expression_mats_dir_path <- function(){
         
         #expr_mat_rds_file_name <- "a_nidulans_expr_mat.rds"
@@ -19,7 +18,7 @@ get_expression_mats_dir_path <- function(){
                 get_data_dropbox_to_local()
                 return(local_drop_dir)
         } else{ ## use subset data 
-                local_sample_dir = "./expression_mats_rds_files_new/"
+                local_sample_dir = system.file( "app", "expression_mats_rds_files_new" , package = "FungiExpresZ")
                 return(local_sample_dir)
         }
 }
@@ -29,21 +28,21 @@ get_expression_mats_dir_path <- function(){
 ## shinyInput ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-## reference : https://stackoverflow.com/questions/45739303/r-shiny-handle-action-buttons-in-data-table
-#' Title shinyInput
+
+#' create shiny inputs
 #'
-#' create shiny input
+#' \code{shinyInput} function creates a character vector of length \code{len} for a given shiny input under the argument \code{FUN}
 #' 
-#' @param FUN 
-#' @param len 
-#' @param id 
-#' @param ns 
-#' @param ... 
+#' @param FUN A shiny UI function for which vector of defined length need to be created
+#' @param len An integer denoting length of return vector
+#' @param id A character string denoting id of UI element
+#' @param ns An object of class NS
+#' @param ... Other parameters to be pass to argument \code{FUN}
 #'
-#' @return
-#' @export
+#' @return A character vector of elements \code{FUN} of length \code{len}.
+#' @references \link{https://stackoverflow.com/questions/45739303/r-shiny-handle-action-buttons-in-data-table}
 #'
-#' @examples
+#' @keywords internal
 shinyInput <- function(FUN, len, id,ns,...) {
         
         inputs <- character(len)
@@ -59,22 +58,30 @@ shinyInput <- function(FUN, len, id,ns,...) {
 ## get_gg_colors ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-#' get_gg_colors
+#' Get character vector of  ggplot colors in default order
+#' 
+#' Given a character or numeric vactor \code{x} , the function returns the named vector of default ggplot colors of length \code{length(x)}. The names will be elements of \code{x} and values will be unique color associated to each element of \code{x}.  
 #'
-#'
-#' given a character vector (x) below function return a named vector where name is x and value is unique color attached element of x 
-#' @param x 
+#' @param x internal
 #' 
-#' @import scales 
-#' @import rlang
 #' 
-#' @return
-#' @export
+#' @return internal
+#' @keywords  internal
+#' @examples 
+#' \dontrun{
+#' x <- letters[1:5]
+#' gg_col = get_gg_colors(x)
 #' 
-#' @examples
+#' ## visualize colors 
+#' pie(seq_len(length(x)) / seq_len(length(x)) ,labels = x , col=gg_col) 
+#' 
+#' y <- LETTERS[ 1:5]
+#' 
+#' visualize colors 
+#' get_gg_colors(y)
+#' pie(seq_len(length(y)) / seq_len(length(y)) ,labels = y , col=gg_col)
+#' } 
 get_gg_colors <- function(x){
-        
-        #x <- letters
         colrs <- scales::hue_pal()(length(x))
         rlang::set_names(colrs , x)
 }
@@ -85,16 +92,15 @@ get_gg_colors <- function(x){
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 #taken from: https://stackoverflow.com/questions/42734547/generating-random-strings
 
-#' generate_random_strings
+#' Generates n random string of length 10
 #'
-#' generate n random string of length 10
 #' 
-#' @param n 
+#' 
+#' @param n An integer denoting number of unique strings to be generated.
 #'
-#' @return
-#' @export
+#' @return A character vector of length \code{n} containing unique string   
+#' @keywords internal
 #'
-#' @examples
 generate_random_strings <- function(n = 5000) {
         
         a <- do.call(paste0, replicate(10, sample(LETTERS, n, TRUE), FALSE))
@@ -108,19 +114,13 @@ generate_random_strings <- function(n = 5000) {
 
 #' reorder_clusters
 #'
-#' @import tibble
-#' @import dplyr
-#' @import rlang
-#' @import forcats
-#' @import stats
 #' 
 #' @param mat : numeric matrix. nrow(mat) must be equal to the length of row_clusters and ncol(mat) must be equal to the column_clusters. 
 #' @param row_clusters : character vector, where each element indicates the row cluster name of mat
 #'
 #' @return : list 
-#' @export
+#' @keywords internal
 #'
-#' @examples
 reorder_clusters  <- function(mat,row_clusters ){
         
         # mat <- matrix(rnorm(1:1000) , nrow = 26)
@@ -177,14 +177,13 @@ reorder_clusters  <- function(mat,row_clusters ){
 #' 
 #' regression eqn
 #' 
-#' @param df 
-#' @param x 
-#' @param y 
+#' @param df internal
+#' @param x  internal
+#' @param y  internal
 #'
-#' @return
-#' @export
+#' @return internal
+#' @keywords internal
 #'
-#' @examples
 lm_eqn <- function(df, x, y) {
         
         m <- lm(y ~ x, df)
@@ -208,16 +207,15 @@ lm_eqn <- function(df, x, y) {
 #'
 #' calculate 2D density 
 #' 
-#' @param x 
-#' @param y 
-#' @param n 
+#' @param x internal
+#' @param y internal
+#' @param n internal
 #' 
-#' @importFrom  MASS kde2d
+#' @keywords internal
 #'  
-#' @return
-#' @export
+#' @return internal
+#' 
 #'
-#' @examples
 get_density <- function(x, y, n = 200) {
         
         dens <- tryCatch({
@@ -240,39 +238,33 @@ get_density <- function(x, y, n = 200) {
 ## decorate_ggplot ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-#' decorate_ggplot
-#' 
-#' decorate given gg plot
+
+#' Decorate GG plot
 #'
-#' @import ggplot2
-#' 
-#' @param gplot : input gg plot
-#' @param plot_title
-#' @param axis_x_title
-#' @param axis_y_title
-#' @param legend_text_size
-#' @param title_labs_size
-#' @param legened_title_size
-#' @param legend_key_height
-#' @param strip_text_size 
-#' @param legend_key_width 
-#' @param legend_spacing_x 
-#' @param legend_spacing_y 
-#' @param ... 
-#' @param x_labs_size 
-#' @param y_labs_size 
-#' @param x_tick_size 
-#' @param y_tick_size 
-#' @param x_tick_angle 
-#' @param color_legend_title 
-#' @param fill_legend_title 
-#' @param guide_legend 
+#' @param gplot an object of class ggplot2
+#' @param x_labs_size internal
+#' @param y_labs_size internal
+#' @param x_tick_size internal
+#' @param y_tick_size internal
+#' @param x_tick_angle internal
+#' @param title_labs_size internal
+#' @param plot_title internal
+#' @param axis_x_title internal
+#' @param axis_y_title internal
+#' @param color_legend_title internal
+#' @param fill_legend_title internal
+#' @param legend_text_size internal
+#' @param legened_title_size internal
+#' @param legend_key_height internal
+#' @param strip_text_size internal
+#' @param legend_key_width internal
+#' @param legend_spacing_x internal
+#' @param legend_spacing_y internal
+#' @param guide_legend internal
+#' @param ... other parameters passed to \code{ggplot2::theme}
+#' @keywords internal
+#' @return internal
 #'
-#' @return updated gg plot
-#' @export
-#'
-#' @examples
-#' 
 decorate_ggplot <- function(gplot,
                             x_labs_size,
                             y_labs_size,
@@ -329,20 +321,15 @@ decorate_ggplot <- function(gplot,
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ## check_var_types ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-#' check_var_types
-#'
+#' 
 #' validate vars
 #' 
-#' @import tibble
-#' @import dplyr
-#' @import tidyr
 #' @param x  : tibble of vars to check
 #' @param req_data_type : req data type of each col in x. Must have same lenght to ncol(x)
+#' @keywords internal
+#' @return internal
+#' 
 #'
-#' @return
-#' @export
-#'
-#' @examples
 check_var_types <- function(x, req_data_type) {
         
         # x = mpg
@@ -361,14 +348,12 @@ check_var_types <- function(x, req_data_type) {
 ## get_test_data ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-#' get_test_data
-#' @import dplyr
-#' @param n_samp 
+#' get random sample of gene expression matrix 
+#' @param n_samp An integer denoting number of SRA samples to sample.
 #'
-#' @return
-#' @export
+#' @return internal
+#' @keywords internal
 #'
-#' @examples
 get_test_data <- function(n_samp = 5) {
         
         #library(tidyverse)
@@ -387,27 +372,25 @@ get_test_data <- function(n_samp = 5) {
 ## my_filter ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-# https://github.com/r-lib/rlang/issues/116
+# 
 
-#' my_filter
+
+#' create column filters 
 #'
-#' @import rlang
-#' @param col
-#' @param op
-#' @param value
-#' @param env
+#' @param col internal
+#' @param op internal
+#' @param value internal
+#' @param env internal
 #'
-#' @return
-#' @export
-#'
-#' @examples
-#' 
+#' @return internal
+#' @references  https://github.com/r-lib/rlang/issues/116
+#' @keywords internal
 my_filter <- function(col, op, value, env = parent.frame()) {
         
         cond <- call(op, sym(col), value)
         cond <- rlang::new_quosure(cond, env)
         return(cond)
-        # filter(data, !!cond)
+        # dplyr::filter(data, !!cond)
 }
 
 
@@ -423,35 +406,30 @@ my_filter <- function(col, op, value, env = parent.frame()) {
 ## function must validate each column type. 
 ## function must check whether normalisation can be performed or not. 
 
-#' tibble_to_row_clusters
-#' @import rlang 
-#' @import dplyr 
-#' @import purrr
-#' @import stats
-#' @param x 
-#' @param row_ident 
-#' @param cols_to_use 
-#' @param use_z_score_for_clustering 
-#' @param output_cols 
-#' @param num_of_top_var_rows 
-#' @param nclust 
-#' @param ... 
+#' Given a tibble of gene expression matrix, perform row wise clustering
 #'
-#' @return
-#' @export
+#' @param x internal
+#' @param row_ident internal
+#' @param cols_to_use internal
+#' @param use_z_score_for_clustering internal
+#' @param output_cols internal
+#' @param num_of_top_var_rows internal
+#' @param nclust internal
+#' @keywords internal
+#' @return internal
+#' 
 #'
-#' @examples
 tibble_to_row_clusters <- function(x, 
                                    row_ident = 1, 
                                    cols_to_use , 
                                    use_z_score_for_clustering= TRUE, 
                                    output_cols = "zscore" , 
                                    num_of_top_var_rows = -1 ,
-                                   nclust = 4 ,...){
+                                   nclust = 4){
         
         # 
         # dat <- get_test_data()
-        # dat <- dat %>% spread(sample_name , log2fpkm)
+        # dat <- dat %>% tidyr::spread(sample_name , log2fpkm)
         # x <- dat %>% slice(sample(1:100, 100))
         # cols_strng <- colnames(x)[2:5]
         # use_z_score_for_clustering = FALSE
@@ -558,7 +536,7 @@ tibble_to_row_clusters <- function(x,
         ## separate  1) raw val columns, 2) zscore cols, 3) std dev col
         
         zscore_dat <- dd_c %>% 
-                dplyr::select(1 , contains(zscore_colname_suffix)) %>% 
+                dplyr::select(1 , dplyr::contains(zscore_colname_suffix)) %>% 
                 dplyr::rename_all(function(i){str_replace(i , zscore_colname_suffix , "")}) 
         
         raw_val_dat <- dd_c %>% dplyr::select(1, !!!cols) 
@@ -581,32 +559,23 @@ tibble_to_row_clusters <- function(x,
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
-## given the tibble, col indices and function name, apply function rowwise (which must  )
-
-#' tibble_to_rowwise_sd_zs
+#' given the tibble and column indices add columns of  row wise zscore and row wise standard deviation
 #'
-#' @import dplyr
-#' @import purrr
-#' @import tidyr
-#' @import rlang
 #' @param cols_to_use 
 #' @param std_dev_colname 
 #' @param zscore_colname_suffix 
 #' @param x 
 #'
-#' @return
-#' @export
+#' @return internal
+#' @keywords internal
 #'
-#' @examples
-
 tibble_to_rowwise_sd_zs <-function(x ,cols_to_use ,
                                    std_dev_colname =  "sd" , 
                                    zscore_colname_suffix = "_zscore") {
         
         
-        
         ## test vars 
-        # dat <- dat %>% spread(sample_name , log2fpkm)
+        # dat <- dat %>% tidyr::spread(sample_name , log2fpkm)
         # x <- dat
         # cols_to_use <- dat %>%dplyr::select(-1) %>%colnames()
         # std_dev_colname <- "sd"
@@ -635,7 +604,6 @@ tibble_to_rowwise_sd_zs <-function(x ,cols_to_use ,
         }
         
         xx <- x %>% 
-                #rownames_to_column() %>% 
                 dplyr::ungroup() 
         
         ## get zscore 
@@ -659,7 +627,7 @@ tibble_to_rowwise_sd_zs <-function(x ,cols_to_use ,
                 dplyr::mutate(!!std_dev_colname := purrr::map(.data$data, ~(sd(.)))) %>%  
                 tidyr::unnest() %>%
                 dplyr::left_join(dd_z , colnames(xx)[1]) %>% 
-                dplyr::select(-!!std_dev_colname, everything())
+                dplyr::select(-!!std_dev_colname, dplyr::everything())
         
         
         return(dd_sd_z)
@@ -670,12 +638,13 @@ tibble_to_rowwise_sd_zs <-function(x ,cols_to_use ,
 ## get_ca_gene_names_mapping ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-#' get_ca_gene_names_mapping
-#' @import readr
-#' @return
-#' @export
+
+#' Map Candida albicans genes between orf_XXXXX and C1_XXXXX
+#' 
+#' Get tibble of Candida albicans gene names map (orfXXX to C1_XXXX)
 #'
-#' @examples
+#' @keywords  internal
+#'
 get_ca_gene_names_mapping <- function() {
         
         id_mapping_file <- "app/annotations/ca_gene_name_map.txt"
@@ -692,24 +661,23 @@ get_ca_gene_names_mapping <- function() {
 ## perform_go_enrichmet----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-#' perform_go_enrichmet
-#' @import dplyr
-#' @import tidyr
-#' @import clusterProfiler
-#' @import rlang
-#' @param genome 
-#' @param query_genes 
-#' @param p_adjust_method 
-#' @param ontology 
-#' @param min_gs_size 
-#' @param max_gs_size 
-#' @param pval_cutoff 
-#' @param qval_cutoff 
+#' Perform GO enrichment using clusterProfiler
+#' 
+#' It uses one of the two functions \code{clusterProfiler::enricher} or \code{clusterProfiler::compareCluster}
 #'
-#' @return
-#' @export
+#' @param genome internal
+#' @param query_genes internal
+#' @param p_adjust_method internal
+#' @param ontology internal
+#' @param min_gs_size internal
+#' @param max_gs_size internal
+#' @param pval_cutoff internal
+#' @param qval_cutoff internal
 #'
-#' @examples
+#' @keywords internal
+#' @return internal
+#' 
+#'
 perform_go_enrichmet <- function(genome, query_genes , 
                                  pval_cutoff = 1 , 
                                  qval_cutoff = 1,
@@ -807,21 +775,15 @@ perform_go_enrichmet <- function(genome, query_genes ,
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ## text to tobble ----
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-#' text_to_tibble
+#' Given a string separated by specified deliminator, the function returns a tibble. 
 #'
-#' @import stringr
-#' @import tibble
-#' @import rlang
-#' @import readr
-#' @import dplyr
 #' 
-#' @param text 
-#' @param sep 
+#' @param text internal
+#' @param sep internal
 #'
-#' @return
-#' @export
+#' @return internal
+#' @keywords internal
 #'
-#' @examples
 text_to_tibble <- function(text , sep = "\t"){
         
         # text <- "gene_name\tSRR180589\tSRR180587\tSRR180586\nC1_00180W_A\t9.52\t10.69\t10.4\nC1_00490C_A\t9.67\t9.04\t8.4\nC1_01060W_A\t8.58\t8.92\t8.52\nC1_01350C_A\t8.02\t8.93\t8.75\nC1_01370C_A\t10.19\t11.68\t11.48\nC1_01480C_A\t8.96\t10.1\t9.85\nC1_01640W_A\t7.73\t8.98\t8.65\nC1_01690C_A\t6.79\t7.73\t7.56\nC1_02330C_A\t9.26\t10.52\t10.38\nC1_02460W_A\t9.54\t10.68\t10.24\nC1_02700C_A\t10.28\t11.28\t9.15\nC1_03010W_A\t9.65\t11.37\t11.39\nC1_03020C_A\t9.41\t10.57\t10.55\nC1_03030W_A\t9.46\t10.75\t10.57\nC1_03090W_A\t9.13\t10.3\t10.12\nC1_03110W_A\t8.66\t9.9\t9.85\nC1_03190C_A\t7.75\t7.92\t8.15"
@@ -847,45 +809,96 @@ text_to_tibble <- function(text , sep = "\t"){
 
 
 
-#' ####
+#' Convert text into clean document using several functions from the package \code{tm}
 #' 
 #' 
-#' #' Title
-#' #'
-#' #' @param theme_name : A character string valid required
-#' #'
-#' #' @return
-#' #' @export
-#' #'
-#' #' @examples
-#' get_gg_themes <- function(theme_name){
+#' @param text internal
+#' @param remove_numbers internal
+#' @param remove_stop_words internal
+#' @param remove_specific_words internal
+#' @param remove_punctuation internal
+#' @param text_stemming internal
+#' @param specific_words internal
+#' @return internal
+#' @keywords internal
 #' 
-#'   availabel_themes <- c("theme_grey", "theme_gray", "theme_bw","theme_linedraw" , "theme_light" ,"theme_dark" ,"theme_minimal" ,"theme_classic", 
-#'                         "theme_void","theme_test")  
-#'   theme_name = "dsfsdaf"
-#'   
-#'   required_theme <- switch(theme_name,  
-#'          "theme_grey"="theme_grey()",
-#'          "theme_gray"="theme_gray()",
-#'          "theme_bw"="theme_bw()",
-#'          "theme_linedraw"="theme_linedraw()",
-#'          "theme_light"="theme_light()",
-#'          "theme_dark"="theme_dark()",
-#'          "theme_minimal"="theme_minimal()",
-#'          "theme_classic"="theme_classic()",
-#'          "theme_void"="theme_void()",
-#'          "theme_test"="theme_test()"
-#'          )
-#'   
-#'   theme_default = "theme_bw()"
-#'   if(is.null(required_theme)) required_theme = theme_default 
 #' 
-#'   return(required_theme)
-#' }
-#' 
+#'
+text_to_clean_document <- function(text, remove_numbers = TRUE , remove_stop_words = TRUE , 
+                                   remove_specific_words = TRUE , remove_punctuation = TRUE , 
+                                   text_stemming = FALSE , specific_words = NULL){
+        
+        ## text to docs
+        docs <- tm::VCorpus(tm::VectorSource(text))
+        
+        ## remove species char 
+        toSpace <- content_transformer(function (x , pattern ) gsub(pattern, " ", x))
+        
+        docs <- tm::tm_map(docs, toSpace, "/")
+        docs <- tm::tm_map(docs, toSpace, "@")
+        docs <- tm::tm_map(docs, toSpace, "\\|")
+        
+        
+        # Convert the text to lower case
+        docs <- tm::tm_map(docs, content_transformer(tolower))
+        
+        # Remove numbers
+        if(remove_numbers){
+                docs <- tm::tm_map(docs, removeNumbers) 
+        }
+        
+        ## remove stop words 
+        if(remove_stop_words){
+                docs <- tm::tm_map(docs, removeWords, c(stopwords("SMART") ,stopwords("english"))) 
+        }
+        
+        # remove specific words
+        if(remove_specific_words){
+                
+                docs <- tm::tm_map(docs, removeWords, specific_words)
+                
+        }
+        # Remove punctuations
+        if(remove_punctuation){
+                docs <- tm::tm_map(docs, removePunctuation)  
+        }
+        
+        # Eliminate extra white spaces
+        docs <- tm::tm_map(docs, stripWhitespace)
+        
+        if(text_stemming) {
+                # Text stemming
+                docs <- tm::tm_map(docs, stemDocument)  
+        }
+        return(docs)
+}
 
 
 
-
+ # get_gg_themes <- function(theme_name){
+ # 
+ #   availabel_themes <- c("theme_grey", "theme_gray", "theme_bw","theme_linedraw" , "theme_light" ,"theme_dark" ,"theme_minimal" ,"theme_classic", 
+ #                         "theme_void","theme_test")  
+ #   theme_name = "dsfsdaf"
+ #   
+ #   required_theme <- switch(theme_name,  
+ #          "theme_grey"="theme_grey()",
+ #          "theme_gray"="theme_gray()",
+ #          "theme_bw"="theme_bw()",
+ #          "theme_linedraw"="theme_linedraw()",
+ #          "theme_light"="theme_light()",
+ #          "theme_dark"="theme_dark()",
+ #          "theme_minimal"="theme_minimal()",
+ #          "theme_classic"="theme_classic()",
+ #          "theme_void"="theme_void()",
+ #          "theme_test"="theme_test()"
+ #          )
+ #   
+ #   theme_default = "theme_bw()"
+ #   if(is.null(required_theme)) required_theme = theme_default 
+ # 
+ #   return(required_theme)
+ # }
+ 
 
 
