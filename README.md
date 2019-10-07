@@ -17,7 +17,11 @@ expression data.
 #### 12 different data exploratory visualizations
 
 Browser based user friendly interface, which allow user to generate
+<<<<<<< HEAD
 **ggplot2** based 12 different publication-ready elegant visualizations.
+=======
+**ggplot2** based 12 different publication ready elegant visualizations.
+>>>>>>> master
 
 1.  Scatter Plot  
 2.  Multi-Scatter Plot  
