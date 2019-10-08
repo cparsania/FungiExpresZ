@@ -1,0 +1,2 @@
+r-cran-devtools
+r-cran-biocmanager
