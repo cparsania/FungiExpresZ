@@ -260,6 +260,7 @@
 #' @importFrom MASS kde2d
 #' @importFrom janitor clean_names
 #' @importFrom broom tidy
+#' @importFrom rio convert
 #' @keywords internal
 app_server <- function(input, output,session) {
   # List the first level callModules here

@@ -57,7 +57,8 @@ Imports:
     gtools (>= 3.8.1),
     broom (>= 0.5.2),
     janitor (>= 1.2.0),
-    magrittr (>= 1.5)
+    magrittr (>= 1.5),
+    rio (>= 0.5.16)
 Depends:
     R (>= 3.5.0),   
     shinyBS (>= 0.61)
