@@ -35,6 +35,13 @@ This page is all about notifing  users regarding new features, bug fixing, any o
 
 ***
 
+### **`r lubridate::date(x = "2019/10/08")`**
+#### Available as an R package (v0.0.1)
+
+FungiExpresZ can be installed as an R package and run on local computer. For local installation, please follow instruction on [Github](https://github.com/cparsania/FungiExpresZ#install)
+
+***
+
 ### **`r lubridate::date(x = "2019/09/23")`**
 #### New SRA data added for **_Aspergillus fumigatus_** and **_Aspergillus niger_**  
 
