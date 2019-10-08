@@ -1,5 +1,3 @@
-# FungiExpresZ (development version)
-
 # FungiExpresZ 0.0.1
 
 # FungiExpresZ 0.0.0.9000
