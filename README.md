@@ -77,7 +77,8 @@ plot
 
 ##### Install from pre-compiled binray package
 
-  - Download [precompiled binary]()
+  - Download [precompiled
+    binary](https://github.com/cparsania/FungiExpresZ/releases/download/v0.0.1/FungiExpresZ_0.0.1.tgz)
   - `devtools::install_local("path/to/.tgz file" , dependencies=TRUE,
     build = FALSE , repos=BiocManager::repositories())`
 
