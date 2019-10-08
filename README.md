@@ -4,7 +4,7 @@
 # FungiExpresZ
 
 [![](https://www.r-pkg.org/badges/version/FungiExpresZ?color=green)](https://cran.r-project.org/package=FungiExpresZ)
-[![](https://img.shields.io/badge/devel%20version-0.0.0.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
+[![](https://img.shields.io/badge/devel%20version-0.0.1.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
 [![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
 <!-- badges: end -->
