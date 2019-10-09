@@ -53,40 +53,70 @@ plot
 
 ### How to use ?
 
-  - It has been hosted on shinyapps.io and can be accessed via
-    [link](http://cparsania.shinyapps.io/fungiexpresz).
+  - Accessed online through the
+    [link](http://cparsania.shinyapps.io/fungiexpresz). Using this
+    approach requires active internet connection.
 
-  - It can also be installed locally as an R package. Follow instruction
-    below to install locally.
+  - Run as a docker container on any platform, where [docker
+    engine](https://docs.docker.com/docker-for-mac/install/) is
+    installed. Once installed, it can be run locally without active
+    internet.
 
-### Install
+  - Install as an R package. Once installed, it can be run locally
+    without active internet.
+
+#### Install docker image and run container (Highly recommended)
+
+  - This approach is highly recommended as user does not need to worry
+    about any dependency related stuff.
+
+##### Install docker
+
+// TO DO
+
+##### Pull image
+
+// TO DO
+
+##### Run container
+
+// TO DO
+
+#### Install as an R package
 
 ##### Prerequisites
 
-  - `R version (>= 3.6.1)`
+    R version (>= 3.6.1)
 
 ##### Install pre-installation dependency
 
-  - `install.packages("devtools")`
-  - `install.packages("remotes")`
-  - `install.packages("BiocManager")`
+``` r
+   install.packages("devtools")
+   install.packages("BiocManager")
+   install.packages("data.table" , type = "binary") ## installing from source may cause error. 
+```
 
 ##### Set repos to download and install FungiExpresZ dependencies
 
-  - `options(repos = BiocManager::repositories())`
+``` r
 
-##### Install from pre-compiled binray package
+  options(repos = BiocManager::repositories())
+```
 
-  - Download [precompiled
-    binary](https://github.com/cparsania/FungiExpresZ/releases/download/v0.0.1/FungiExpresZ_0.0.1.tgz)
-  - `devtools::install_local("path/to/.tgz file" , dependencies=TRUE,
-    build = FALSE , repos=BiocManager::repositories())`
+##### Install from pre-compiled binray package **(Recommanded)**
 
-##### Install development version
+Download precompiled binary of latest release [for MacOS (\*.tgz
+file)](https://github.com/cparsania/FungiExpresZ/releases/) and install
+it using command
+below.
 
-  - `remotes::install_github("cparsania/FungiExpresZ" ,build = FALSE)`
+``` r
+  devtools::install_local("path/to/.tgz file" , dependencies=TRUE,  build = FALSE , repos=BiocManager::repositories())
+```
 
-### Run
+> ##### NOTE: Installing developmental version **is not supported** as **`install_github()`** does not allow downloading git-lfs files.
+
+##### Run
 
   - Once installtion complete successfully, it can be run using
     `FungiExpresZ::run_app()`
