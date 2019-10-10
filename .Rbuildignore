@@ -12,3 +12,5 @@ $run_dev.*
 ^app\.R$
 ^/Users/chiragparsania/Documents/Projects/1_My_PhD/9_bioseqc/fungiexpresz_r_package/FungiExpresZ/Dockerfile$
 ^Dockerfile$
+^requirement_bin.txt$
+^.gitattributes$
