@@ -53,9 +53,8 @@ plot
 
 ### How to use ?
 
-  - Accessed online through the
-    [link](http://cparsania.shinyapps.io/fungiexpresz). Using this
-    approach requires active internet connection.
+  - Access through <http://cparsania.shinyapps.io/fungiexpresz>. Using
+    this approach requires active internet connection.
 
   - Run as a docker container on any platform, where [docker
     engine](https://docs.docker.com/docker-for-mac/install/) is
