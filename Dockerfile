@@ -6,7 +6,7 @@ RUN apt-get update && \
 COPY ./requirement_bin.txt .
 RUN cat requirement_bin.txt | xargs apt-get install -y -qq
 
-COPY ./FungiExpresZ_0.0.0.9000.tar.gz /app.tar.gz
+COPY ./FungiExpresZ_0.0.1.tar.gz /app.tar.gz
 RUN R -e 'devtools::install_local("/app.tar.gz" , dependencies=TRUE,  build = FALSE ,repos=BiocManager::repositories() )'
 EXPOSE 80
 CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');library(shinyBS);FungiExpresZ::run_app()"
