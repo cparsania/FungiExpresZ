@@ -67,7 +67,7 @@ app_ui <- function() {
       tags$div(titlePanel(
         tags$h1("FungiExpresZ", 
                 
-                tags$h2("Fungal Gene Expression Data Analysis and Visulaization Tool" , style = "font-family: 'Ribeye'") , 
+                tags$h2("Fungal Gene Expression Data Analysis and Visualization Tool" , style = "font-family: 'Ribeye'") , 
                 align = "center", 
                 style = "font-family: 'Ribeye'; font-size: 80px;"
         ),
