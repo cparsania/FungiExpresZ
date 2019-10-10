@@ -150,7 +150,7 @@ with the final the line `http://0.0.0.0:80`.
 ##### 2.2.4 Run on browser, Finally ..\!\!
 
 After launch, hitting one of these URLs `http://localhost:<port_number>`
-or `http://127.0.0.1:<port_ _number>` or
+or `http://127.0.0.1:<port_number>` or
 `http://<your_ip_address>:<port_number>` should load the application on
 browser.
 
