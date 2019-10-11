@@ -3899,15 +3899,14 @@ ul.nav.navbar-nav {
       
       tags$style(type='text/css', "#app_footer { text-align: center;}"),
       tags$div(id = "app_footer",tags$b("FungiExpresZ"), "is developed by ", tags$b("Chirag Parsania"), "from Chris Wong Lab at University of Macau. For any query or suggestions, please contact", a("Chirag Parsania", href = "mailto:chirag.parsania@gmail.com") ,"."),
-      # fluidRow(
-      #   column(width = 3, offset = 6,
-      #          
-      #          # HTML("<script type=\"text/javascript\" src=\"//rf.revolvermaps.com/0/0/6.js?i=5cen61amuqv&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80\" async=\"async\"></script>")
-      #          
-      #          HTML("<script type=\"text/javascript\" src=\"//rf.revolvermaps.com/0/0/7.js?i=5cen61amuqv&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;sx=0\" async=\"async\"></script>")
-      #          
-      #   )
-      # ),
+      
+      ## display latest release
+      fluidRow(
+        
+        column(offset = 5, width = 4,
+               tags$a(img(src="https://img.shields.io/github/latest-release/cparsania/fungiexpresz.svg"), href="https://github.com/cparsania/fungiexpresz/commits/master")
+               )
+      ),
       
       
       br(), br(), br(), br(), br(), br(), br(), br()
