@@ -6,25 +6,25 @@ not_null <- Negate(is.null)
 not_na <- Negate(is.na)
 
 # Removes the null from a vector
-drop_nulls <- function(x){
-  x[!sapply(x, is.null)]
+drop_nulls <- function(x) {
+    x[!sapply(x, is.null)]
 }
 
 # If x is null, return y, otherwise return x
-"%||%" <- function(x, y){
-  if (is.null(x)) {
-    y
-  } else {
-    x
-  }
+"%||%" <- function(x, y) {
+    if (is.null(x)) {
+        y
+    } else {
+        x
+    }
 }
 # If x is NA, return y, otherwise return x
-"%|NA|%" <- function(x, y){
-  if (is.na(x)) {
-    y
-  } else {
-    x
-  }
+"%|NA|%" <- function(x, y) {
+    if (is.na(x)) {
+        y
+    } else {
+        x
+    }
 }
 
 # typing reactiveValues is too long
