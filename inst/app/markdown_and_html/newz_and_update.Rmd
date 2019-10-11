@@ -35,10 +35,17 @@ This page is all about notifing  users regarding new features, bug fixing, any o
 
 ***
 
+### **`r lubridate::date(x = "2019/10/10")`**
+#### Available as a docker image 
+
+`r app_name` is now available as a docker image and can be run as a container on any local computer where docker hub is installed. Follow instructions given on [Github](https://github.com/cparsania/FungiExpresZ){target="_blank"} to install and run locally. 
+
+***
+
 ### **`r lubridate::date(x = "2019/10/08")`**
 #### Available as an R package (v0.0.1)
 
-FungiExpresZ can be installed as an R package and run on local computer. For local installation, please follow instruction on [Github](https://github.com/cparsania/FungiExpresZ#install)
+`r app_name` can be installed as an R package and run on local computer. For local installation, please follow instruction on [Github](https://github.com/cparsania/FungiExpresZ#install){target="_blank"}
 
 ***
 
