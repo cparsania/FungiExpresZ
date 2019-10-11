@@ -15,7 +15,7 @@ data.
 
 ## 1\. Key features
 
-#### 1.1 More than 13,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 8 different fungal species.
+### 1.1 More than 13,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 8 different fungal species.
 
 FungiExpresZ provides normalized gene expression values (FPKM) for more
 than 13,000 SRA samples. User can select one more data for
@@ -37,21 +37,21 @@ or free text which will be matched against several SRA columns.
 > be updated as we add new
 data.
 
-#### 1.2 Users can visualize their own data with or without integration of selected SRA data
+### 1.2 Users can visualize their own data with or without integration of selected SRA data
 
 Users can analyze and visualize their own data by uploading .txt/.csv
 file (columns are samples and rows are genes). Optionally, user data can
 be integrated with selected SRA data for combined analysis and
 visualization.
 
-#### 1.3 Visualize multiple gene groups and sample groups in a single plot
+### 1.3 Visualize multiple gene groups and sample groups in a single plot
 
 Optionally, user can upload sample groups (e.g. replicates, control vs
 treatmet, wild type vs deletion etc.) and multiple gene groups to
 compare between them. Group information can be used across several plots
 against fill and facet plot attributes.
 
-#### 1.4 12 different data exploratory visualizations
+### 1.4 12 different data exploratory visualizations
 
 FungiExpresZ provides browser based user friendly interface, which allow
 users to generate **ggplot2** based 12 different publication-ready
@@ -74,7 +74,7 @@ options are …
 Plot  
 12. Heatmap
 
-#### 1.5 Supports Gene Ontology (GO) enrichment and visualizations for more than 100 different fungal species
+### 1.5 Supports Gene Ontology (GO) enrichment and visualizations for more than 100 different fungal species
 
 FungiExpresZ allow users to define geneset(s) directly from plot
 (Scatter plot, Line plot and Heatmap) to perform gene ontology
@@ -89,7 +89,7 @@ enrichment and visualizations. Available GO visualizations are …
 
 ## 2\. How to use ?
 
-#### 2.1 Access through internet
+### 2.1 Access through internet
 
 FungiExpresZ has been hosted on shinyapps.io server, which can be
 accessed through link : <http://cparsania.shinyapps.io/fungiexpresz>.
@@ -104,12 +104,14 @@ and number of active users.
 > recommand using local version for stable analysis of large
 dataset.
 
-#### 2.2 Run locally as a container from docker image (Highly recommended)
+### 2.2 Run locally as a container from docker image (Highly recommended)
 
 This approach is highly recommended as user does not need to worry about
 any dependency related stuff.
 
-##### 2.2.1 Install docker desktop
+//TO DO
+
+#### 2.2.1 Install docker desktop
 
 Follow the instructions given below to install docker desktop on …
 
@@ -117,7 +119,7 @@ Follow the instructions given below to install docker desktop on …
   - [Windows](https://docs.docker.com/docker-for-windows/install/)
   - [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
-##### 2.2.2 Pull FungiExpresZ docker image to local computer
+#### 2.2.2 Pull FungiExpresZ docker image to local computer
 
 Before you pull the image make sure your docker desktop is running.
 Next, open the terminal and type the command below.
@@ -133,7 +135,7 @@ Possible values for `<tagName>` can be obtained from
 [here](https://hub.docker.com/r/cparsania/fungiexpresz/tags). We
 recommand you to pull latest tag always.
 
-##### 2.2.3 Run container
+#### 2.2.3 Run container
 
 After getting the image on local computer, it can be run as a container.
 The command below will open the port given as `<port_number>` on local
@@ -147,7 +149,7 @@ system (e.g. 3232, 3233, 5434, … etc.).
 Successful launch will print standard `R` welcome message on terminal
 with the final the line `http://0.0.0.0:80`.
 
-##### 2.2.4 Run on browser, Finally ..\!\!
+#### 2.2.4 Run on browser, Finally ..\!\!
 
 After launch, hitting one of these URLs `http://localhost:<port_number>`
 or `http://127.0.0.1:<port_number>` or
@@ -157,11 +159,11 @@ browser.
 Congrats..\!\! 🎉🎉🎉🎉 .Your application will keep running until you stop
 container explicitly.
 
-##### 2.2.5 How to stop container
+#### 2.2.5 How to stop container
 
-Regardless of closing terminal window, your container will keep running.
-You can stop container explicitly using below command on new terminal
-window.
+R ?gardless of closing terminal window, your container will keep
+running. You can stop container explicitly using below command on new
+terminal window.
 
     ## get container id 
     
@@ -169,13 +171,13 @@ window.
     
     docker stop <CONTAINER ID>
 
-#### 3\. Install as an R package
+## 3\. Install as an R package
 
-##### 3.1 Prerequisites
+### 3.1 Prerequisites
 
     R version (>= 3.6.1)
 
-##### 3.2 Install pre-installation dependency
+### 3.2 Install pre-installation dependency
 
 ``` r
    install.packages("devtools")
@@ -183,14 +185,14 @@ window.
    install.packages("data.table" , type = "binary") ## installing from source may cause error. 
 ```
 
-##### 3.3 Set repos to download and install FungiExpresZ dependencies
+### 3.3 Set repos to download and install FungiExpresZ dependencies
 
 ``` r
 
   options(repos = BiocManager::repositories())
 ```
 
-##### 3.4 Install from pre-compiled binray package **(Recommanded)**
+### 3.4 Install from pre-compiled binray package **(Recommanded)**
 
 Download pre-compiled binary of latest release [for MacOS (\*.tgz
 file)](https://github.com/cparsania/FungiExpresZ/releases/) and install
@@ -206,7 +208,7 @@ below.
 > **`devtools::install_github()`** does not allow downloading git-lfs
 > files.
 
-##### 3.5 Run
+### 3.5 Run
 
   - Once installation complete successfully, it can be run using
     `FungiExpresZ::run_app()`
