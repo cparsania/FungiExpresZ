@@ -4,7 +4,7 @@
 # FungiExpresZ
 
 [![](https://www.r-pkg.org/badges/version/FungiExpresZ?color=green)](https://cran.r-project.org/package=FungiExpresZ)
-[![](https://img.shields.io/badge/devel%20version-0.0.1.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
+[![](https://img.shields.io/badge/devel%20version-0.0.2.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
 [![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
 <!-- badges: end -->
@@ -182,7 +182,7 @@ terminal window.
 ``` r
    install.packages("devtools")
    install.packages("BiocManager")
-   install.packages("data.table" , type = "binary") ## installing from source may cause error. 
+   install.packages("data.table" , type = "binary") ## installing from source may cause error.  
 ```
 
 ### 3.3 Set repos to download and install FungiExpresZ dependencies

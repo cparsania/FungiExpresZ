@@ -186,7 +186,7 @@ R version (>= 3.6.1)
 ```{r remedy001 , eval=FALSE}
    install.packages("devtools")
    install.packages("BiocManager")
-   install.packages("data.table" , type = "binary") ## installing from source may cause error. 
+   install.packages("data.table" , type = "binary") ## installing from source may cause error.  
 ```
   
 ### 3.3 Set repos to download and install FungiExpresZ dependencies   
