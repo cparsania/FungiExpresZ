@@ -534,8 +534,8 @@ app_server <- function(input, output,session) {
     ## load expr data
     withProgress(message = "Loadind data from .rds" , {
       incProgress(0.5)
-      print("expr_mat_file_path")
-      print(paste(get_expression_mats_dir_path() , expr_data_mat_rds_file , sep = "/"))
+      #print("expr_mat_file_path")
+      #print(paste(get_expression_mats_dir_path() , expr_data_mat_rds_file , sep = "/"))
       
       expr_data_mat <- readr::read_rds(paste(get_expression_mats_dir_path() , expr_data_mat_rds_file , sep = "/"))
       
@@ -843,19 +843,12 @@ app_server <- function(input, output,session) {
   
   observe({
     req(plot_data())
-    print("plot_data under observation")
     print("plot_data dims")
     print(dim(plot_data()))
     print("plot_data")
     print(plot_data())
   })
   
-  # print plot data being used
-  # observe({
-  #   req(plot_data())
-  #   print("Current data")
-  #   print(plot_data())
-  # })
   
   ## preserve plot data original row order 
   plot_data_original_row_order <- reactive({
