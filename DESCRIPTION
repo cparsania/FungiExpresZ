@@ -58,7 +58,8 @@ Imports:
     broom (>= 0.5.2),
     janitor (>= 1.2.0),
     magrittr (>= 1.5),
-    rio (>= 0.5.16)
+    rio (>= 0.5.16),
+    badger (>= 0.0.6)
 Depends:
     R (>= 3.5.0),   
     shinyBS (>= 0.61)
