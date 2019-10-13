@@ -39,6 +39,7 @@
 #' @importFrom DT dataTableOutput
 #' @importFrom DT JS
 #' @importFrom DT datatable
+#' @importFrom badger ver_devel
 #' 
 #' @keywords internal
 #' 
@@ -3900,13 +3901,41 @@ ul.nav.navbar-nav {
       tags$style(type='text/css', "#app_footer { text-align: center;}"),
       tags$div(id = "app_footer",tags$b("FungiExpresZ"), "is developed by ", tags$b("Chirag Parsania"), "from Chris Wong Lab at University of Macau. For any query or suggestions, please contact", a("Chirag Parsania", href = "mailto:chirag.parsania@gmail.com") ,"."),
       
+      br(),
+      
       ## display latest release
-      fluidRow(
+      
+      tags$div(
+        style = "text-align:center;",
         
-        column(offset = 5, width = 4,
-               tags$a(img(src="https://img.shields.io/github/latest-release/cparsania/fungiexpresz.svg"), href="https://github.com/cparsania/fungiexpresz/commits/master")
-               )
+        ## shinyapps.io release 
+        # tags$a(img(src=badge_custom_url(x = "shinyapps.io" , y = "v0.0.2" ,col = "green" , 
+        #                                 add_github_logo = FALSE)), 
+        #        href="https://github.com/cparsania/FungiExpresZ/releases/tag/v0.0.2"),
+        
+        
+        ## latest github relaese 
+        tags$a(img(alt="GitHub release (latest by date)",
+               src="https://img.shields.io/github/v/release/cparsania/fungiexpresz?logo=github"),
+               href = "https://github.com/cparsania/FungiExpresZ/releases"
+               ),
+        
+        
+        ## latest github devel
+        tags$a(img(src= badge_custom_url(x = "devel" , 
+                                         y = paste("v",badger::ver_devel("cparsania/fungiexpresz"),sep = "") , 
+                                         col ="red" , add_github_logo = TRUE)) , 
+               href = "https://github.com/cparsania/fungiexpresz")
       ),
+      
+      # fluidRow(
+      #   
+      #   column(width = 12,
+      #          
+      #         
+      #          
+      #          )
+      # ),
       
       
       br(), br(), br(), br(), br(), br(), br(), br()
