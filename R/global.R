@@ -875,6 +875,49 @@ text_to_clean_document <- function(text, remove_numbers = TRUE , remove_stop_wor
 
 
 
+#' get github repo version devel bedge 
+#'
+#' @param pkg github repo url
+#' @param col bedge color
+#' @param add_github_logo TRUE if github logo to be shown on badge 
+#' @return url
+#' @keywords internal
+#' @importFrom badger badge_devel
+badge_devel_url <- function(pkg ="cparsania/fungiexpresz" ,col = "green", add_github_logo =FALSE){
+        
+        url <- badger::badge_devel(pkg = pkg, color = col) %>% 
+                stringr::str_replace_all(pattern = "\\)|\\(|^\\W+" , replacement = "") %>% 
+                stringr::str_split(pattern = "\\]" , simplify = T) %>% 
+                .[1] 
+        
+        if(add_github_logo){
+                url <- url  %>% paste0("?logo=github" , collapse = "")
+        }
+                return(url)
+}
+
+#' get custom badge url
+#'
+#' @param x text to show on left panel of badge
+#' @param y text to show on right panel of badge
+#' @param col badge color
+#' @param add_github_logo TRUE if github logo to be shown on badge
+#' @return url
+#' @importFrom badger badge_custom
+#' @keywords internal
+badge_custom_url <- function(x = "current", y = NULL , col = "red" , add_github_logo =FALSE){
+        url <- badger::badge_custom(x ,y , color = col)  %>% 
+                stringr::str_replace_all(pattern = "^\\W+|\\)" , replacement = "")  
+        
+        if(add_github_logo){
+                url <- url  %>% paste0("?logo=github" , collapse = "")
+        }
+                return(url)
+}
+
+
+
+
  # get_gg_themes <- function(theme_name){
  # 
  #   availabel_themes <- c("theme_grey", "theme_gray", "theme_bw","theme_linedraw" , "theme_light" ,"theme_dark" ,"theme_minimal" ,"theme_classic", 
