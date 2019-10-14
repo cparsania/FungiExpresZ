@@ -261,6 +261,7 @@
 #' @importFrom janitor clean_names
 #' @importFrom broom tidy
 #' @importFrom rio convert
+#' @importFrom scales squish
 #' @keywords internal
 app_server <- function(input, output,session) {
   # List the first level callModules here
@@ -1737,15 +1738,16 @@ app_server <- function(input, output,session) {
     ## set color scale manual
     if(input$corr_heatbox_scale_manual == "manual"){
       chb <- chb +
-        #scale_fill_viridis(limits = c(input$corr_heatbox_scale_manual_min ,input$corr_heatbox_scale_manual_max))
         scale_fill_gradientn(colours = viridis::viridis(n = input$corr_heatbox_colors) %>% rev(),
-                             limits = c(input$corr_heatbox_scale_manual_min , input$corr_heatbox_scale_manual_max) , oob=squish)
+                             limits = c(input$corr_heatbox_scale_manual_min , input$corr_heatbox_scale_manual_max) , oob=scales::squish)
     }
     
     ## decorate plot 
     chb <- callModule(plot_title_and_axis_label_server,
                       id = "corr_heatbox_title_and_labels" ,
-                      my_ggplot = chb, x_tick_angle = 45 , fill_legend_title = "Corr",apply_theme =FALSE)
+                      my_ggplot = chb, x_tick_angle = 45 , 
+                      fill_legend_title = "Corr",
+                      apply_theme =FALSE)
     
     return(chb)
   })
