@@ -35,6 +35,18 @@ This page is all about notifing  users regarding new features, bug fixing, any o
 
 ***
 
+### **`r lubridate::date(x = "2019/10/14")`**
+#### New logo introduced
+
+`r app_name` has its identity now. Introducing new logo 🎉🎉🎉🎉 
+
+  <a href='https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png' target="_blank"><img src='https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png'  height="300" /></a>
+  
+***
+
+
+
+
 ### **`r lubridate::date(x = "2019/10/10")`**
 #### Available as a docker image 
 
