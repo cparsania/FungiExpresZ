@@ -65,9 +65,13 @@ app_ui <- function() {
       ),
       
       ## arrange title panel 
-      tags$div(titlePanel(
-        tags$h1("FungiExpresZ", 
-                
+      tags$div(
+        #tags$a(img(src="https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , height="150")),
+        titlePanel(
+        tags$h1("Fungi", 
+                tags$a(img(src="https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , height="150"),
+                           href = "https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , target= "_blank"),
+                "ExpresZ", 
                 tags$h2("Fungal Gene Expression Data Analysis and Visualization Tool" , style = "font-family: 'Ribeye'") , 
                 align = "center", 
                 style = "font-family: 'Ribeye'; font-size: 80px;"
@@ -3917,15 +3921,14 @@ ul.nav.navbar-nav {
         ## latest github relaese 
         tags$a(img(alt="GitHub release (latest by date)",
                src="https://img.shields.io/github/v/release/cparsania/fungiexpresz?logo=github"),
-               href = "https://github.com/cparsania/FungiExpresZ/releases"
-               ),
+               href = "https://github.com/cparsania/FungiExpresZ/releases", target="_blank"),
         
         
         ## latest github devel
         tags$a(img(src= badge_custom_url(x = "devel" , 
                                          y = paste("v",badger::ver_devel("cparsania/fungiexpresz"),sep = "") , 
                                          col ="red" , add_github_logo = TRUE)) , 
-               href = "https://github.com/cparsania/fungiexpresz")
+               href = "https://github.com/cparsania/fungiexpresz", target="_blank")
       ),
       
       # fluidRow(

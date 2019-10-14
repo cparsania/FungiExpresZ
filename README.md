@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# FungiExpresZ <img src='inst/app/www/hex_sticker.png' align="right" height="250" /></a>
+# FungiExpresZ <a href='https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png' target="_blank"><img src='https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png' align ="right" height="250" /></a>
 
 <!-- badges: start -->
 
