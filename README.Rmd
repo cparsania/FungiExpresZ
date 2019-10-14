@@ -14,9 +14,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# FungiExpresZ
+
+# FungiExpresZ <img src='inst/app/www/hex_sticker.png' align="right" height="250" /></a>
 
 
+
+<!-- badges: start -->
 ```{r, echo = FALSE, results='asis' , message=FALSE}
 cat(
 	badger::badge_cran_release("FungiExpresZ", "green"),
@@ -24,9 +27,9 @@ cat(
 	badger::badge_lifecycle("maturing")
 )
 ```
-
-
 <!-- badges: end -->
+
+## Overview
 
 FungiExpresZ is an R-shiny package to analyse and visualise fungal gene expression data. 
 

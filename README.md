@@ -1,13 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# FungiExpresZ
+# FungiExpresZ <img src='inst/app/www/hex_sticker.png' align="right" height="250" /></a>
+
+<!-- badges: start -->
 
 [![](https://www.r-pkg.org/badges/version/FungiExpresZ?color=green)](https://cran.r-project.org/package=FungiExpresZ)
 [![](https://img.shields.io/badge/devel%20version-0.0.2.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
 [![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-
 <!-- badges: end -->
+
+## Overview
 
 FungiExpresZ is an R-shiny package to analyse and visualise fungal gene
 expression
