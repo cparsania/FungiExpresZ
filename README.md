@@ -6,15 +6,24 @@
 <!-- badges: start -->
 
 [![](https://www.r-pkg.org/badges/version/FungiExpresZ?color=green)](https://cran.r-project.org/package=FungiExpresZ)
-[![](https://img.shields.io/badge/devel%20version-0.0.2.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
+[![](https://img.shields.io/badge/devel%20version-0.0.3.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
 [![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
 ## Overview
 
-FungiExpresZ is an R-shiny package to analyse and visualise fungal gene
-expression
-data.
+FungiExpresZ is an R-shiny package to analyse and visualize gene
+expression data. It allows user to visualize his/her own data as well as
+more than 13,000 pre processed SRA fungal gene expression data. User can
+even merge his/her own data with given SRA data to perform combined
+analysis and visualizations. There are total 12 different data
+exploratory visualizations and 6 different GO visualizations user can
+generate. For more than 100 different fungal species GO analysis and GO
+visualizations can be performed. User can select set of genes directly
+from one of the scatter plot, line plot or heatmap and pass them for GO
+analysis and GO visualizations. Optionally, user can even input multiple
+gene groups and sample groups information for more complex
+visualizations.
 
 ## 1\. Key features
 
@@ -50,7 +59,7 @@ visualization.
 ### 1.3 Visualize multiple gene groups and sample groups in a single plot
 
 Optionally, user can upload sample groups (e.g. replicates, control vs
-treatmet, wild type vs deletion etc.) and multiple gene groups to
+treatment, wild type vs deletion etc.) and multiple gene groups to
 compare between them. Group information can be used across several plots
 against fill and facet plot attributes.
 
@@ -79,7 +88,7 @@ Plot
 
 ### 1.5 Supports Gene Ontology (GO) enrichment and visualizations for more than 100 different fungal species
 
-FungiExpresZ allow users to define geneset(s) directly from plot
+FungiExpresZ allow users to define gene-set(s) directly from plot
 (Scatter plot, Line plot and Heatmap) to perform gene ontology
 enrichment and visualizations. Available GO visualizations are …
 
@@ -96,7 +105,7 @@ enrichment and visualizations. Available GO visualizations are …
 
 FungiExpresZ has been hosted on shinyapps.io server, which can be
 accessed through link : <http://cparsania.shinyapps.io/fungiexpresz>.
-Due to limited resources, we recommand this to use only if you have
+Due to limited resources, we recommend this to use only if you have
 smaller data set (\< 10 MB file) or if you want to get a quick look from
 few SRA samples (\<= 5 samples). Current setup allows 15 concurrent
 users. Further, website performance may also affect by internet speed
@@ -111,8 +120,6 @@ dataset.
 
 This approach is highly recommended as user does not need to worry about
 any dependency related stuff.
-
-//TO DO
 
 #### 2.2.1 Install docker desktop
 
@@ -164,9 +171,8 @@ container explicitly.
 
 #### 2.2.5 How to stop container
 
-R ?gardless of closing terminal window, your container will keep
-running. You can stop container explicitly using below command on new
-terminal window.
+Container will be active until it is explicitly stopped. You can stop
+container using below command on a new terminal window.
 
     ## get container id 
     
@@ -195,7 +201,7 @@ terminal window.
   options(repos = BiocManager::repositories())
 ```
 
-### 3.4 Install from pre-compiled binray package **(Recommanded)**
+### 3.4 Install from pre-compiled binary package **(Recommended)**
 
 Download pre-compiled binary of latest release [for MacOS (\*.tgz
 file)](https://github.com/cparsania/FungiExpresZ/releases/) and install
