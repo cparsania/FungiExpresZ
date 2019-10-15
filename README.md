@@ -182,6 +182,11 @@ container using below command on a new terminal window.
 
 ## 3\. Install as an R package
 
+> **NOTE:** Installing developmental version using
+> **`devtools::install_github()`** is not supported as
+> **`devtools::install_github()`** does not allow downloading git-lfs
+> files.
+
 ### 3.1 Prerequisites
 
     R version (>= 3.6.1)
@@ -201,25 +206,21 @@ container using below command on a new terminal window.
   options(repos = BiocManager::repositories())
 ```
 
-### 3.4 Install from pre-compiled binary package **(Recommended)**
+### 3.4 Install from package bundle
 
-Download pre-compiled binary of latest release [for MacOS (\*.tgz
-file)](https://github.com/cparsania/FungiExpresZ/releases/) and install
-it using command
-below.
+Download pre-compiled binary for MacOS (\*.tgz file) and source bundle
+for Windows (\*.tar.gz) from [latest available
+release](https://github.com/cparsania/FungiExpresZ/releases/). Open an R
+terminal and use command below to install either on MacOS or
+Windows.
 
 ``` r
   devtools::install_local("path/to/.tgz file" , dependencies=TRUE,  build = FALSE , repos=BiocManager::repositories())
 ```
 
-> **NOTE:** Installing developmental version using
-> **`devtools::install_github()`** is not supported as
-> **`devtools::install_github()`** does not allow downloading git-lfs
-> files.
-
 ### 3.5 Run
 
-  - Once installation complete successfully, it can be run using
-    `FungiExpresZ::run_app()`
+  - Once installation completes, it can be run using command
+    `FungiExpresZ::run_app()`.
   - Copy and paste URL printed on the console to browser and you are
-    ready to go.
+    ready to go 🎉🎉🎉🎉 .
