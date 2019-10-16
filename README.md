@@ -5,9 +5,11 @@
 
 <!-- badges: start -->
 
+![](https://img.shields.io/github/v/release/cparsania/fungiexpresz?&color=blue&logoColor=)
+[![](https://img.shields.io/badge/devel%20version-0.0.3.9000-red.svg)](https://github.com/cparsania/FungiExpresZ)
+[![](https://img.shields.io/badge/lifecycle-maturing-yellow.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![](https://www.r-pkg.org/badges/version/FungiExpresZ?color=green)](https://cran.r-project.org/package=FungiExpresZ)
-[![](https://img.shields.io/badge/devel%20version-0.0.3.9000-orange.svg)](https://github.com/cparsania/FungiExpresZ)
-[![](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+
 <!-- badges: end -->
 
 ## Overview
