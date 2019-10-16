@@ -915,6 +915,33 @@ badge_custom_url <- function(x = "current", y = NULL , col = "red" , add_github_
                 return(url)
 }
 
+#' create a custom badge url for github release  
+#'
+#' @param url github repo url, default : cparsania/fungiexpresz
+#' @param col badge color, default : red 
+#' @param logo badge logo , default : github. Few choices are apple, windows, git, docker etc.
+#' @param logo_color logo color , default : default logo color 
+#'
+#' @return badge url
+#' @keywords internal
+badge_github_release_url <- function(url ="cparsania/fungiexpresz" , col = "red" , logo = "github" , logo_color = NULL){
+        
+        badge_base_url = "https://img.shields.io/github/v/release"
+        
+        badge_repo_url <- paste(badge_base_url ,url  ,sep = "/")
+        
+        ## add suffix 
+        badge_repo_url <- paste0(badge_repo_url , "?")
+        
+        url_comp_badge_col <- paste("color=" , col , sep = "")
+        url_comp_logo <- paste("logo=" , logo , sep = "")
+        url_comp_logo_col <-  paste("logoColor=" , logo_color , sep = "")
+        
+        badge_custom_url  <- paste(badge_repo_url , url_comp_badge_col , url_comp_logo ,url_comp_logo_col , sep = "&")
+        return(badge_custom_url)
+        # https://img.shields.io/github/v/release/cparsania/fungiexpresz?color=red&logo=apple&logoColor=NULL
+}
+
 
 
 
