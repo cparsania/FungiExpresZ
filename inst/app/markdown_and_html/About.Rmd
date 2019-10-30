@@ -1,0 +1,335 @@
+---
+title: "About"
+#author: "Chirag Parsania"
+output:
+    prettydoc::html_pretty:
+      number_sections: TRUE
+      toc: TRUE
+      fig_caption: TRUE
+      fig_number: TRUE
+      toc_depth: 4
+      float: TRUE
+  
+bibliography: ["fungiexpresz.bib"]
+  
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, fig.align="center", fig.show="hold" , out.width = "50%") 
+```
+
+# Overview
+***
+FungiExpresZ is an R-shiny package to analyse and visualize gene expression data. It allows user to visualize his/her own data as well as more than 13,000 pre processed SRA fungal gene expression data. User can even merge his/her own data with given SRA data to perform combined analysis and visualizations. There are total 12 different data exploratory visualizations and 6 different GO visualizations user can generate. For more than 100 different fungal species GO analysis and GO visualizations can be performed. User can select set of genes directly from one of the scatter plot, line plot or heatmap and pass them for GO analysis and GO visualizations. GO enrichment and GO visualizations have been implemented through popular R package ClusterProfiler [@Yu2012].  Optionally, user can even input multiple gene groups and sample groups information for more complex visualizations . 
+
+
+# Key features  
+***
+## More than 13,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 8 different fungal species
+
+FungiExpresZ provides normalized gene expression values (FPKM) for more than 13,000 SRA samples. User can select one or more SRA samples for visualizations. Data can be searched based on species, genotype, strain or free text which will be matched against several SRA columns. 
+
+```{r, eval=TRUE, echo=FALSE}
+library(magrittr)
+dd <- tibble::tribble(
+                                 ~species, ~`#sra_samples`,
+           "Aspergillus nidulans FGSC A4",      151,
+                "Candida albicans SC5314",      639,
+               "Saccharomyces cerevisiae",    11872,
+            "Aspergillus fumigatus Af293",      242,
+           "Aspergillus niger CBS 513.88",      253,
+               "Candida glabrata CBS 138",      126,
+       "Talaromyces marneffei ATCC 18224",       26,
+                   "Candida auris B8 441",       46
+        ) %>% as.data.frame()
+
+```    
+|species                            | #sra_samples|
+|:----------------------------------|-----------:|
+|_Aspergillus nidulans FGSC A4_     |         151|
+|_Candida albicans SC5314_          |         639|
+|_Saccharomyces cerevisiae_         |       11872|
+|_Aspergillus fumigatus Af293_      |         242|
+|_Aspergillus niger CBS 513.88_     |         253|
+|_Candida glabrata CBS 138_         |         126|
+|_Talaromyces marneffei ATCC 18224_ |          26|
+|_Candida auris B8 441_             |          46|
+
+> NOTE: We are continuously processing fungal SRA data. This table will be updated as we add new data. 
+
+## visualize gene expressiondata with or without integration of SRA data
+    
+Users can analyze and visualize their own data by uploading .txt/.csv file (columns are samples and rows are genes). Optionally, user data can be integrated with selected SRA data for combined analysis and visualization. 
+
+## Visualize multiple gene groups and sample groups in a single plot
+
+Optionally, user can upload sample groups (e.g. replicates, control vs treatment, wild type vs deletion etc.) and multiple gene groups to compare between them. Group information uploaded once, can be used across several plots against fill and facet plot attributes to make more complex visualizations.  
+
+## Twelve different data exploratory visualizations
+
+FungiExpresZ provides browser based user friendly interface, which allows users to generate **ggplot2** based 12 different publication-ready elegant visualizations. Users are allowed to adjust several common plot attributes such as plot title, axis title, font size, plot theme, legend size, legend position etc. and few other plot specific attributes. Currently, available plots are ...
+
+  1. Scatter Plot  
+  2. Multi-Scatter Plot  
+  3. Corr Heat Box
+  4. Density Plot
+  5. Histogram
+  6. Joy Plot 
+  7. Box Plot 
+  8. Violin Plot 
+  9. Bar Plot 
+  10. PCA Plot 
+  11. Line Plot  
+  12. Heatmap 
+
+## Supports Gene Ontology (GO) enrichment and visualizations for more than 100 different fungal species
+
+FungiExpresZ allow users to define gene-set(s) directly from plot (Scatter plot, Line plot and Heatmap) to perform gene ontology enrichment and visualizations. Available GO visualizations are ...
+
+  1. Emap plot
+  2. Cnet plot
+  3. Dot plot
+  4. Bar plot
+  5. Heat plot
+  6. Upset plot
+
+# Installation 
+***
+FungiExpresZ can also be installed locally as an R package or docker image. Please follow the instructions given on [github](https://github.com/cparsania/FungiExpresZ/){target="_blank"} to install on local computer.
+
+# Example data
+***
+//TO DO
+
+# Exploratory example plots
+
+
+## Scatter plot
+
+Scatter plot can be used to display pairwise correlation between 2 samples. User can color dots either by density (default) or gene groups.
+
+```{r scatter_plot, fig.cap="Scatter plot: dots color by density (left) and color by gene groups (right)"}
+knitr::include_graphics(c("About_files/example_plots/scatter_1.png" ,
+                        "About_files/example_plots/scatter_3.png"))
+```
+
+## Multi-Scatter plot
+
+Multi-scatter plot can be used to display pairwise correlation between more than 2 samples (Recommanded to show correlation between replicate samples). The lower half of the plot represents scatter plot while upper half represents correlation values. Plot diagonal displays distribution of each sample in form of density plot. As the sample number increases, total number of plots increasese exponentially in a single graphical device, which makes image crowdy and less interpretable. Therefore, we restrict user to include maximum 5 samples in one multi-scatter plot. Correlation heat-box is an alternative to show correlation in form of heat map for more than 5 samples. 
+
+```{r multi_scatter_plot, fig.cap="", out.width="70%" , fig.cap= "Multi scatter plot: pairwise correlation between replicate pairs"}
+knitr::include_graphics(c("About_files/example_plots/multi_scatter_plot.png"))
+```
+
+## CorrHeatBox 
+
+CorrHeatBox is useful to display pairwise correlation in form of heatmap. 
+
+```{r corr_heat_box, fig.cap="Correlation heatbox: represented as sqare (left) and circle (right)"}
+
+knitr::include_graphics(c("About_files/example_plots/corr_heatbox_1.png",
+                          "About_files/example_plots/corr_heatbox_2.png"
+                          ))
+
+```
+
+
+```{r corr_heat_box_2, fig.cap="Correlation heatbox: represented as upper half (left) and lower half (right)"}
+
+knitr::include_graphics(c("About_files/example_plots/corr_heatbox_4.png",
+                          "About_files/example_plots/corr_heatbox_5.png"
+                          ))
+```
+
+## Density plot 
+
+Density plot can be used to display distribution of individual sample, sample groups or gene groups. 
+
+```{r density_plot, fig.cap="Density plot: distribution of **single sample single gene group** (left) and **multiple samples single gene group** (right)"}
+
+knitr::include_graphics(c("About_files/example_plots/density_plot_1.png","About_files/example_plots/density_plot_3.png"))
+```
+
+```{r density_plot_2, fig.cap="Density plot: distribution of **single sample  multiple gene groups** (left) and **multiple samples multiple gene groups** (right).", out.width="50%"}
+knitr::include_graphics(c("About_files/example_plots/density_plot_2.png",
+                          "About_files/example_plots/density_plot_5.png"
+                          ))
+```
+
+
+## Histogram
+
+Histogram  can be used to display frequency count of individual sample, sample groups or gene groups. 
+
+```{r histogram,  fig.cap="Histogram: frequency of **single sample  single gene group** (left) and **multiple samples single gene group** (right)"}
+
+knitr::include_graphics(c("About_files/example_plots/histogram_1.png" , 
+                          "About_files/example_plots/histogram_2.png"))
+```
+
+
+```{r histogram_2, fig.cap="Histogram: frequency of **single sample  multiple gene groups** (left) and **multiple samples  multiple gene groups** (right)"}
+
+knitr::include_graphics(c("About_files/example_plots/histogram_4.png" , 
+                          "About_files/example_plots/histogram_3.png"))
+```
+
+
+## Joy plot
+
+Joy plot can be used to display distribution of individual sample, sample groups or gene groups. By separating muliple variables on Y axis, it overcome the limitation of normal density plot. 
+
+```{r joyplot, fig.cap="Joy plot: **multiple samples single gene group** color by probability (left) and color by quantile (right) "}
+
+knitr::include_graphics(c("About_files/example_plots/joy_plot_1.png" , 
+                          "About_files/example_plots/joy_plot_4.png"))
+
+```
+
+```{r joyplot_2, fig.cap="Joy plot: **multiple sample groups single gene group** (left) and **multiple samples multiple gene groups** (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/joy_plot_2.png",
+                          "About_files/example_plots/joy_plot_3.png"
+                          ))
+
+```
+
+
+## Box plot
+
+Boxplot can be used to display distribution of each observation and quantiles from individual sample, sample groups or gene groups. 
+
+```{r boxplot, fig.cap="Box plot: **multiple samples** colored by samples (left) and colored by sample groups (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/box_plot_3.png" ,
+                          "About_files/example_plots/box_plot_2.png"
+                          ))
+```
+``` {r boxplot_2,fig.cap="Box plot", fig.cap="Box plot: **multiple samples multiple sample groups** (left) and **multiple samples multiple gene groups** (right) "  }
+knitr::include_graphics (c("About_files/example_plots/box_plot_1.png",
+                         "About_files/example_plots/box_plot_4.png"))
+```
+
+
+## Violin plot
+
+Similar to box plot, violin plot, can be used to display distribution of each observation and quantiles from individual sample, sample groups or gene groups. 
+
+```{r violin_plot , fig.cap="Violin plot: **multiple samples** colored by samples (left) and colored by sample groups (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/violin_plot_1.png" ,
+                          "About_files/example_plots/violin_plot_2.png" 
+                          ))
+
+```
+
+```{r violin_plot_2 , fig.cap="Violin plot:  **multiple samples multiple sample groups** (left) and **multiple samples multiple gene groups** (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/violin_plot_3.png",
+                          "About_files/example_plots/violin_plot_4.png"))
+
+```
+
+
+## Bar plot
+
+Bar plot can be used to display expression of individual genes across multiple samples, sample groups and gene groups. 
+
+```{r barplot , fig.cap="Bar plot:  **expression of individual genes across samples** colors by genes (left) and colors by genes and faceted by sample groups (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/barplot_1.png",
+                          "About_files/example_plots/barplot_3.png" 
+                           ))
+
+```
+
+
+
+## PCA plot
+
+PCA plot can be used to display similarity and differences between samples and sample groups using principle components  
+
+```{r pcaplot, fig.cap="PCA plot",  fig.cap="PCA plot :  color by sample groups (left) and color by k-means (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/pca_plot_1.png" ,
+                          "About_files/example_plots/pca_plot_2.png"
+                          ))
+
+```
+
+
+## Line plot
+
+Line plot can be used to display  genes' trend across  multiple samples. User can group observations either by k-means or pre defined gene groups. 
+
+```{r lineplot , fig.cap="Line plot :  k-means clusters individual gene (left) and  cluster mean (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/line_plot_1.png" , 
+                          "About_files/example_plots/line_plot_2.png"))
+
+```
+
+
+## Heatmap
+
+Heatmap can be used to display genes' trend across multiple samples. User can group genes and samples  either by k-means or pre defined gene groups or sample groups. 
+
+```{r Heatmap ,out.width="40%" , fig.cap="Heatmap: row clusters by k-means (left) and row clusters by gene groups (right)" }
+
+knitr::include_graphics(c("About_files/example_plots/heatmap_1.png" , 
+                          "About_files/example_plots/heatmap_2.png"))
+```
+
+```{r Heatmap_2 ,out.width="40%", fig.cap= "Heatmap: along with column box plot on top (left) and parallel row standard deviation heatmap (right)"}
+knitr::include_graphics(c("About_files/example_plots/heatmap_3.png" , 
+                          "About_files/example_plots/heatmap_5.png"))
+```
+
+```{r Heatmap_3,out.width="40%" , fig.cap="Heatmap: row clusters sorted by standard deviation (left) and columns clustered by sample groups (right) " }
+knitr::include_graphics(c("About_files/example_plots/heatmap_4.png" , 
+                          "About_files/example_plots/heatmap_6.png"))
+```
+
+
+
+# GO example plots
+
+User can select genes or gene clusters from one of the scatter plot, lineplot or heatmap and pass them to GO enrichment followed by GO visualizations. If data uploaded by user, geneIds (first column of the file) must match with the geneIds of the selected species. 
+
+## GO dotplot 
+```{r go_dotplot , out.width="60%" ,fig.cap="GO dotplot" }
+knitr::include_graphics(c("About_files/example_plots/go_dotplot.png"))
+```
+
+## GO barplot 
+```{r go_barplot , out.width="60%" ,fig.cap="GO barplot" }
+knitr::include_graphics(c("About_files/example_plots/go_barplot.png"))
+```
+
+
+## GO heatplot
+```{r go_heatplot , out.width="60%",fig.cap="GO heatplot" }
+knitr::include_graphics(c("About_files/example_plots/go_heatplot.png"))
+```
+
+## GO emapplot
+```{r go_emapplot , out.width="60%" ,fig.cap="GO emapplot", out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("About_files/example_plots/go_emapplot.png"))
+```
+
+## GO cnetplot
+```{r go_cnetplot , out.width="60%" ,fig.cap="GO cnetplot " ,out.extra='style="background-color: black; padding:1px;"'}
+knitr::include_graphics(c("About_files/example_plots/go_cnetplot.png"))
+```
+
+## GO upsetplot
+```{r Go_plot_3 , out.width="60%" ,fig.cap="GO upsetplot",out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("About_files/example_plots/go_upsetplot.png"))
+```
+
+
+
+
+# References

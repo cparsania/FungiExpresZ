@@ -3810,11 +3810,14 @@ ul.nav.navbar-nav {
                           )
                  ),
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                 ## Tutorial page ----
+                 ## About page ----
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                 tabPanel(title = "Tutorial", icon = icon("question-circle"),
-                          
-                          tags$style(HTML("
+                 navbarMenu(title = "About",icon = icon("tag"),
+                            
+                            ## About  page 
+                            tabPanel(title = "Overview", icon = icon("searchengin"),
+                                     
+                                     tags$style(HTML("
               section.page-header {
                              display: none;
                              }      
@@ -3829,9 +3832,57 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
-                          #includeHTML(system.file( "markdown", "Tutorial.html" , package = "FungiExpresZ"))
+                                     includeHTML(system.file("app","markdown_and_html","About.html" , package = "FungiExpresZ"))
+                            ),
+                            
+                            ## Tutorial page 
+                            
+                            tabPanel(title = "Tutorial", icon = icon("chalkboard-teacher"),
+                                     
+                                     tags$style(HTML("
+              section.page-header {
+                             display: none;
+                             }      
+                    
+              section.main-content{
+                            max-width: 1000px;
+                            font-size: 100%;
+                             }
+             
+              div#TOC{
+                            max-width: 1024px;
+                             font-size: 100%;
+                             }
+                             ")),
+                                     includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
+                            )
+                            
+                            ## example page 
+                            
+              #               tabPanel(title = "Examples", icon = icon("paperclip"),
+              #                        
+              #                        tags$style(HTML("
+              # section.page-header {
+              #                display: none;
+              #                }      
+              #       
+              # section.main-content{
+              #               max-width: 1000px;
+              #               font-size: 100%;
+              #                }
+              # 
+              # div#TOC{
+              #               max-width: 1024px;
+              #                font-size: 100%;
+              #                }
+              #                ")),
+              #                        includeHTML(system.file("app","markdown_and_html","Examples.html" , package = "FungiExpresZ"))
+              #               )
+                            
+                            
                  ),
+                 
+                 
                  
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                  ## Download page  ----
@@ -3840,12 +3891,12 @@ ul.nav.navbar-nav {
                             
                             
                             ## download GO data 
-                            tabPanel("GO data",
+                            tabPanel("GO data",icon = icon("file-download"),
                                      download_go_data_ui("download_go_data")
                             ),
                             
                             ## download gene expression data 
-                            tabPanel("Gene expression data",
+                            tabPanel("Gene expression data", icon = icon("file-download"),
                                      
                                      download_gene_expression_matrix("download_gene_expression_data")
                                      
@@ -3873,8 +3924,6 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          
-                          #includeHTML("./markdown/newz_and_update.html")
                           includeHTML(system.file("app","markdown_and_html","newz_and_update.html" , package = "FungiExpresZ"))
                           
                  ),
