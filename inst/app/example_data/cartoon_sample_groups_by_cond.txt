@@ -1,0 +1,17 @@
+Cond	samples
+Control	Control_Rep.A
+Control	Control_Rep.B
+Control	Control_Rep.C
+Control	Control_Mean
+Treat1	Treat1_Rep.A
+Treat1	Treat1_Rep.B
+Treat1	Treat1_Rep.C
+Treat1	Treat1_Mean
+Treat2	Treat2_Rep.A
+Treat2	Treat2_Rep.B
+Treat2	Treat2_Rep.C
+Treat2	Treat2_Mean
+Treat3	Treat3_Rep.A
+Treat3	Treat3_Rep.B
+Treat3	Treat3_Rep.C
+Treat3	Treat3_Mean

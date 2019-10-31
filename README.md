@@ -61,18 +61,18 @@ visualization.
 ### 1.3 Visualize multiple gene groups and sample groups in a single plot
 
 Optionally, user can upload sample groups (e.g. replicates, control vs
-treatment, wild type vs deletion etc.) and multiple gene groups to
-compare between them. Group information can be used across several plots
-against fill and facet plot attributes.
+treatment, wild type vs deletion etc.) and gene groups to compare
+between them. Group information can be used across several plots against
+fill and facet plot attributes.
 
 ### 1.4 12 different data exploratory visualizations
 
-FungiExpresZ provides browser based user friendly interface, which allow
-users to generate **ggplot2** based 12 different publication-ready
-elegant visualizations. Users are allowed to adjust several common plot
-such as plot title, axis title, font size, plot theme, legend size,
-legend position etc. and other plot specific attributes. Available plot
-options are …
+FungiExpresZ provides browser based user friendly interface, which
+allows users to generate **ggplot2** based 12 different
+publication-ready elegant visualizations. Users are allowed to adjust
+several common plot attributes such as plot title, axis title, font
+size, plot theme, legend size, legend position etc. and several other
+plot specific attributes. Available plot options are …
 
 1.  Scatter Plot  
 2.  Multi-Scatter Plot  
@@ -90,7 +90,7 @@ Plot
 
 ### 1.5 Supports Gene Ontology (GO) enrichment and visualizations for more than 100 different fungal species
 
-FungiExpresZ allow users to define gene-set(s) directly from plot
+FungiExpresZ allows users to define gene-set(s) directly from plot
 (Scatter plot, Line plot and Heatmap) to perform gene ontology
 enrichment and visualizations. Available GO visualizations are …
 
@@ -106,19 +106,19 @@ enrichment and visualizations. Available GO visualizations are …
 ### 2.1 Access through internet
 
 FungiExpresZ has been hosted on shinyapps.io server, which can be
-accessed through link : <http://cparsania.shinyapps.io/fungiexpresz>.
-Due to limited resources, we recommend this to use only if you have
-smaller data set (\< 10 MB file) or if you want to get a quick look from
-few SRA samples (\<= 5 samples). Current setup allows 15 concurrent
-users. Further, website performance may also affect by internet speed
-and number of active users.
+accessed through the link :
+<http://cparsania.shinyapps.io/fungiexpresz>. Due to limited resources,
+we recommend this to use only if you have smaller data set (\< 10 MB
+file) or if you want to get a quick look from few SRA samples (\<= 10
+samples). Current setup allows 15 concurrent users to access online
+version of the app. Further, website performance may also affect by
+internet speed and number of active users.
 
 > NOTE: Website may disconnect from server if internet is not stable,
 > increasing traffic or keeping it idle for 30 minutes. We strongly
-> recommand using local version for stable analysis of large
-dataset.
+> recommand using local version for stable analysis of large dataset.
 
-### 2.2 Run locally as a container from docker image (Highly recommended)
+### 2.2 Run locally as a container from docker image
 
 This approach is highly recommended as user does not need to worry about
 any dependency related stuff.
@@ -145,7 +145,7 @@ command below will download the version `0.0.1`
 
 Possible values for `<tagName>` can be obtained from
 [here](https://hub.docker.com/r/cparsania/fungiexpresz/tags). We
-recommand you to pull latest tag always.
+recommand you to pull latest available tag.
 
 #### 2.2.3 Run container
 

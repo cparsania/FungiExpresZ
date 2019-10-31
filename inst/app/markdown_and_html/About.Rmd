@@ -101,7 +101,29 @@ FungiExpresZ can also be installed locally as an R package or docker image. Plea
 
 # Example data
 ***
-//TO DO
+We have used cartoon gene expression data to generate plots given in this document. It contains total 4 samples each with 3 replicates  Sample names and description have been given in the table below
+
+|Sample names  | Description                                |
+|:-------------|-------------------------------------------:|
+|Control_Rep.A| Normalised FPKM values                      |
+|Control_Rep.B| Normalised FPKM values                      |
+|Control_Rep.C| Normalised FPKM values                      |
+|Treat1_Rep.A | Normalised FPKM values                      |
+|Treat1_Rep.B | Normalised FPKM values                      |
+|Treat1_Rep.C | Normalised FPKM values                      |
+|Treat2_Rep.A | Normalised FPKM values                      |
+|Treat2_Rep.B | Normalised FPKM values                      |
+|Treat2_Rep.C | Normalised FPKM values                      |
+|Treat3_Rep.A | Normalised FPKM values                      |
+|Treat3_Rep.B | Normalised FPKM values                      |
+|Treat3_Rep.C | Normalised FPKM values                      |
+|Control_Mean | Mean FPKM of control replicates A,B,C       |
+|Treat1_Mean  |  Mean FPKM of Treatment1 replicates A,B,C   |
+|Treat1_Mean  |  Mean FPKM of Treatment2 replicates A,B,C   |
+|Treat1_Mean  |  Mean FPKM of Treatment3 replicates A,B,C   |
+|fc_treat1    |  log2FC(Treat1_Mean/Control1_Mean)          |
+|fc_treat2    |  log2FC(Treat2_Mean/Control2_Mean)          |
+|fc_treat3    |  log2FC(Treat3_Mean/Control3_Mean)          |
 
 # Exploratory example plots
 
