@@ -14,18 +14,20 @@
 
 ## Overview
 
-FungiExpresZ is an R-shiny package to analyse and visualize gene
-expression data. It allows user to visualize his/her own data as well as
-more than 13,000 pre processed SRA fungal gene expression data. User can
-even merge his/her own data with given SRA data to perform combined
-analysis and visualizations. There are total 12 different data
-exploratory visualizations and 6 different GO visualizations user can
-generate. For more than 100 different fungal species GO analysis and GO
-visualizations can be performed. User can select set of genes directly
-from one of the scatter plot, line plot or heatmap and pass them for GO
-analysis and GO visualizations. Optionally, user can even input multiple
-gene groups and sample groups information for more complex
-visualizations.
+FungiExpresZ is a browser based user interface (develoed in R-shiny) to
+analyse and visualize gene expression data. It allow users to visualize
+their own gene expression data as well as more than 13,000 pre processed
+SRA fungal gene expression data. Users can even merge their data with
+SRA data to perform combined analysis and visualizations. Just uploading
+gene expression matrix (.txt file where rows are genes and column are
+samples), users can generate 12 different exploratory visualizations and
+6 different GO visualizations. For more than 100 different fungal
+species, GO analysis and GO visualizations can be performed. Users can
+select set of genes directly from one of the scatter plot, line plot or
+heatmap and pass them for GO analysis and GO visualizations. Optionally,
+user can even upload multiple gene groups and sample groups to compare
+between
+them.
 
 ## 1\. Key features
 
