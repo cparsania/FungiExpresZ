@@ -1,4 +1,4 @@
-# FungiExpresZ (development version)
+# FungiExpresZ 0.0.4
 
 # FungiExpresZ 0.0.3
 
