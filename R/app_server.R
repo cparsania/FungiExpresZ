@@ -85,6 +85,7 @@
 #' @importFrom dplyr  select_vars_
 #' @importFrom dplyr  slice
 #' @importFrom dplyr  slice_
+#' @importFrom dplyr  setdiff
 #' @importFrom dplyr  starts_with
 #' @importFrom dplyr  summarise
 #' @importFrom dplyr  summarise_
