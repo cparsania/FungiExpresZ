@@ -681,14 +681,21 @@ app_server <- function(input, output,session) {
     ## if number of rows in the processed data less than user uploaded rows, throw warning.
     
     if(base::nrow(processed_data) < base::nrow(data_from_user)){ 
+      genes_removed <- dplyr::setdiff(data_from_user[[1]] , processed_data[[1]])
       type = "warning"
       title = "Data upload with warning...!!!"
       numb_of_genes_removed <- base::nrow(data_from_user) - base::nrow(processed_data)
-      text <- paste(numb_of_genes_removed, 
-                    "  genes have been removed due to one of the following reasons...\n
-                    1). Genes have value NA in one of the sample. NA found either directly from uploaded data or due to log transformation (if selected).\n
-                    2). Genes have value 0 in all the samples."
-      )
+      text <- tags$h5(numb_of_genes_removed, 
+                      "  genes have been removed due to one of the following reasons...", 
+                      tags$br(),tags$br(),
+                      "1). Genes have value NA in one of the sample. NA found either directly from uploaded data or due to log transformation (if selected).", 
+                      tags$br(),tags$br(),
+                      "2). Genes have value 0 in all the samples.",
+                      tags$br(),tags$br(), 
+                      "Removed genes are ...",
+                      tags$br(),tags$br(),
+                      tags$h5(paste0(genes_removed , collapse = ","),
+                              style = "height: 50px;white-space:nowrap;overflow-x:auto;"), style = "text-align:justify;")
       
       ## if number of rows in the processed data equal to the user uploaded rows, show success. 
     } else if(base::nrow(processed_data) == base::nrow(data_from_user)) {
@@ -700,7 +707,7 @@ app_server <- function(input, output,session) {
     shinyWidgets::sendSweetAlert(session = session ,
                                  type = type,
                                  title = title ,
-                                 text = text)
+                                 text = text )
     
     ## column names replace space to "_", this must be applied to groups also when group info uploaded from file
     user_uploaded_processed_data <- processed_data %>%  
@@ -3476,7 +3483,7 @@ app_server <- function(input, output,session) {
       } 
       incProgress(2/10)
       ## atleast two vars req  to generate hm
-      if(length(input$heatmap_vars) ==  1) {
+      if(length(input$heatmap_vars) ==  1) { 
         shinyWidgets::sendSweetAlert(
           session = session,
           title = "Error...",
