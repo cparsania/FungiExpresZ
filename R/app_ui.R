@@ -740,8 +740,7 @@ ul.nav.navbar-nav {
                                                         inputId = "scatter_col_low",
                                                         label = "low",
                                                         value = "blue",
-                                                        returnName = TRUE,
-                                                        palette = "limited"
+                                                        returnName = TRUE
                                                       )
                                                     ),
                                                     ## color : med 
@@ -751,8 +750,7 @@ ul.nav.navbar-nav {
                                                         inputId = "scatter_col_medium",
                                                         label = "med",
                                                         value = "yellow",
-                                                        returnName = TRUE,
-                                                        palette = "limited"
+                                                        returnName = TRUE
                                                       )
                                                     ),
                                                     
@@ -763,8 +761,7 @@ ul.nav.navbar-nav {
                                                         inputId = "scatter_col_high",
                                                         label = "high",
                                                         value = "red",
-                                                        returnName = TRUE,
-                                                        palette = "limited"
+                                                        returnName = TRUE
                                                       )
                                                     )
                                                   )
@@ -1262,8 +1259,7 @@ ul.nav.navbar-nav {
                                                   inputId = "heatbox_corr_text_col",
                                                   label = "Corr text color",
                                                   value = "yellow",
-                                                  returnName = TRUE, 
-                                                  palette = "limited"
+                                                  returnName = TRUE
                                                 )
                                               )
                                             ),
@@ -1826,8 +1822,7 @@ ul.nav.navbar-nav {
                                                                         inputId = "boxplot_dots_color",
                                                                         label = tags$h4(tags$b("Dots color")),
                                                                         value = "black",
-                                                                        returnName = TRUE,
-                                                                        palette = "limited"
+                                                                        returnName = TRUE
                                                                       ),
                                                                       
                                                                       
@@ -2264,8 +2259,7 @@ ul.nav.navbar-nav {
                                                              inputId = "barplot_color_chooser",
                                                              label = h4(tags$b("Select")),
                                                              value = "black",
-                                                             returnName = TRUE,
-                                                             palette = "limited"
+                                                             returnName = TRUE
                                                            )
                                                          )
                                                        )
@@ -2516,8 +2510,7 @@ ul.nav.navbar-nav {
                                                                    inputId = "pca_sample_name_color",
                                                                    label = tags$h4(tags$b("Select color")),
                                                                    value = "black",
-                                                                   returnName = TRUE,
-                                                                   palette = "limited"
+                                                                   returnName = TRUE
                                                                  )
                                                 ),
                                                 
@@ -2837,8 +2830,7 @@ ul.nav.navbar-nav {
                                                         inputId = "line_plot_color_chooser",
                                                         label = tags$h4(tags$b("Select")),
                                                         value = "black",
-                                                        returnName = TRUE,
-                                                        palette = "limited"
+                                                        returnName = TRUE
                                                       )
                                                     )
                                                   )
@@ -3017,7 +3009,7 @@ ul.nav.navbar-nav {
                                         shinyBS::bsCollapsePanel(
                                           title = "Select plot variables", style = "primary",
                                           column(
-                                            width = 12, style = "overflow-x:auto;",
+                                            width = 12, #style = "overflow-x:auto;",
                                             
                                             ## select heatmap variables
                                             shinyWidgets::pickerInput(
@@ -3116,6 +3108,7 @@ ul.nav.navbar-nav {
                                             # heat map column row and legend options
                                             fluidRow(
                                               #style = "min-width:1200px",
+                                              style = "overflow-x:auto;",
                                               column(
                                                 width = 4, style = "min-width:150px",
                                                 
@@ -3332,7 +3325,7 @@ ul.nav.navbar-nav {
                                                 )
                                               ),
                                               column(
-                                                width = 4, style = "min-width:150px",
+                                                width = 4, style = "min-width:150px;",
                                                 
                                                 ## heatmap column options
                                                 shinyBS::bsCollapse(
@@ -3515,7 +3508,7 @@ ul.nav.navbar-nav {
                                                 )
                                               ),
                                               column(
-                                                width = 4, style = "min-width:150px",
+                                                width = 4, style = "min-width:150px;",
                                                 
                                                 # heatmap legend options
                                                 shinyBS::bsCollapse(
@@ -3558,58 +3551,51 @@ ul.nav.navbar-nav {
                                                                   ),
                                                                   br(),
                                                                   tags$h4(tags$b(("Heatmap Colors"))),
-                                                                  br(),
                                                                   
-                                                                  ## heatmap color : low
-                                                                  column(
-                                                                    width = 4,
+                                                                  ## heatmap color panel
+                                                                  shiny::wellPanel(
+                                                                    ## heatmap color : low
                                                                     colourpicker::colourInput(
                                                                       inputId = "heatmap_col_low",
-                                                                      label = tags$h4(tags$b("low")),
+                                                                      label = tags$h4(tags$b("Low")),
                                                                       value = "#004E63",
                                                                       returnName = TRUE
-                                                                    )
-                                                                  ),
-                                                                  
-                                                                  ## heatmap color : med
-                                                                  column(
-                                                                    width = 4,
+                                                                    ),
+                                                                    
+                                                                    ## heatmap color : med
                                                                     colourpicker::colourInput(
                                                                       inputId = "heatmap_col_medium",
-                                                                      label = tags$h4(tags$b("med")),
+                                                                      label = tags$h4(tags$b("Middle")),
                                                                       value = "white",
                                                                       returnName = TRUE
-                                                                    )
-                                                                  ),
-                                                                  
-                                                                  ## heatmap color : high
-                                                                  column(
-                                                                    width = 4,
+                                                                    ),
+                                                                    
+                                                                    ## heatmap color : high
                                                                     colourpicker::colourInput(
                                                                       inputId = "heatmap_col_high",
-                                                                      label = tags$h4(tags$b("high")),
+                                                                      label = tags$h4(tags$b("High")),
                                                                       value = "#BD1717",
                                                                       returnName = TRUE
                                                                     )
+                                                                    
                                                                   ),
-                                                                  br(),
                                                                   
                                                                   ### set legend minimum
                                                                   br(),
                                                                   tags$h4(tags$b(("Heatmap scale"))),
-                                                                  br(),
-                                                                  column(
-                                                                    width = 6, 
+                                                                
+                                                                  ## heatmap scale 
+                                                                  wellPanel(
                                                                     numericInput(inputId = "heatmap_scale_min" , 
                                                                                  label = tags$h4(tags$b("Minimum")), 
-                                                                                 value = 0)
-                                                                  ),
-                                                                  ### set legend maximum
-                                                                  column(width = 6,
-                                                                         numericInput(inputId = "heatmap_scale_max" , 
-                                                                                      label = tags$h4(tags$b("Maximum")) , 
-                                                                                      value = 20 )
+                                                                                 value = 0),
+                                                                    
+                                                                    ### set legend maximum
+                                                                    numericInput(inputId = "heatmap_scale_max" , 
+                                                                                 label = tags$h4(tags$b("Maximum")) , 
+                                                                                 value = 20 )
                                                                   )
+                                                                    
                                                   )
                                                 )
                                               )
