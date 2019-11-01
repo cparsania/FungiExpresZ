@@ -39,8 +39,7 @@ ggplot_fill_colour_ui <- function(id , fill_attribute  ="Samples"){
             inputId = ns("plot_color_chooser"),
             label = tags$h4(tags$b("Select")),
             value = "black",
-            returnName = TRUE,
-            palette = "limited"
+            returnName = TRUE
           )
         )
       )

@@ -69,8 +69,7 @@ ggplot_fill_and_facet_ui <- function(id){
             inputId = ns("plot_color_chooser"),
             label = tags$h4(tags$b("Select")),
             value = "black",
-            returnName = TRUE,
-            palette = "limited"
+            returnName = TRUE
           )
         )  
       )

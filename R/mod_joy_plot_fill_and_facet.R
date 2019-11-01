@@ -90,16 +90,14 @@ joy_plot_fill_and_facet_ui <- function(id){
                        inputId = ns("fill_alt_1"),
                        label = tags$h4(tags$b("First")),
                        value = "blue",
-                       returnName = TRUE,
-                       palette = "limited"
+                       returnName = TRUE
                      ) , 
                      
                      colourpicker::colourInput(
                        inputId = ns("fill_alt_2"),
                        label = tags$h4(tags$b("Second")) ,
                        value = "green",
-                       returnName = TRUE,
-                       palette = "limited"
+                       returnName = TRUE
                      )
                      
                      
@@ -128,8 +126,7 @@ joy_plot_fill_and_facet_ui <- function(id){
       inputId = ns("plot_ridges_col"),
       label = tags$h4(tags$b("Color ridges")),
       value = "black",
-      returnName = TRUE,
-      palette = "limited"
+      returnName = TRUE
     ),
     
     
