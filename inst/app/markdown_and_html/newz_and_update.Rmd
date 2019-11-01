@@ -35,6 +35,15 @@ This page is all about notifing  users regarding new features, bug fixing, any o
 
 ***
 
+### **`r lubridate::date(x = "2019/11/1")`**
+#### Overview page introduced
+
+Under the tab About --> Overview page is created. As name suggests, it gives an overview and functionality of the `r app_name`. In addition, we provided example plots generated from cartoon data. Users can take ideas from example plots and replicate them for their own data. 
+
+
+***
+
+
 ### **`r lubridate::date(x = "2019/10/14")`**
 #### New logo introduced
 

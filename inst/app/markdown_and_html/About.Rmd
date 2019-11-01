@@ -22,7 +22,8 @@ knitr::opts_chunk$set(echo = FALSE, fig.align="center", fig.show="hold" , out.wi
 
 # Overview
 ***
-FungiExpresZ is an R-shiny package to analyse and visualize gene expression data. It allows user to visualize his/her own data as well as more than 13,000 pre processed SRA fungal gene expression data. User can even merge his/her own data with given SRA data to perform combined analysis and visualizations. There are total 12 different data exploratory visualizations and 6 different GO visualizations user can generate. For more than 100 different fungal species GO analysis and GO visualizations can be performed. User can select set of genes directly from one of the scatter plot, line plot or heatmap and pass them for GO analysis and GO visualizations. GO enrichment and GO visualizations have been implemented through popular R package ClusterProfiler [@Yu2012].  Optionally, user can even input multiple gene groups and sample groups information for more complex visualizations . 
+
+FungiExpresZ is a browser based user interface (develoed in R-shiny) to analyse and visualize gene expression data. It allows users to visualize their own gene expression data as well as more than 13,000 pre processed SRA fungal gene expression data. Users can even merge their data with SRA data to perform combined analysis and visualizations. Just uploading gene expression matrix (.txt file where rows are genes and column are samples), users can generate 12 different exploratory visualizations and 6 different GO visualizations. Optionally, users can upload multiple gene groups and sample groups to compare between them. Users can select set of genes directly from one of the scatter plot, line plot or heatmap and pass them for GO analysis and GO visualizations. GO analysis and GO visualizations have been implemented through popular R package ClusterProfiler [@Yu2012] and can be done for more than 100 different fungal species. 
 
 
 # Key features  
@@ -101,10 +102,18 @@ FungiExpresZ can also be installed locally as an R package or docker image. Plea
 
 # Example data
 ***
-We have used cartoon gene expression data to generate plots given in this document. It contains total 4 samples each with 3 replicates  Sample names and description have been given in the table below
 
-|Sample names  | Description                                |
+We have used cartoon gene expression data to generate plots given in this document. 
+
+## Expression matrix 
+
+// TO DO : ADD DOWNLOAD LINKS
+
+Expression matrix can be downloaded from the file given here. It contains 4 samples each with 3 replicates. Column names and their description have been given in the table below.
+
+|Column names  | Description                                |
 |:-------------|-------------------------------------------:|
+|gene_id      | Gene id, unique to each row                 |
 |Control_Rep.A| Normalised FPKM values                      |
 |Control_Rep.B| Normalised FPKM values                      |
 |Control_Rep.C| Normalised FPKM values                      |
@@ -125,8 +134,67 @@ We have used cartoon gene expression data to generate plots given in this docume
 |fc_treat2    |  log2FC(Treat2_Mean/Control2_Mean)          |
 |fc_treat3    |  log2FC(Treat3_Mean/Control3_Mean)          |
 
+## Sample groups 
+
+// TO DO : ADD DOWNLOAD LINKS
+
+Sample group file contains two columns.
+
+|Columns    |Description  |
+|:----------|------------:|
+|group_name | User given name to each sample (column) group. Values in this column can be redundant.|
+|group_members| Values in this column must be from column names given as sample identity in the expression matrix file. Each value must be unique in this column. |
+
+In here, we have grouped samples by replicates. File can be downloaded from here. 
+
+
+## Gene groups 
+
+Gene group file contains two columns.
+
+|Columns    |Description  |
+|:----------|------------:|
+|group_name | User given name to each gene (row) group. Values in this column can be redundant.|
+|group_members| Values in this column must be from the first column given as row identity in the expression matrix file. Each value must be unique in this column. |
+
+In here, we have grouped genes by 
+
+1) Fold change comparison - Treatment(1,2 or 3)/Control 
+
+  + Three groups in each comparison
+    + UP
+    + DOWN  
+    + NC 
+
+2) Fold change status in two different comparisons 
+
+  + Nine groups in each catagory
+    + UP_UP
+    + UP_DOWN
+    + UP_NC
+    + DOWN_DOWN
+    + DOWN_UP
+    + DOWN_NC
+    + NC_NC
+    + NC_UP
+    + NC_DOWN 
+
+Gene group files can be downloaded from the links given below.  
+
+// TO DO : ADD DOWNLOAD LINKS
+
+|Gene group files  | Description |
+|:---------------:|:-------------------------------------------:|
+|gene group file 1|gene groups by fold change **Treat1/control**|
+|gene group file 2|gene groups by fold change **Treat2/control**|
+|gene group file 3|gene groups by fold change **Treat3/control**|
+|gene group file 4|gene groups by fold status **Treat1/control** vs **Treat2/control**|
+|gene group file 5|gene groups by fold status **Treat2/control** vs **Treat3/control**|
+|gene group file 6|gene groups by fold status **Treat1/control** vs **Treat3/control**|
+
 # Exploratory example plots
 
+By uploading  data files (given above) to the FungiExpresZ, plots below can be generated. 
 
 ## Scatter plot
 
