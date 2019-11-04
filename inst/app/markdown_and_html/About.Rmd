@@ -23,14 +23,14 @@ knitr::opts_chunk$set(echo = FALSE, fig.align="center", fig.show="hold" , out.wi
 # Overview
 ***
 
-FungiExpresZ is a browser based user interface (develoed in R-shiny) to analyse and visualize gene expression data. It allows users to visualize their own gene expression data as well as more than 13,000 pre processed SRA fungal gene expression data. Users can even merge their data with SRA data to perform combined analysis and visualizations. Just uploading gene expression matrix (.txt file where rows are genes and column are samples), users can generate 12 different exploratory visualizations and 6 different GO visualizations. Optionally, users can upload multiple gene groups and sample groups to compare between them. Users can select set of genes directly from one of the scatter plot, line plot or heatmap and pass them for GO analysis and GO visualizations. GO analysis and GO visualizations have been implemented through popular R package ClusterProfiler [@Yu2012] and can be done for more than 100 different fungal species. 
+FungiExpresZ is a browser based user interface (develoed in R-shiny) to analyse and visualize gene expression data. It allows users to visualize their own gene expression data as well as more than 13,000 pre processed SRA fungal gene expression data. A user can even merge their data with SRA data to perform combined analysis and visualizations. Just uploading gene expression matrix (.txt file where rows are genes and column are samples), a user can generate 12 different exploratory visualizations and 6 different GO visualizations. Optionally, a user can upload multiple gene groups and sample groups to compare between them. A user can select set of genes directly from one of the scatter plot, line plot or heatmap and pass them for GO analysis and GO visualizations. GO analysis and GO visualizations can be done for more than 100 different fungal species, which have been implemented through popular R package ClusterProfiler [@Yu2012].
 
 
 # Key features  
 ***
 ## More than 13,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 8 different fungal species
 
-FungiExpresZ provides normalized gene expression values (FPKM) for more than 13,000 SRA samples. User can select one or more SRA samples for visualizations. Data can be searched based on species, genotype, strain or free text which will be matched against several SRA columns. 
+FungiExpresZ provides normalized gene expression values (FPKM) for more than 13,000 SRA samples. A user can select one or more SRA samples for visualizations. SRA data can be searched based on species, genotype, strain or free text, which will be matched against several SRA columns to find relavent hits.
 
 ```{r, eval=TRUE, echo=FALSE}
 library(magrittr)
@@ -60,9 +60,9 @@ dd <- tibble::tribble(
 
 > NOTE: We are continuously processing fungal SRA data. This table will be updated as we add new data. 
 
-## visualize gene expressiondata with or without integration of SRA data
+## Visualize user supplied gene expression data with or without integration of SRA data
     
-Users can analyze and visualize their own data by uploading .txt/.csv file (columns are samples and rows are genes). Optionally, user data can be integrated with selected SRA data for combined analysis and visualization. 
+Users can analyze and visualize their own data by uploading .txt/.csv file (columns are samples and rows are genes). Optionally, a user data can be integrated with selected SRA data for combined analysis and visualization. 
 
 ## Visualize multiple gene groups and sample groups in a single plot
 
@@ -107,9 +107,7 @@ We have used cartoon gene expression data to generate plots given in this docume
 
 ## Expression matrix 
 
-// TO DO : ADD DOWNLOAD LINKS
-
-Expression matrix can be downloaded from the file given here. It contains 4 samples each with 3 replicates. Column names and their description have been given in the table below.
+Expression matrix can be downloaded from the file given [here](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_log2fpkm_log2fc.txt){target="_blank"}. It contains 4 samples each with 3 replicates. Column names and their description have been given in the table below.
 
 |Column names  | Description                                |
 |:-------------|-------------------------------------------:|
@@ -136,8 +134,6 @@ Expression matrix can be downloaded from the file given here. It contains 4 samp
 
 ## Sample groups 
 
-// TO DO : ADD DOWNLOAD LINKS
-
 Sample group file contains two columns.
 
 |Columns    |Description  |
@@ -145,7 +141,7 @@ Sample group file contains two columns.
 |group_name | User given name to each sample (column) group. Values in this column can be redundant.|
 |group_members| Values in this column must be from column names given as sample identity in the expression matrix file. Each value must be unique in this column. |
 
-In here, we have grouped samples by replicates. File can be downloaded from here. 
+In here, we have grouped samples by replicates]. File can be downloaded from [here](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_sample_groups_by_cond.txt){target="_blank"}. 
 
 
 ## Gene groups 
@@ -157,16 +153,16 @@ Gene group file contains two columns.
 |group_name | User given name to each gene (row) group. Values in this column can be redundant.|
 |group_members| Values in this column must be from the first column given as row identity in the expression matrix file. Each value must be unique in this column. |
 
-In here, we have grouped genes by 
+In here, we have grouped genes by ...
 
-1) Fold change comparison - Treatment(1,2 or 3)/Control 
+1) Fold change comparison - Treatment(1,2 or 3)/Control. 
 
   + Three groups in each comparison
     + UP
     + DOWN  
     + NC 
 
-2) Fold change status in two different comparisons 
+2) Fold change status in two different comparisons.
 
   + Nine groups in each catagory
     + UP_UP
@@ -179,18 +175,16 @@ In here, we have grouped genes by
     + NC_UP
     + NC_DOWN 
 
-Gene group files can be downloaded from the links given below.  
-
-// TO DO : ADD DOWNLOAD LINKS
+Gene groups files can be downloaded from the links given in the table below. 
 
 |Gene group files  | Description |
-|:---------------:|:-------------------------------------------:|
-|gene group file 1|gene groups by fold change **Treat1/control**|
-|gene group file 2|gene groups by fold change **Treat2/control**|
-|gene group file 3|gene groups by fold change **Treat3/control**|
-|gene group file 4|gene groups by fold status **Treat1/control** vs **Treat2/control**|
-|gene group file 5|gene groups by fold status **Treat2/control** vs **Treat3/control**|
-|gene group file 6|gene groups by fold status **Treat1/control** vs **Treat3/control**|
+|:--------------------:|:-------------------------------------------:|
+|gene group file 1 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1.txt){target="_blank"}|gene groups by fold change **Treat1/control**|
+|gene group file 2 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2.txt){target="_blank"}|gene groups by fold change **Treat2/control**|
+|gene group file 3 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat3.txt){target="_blank"}|gene groups by fold change **Treat3/control**|
+|gene group file 4 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat2.txt){target="_blank"}|gene groups by fold status **Treat1/control** vs **Treat2/control**|
+|gene group file 5 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2_treat3.txt){target="_blank"}|gene groups by fold status **Treat2/control** vs **Treat3/control**|
+|gene group file 6 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat3.txt){target="_blank"}|gene groups by fold status **Treat1/control** vs **Treat3/control**|
 
 # Exploratory example plots
 
