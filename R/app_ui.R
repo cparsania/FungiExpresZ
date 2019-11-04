@@ -717,7 +717,7 @@ ul.nav.navbar-nav {
                                                 # color selection
                                                 shinyWidgets::radioGroupButtons(
                                                   inputId = "scatter_color_chooser",
-                                                  label = h4(tags$b("Color by")), choices = c("Default" = "default",
+                                                  label = h4(tags$b("Color by")), choices = c("Density" = "default",
                                                                                               "Manual" = "manual" ,
                                                                                               "Gene group"="by_gene_groups"),
                                                   individual = TRUE ,
@@ -2235,8 +2235,9 @@ ul.nav.navbar-nav {
                                                      shinyWidgets::radioGroupButtons(
                                                        inputId = "fill_barplot",
                                                        label = h4(tags$b("Fill by")), 
-                                                       choices = c("Genes" =  "GeneNames" ,"Samples" = "samples", 
-                                                                   "Sample groups" = "groups" ,"Identical" = "identical") ,
+                                                       choices = c("Manual" = "identical",
+                                                                   "Genes" =  "GeneNames" ,"Samples" = "samples", 
+                                                                   "Sample groups" = "groups") ,
                                                        selected = "samples" ,status = "success" ,size = "sm", 
                                                        direction = "horizontal", 
                                                        individual = TRUE ,
@@ -2270,7 +2271,8 @@ ul.nav.navbar-nav {
                                                      shinyWidgets::radioGroupButtons(
                                                        inputId = "barplot_facet_value",
                                                        label = h4(tags$b("Separate by")), 
-                                                       choices = c("None" = "none" , "Genes" =  "GeneNames" ,
+                                                       choices = c("None" = "none" , 
+                                                                   "Genes" =  "GeneNames" ,
                                                                    "Samples" = "samples", 
                                                                    "Sample groups" = "groups"),
                                                        selected = "none",status = "success" ,size = "sm", 

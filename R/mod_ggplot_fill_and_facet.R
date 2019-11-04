@@ -41,7 +41,7 @@ ggplot_fill_and_facet_ui <- function(id){
     shinyWidgets::radioGroupButtons(
       inputId = ns("fill_plot"),
       label = tags$h4(tags$b("Fill by")), 
-      choices = c("None" = "identical",
+      choices = c("Manual" = "identical",
                   "Samples" = "samples", 
                   "Sample groups" = "sample_groups" ,
                   "Gene groups" = "gene_groups"
