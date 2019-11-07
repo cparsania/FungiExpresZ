@@ -785,7 +785,7 @@ app_server <- function(input, output,session) {
   observeEvent(input$upload_sample_data,{
     
     if(input$upload_sample_data){
-      example_data_file  =  system.file("app", "example_data" ,"all_rna_seq_replicate_mean_log_fpkm_mat2.txt" ,package = "FungiExpresZ" )
+      example_data_file  =  system.file("app", "cartoon_data" ,"cartoon_log2fpkm_log2fc.txt" ,package = "FungiExpresZ" )
       example_data <- readr::read_delim(file = example_data_file , delim = "\t") %>% 
         tidyr::drop_na() %>%
         dplyr::filter_if(is.numeric , .vars_predicate = dplyr::any_vars(. != 0 )) ## select genes which have atleast one non zero value
