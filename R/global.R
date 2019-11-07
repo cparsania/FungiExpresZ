@@ -665,7 +665,7 @@ get_ca_gene_names_mapping <- function() {
 #' 
 #' It uses one of the two functions \code{clusterProfiler::enricher} or \code{clusterProfiler::compareCluster}
 #'
-#' @param genome internal
+#' @param genome name of the target species genome. It must match to the genome column of \code{ah_data_summary2} object
 #' @param query_genes internal
 #' @param p_adjust_method internal
 #' @param ontology internal
@@ -673,6 +673,7 @@ get_ca_gene_names_mapping <- function() {
 #' @param max_gs_size internal
 #' @param pval_cutoff internal
 #' @param qval_cutoff internal
+#' @param cross_ref_go_db internal 
 #'
 #' @keywords internal
 #' @return internal
@@ -684,7 +685,8 @@ perform_go_enrichmet <- function(genome, query_genes ,
                                  p_adjust_method = "BH" , 
                                  ontology = "Biological Process",
                                  min_gs_size = 10 , 
-                                 max_gs_size = 500){
+                                 max_gs_size = 500, 
+                                 cross_ref_go_db = TRUE){
         
         # ah_data_summary2 <- read_rds("../../9_bioseqc/fungiexpresz/app/annotations/fungi_db_orgdb_derieved_go_data.rds")
         # p_adjust_method <-"BH" # c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none")[3]
@@ -718,10 +720,20 @@ perform_go_enrichmet <- function(genome, query_genes ,
                 dplyr::select(c("GO_ID", "GID")) %>% 
                 tidyr::drop_na() 
         
+        ## cross reference with go data
+        if(cross_ref_go_db){
+                term_to_gene <- term_to_gene %>%
+                        tidyr::nest(GID = c(GID)) %>%
+                        cross_ref_go_db()        
+        }
+        
         ## TERM to NAME table 
         term_to_name <- query_meta_data %>%
                 dplyr::select(c("GO_ID", "GO_TERM_NAME")) %>% 
                 tidyr::drop_na() 
+        
+        #print("Cross ref go.db param")
+        #print(cross_ref_go_db)
         
         ## perform enrichment
         enr <- tryCatch({
@@ -942,6 +954,75 @@ badge_github_release_url <- function(url ="cparsania/fungiexpresz" , col = "red"
         # https://img.shields.io/github/v/release/cparsania/fungiexpresz?color=red&logo=apple&logoColor=NULL
 }
 
+
+
+#' Cross reference GO_ID to GID mapping from GO.db data 
+#' @description given a GO_ID GID mapping, this function cross reference GO_ID with GO.db. For each GO_ID, it map all GID for all offspring GO_ID
+#' @param term_to_gene a tbl with two columns having many to many mapping between GO_ID and GID : Column 1 GO_ID and column 2 GID
+#'
+#' @return a tbl with many to many mapping. 
+#' @export
+#' @importFrom GO.db GOBPOFFSPRING
+#' @importFrom AnnotationDbi toTable
+#' @importFrom tibble as_tibble 
+#' @importFrom dplyr filter
+#' @importFrom dplyr left_join
+#' @importFrom dplyr select
+#' @importFrom dplyr group_by
+#' @importFrom tidyr nest
+#' @importFrom tidyr unnest
+#' @importFrom dplyr ungroup
+#' @importFrom dplyr mutate
+#' @importFrom dplyr bind_rows
+#' @importFrom purrr map2
+#' @importFrom purrr flatten
+#' @keywords internal
+cross_ref_go_db <- function(term_to_gene){
+        
+        
+        ## get all off springs from Go.db
+        go_parent_offspring_all <- GO.db::GOBPOFFSPRING %>% 
+                AnnotationDbi::toTable() %>% 
+                as.data.frame() 
+        
+        ## rename column names         
+        colnames(go_parent_offspring_all) <- c("GO_ID_OFFSPRING", "GO_ID_PARENT")
+        
+        ## to tibble 
+        
+        go_parent_offspring_all <- go_parent_offspring_all %>% 
+                tibble::as_tibble() 
+        
+        
+        ## keep GO_ID_PARENT only if ,it is present in the term_to_gene data
+        go_parent_offspring_filtered <- go_parent_offspring_all %>% 
+                dplyr::filter(GO_ID_PARENT %in% term_to_gene$GO_ID)
+        
+        ## map go_id to each children  
+        go_parent_to_gid_children <- go_parent_offspring_filtered %>% 
+                ## map GID to GO_CHILDREN
+                dplyr::left_join(term_to_gene , by = c("GO_ID_OFFSPRING"="GO_ID" )  ) %>% 
+                ## rename GID to GID_CHILDREN
+                dplyr::rename(GID_CHILDREN = GID) %>% 
+                ## drop if GO_ID_OFFSPRING has no genes assigned 
+                dplyr::filter(lengths(GID_CHILDREN) !=0)%>%
+                ## remove GO_ID_OFFSPRING and group by GO_ID_PARENT
+                dplyr::select(GO_ID_PARENT,GID_CHILDREN) %>% 
+                dplyr::group_by(GO_ID_PARENT) %>% 
+                tidyr::nest(GID_CHILDREN = c(GID_CHILDREN)) %>% 
+                dplyr::ungroup() %>%
+                dplyr::mutate(GID_CHILDREN = purrr::flatten(GID_CHILDREN))
+        
+        
+        ## add GID to GO_ID_PARENT and combine GID_CHILDREN & GID_PARENT
+        term_to_gene_new <- term_to_gene  %>% 
+                dplyr::left_join(go_parent_to_gid_children, by = c("GO_ID" = "GO_ID_PARENT")) %>%
+                dplyr::mutate(GID_MERGED = purrr::map2( GID,GID_CHILDREN, ~(dplyr::bind_rows (..1 , ..2  ) %>% unique()))) %>%
+                dplyr::select(GO_ID, GID_MERGED) %>% 
+                tidyr::unnest(c(GID_MERGED)) 
+        
+        
+}
 
 
 

@@ -7,10 +7,10 @@
 perform_go_enrichmet(genome, query_genes, pval_cutoff = 1,
   qval_cutoff = 1, p_adjust_method = "BH",
   ontology = "Biological Process", min_gs_size = 10,
-  max_gs_size = 500)
+  max_gs_size = 500, cross_ref_go_db = TRUE)
 }
 \arguments{
-\item{genome}{internal}
+\item{genome}{name of the target species genome. It must match to the genome column of \code{ah_data_summary2} object}
 
 \item{query_genes}{internal}
 
@@ -25,6 +25,8 @@ perform_go_enrichmet(genome, query_genes, pval_cutoff = 1,
 \item{min_gs_size}{internal}
 
 \item{max_gs_size}{internal}
+
+\item{cross_ref_go_db}{internal}
 }
 \value{
 internal

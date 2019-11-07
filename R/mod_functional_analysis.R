@@ -15,7 +15,7 @@ functional_analysis_ui <- function(id){
   tagList(
     fluidRow(
       ## ontology type
-      column(width = 3,
+      column(width = 4,
              shinyWidgets::pickerInput(inputId = ns("go_type"),
                                        label = "Ontology" ,
                                        choices = c("Biological Process"  = "Biological Process",
@@ -23,23 +23,57 @@ functional_analysis_ui <- function(id){
                                                    "Cellular Component" = "Cellular Component"),
                                        width = "100%")
       ),
-      # p-adj method 
-      ##c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none")
-      column(width = 3, 
-             shinyWidgets::pickerInput(inputId = ns("p_adj_method"),
-                                       label = "P.adjust" ,
-                                       choices = c("holm" = "holm", 
-                                                   "hochberg" = "hochberg", 
-                                                   "hommel" = "hommel", 
-                                                   "bonferroni" ="bonferroni", 
-                                                   "BH" = "BH", 
-                                                   "BY"="BY",
-                                                   "fdr"="fdr", 
-                                                   "none"="none"),
-                                       selected = "BH",
-                                       width = "100%")
-             
-      ),
+      
+      
+      ## select gene cluster for dotplot 
+      conditionalPanel(condition =  
+                         paste0("input['",ns("view"),"'] == 'dotplot'"),
+                       ## select gene set
+                       column(width = 4,
+                              shinyWidgets::pickerInput(inputId = ns("dotplot_input_geneset"),
+                                                        label = "Gene cluster" , 
+                                                        multiple = T,
+                                                        options = list(
+                                                          `actions-box` = TRUE),
+                                                        choices = "",
+                                                        width = "100%")
+                       )),
+      
+      ## select gene cluster for other than dot plot 
+      conditionalPanel(condition =  
+                         paste0("input['",ns("view"),"'] == 'emapplot' || 
+                                input['",ns("view"),"'] == 'heatplot' || 
+                                input['",ns("view"),"'] == 'cnetplot'||
+                                input['",ns("view"),"'] == 'upsetplot'||
+                                input['",ns("view"),"'] == 'barplot' ||
+                                input['",ns("view"),"'] == 'table'" ),
+                       ## select gene set
+                       column(width = 4,
+                              shinyWidgets::pickerInput(inputId = ns("except_dotplot_input_geneset"),
+                                                        label = "Gene cluster" , 
+                                                        multiple = F,
+                                                        choices = "",
+                                                        width = "100%")
+                       )),
+      
+      
+      ## view
+      column(width = 4,
+             shinyWidgets::pickerInput(inputId = ns("view"),
+                                       label = "View type" ,
+                                       choices = c("Table" =  "table" ,
+                                                   "Dotplot" = "dotplot", 
+                                                   "Barplot" = "barplot", 
+                                                   "Emapplot" ="emapplot",
+                                                   "Cnetplot" = "cnetplot", 
+                                                   "Upsetplot" = "upsetplot",
+                                                   "Heatplot"  ="heatplot") , 
+                                       selected = "emapplot" , width = "100%") 
+      )
+    ),
+      
+      
+      
       ## evidance type
       # column(width = 2,
       #        shinyWidgets::pickerInput(inputId = ns("go_evidence_code"),label = "Evidence" ,
@@ -59,57 +93,66 @@ functional_analysis_ui <- function(id){
       #                     min = 0, max = 1, step = 0.001  ,value = 1)
       # ),
       
-      ## view
-      column(width = 3,
-             shinyWidgets::pickerInput(inputId = ns("view"),
-                                       label = "View type" ,
-                                       choices = c("Table" =  "table" ,
-                                                   "Dotplot" = "dotplot", 
-                                                   "Barplot" = "barplot", 
-                                                   "Emapplot" ="emapplot",
-                                                   "Cnetplot" = "cnetplot", 
-                                                   "Upsetplot" = "upsetplot",
-                                                   "Heatplot"  ="heatplot") , 
-                                       selected = "emapplot" , width = "100%") 
+    
+    fluidRow(
+      
+      column(width = 4,
+             shinyWidgets::pickerInput(inputId = ns("cross_go_bg_to_godb"),
+                                       label = "Background Genes to GO mapping" , 
+                                       choices = c("Parent + Offsprings" = "parent_and_offsprings" , 
+                                                   "Parent" = "parent_only"
+                                                   ),
+                                       width = "100%"
+                                       )
+             
+             ),
+      
+      ## minmum number of genes in background GO term
+      column(width = 4, 
+             shiny::numericInput(inputId = ns("min_gs_size"),
+                                 label = "# of minimum genes in a GO term" ,
+                                 min = 1,
+                                 value = 10, 
+                                 width = "100%")
+             
       ),
+      ## maximum number of genes in background GO term
+      column(width = 4, 
+             shiny::numericInput(inputId = ns("max_gs_size"),
+                                 label = "# of maximum genes in a GO term" ,
+                                 min = 1,
+                                 value = 500, 
+                                 width = "100%")
+             
+      )
       
-      ## select gene cluster for dotplot 
-      conditionalPanel(condition =  
-                         paste0("input['",ns("view"),"'] == 'dotplot'"),
-                       ## select gene set
-                       column(width = 3,
-                              shinyWidgets::pickerInput(inputId = ns("dotplot_input_geneset"),
-                                                        label = "Gene cluster" , 
-                                                        multiple = T,
-                                                        options = list(
-                                                          `actions-box` = TRUE),
-                                                        choices = "",
-                                                        width = "100%")
-                       )),
-      
-      ## select gene cluster for other than dot plot 
-      conditionalPanel(condition =  
-                         paste0("input['",ns("view"),"'] == 'emapplot' || 
-                                input['",ns("view"),"'] == 'heatplot' || 
-                                input['",ns("view"),"'] == 'cnetplot'||
-                                input['",ns("view"),"'] == 'upsetplot'||
-                                input['",ns("view"),"'] == 'barplot' ||
-                                input['",ns("view"),"'] == 'table'" ),
-                       ## select gene set
-                       column(width = 3,
-                              shinyWidgets::pickerInput(inputId = ns("except_dotplot_input_geneset"),
-                                                        label = "Gene cluster" , 
-                                                        multiple = F,
-                                                        choices = "",
-                                                        width = "100%")
-                       ))
+    ),
+    
+    fluidRow(
+      # p-adj method 
+      ##c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr", "none")
+      column(width = 4, 
+             shinyWidgets::pickerInput(inputId = ns("p_adj_method"),
+                                       label = "P.adjust" ,
+                                       choices = c("holm" = "holm", 
+                                                   "hochberg" = "hochberg", 
+                                                   "hommel" = "hommel", 
+                                                   "bonferroni" ="bonferroni", 
+                                                   "BH" = "BH", 
+                                                   "BY"="BY",
+                                                   "fdr"="fdr", 
+                                                   "none"="none"),
+                                       selected = "BH",
+                                       width = "100%")
+             
+      )
     ),
     
     ## perform go enrichment action button 
     fluidRow(
       column(
-        offset = 5,
-        width = 3,
+        offset = 4,
+        width = 4,
         shinyWidgets::actionBttn(inputId = ns("perform_go_analysis_trigger") , 
                                  label = "Submit" , 
                                  color = "success" ,
@@ -580,12 +623,20 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   ## dot plot multiple genesets enrichment 
   compare_enriched_terms <- eventReactive(input$perform_go_analysis_trigger,{
     req(input$view == "dotplot")
+    
+    ## validate inputs
+    validate(need(is.numeric(input$min_gs_size), "'# of minimum genes in a GO term must' be numeric"))
+    validate(need(is.numeric(input$max_gs_size), "'# of maximum genes in a GO term must' be numeric"))
+    
     q_genes <- gene_set()[input$dotplot_input_geneset]  
     comp_enr <- perform_go_enrichmet(genome = genome() , 
                                      ontology = input$go_type, 
                                      p_adjust_method = input$p_adj_method,
                                      pval_cutoff = 1,
                                      qval_cutoff = 1,
+                                     min_gs_size = input$min_gs_size,
+                                     max_gs_size =input$max_gs_size,
+                                     cross_ref_go_db = ifelse(input$cross_go_bg_to_godb == "parent_and_offsprings" , TRUE, FALSE),
                                      query_genes = q_genes)
     
     ## check if CompareCluster result is real or an error 
@@ -602,9 +653,10 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   
   enriched_terms <- eventReactive(input$perform_go_analysis_trigger ,{
     
+    validate(need(is.numeric(input$min_gs_size), "'# of minimum genes in a GO term must' be numeric"))
+    validate(need(is.numeric(input$max_gs_size), "'# of maximum genes in a GO term must' be numeric"))
+    
     q_genes <- gene_set()[[input$except_dotplot_input_geneset]]  
-    #print("my query genes are ")
-    #print(length(q_genes))
     if(input$view == "dotplot" &&  length(input$dotplot_input_geneset) == 1){
       q_genes <- gene_set()[[input$dotplot_input_geneset]]  
     }
@@ -614,6 +666,9 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
                                 p_adjust_method = input$p_adj_method,
                                 pval_cutoff = 1,
                                 qval_cutoff = 1,
+                                min_gs_size = input$min_gs_size,
+                                max_gs_size =input$max_gs_size,
+                                cross_ref_go_db = ifelse(input$cross_go_bg_to_godb == "parent_and_offsprings" , TRUE, FALSE),
                                 query_genes = q_genes)
     
     
@@ -808,8 +863,8 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
     ## find GeomTextRepel layer
     geom_text_repel_index <- which(sapply(emapplot_out$layers, function(x) class(x$geom)[1]) == "GeomTextRepel")
     emapplot_out$layers[[geom_text_repel_index]] <- NULL
-    print("node label size ")
-    print(input$emap_node_label_size)
+    #print("node label size ")
+    #print(input$emap_node_label_size)
     emapplot_out <- emapplot_out %+% 
       ggrepel::geom_text_repel(aes(label = name , x = x, y = y  , size = input$emap_node_label_size ))
     return(emapplot_out)
