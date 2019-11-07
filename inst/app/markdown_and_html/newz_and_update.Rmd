@@ -35,6 +35,29 @@ This page is all about notifing  users regarding new features, bug fixing, any o
 
 ***
 
+### **`r lubridate::date(x = "2019/11/7")`**
+#### GO analysis updates 
+
+Three new options are added in GO analysis.
+
+##### 1. Background Genes to GO mapping 
+
+It allows user to select type of background data (Genes to GO mapping) to use for GO enrichment analysis. It has two options.  
+
+  + **Parent \+ Offsprings** : For a given GO term A, all the genes from A and A's offspring GO terms will be considered as a part of term A. 
+  + **Parent**               : For a given GO term A, all the genes from A will be considered as a part of term A. 
+
+##### 2. \# of minimum genes in a GO term
+
+Using this option user can restrict the GO enrichment output. Only those GO terms will be displayed, which has minimum number of genes more than cutoff value.
+
+##### 3. \# of maximum genes in a GO term
+
+Using this option user can restrict the GO enrichment output. Only those GO terms will be displayed, which has maximum number of genes less than cutoff value.
+
+***
+
+
 ### **`r lubridate::date(x = "2019/11/1")`**
 #### Overview page introduced
 
