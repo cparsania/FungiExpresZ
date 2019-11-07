@@ -107,7 +107,7 @@ We have used cartoon gene expression data to generate plots given in this docume
 
 ## Expression matrix 
 
-Expression matrix can be downloaded from the file given [here](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_log2fpkm_log2fc.txt){target="_blank"}. It contains 4 samples each with 3 replicates. Column names and their description have been given in the table below.
+Expression matrix can be downloaded from the file given here [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_log2fpkm_log2fc.txt){target="_blank"}]. It contains 4 samples each with 3 replicates. Column names and their description have been given in the table below.
 
 |Column names  | Description                                |
 |:-------------|-------------------------------------------:|
@@ -141,7 +141,7 @@ Sample group file contains two columns.
 |group_name | User given name to each sample (column) group. Values in this column can be redundant.|
 |group_members| Values in this column must be from column names given as sample identity in the expression matrix file. Each value must be unique in this column. |
 
-In here, we have grouped samples by replicates]. File can be downloaded from [here](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_sample_groups_by_cond.txt){target="_blank"}. 
+In here, we have grouped samples by replicates. File can be downloaded from here [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_sample_groups_by_cond.txt){target="_blank"}]. 
 
 
 ## Gene groups 
@@ -179,12 +179,12 @@ Gene groups files can be downloaded from the links given in the table below.
 
 |Gene group files  | Description |
 |:--------------------:|:-------------------------------------------:|
-|gene group file 1 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1.txt){target="_blank"}|gene groups by fold change **Treat1/control**|
-|gene group file 2 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2.txt){target="_blank"}|gene groups by fold change **Treat2/control**|
-|gene group file 3 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat3.txt){target="_blank"}|gene groups by fold change **Treat3/control**|
-|gene group file 4 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat2.txt){target="_blank"}|gene groups by fold status **Treat1/control** vs **Treat2/control**|
-|gene group file 5 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2_treat3.txt){target="_blank"}|gene groups by fold status **Treat2/control** vs **Treat3/control**|
-|gene group file 6 : [Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat3.txt){target="_blank"}|gene groups by fold status **Treat1/control** vs **Treat3/control**|
+|gene group file 1 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1.txt){target="_blank"}]|gene groups by fold change **Treat1/control**|
+|gene group file 2 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2.txt){target="_blank"}]|gene groups by fold change **Treat2/control**|
+|gene group file 3 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat3.txt){target="_blank"}]|gene groups by fold change **Treat3/control**|
+|gene group file 4 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat2.txt){target="_blank"}]|gene groups by fold status **Treat1/control** vs **Treat2/control**|
+|gene group file 5 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2_treat3.txt){target="_blank"}]|gene groups by fold status **Treat2/control** vs **Treat3/control**|
+|gene group file 6 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat3.txt){target="_blank"}]|gene groups by fold status **Treat1/control** vs **Treat3/control**|
 
 # Exploratory example plots
 
