@@ -5,8 +5,8 @@ account: cparsania
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 624687
-bundleId: 2498161
+bundleId: 2573040
 url: https://cparsania.shinyapps.io/FungiExpresZ/
-when: 1571041707.93232
+when: 1573178208.57686
 asMultiple: FALSE
 asStatic: FALSE
