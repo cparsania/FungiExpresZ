@@ -173,7 +173,19 @@ browser.
 Congrats..\!\! 🎉🎉🎉🎉 .Your application will keep running until you stop
 container explicitly.
 
-#### 2.2.5 How to stop container
+#### 2.2.5 Memory usage for docker
+
+On a mac with 32GB memory and 8 CPUs, docker uses 2 GB of memory and 4
+CPUs maximum. Default behaviour can be changed from Docker -\>
+Preferences -\>
+Advanced
+
+![](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/docker_cpu_and_memory.png)
+
+We recommand users to allocate maximum 4 GB of memory to docker before
+you run FungiExpresZ docker image.
+
+#### 2.2.6 How to stop container
 
 Container will be active until it is explicitly stopped. You can stop
 container using below command on a new terminal window.
