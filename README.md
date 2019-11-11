@@ -155,7 +155,7 @@ After getting the image on local computer, it can be run as a container.
 The command below will open the port given as `<port_number>` on local
 computer and launch the application on same.
 
-    docker run -p 80:<port_number> cparsania/fungiexpresz:<tagName>
+    docker run -p <port_number>:80 cparsania/fungiexpresz:<tagName>
 
 You can give valid TCP `<port_number>` which is not occupied by your
 system (e.g. 3232, 3233, 5434, … etc.).
