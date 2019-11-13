@@ -224,8 +224,9 @@ container using below command on a new terminal window.
 
 ### 3.4 Install from package bundle
 
-Download pre-compiled binary for MacOS (\*.tgz file) and source bundle
-for Windows (\*.tar.gz) from [latest available
+Download pre-compiled binary for MacOS (
+`FungiExpresZ<release_version>.tgz` ) and source bundle for Windows (
+`FungiExpresZ<release_version>.tar.gz` ) from [latest available
 release](https://github.com/cparsania/FungiExpresZ/releases/). Open an R
 terminal and use command below to install either on MacOS or
 Windows.
