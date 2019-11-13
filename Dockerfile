@@ -17,7 +17,5 @@ RUN mkdir ./install
 RUN R -e 'options(repos=c(rstudiopm="https://demo.rstudiopm.com/all/__linux__/bionic/latest",BiocManager::repositories()));packrat::unbundle("/FungiExpresZ-2019-11-12.tar.gz",where = "./install",restore =TRUE)'
 
 EXPOSE 80
-CMD R -e "setwd("./install/FungiExpresZ/");options('shiny.port'=80,shiny.host='0.0.0.0');source("app.R")"
-
-
+CMD R -e "setwd('./install/FungiExpresZ/');packrat::on();options('shiny.port'=80,shiny.host='0.0.0.0');library(shinyBS);golem::document_and_reload();FungiExpresZ::run_app()"
 
