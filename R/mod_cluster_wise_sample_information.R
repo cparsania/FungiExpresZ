@@ -86,7 +86,6 @@ cluster_wise_sample_information_ui <- function(id){
 #'
 #' @rdname mod_cluster_wise_sample_information
 #' @keywords internal
-    
 cluster_wise_sample_information_server <- function(input, output, session, parent_id,cluster_wise_sample_information ){
   
   ns <- session$ns

@@ -65,7 +65,6 @@ ggplot_fill_colour_ui <- function(id , fill_attribute  ="Samples"){
 #'
 #' @rdname mod_ggplot_fill_colour
 #' @keywords internal
-    
 ggplot_fill_colour <- function(input, output, session, gp , times ){
   
   # black and white

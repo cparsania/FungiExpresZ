@@ -40,7 +40,6 @@ gene_group_selection_ui <- function(id){
 #'
 #' @rdname mod_gene_group_selection
 #' @keywords internal
-    
 gene_group_selection <- function(input, output, session,  gene_group_info , current_session_data_matrix , generate_plot_action){
   
   ## update select_gene_cluster 

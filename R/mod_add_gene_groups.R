@@ -120,7 +120,6 @@ add_gene_groups_ui <-  function(id){
 #'
 #' @rdname mod_add_gene_groups
 #' @keywords internal
-    
 add_gene_groups <- function(input, output, session, gene_names){
   
   ## get user defined  gene groups 

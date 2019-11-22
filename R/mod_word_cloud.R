@@ -9,8 +9,6 @@
 #'
 #' @keywords internal
 #' @importFrom shiny NS tagList 
-
-
 word_cloud_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -90,7 +88,6 @@ word_cloud_ui <- function(id){
 #'
 #' @rdname mod_word_cloud
 #' @keywords internal
-
 word_cloud_server <- function(input, output, session ,parent_id, input_text){
   
   ## user defined set of words to remove from word cloud 

@@ -9,7 +9,6 @@
 #'
 #' @keywords internal
 #' @importFrom shiny NS tagList 
-
 add_sample_group_ui <-  function(id){
   ns <- NS(id)
   
@@ -187,7 +186,6 @@ add_sample_group_ui <-  function(id){
 #'
 #' @rdname mod_add_sample_group
 #' @keywords internal
-    
 add_sample_group <- function(input, output, session, sample_names , bioproject_groups){
   
   observeEvent(sample_names(),{

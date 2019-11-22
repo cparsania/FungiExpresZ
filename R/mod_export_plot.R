@@ -9,7 +9,6 @@
 #'
 #' @keywords internal
 #' @importFrom shiny NS tagList 
-
 export_plot_ui <- function(id){
   ns  <- NS(id)
   
@@ -82,7 +81,6 @@ export_plot_ui <- function(id){
 #'
 #' @rdname mod_export_plot
 #' @keywords internal
-    
 export_plot <- function(input, output, session , file_name, plot){
   
   output$dowload_png <- downloadHandler(

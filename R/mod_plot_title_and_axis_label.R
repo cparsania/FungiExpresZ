@@ -186,7 +186,6 @@ plot_title_and_axis_label_ui <- function(id) {
 #'
 #' @rdname mod_plot_title_and_axis_label
 #' @keywords internal
-    
 plot_title_and_axis_label_server <- function(input, output, session, 
                                              plot_title = "", 
                                              axis_x_title = "" , 

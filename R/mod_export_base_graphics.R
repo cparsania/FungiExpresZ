@@ -80,7 +80,6 @@ export_base_graphics_ui <- function(id){
 #'
 #' @rdname mod_export_base_graphics
 #' @keywords internal
-    
 export_base_graphics = function(input, output, session , file_name, plot ,
                                 legend_pos = reactive({"top"}) , 
                                 isComplexHeatmap = TRUE){
