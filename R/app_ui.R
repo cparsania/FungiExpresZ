@@ -631,8 +631,9 @@ ul.nav.navbar-nav {
                                           column(width = 2), ## empty column
                                           column(
                                             width = 8,
-                                            plotOutput(outputId = "scatter_plot", 
-                                                       brush = "plot_brush", height = "auto", width = "auto") 
+                                            plotOutput(outputId = "scatter_plot",
+                                                       brush = "plot_brush", height = "auto", width = "auto")
+                                            
                                           ),
                                           column(width = 2) ## empty column
                                         ),
