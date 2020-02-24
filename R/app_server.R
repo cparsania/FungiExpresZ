@@ -1398,11 +1398,10 @@ app_server <- function(input, output,session) {
       if (input$scatter_diagonal_line == "from_data") {
         i_cept <- scatter_plot_elems()$linear_model_param %>% dplyr::filter(term == "(Intercept)") %>% pull(estimate)
         slope <- scatter_plot_elems()$linear_model_param %>% dplyr::filter(term == "xvar") %>% pull(estimate)
-        gp <- gp + geom_abline(intercept = i_cept, slope = slope)
+        gp <- gp + geom_abline(intercept = i_cept, slope = slope ) 
       }
       incProgress(1)
     })
-    
     return(gp)
     
   })
