@@ -1,5 +1,7 @@
 #' Run the Shiny Application
 #'
+#' @param ... other arguments to be passed to argument \code{golem_opts} inside function \code{with_golem_options}
+#'
 #' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options

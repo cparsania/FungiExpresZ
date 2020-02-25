@@ -229,6 +229,6 @@ Download pre-compiled binary for MacOS ( `FungiExpresZ<release_version>.tgz` ) a
  
 ### 3.5 Run
 
-  + Once installation completes, it can be run using command `FungiExpresZ::run_app()`.
+  + Once installation completes, it can be run using command `library(FungiExpresZ);FungiExpresZ::run_app()`.
   + Copy and paste URL printed on the console to browser and you are ready to go 🎉🎉🎉🎉 .    
 

@@ -27,6 +27,7 @@
 #' @import colourpicker
 #' @import ggalt
 #' @import gtools
+#' @import shinyBS
 #' @importFrom  scales hue_pal
 #' @importFrom  shinyjs hide
 #' @importFrom  shinyjs show
@@ -3821,7 +3822,8 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                                     includeHTML(system.file("app","markdown_and_html","About.html" , package = "FungiExpresZ"))
+                                     #includeHTML(system.file("app","markdown_and_html","About.html" , package = "FungiExpresZ"))
+                                     includeHTML("doc/About.html")
                             ),
                             
                             ## Tutorial page 
@@ -3843,7 +3845,8 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                                     includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
+                                     #includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
+                                     includeHTML("doc/Tutorial.html")
                             )
                             
                             ## example page 
@@ -3913,7 +3916,8 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          includeHTML(system.file("app","markdown_and_html","newz_and_update.html" , package = "FungiExpresZ"))
+                          #includeHTML(system.file("app","markdown_and_html","newz_and_update.html" , package = "FungiExpresZ"))
+                          includeHTML("doc/newz_and_update.html")
                           
                  ),
                  

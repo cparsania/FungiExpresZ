@@ -26,8 +26,7 @@ multiple gene groups and sample groups to compare between them. GO
 analysis and GO visualizations can be performed for more than 100
 different fungal species. Users can select set of genes directly from
 one of the scatter plot, line plot or heatmap and pass them for GO
-analysis and GO
-visualizations.
+analysis and GO visualizations.
 
 ## 1\. Key features
 
@@ -50,8 +49,7 @@ or free text which will be matched against several SRA columns.
 | *Candida auris B8 441*             |           46 |
 
 > NOTE: We are continuously processing fungal SRA data. This table will
-> be updated as we add new
-data.
+> be updated as we add new data.
 
 ### 1.2 Users can visualize their own data with or without integration of selected SRA data
 
@@ -86,8 +84,7 @@ plot specific attributes. Available plot options are …
 8.  Violin Plot
 9.  Bar Plot
 10. PCA Plot
-11. Line
-Plot  
+11. Line Plot  
 12. Heatmap
 
 ### 1.5 Supports Gene Ontology (GO) enrichment and visualizations for more than 100 different fungal species
@@ -177,8 +174,7 @@ container explicitly.
 
 On a mac with 32GB memory and 8 CPUs, docker uses 2 GB of memory and 4
 CPUs maximum. Default behaviour can be changed from Docker -\>
-Preferences -\>
-Advanced
+Preferences -\> Advanced
 
 ![](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/docker_cpu_and_memory.png)
 
@@ -228,8 +224,7 @@ Download pre-compiled binary for MacOS (
 `FungiExpresZ<release_version>.tgz` ) and source bundle for Windows (
 `FungiExpresZ<release_version>.tar.gz` ) from [latest available
 release](https://github.com/cparsania/FungiExpresZ/releases/). Open an R
-terminal and use command below to install either on MacOS or
-Windows.
+terminal and use command below to install either on MacOS or Windows.
 
 ``` r
   devtools::install_local("path/to/.tgz file" , dependencies=TRUE,  build = FALSE , repos=BiocManager::repositories())
@@ -238,6 +233,6 @@ Windows.
 ### 3.5 Run
 
   - Once installation completes, it can be run using command
-    `FungiExpresZ::run_app()`.
+    `library(FungiExpresZ);FungiExpresZ::run_app()`.
   - Copy and paste URL printed on the console to browser and you are
     ready to go 🎉🎉🎉🎉 .

@@ -9,6 +9,7 @@
 #'
 #' @keywords internal
 #' @importFrom shiny NS tagList 
+#' @importFrom RColorBrewer brewer.pal
 word_cloud_ui <- function(id){
   ns <- NS(id)
   tagList(

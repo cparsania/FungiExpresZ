@@ -40,7 +40,7 @@ get_expression_mats_dir_path <- function(){
 #' @param ... Other parameters to be pass to argument \code{FUN}
 #'
 #' @return A character vector of elements \code{FUN} of length \code{len}.
-#' @references \link{https://stackoverflow.com/questions/45739303/r-shiny-handle-action-buttons-in-data-table}
+#' @references https://stackoverflow.com/questions/45739303/r-shiny-handle-action-buttons-in-data-table
 #'
 #' @keywords internal
 shinyInput <- function(FUN, len, id,ns,...) {

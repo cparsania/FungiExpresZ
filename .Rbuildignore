@@ -16,3 +16,5 @@ $run_dev.*
 ^Dockerfile$
 ^requirement_bin.txt$
 ^.gitattributes$
+^doc$
+^Meta$

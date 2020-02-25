@@ -61,7 +61,10 @@ Imports:
     rio (>= 0.5.16),
     badger (>= 0.0.6),
     AnnotationDbi (>= 1.46.1),
-    GO.db (>= 3.8.2)
+    GO.db (>= 3.8.2),
+    kableExtra (>= 1.1.0),
+    RColorBrewer (>= 1.1-2),
+    enrichplot (>= 1.4.0)
 Depends:
     R (>= 3.5.0),   
     shinyBS (>= 0.61)

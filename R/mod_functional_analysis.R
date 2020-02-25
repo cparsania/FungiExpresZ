@@ -599,6 +599,7 @@ functional_analysis_ui <- function(id){
 #' @param ui_id internal
 #'
 #' @rdname mod_functional_analysis
+#' @import enrichplot
 #' @keywords internal
 functional_analysis_server <- function(input, output, session , gene_set = NULL, genome = NULL , ui_id = NULL){
   

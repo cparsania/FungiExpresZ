@@ -24,6 +24,6 @@ A character vector of elements \code{FUN} of length \code{len}.
 \code{shinyInput} function creates a character vector of length \code{len} for a given shiny input under the argument \code{FUN}
 }
 \references{
-\link{https://stackoverflow.com/questions/45739303/r-shiny-handle-action-buttons-in-data-table}
+https://stackoverflow.com/questions/45739303/r-shiny-handle-action-buttons-in-data-table
 }
 \keyword{internal}
