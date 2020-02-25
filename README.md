@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 ![](https://img.shields.io/github/v/release/cparsania/fungiexpresz?&color=blue&logoColor=)
-[![](https://img.shields.io/badge/devel%20version-0.0.4.9000-red.svg)](https://github.com/cparsania/FungiExpresZ)
+[![](https://img.shields.io/badge/devel%20version-0.0.5.9000-red.svg)](https://github.com/cparsania/FungiExpresZ)
 [![](https://img.shields.io/badge/lifecycle-maturing-yellow.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![](https://www.r-pkg.org/badges/version/FungiExpresZ?color=green)](https://cran.r-project.org/package=FungiExpresZ)
 
@@ -207,7 +207,7 @@ container using below command on a new terminal window.
 
 ``` r
    install.packages("devtools")
-   install.packages("BiocManager")
+   install.packages("BiocManager") 
    install.packages("data.table" , type = "binary") ## installing from source may cause error.  
 ```
 
