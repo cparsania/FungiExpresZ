@@ -41,6 +41,12 @@ This page is all about notifing  users regarding new features, bug fixing, any o
 
 ***
 
+### **`r lubridate::date(x = "2020/02/25")`**
+
+#### Introducing citation page. 
+
+Under the page Citations, you can see publications citing FungiExpresZ. 
+
 ### **`r lubridate::date(x = "2019/11/7")`**
 #### GO analysis updates 
 
