@@ -6,7 +6,7 @@ output:
       toc: TRUE
       fig_caption: TRUE
       fig_number: TRUE
-      toc_depth: 4
+      toc_depth: 2
       float: TRUE
 vignette: >
   %\VignetteIndexEntry{Citations}
@@ -25,9 +25,11 @@ knitr::opts_chunk$set(
 #library(FungiExpresZ)
 ```
 
-### 2020
+## List of articles cited FungiExpresZ
+
+## 2020
 
  Coming soon !!
  
-### 2019
+## 2019
 1. **_Transcriptomic analysis reveals global and temporal transcription changes during Candida glabrata adaptation to an oxidative environment._** P Sethiya, MN Rai, R Rai, C Parsania, K Tan, KH Wong - Fungal Biology, 2019. [Article link](https://www.sciencedirect.com/science/article/pii/S1878614619301795){target="_blank"}
