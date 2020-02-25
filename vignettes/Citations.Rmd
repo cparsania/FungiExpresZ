@@ -1,0 +1,33 @@
+---
+title: "Citations"
+output:
+    prettydoc::html_pretty:
+      #number_sections: TRUE
+      toc: TRUE
+      fig_caption: TRUE
+      fig_number: TRUE
+      toc_depth: 4
+      float: TRUE
+vignette: >
+  %\VignetteIndexEntry{Citations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+#library(FungiExpresZ)
+```
+
+### 2020
+
+ Coming soon !!
+ 
+### 2019
+1. **_Transcriptomic analysis reveals global and temporal transcription changes during Candida glabrata adaptation to an oxidative environment._** P Sethiya, MN Rai, R Rai, C Parsania, K Tan, KH Wong - Fungal Biology, 2019. [Article link](https://www.sciencedirect.com/science/article/pii/S1878614619301795){target="_blank"}

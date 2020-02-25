@@ -3925,7 +3925,27 @@ ul.nav.navbar-nav {
                  ## Citations page ----
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                  
-                 tabPanel(title = "Citations", icon = icon("stack-exchange")),
+                 tabPanel(title = "Citations", icon = icon("stack-exchange"),
+                          
+                          
+                          tags$style(HTML("
+              section.page-header {
+                             display: none;
+                             }      
+                    
+              section.main-content{
+                            max-width: 1000px;
+                            font-size: 100%;
+                             }
+             
+              div#TOC{
+                            max-width: 1024px;
+                             font-size: 100%;
+                             }
+                             ")),
+                          includeHTML("doc/Citations.html")
+                          
+                          ),
                  
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                  ## github page ----
