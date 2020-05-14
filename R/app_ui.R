@@ -150,7 +150,7 @@ ul.nav.navbar-nav {
                                     fluidRow(
                                       column (
                                         width = 12,
-                                        tags$h3(tags$b("Click on a row to to select SRA samples for analysis and visualisation.", tags$br() , tags$br(), "Once selection made click submit")) 
+                                        tags$h3(tags$b("Click on row(s) to select SRA samples for analysis and visualisation.", tags$br() , tags$br(), "Once selection made click submit.")) 
                                       )
                                     ),
                                     
