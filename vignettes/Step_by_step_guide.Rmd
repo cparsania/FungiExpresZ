@@ -1,0 +1,65 @@
+---
+title: "Step by step guide"
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
+output:
+     prettydoc::html_pretty:
+      number_sections: FALSE
+      toc: TRUE
+      fig_caption: TRUE
+      toc_depth: 5
+editor_options: 
+  chunk_output_type: inline
+vignette: >
+  %\VignetteIndexEntry{Step by step guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+# Introduction 
+# User manual
+## Home screen 
+## Select/Upload data
+### Select SRA data
+### Upload user data
+## Assign groups
+### Sample groups
+### Gene groups
+## View active groups
+## Plot panels
+## Plot Settings
+### Common plot settings  
+### Plot specific settings  
+#### Scatter plot 
+#### Multi-scatter plot
+#### CorrHeatBox   
+#### Density plot
+#### Histogram
+#### Joy plot
+#### Box plot
+#### Violin plot
+#### Bar plot
+#### PCA plot
+#### Line plot
+#### Heatmap
+## GO analysis and visualizations 
+## Other panels
+### About 
+### Downloads 
+### News & Updates
+### Citations
+### Contact 
+
+
+
+
+
+
+
