@@ -18,6 +18,9 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  echo = FALSE, 
+  fig.align="center", 
+  fig.show="hold" , 
   comment = "#>"
 )
 ```
@@ -26,30 +29,172 @@ knitr::opts_chunk$set(
 # Introduction 
 # User manual
 ## Home screen 
+
+```{r , fig.cap="FIGURE 1: FungiExpresZ home screen",out.extra='style="background-color: black; padding:1px;"'}
+knitr::include_graphics("step_by_step_guide_files/screen_shots/01_fe_home.png")
+```
+
 ## Select/Upload data
+
+
 ### Select SRA data
+
+```{r , fig.cap="FIGURE 2: FungiExpresZ select SRA data", out.width="50%",out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_select_data.png"))
+
+```
+
+
 ### Upload user data
+
+```{r , fig.cap="FIGURE 3: FungiExpresZ upload user data",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/03_fe_file_upload.png"))
+
+```
+
+
 ## Assign groups
+
+
 ### Sample groups
+
+```{r , fig.cap="FIGURE 4: FungiExpresZ define sample groups" ,out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/05_fe_sample_group.png"))
+
+```
+
+
 ### Gene groups
+
+```{r , fig.cap="FIGURE 5: FungiExpresZ define gene groups",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/06_fe_gene_group.png"))
+
+```
+
 ## View active groups
+
 ## Plot panels
+
 ## Plot Settings
+
+
 ### Common plot settings  
+
+```{r , fig.cap="Common plot settings : Theme and Legend (left), Labels & Title (right)" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/10_common_theme_and_legend_settings.png",
+                          "step_by_step_guide_files/screen_shots/11_common_labels_and_title.png"))
+```
+
+
+
 ### Plot specific settings  
+
 #### Scatter plot 
+
+```{r , fig.cap="Scatter plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/09_scatter_plot_advance_settings.png"))
+```
+
+
 #### Multi-scatter plot
+
+```{r , fig.cap="Multi-scatter plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/12_multi_scatter_plot_advance_settings.png"))
+```
+
 #### CorrHeatBox   
+```{r , fig.cap="Corr heat-box advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/13_corr_heat_box_advance_settings.png"))
+```
+
 #### Density plot
+```{r , fig.cap="Density plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/14_density_plot_advance_settings.png"))
+```
 #### Histogram
+
+```{r , fig.cap="Histogram advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/15_histogram_advance_settings.png"))
+```
 #### Joy plot
+
+```{r , fig.cap="Joy plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/16_joy_plot_advance_settings.png"))
+```
 #### Box plot
+
+```{r , fig.cap="Box plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/17_boxplot_advance_settings.png"))
+```
+
 #### Violin plot
+
+```{r , fig.cap="Violin plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/18_violin_plot_advance_settings.png"))
+```
+
 #### Bar plot
+
+```{r , fig.cap="Bar plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/19_barplot_advance_settings.png"))
+```
+
 #### PCA plot
+
+```{r , fig.cap="Bar plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/20_pca_plot_advance_settings.png"))
+```
+
 #### Line plot
+
+```{r , fig.cap="Bar plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/21_line_plot_advance_settings.png"))
+```
+
 #### Heatmap
+
+```{r , fig.cap="Heatmap row options (left), column options (middle) and legend options(right)." , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/22_heat_map_row_options.png","step_by_step_guide_files/screen_shots/23_heatmap_column_options.png" ,"step_by_step_guide_files/screen_shots/24_heatmap_legend_options.png"))
+```
+
 ## GO analysis and visualizations 
+
+```{r , fig.cap="GO analysis inputs" , out.width="100%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/27_go_inputs.png"))
+```
+
+## GO plots specific settings 
+
+#### Dot plot and Bar plot 
+```{r , fig.cap="GO dot plot and bar plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/29_dot_and_bar_plot_advance_settings.png"))
+```
+
+#### EMAP plot
+
+```{r , fig.cap="GO EMAP plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/28_emap_plot_advance_settings.png"))
+```
+
+#### CNET plot
+```{r , fig.cap="GO CNET plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/30_cnet_plot_advance_Settings.png"))
+```
+
+
+#### UPSET plot
+
+```{r , fig.cap="GO UPSET plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/31_upset_plot_advance_settings.png"))
+```
+
+#### Heat plot
+  
+```{r , fig.cap="GO heat plot advance settings" , out.width="30%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/33_go_heat_plot_advance_settings.png"))
+```
+
+
 ## Other panels
 ### About 
 ### Downloads 
