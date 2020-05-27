@@ -27,8 +27,43 @@ knitr::opts_chunk$set(
 
 
 # Introduction 
+
+FungiExpresZ is a web based platform to analyze and visualize fungal gene expression data. It allows you to analyze and visualize ...
+
+  1) NCBI SRA fungal gene expression data.
+  2) User uploaded gene expression data. 
+  3) NCBI SRA data combined with User uploaded data.    
+
+It contains normalized  gene expression values of more than 12,000 NCBI SRA data from 8 different fungal species and, gene annotations and GO data of more than 100 different fungal species. For 3 stratagies given above, you can generate 12 different data exploratory plots and 6 different GO plots, which are ... 
+  
+  1) Scatter plot 
+  2) Multi-scatter plot
+  3) CorrHeatBox
+  4) Density plot
+  5) Histogram
+  6) Joy plot
+  7) Box plot
+  8) Violin plot
+  9) Bar plot
+  10) PCA plot
+  11) Line plot 
+  12) Heatmap 
+
+GO plots are ...
+
+  1) EMAP plot
+  2) CNET plot
+  3) Dot plot 
+  4) Bar plot 
+  5) Heat box
+  6) Upset plot
+  
+The purpose of this document is to explain all the key functionalities and back-end logic of this website.
+
 # User manual
 ## Home screen 
+
+// TO DO 
 
 ```{r , fig.cap="FIGURE 1: FungiExpresZ home screen",out.extra='style="background-color: black; padding:1px;"'}
 knitr::include_graphics("step_by_step_guide_files/screen_shots/01_fe_home.png")
@@ -36,8 +71,11 @@ knitr::include_graphics("step_by_step_guide_files/screen_shots/01_fe_home.png")
 
 ## Select/Upload data
 
+// TO DO 
 
 ### Select SRA data
+
+// TO DO 
 
 ```{r , fig.cap="FIGURE 2: FungiExpresZ select SRA data", out.width="50%",out.extra='style="background-color: black; padding:1px;"' }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_select_data.png"))
@@ -46,6 +84,8 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_select_da
 
 
 ### Upload user data
+
+// TO DO 
 
 ```{r , fig.cap="FIGURE 3: FungiExpresZ upload user data",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/03_fe_file_upload.png"))
@@ -58,6 +98,8 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/03_fe_file_uplo
 
 ### Sample groups
 
+// TO DO 
+
 ```{r , fig.cap="FIGURE 4: FungiExpresZ define sample groups" ,out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/05_fe_sample_group.png"))
 
@@ -66,6 +108,8 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/05_fe_sample_gr
 
 ### Gene groups
 
+// TO DO 
+
 ```{r , fig.cap="FIGURE 5: FungiExpresZ define gene groups",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/06_fe_gene_group.png"))
 
@@ -73,134 +117,251 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/06_fe_gene_grou
 
 ## View active groups
 
+// TO DO 
+
 ## Plot panels
 
-## Plot Settings
+// TO DO 
+
+### Plot input panels
+
+// TO DO 
+
+#### Scatter plot 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Scatter plot input panel" , out.width="100%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_scatter_plot_select_variables.png"))
+```
+
+// TO DO 
+
+#### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot
+
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot. Violin plot and PCA plot input panel" , out.width="100%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_multi_scatter_to_violin_variable_selection.png"))
+```
+
+#### Bar plot inputs
+
+// TO DO 
+```{r , fig.cap="FIGURE XXX:FungiExpresZ Bar plot input panel" , out.width="100%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_barplot_inputs.png"))
+```
 
 
-### Common plot settings  
+#### Line plot inputs
 
-```{r , fig.cap="Common plot settings : Theme and Legend (left), Labels & Title (right)" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Line plot input panel" , out.width="100%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_lineplot_inputs.png"))
+```
+
+
+#### Heatmap inputs
+
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Heatmap inputs" , out.width="100%"  }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_heatmap_inputs.png"))
+```
+
+## Plot settings
+
+// TO DO 
+### Common plot settings
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ common plot settings : `Theme and Legend` (left), `Labels & Title` (right)" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/10_common_theme_and_legend_settings.png",
                           "step_by_step_guide_files/screen_shots/11_common_labels_and_title.png"))
 ```
 
-
-
-### Plot specific settings  
+### Plot specific settings 
 
 #### Scatter plot 
+// TO DO 
 
-```{r , fig.cap="Scatter plot advance settings" , out.width="30%"  }
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Scatter plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/09_scatter_plot_advance_settings.png"))
 ```
 
 
 #### Multi-scatter plot
 
-```{r , fig.cap="Multi-scatter plot advance settings" , out.width="30%"  }
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Multi-scatter plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/12_multi_scatter_plot_advance_settings.png"))
 ```
 
 #### CorrHeatBox   
-```{r , fig.cap="Corr heat-box advance settings" , out.width="30%"  }
+
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Corr heat-box advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/13_corr_heat_box_advance_settings.png"))
 ```
 
 #### Density plot
-```{r , fig.cap="Density plot advance settings" , out.width="30%"  }
+
+// TO DO
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Density plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/14_density_plot_advance_settings.png"))
 ```
 #### Histogram
 
-```{r , fig.cap="Histogram advance settings" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ  Histogram advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/15_histogram_advance_settings.png"))
 ```
 #### Joy plot
 
-```{r , fig.cap="Joy plot advance settings" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Joy plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/16_joy_plot_advance_settings.png"))
 ```
 #### Box plot
 
-```{r , fig.cap="Box plot advance settings" , out.width="30%"  }
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Box plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/17_boxplot_advance_settings.png"))
 ```
 
 #### Violin plot
 
-```{r , fig.cap="Violin plot advance settings" , out.width="30%"  }
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Violin plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/18_violin_plot_advance_settings.png"))
 ```
 
 #### Bar plot
 
-```{r , fig.cap="Bar plot advance settings" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Bar plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/19_barplot_advance_settings.png"))
 ```
 
 #### PCA plot
 
-```{r , fig.cap="Bar plot advance settings" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ PCA plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/20_pca_plot_advance_settings.png"))
 ```
 
 #### Line plot
 
-```{r , fig.cap="Bar plot advance settings" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ  Line plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/21_line_plot_advance_settings.png"))
 ```
 
 #### Heatmap
 
-```{r , fig.cap="Heatmap row options (left), column options (middle) and legend options(right)." , out.width="30%"  }
-knitr::include_graphics(c("step_by_step_guide_files/screen_shots/22_heat_map_row_options.png","step_by_step_guide_files/screen_shots/23_heatmap_column_options.png" ,"step_by_step_guide_files/screen_shots/24_heatmap_legend_options.png"))
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Heatmap row options (left), column options (middle) and legend options(right)." , out.width="30%"  }
+
 ```
 
 ## GO analysis and visualizations 
 
-```{r , fig.cap="GO analysis inputs" , out.width="100%"  }
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ GO analysis inputs" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/27_go_inputs.png"))
 ```
 
 ## GO plots specific settings 
 
+// TO DO 
+
 #### Dot plot and Bar plot 
-```{r , fig.cap="GO dot plot and bar plot advance settings" , out.width="30%"  }
+
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Dot plot and Bar plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/29_dot_and_bar_plot_advance_settings.png"))
 ```
 
 #### EMAP plot
 
-```{r , fig.cap="GO EMAP plot advance settings" , out.width="30%"  }
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ GO EMAP plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/28_emap_plot_advance_settings.png"))
 ```
 
 #### CNET plot
-```{r , fig.cap="GO CNET plot advance settings" , out.width="30%"  }
+
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ GO CNET plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/30_cnet_plot_advance_Settings.png"))
 ```
 
 
 #### UPSET plot
 
-```{r , fig.cap="GO UPSET plot advance settings" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Upset plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/31_upset_plot_advance_settings.png"))
 ```
 
 #### Heat plot
   
-```{r , fig.cap="GO heat plot advance settings" , out.width="30%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Heat plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/33_go_heat_plot_advance_settings.png"))
 ```
 
 
 ## Other panels
+
+// TO DO 
+
 ### About 
+
+// TO DO 
+
+```{r , fig.cap="FIGURE XXX: FungiExpresZ `Overview` page" , out.width="90%" ,out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/38_fe_overview.png"))
+```
+
+``` {r, fig.cap="FIGURE XXX: FungiExpresZ `Tutorial` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/39_fe_tutorials.png"))
+```
+
+
 ### Downloads 
+
+// TO DO 
+
+``` {r, fig.cap="FIGURE XXX: FungiExpresZ `Downloads --> Gene expression data` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/35_fe_gene_expression_downloads.png"))
+```
+
+``` {r, fig.cap="FIGURE XXX: FungiExpresZ `Download --> GO data` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/35_fe_gene_expression_downloads.png"))
+```
+
+
 ### News & Updates
+
+// TO DO 
+
+``` {r, fig.cap="FIGURE XXX: FungiExpresZ `News & Updates` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/37_fe_news_and_updates.png"))
+```
+
+
 ### Citations
-### Contact 
+
+// TO DO 
+``` {r, fig.cap="FIGURE XXX: FungiExpresZ `Citations` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
+knitr::include_graphics(c("step_by_step_guide_files/screen_shots/34_fe_citations.png"))
+```
+
 
 
 
