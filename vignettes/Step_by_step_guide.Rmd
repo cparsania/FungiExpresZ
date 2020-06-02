@@ -32,10 +32,12 @@ FungiExpresZ is a web based platform to analyze and visualize fungal gene expres
 
   1) NCBI SRA fungal gene expression data.
   2) User uploaded gene expression data. 
-  3) NCBI SRA data combined with User uploaded data.    
+  3) NCBI SRA data combined with User uploaded data (1+2).    
 
-It contains normalized  gene expression values of more than 12,000 NCBI SRA data from 8 different fungal species and, gene annotations and GO data of more than 100 different fungal species. For 3 stratagies given above, you can generate 12 different data exploratory plots and 6 different GO plots, which are ... 
+It contains normalized  gene expression values of more than 12,000 NCBI SRA data from 8 different fungal species and, gene annotations and GO data of more than 100 different fungal species. For 3 strategies mentioned above, you can generate 12 different data exploratory plots and 6 different GO plots.
   
+#### Data exploratory plots 
+
   1) Scatter plot 
   2) Multi-scatter plot
   3) CorrHeatBox
@@ -49,7 +51,7 @@ It contains normalized  gene expression values of more than 12,000 NCBI SRA data
   11) Line plot 
   12) Heatmap 
 
-GO plots are ...
+#### GO plots
 
   1) EMAP plot
   2) CNET plot
@@ -58,12 +60,27 @@ GO plots are ...
   5) Heat box
   6) Upset plot
   
-The purpose of this document is to explain all the key functionalities and back-end logic of this website.
+The purpose of this document is to explain all the key functionalities and methods used in this website wherever necessary. 
 
 # User manual
+
+## Source 
+
+There are three ways in which you can access FungiExpresZ. 
+
+  1) Online 
+  
+  FungiExpresZ has been hoisted on shinyapps.io and can be accessed through the link https://cparsania.shinyapps.io/FungiExpresZ/. This is one of the quickest way to access the FungiExpresZ. However, due to limited computational resources, I would recommend this approach only when the size of the data is comparatively small (< 10 MB) and/or you are in a need of quick figure out of your data. Current setup allows approx. 30 users to concurrently 
+  
+  2) As an R package 
+  
+  3) As a docker container
+  
+  
+
 ## Home screen 
 
-// TO DO 
+  
 
 ```{r , fig.cap="FIGURE 1: FungiExpresZ home screen",out.extra='style="background-color: black; padding:1px;"'}
 knitr::include_graphics("step_by_step_guide_files/screen_shots/01_fe_home.png")
