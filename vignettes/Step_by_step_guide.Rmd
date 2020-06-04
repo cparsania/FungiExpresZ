@@ -190,7 +190,28 @@ docker stop <CONTAINER ID>
 
 ## Home screen 
 
-  
+Once the application loaded fully on a browser, it looks like as shown in the Fig-1. 
+
+ **1). Inputs** : It allows you to either upload or select data from pre-existing SRA data. Depending upon radio button selected (**Select data** or **Upload/Use example data**) submit button toggle between **Select** and **Upload**. Click either of these result in a popup which have been explained in Fig-2 and Fig-3.     
+ 
+ **2). Assign groups**: Often genomics or transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts, which ultimately leads to understand meaningful biological insights.  **Assign groups** feature allows you to upload user defined **Sample groups** and **Gene groups**. Additional info on required group formats given in the Fig-4 and Fig-5.  Once the groups uploaded you may color, cluster or facet the expression values in different plots according to assigned groups.
+ 
+ **3). View active groups**:
+ 
+ **4). Usage**
+ 
+ **5). App**
+ 
+ **6). About**
+ 
+ **7). Downloads**
+ 
+ **8). News & Updates**
+ 
+ **9). Citations**
+ 
+ **10) Contact**
+ 
 
 ```{r , fig.cap="FIGURE 1: FungiExpresZ home screen",out.extra='style="background-color: black; padding:1px;"'}
 knitr::include_graphics("step_by_step_guide_files/screen_shots/01_fe_home.png")
