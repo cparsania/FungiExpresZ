@@ -64,19 +64,129 @@ The purpose of this document is to explain all the key functionalities and metho
 
 # User manual
 
-## Source 
+## Getting access 
 
 There are three ways in which you can access FungiExpresZ. 
 
-  1) Online 
+### Online 
   
-  FungiExpresZ has been hoisted on shinyapps.io and can be accessed through the link https://cparsania.shinyapps.io/FungiExpresZ/. This is one of the quickest way to access the FungiExpresZ. However, due to limited computational resources, I would recommend this approach only when the size of the data is comparatively small (< 10 MB) and/or you are in a need of quick figure out of your data. Current setup allows approx. 30 users to concurrently 
-  
-  2) As an R package 
-  
-  3) As a docker container
+  FungiExpresZ has been hoisted on shinyapps.io and can be accessed through the link https://cparsania.shinyapps.io/FungiExpresZ/. This is one of the quickest way to access the FungiExpresZ. However, due to limited computational resources, We recommend using this approach only when the size of the data is comparatively small (< 10 MB) and/or you are in a need of quick figure out of the data. Current setup allows approx. 30 concurrent users to access FungiExpresZ via link. Additional traffic may disconnect random users' session and you may end up loosing all analysis performed. Even without access traffic idle session timeout is 30 minutes, and therefore you may loose your analysis if you have thought to continue later. For stable, robust and to have long lasting session it is recommended to use one of the following two approaches.
   
   
+### As an R package 
+  
+  
+  FungiExpresZ can be installed as an R package on local computer or server. To do so you need basic skills of R programming language. 
+  
+  
+#### Prerequisites
+  
+   `R version (>= 3.6.1)`
+   
+#### Install dependencies 
+
+```
+   install.packages("devtools")
+   install.packages("BiocManager") 
+   install.packages("data.table" , type = "binary") ## installing from source may cause error.  
+```
+  
+#### Set repositories (repos) 
+
+``` 
+options(repos = BiocManager::repositories())
+
+```
+
+#### Install from package bundle
+  
+
+Download pre-compiled binary for MacOS ( FungiExpresZ<release_version>.tgz ) and source bundle for Windows ( FungiExpresZ<release_version>.tar.gz ) from [latest available release](https://github.com/cparsania/FungiExpresZ/releases/). Open an R terminal and use command below to install either on MacOS or Windows.  
+
+``` 
+devtools::install_local("path/to/.tgz file" , dependencies=TRUE,  build = FALSE, repos=BiocManager::repositories())
+
+```
+#### Run
+  
+Once installation completes, it can be run using below command.
+  
+```
+  library(FungiExpresZ);FungiExpresZ::run_app()
+```
+
+Copy and paste URL printed on the console to browser and you are ready to go 🎉🎉🎉🎉.
+  
+
+### Use as a docker container 
+
+This approach is highly recommended because as a user you do not need to worry about any dependency related stuff.
+
+#### Install docker desktop
+
+Follow the instructions given below to install docker desktop on ...
+
++ [Mac](https://docs.docker.com/docker-for-mac/install/)
++ [Windows](https://docs.docker.com/docker-for-windows/install/) 
++ [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
+#### Pull FungiExpresZ docker image to a local computer
+
+Once you installed the docker desktop, next step is to pull the FungiExpresZ's docker image. Before you pull the image make sure your docker desktop is running. Next, to pull the image, open the terminal and enter the below command. 
+
+```
+docker pull cparsania/fungiexpresz:<tagName>
+
+```
+
+Replace `<tagName>` with the version you want to download. For example, command below will download the version `0.0.1` 
+
+```
+docker pull cparsania/fungiexpresz:0.0.1
+```
+
+Possible values for `<tagName>` can be obtained from [here](https://hub.docker.com/r/cparsania/fungiexpresz/tags). We recommand you to pull latest available tag. 
+
+#### Run container 
+
+After getting the image on local computer, it can be run as a container. The command below will open the port given as `<port_number>` on local computer and launch the application on same. 
+
+
+```
+docker run -p <port_number>:80 cparsania/fungiexpresz:<tagName>
+
+```
+
+You can give valid TCP `<port_number>` which is not occupied by your system (e.g. 3232, 3233, 5434, ... etc.).
+
+Successful launch will print standard `R` welcome message on terminal with the final the line `http://0.0.0.0:80`. 
+
+
+#### Run on browser, Finally ..!!   
+
+After launch, hitting one of these URLs `http://localhost:<port_number>` or `http://127.0.0.1:<port_number>` or `http://<your_ip_address>:<port_number>` should launch the application on your browser. 
+
+Congrats!! 🎉🎉🎉🎉 .Your application will keep running until you  stop  container  explicitly.
+
+#### Memory usage for docker 
+
+Depending upon size of the data you are analyzing, you may need to assign more computational resources to docker than the default which is 2 GB of memory and 4 CPUs on a mac with 32GB memory and 8 CPUs. Default behavior can be changed from `Docker -> Preferences -> Advanced`
+
+![](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/docker_cpu_and_memory.png)
+
+We recommand users to allocate maximum 4 GB of memory to docker before you run FungiExpresZ docker image.  
+
+#### 2.2.6 How to stop container 
+
+Container will be active until it is explicitly stopped. You can stop container using below command on a new terminal window. 
+
+```
+## get container id 
+docker ps
+docker stop <CONTAINER ID>
+```
+
+
 
 ## Home screen 
 
