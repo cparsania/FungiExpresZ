@@ -369,7 +369,7 @@ The snap shot showing the format for gene groups.
 
 # Plot panels
 
-FungiExpresZ allows you to generate 12 data exploratory plots, which are **1)** Scatter plot, **2)** Multi-scatter plot, **3)** CorrHeatBox, **4)** Density plot, **5)** Histogram, **6)** Joy plot, **7)** Box plot, **8)** PCA plot, **9)** Line plot and **10)** Heatmap. Each of these have independent panel containing necessary inputs, plot output and other plot settings. Below sections have discussed each plot panel and their options in detail.
+FungiExpresZ allows you to generate 12 data exploratory plots, which are **1)** Scatter plot, **2)** Multi-scatter plot, **3)** CorrHeatBox, **4)** Density plot, **5)** Histogram, **6)** Joy plot, **7)** Box plot, **8)** Violin plot, **9)** Bar plot, **10)** PCA plot, **11)** Line plot and **12)** Heatmap. Each of these have independent panel containing necessary inputs, plot output and other plot settings. Below sections have discussed each plot panel and their options in detail.
 
 ## Plot input panels
 
@@ -383,12 +383,19 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_scatter_p
 
 **1) Select sample (X-axis)** 
 
+Select sample which is to be shown on the axis-X in a scatter plot. 
+
 **2) Select sample (Y-axis)** 
+
+Select sample which is to be shown on the axis-Y in a scatter plot. 
 
 **3) Select gene groups**
 
+By default, all the observations / genes will be displayed in a scatter plot. Optionally, selecting gene group(s) allow you to show specific observations / genes in a scatter plot. 
+
 **4) Plot** 
 
+Hitting plot button will open up a plot panel containing resultant scatter plot and other plot settings. 
 
 ### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot
 
