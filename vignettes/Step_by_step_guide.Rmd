@@ -278,7 +278,7 @@ Once the rows selected hitting button **Submit** will make selected data availab
 
 ## Upload user data
 
-Often transcriptomics data found in tabular like format where columns are samples i.e. replicates, time-points, multiple strain types etc. and rows are genes. Each cell in a table contains normalized gene expression values. You can either upload such a tabular format data in .txt file format or paste in a text box to FungiExpresZ for the purpose of analysis and visualization. Once you click on the button **Upload** (Fig-1 #2), pop-up showed in the Fig-3 will appear. 
+Often transcriptomics data found in a tabular like format where columns are samples i.e. replicates, time-points, multiple strain types etc. and rows are genes. Each cell in a table contains normalized gene expression values. You can either upload such a tabular format data in .txt file format or paste in a text box to FungiExpresZ for the purpose of analysis and visualization. Once you click on the button **Upload** (Fig-1 #2), pop-up showed in the Fig-3 will appear. 
 
 ```{r , fig.cap="FIGURE 3: FungiExpresZ upload user data",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/03_fe_file_upload.png"))
@@ -316,10 +316,8 @@ Click on **Submit** will lock all inputs made above and data will be available f
 
 # Assign groups
 
+Often genomics and transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts between these groups, which ultimately leads to unfold meaningful biological insights. Assign groups feature allows you to upload user defined Sample groups and Gene groups. In here, we discussed about technicalities of group assignments. 
 
-## Sample groups
-
-// TO DO 
 
 ```{r , fig.cap="FIGURE 4: FungiExpresZ define sample groups" ,out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/05_fe_sample_group.png"))
@@ -327,33 +325,70 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/05_fe_sample_gr
 ```
 
 
+## Sample groups
+
+Click on the button **Sample groups** will open up the pop-up showed in the Fig-4. There are three different ways by which you can assign the sample groups for your data. 
+
+**1) Manual**
+
+Using this option you can assign maximum of two sample groups. Under the section **Group name** you can input unique name to each group; default group names are **Group_1** and **Group_2**. Under the drop-down of **Group members** you can select the samples from active data and assign them to one of the two groups. Each sample must be assigned to one of the two groups. 
+
+**2) Upload**
+
+Second option to assign the sample groups is via user data upload. You can either upload groups via .txt file or paste data in the given text box. Both of these ways require identical data format i.e. a matrix of two columns, where first column contains group name and second column contains group members. A tab, a semicolon or a comma can be used as column deliminator. First row of the matrix will be considered as column names, which you can give of your choice. Each group member (column 2) must be assigned to the single group. Group members (column 2), which are used as sample names in the uploaded data will only be used to assign the groups and rest will be discarded. 
+
+**3) Group by BioProject(NCBI)**
+
+While analyzing the samples from NCBI-SRA data alone or along with user uploaded data, it is important to know which are the SRA samples from same study and which are from different. In background, FungiExpresZ clusters NCBI-SRA samples by NCBI-BioProjectID. You can activate sample groups by NCBI-BioProjectID by click on button **Submit** under this panel.
+
+**6) Submit**
+
+Click on the submit button will activate the assigned groups. It is important to note that every time you change the gene expression data, group data will be lost although the groups are same. To reactivate the same groups you need to click **Submit** again or upload groups in case of different groups. 
+
 ## Gene groups
 
-// TO DO 
+Click on the button **Gene groups** will open up the pop-up showed in the Fig-5. You can either upload file or paste data in a given text box to assign the gene group. 
+
 
 ```{r , fig.cap="FIGURE 5: FungiExpresZ define gene groups",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/06_fe_gene_group.png"))
 
 ```
 
-# View active groups
+**1) Upload**
 
-// TO DO 
+To assign the gene groups, you can either upload groups via .txt file or paste data in the given text box. Both of these ways require identical data format i.e. a matrix of two columns, where first column contains group name and second column contains group members. First row of the matrix will be considered as column names, which you can give of your choice. Each group member (column 2) must be assigned to the single group. Group members (column 2), which are used as gene names in the uploaded data will only be used to assign the groups and rest will be discarded.
+
+**2) Column separator**
+
+While uploading the groups you can use a tab or a semicolon or a comma as a column deliminator.
+
+**3) Example data snap**
+
+The snap shot showing the format for gene groups.
 
 # Plot panels
 
-// TO DO 
+FungiExpresZ allows you to generate 12 data exploratory plots, which are **1)** Scatter plot, **2)** Multi-scatter plot, **3)** CorrHeatBox, **4)** Density plot, **5)** Histogram, **6)** Joy plot, **7)** Box plot, **8)** PCA plot, **9)** Line plot and **10)** Heatmap. Each of these have independent panel containing necessary inputs, plot output and other plot settings. Below sections have discussed each plot panel and their options in detail.
 
 ## Plot input panels
 
-// TO DO 
-
 ### Scatter plot 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Scatter plot input panel" , out.width="100%"  }
+
+Fig-6 shows the scatter plot input panel. 
+
+```{r , fig.cap="FIGURE 6: FungiExpresZ Scatter plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_scatter_plot_select_variables.png"))
 ```
 
-// TO DO 
+**1) Select sample (X-axis)** 
+
+**2) Select sample (Y-axis)** 
+
+**3) Select gene groups**
+
+**4) Plot** 
+
 
 ### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot
 
