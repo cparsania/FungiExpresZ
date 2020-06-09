@@ -299,13 +299,20 @@ Selection of correct column separator for the uploaded data is required to uploa
 
 **4) Select species**
 
-Selection of species is optional. However, selection of correct species is necessary to perform gene annotations and GO analysis. Once the selection of a species is made, in background FungiExpresZ matches row names of uploaded data to the database id of selected species. For the selected species, you can cross check your id with the database id from the sample id given below the species selection drop-down menu. 
+Selection of a species is optional. However, correct species selection is required to perform gene annotations and GO analysis. Once  the species selected is done, in background FungiExpresZ matches row names of uploaded data to the database id of selected species. For the selected species, you can cross check your id with the database id from the example database id given below the species selection drop-down menu. 
 
 **5) Log transformation**
 
+Due to wide range of RPKM / FPKM / TPM values, often, they need to be log transformed before visualizing the data. Once the data uploaded, FungiExpresZ allows you to log transform  (log2 or log10) uploaded data. To avoid `NAs` from the log transformation of 0s, FungiExpresZ adds constant 1 to all the uploaded values. 
+
 **6) Join data** 
 
+FungiExpresZ allows you to perform combined analysis of uploaded data with pre-existing NCBI-SRA data. To use this functionality, you first need to select the pre-existing NCBI-SRA data of you interest from the FungiExpresZ. To know more about how to select SRA data refer the section **Select SRA data** (Fig-2). Next step is to upload your data, which you want to join with selected NCBI-SRA data. Once both these steps done, you can select **Join data** option to merge both of these data in background. For successful execution of join data operation row names of uploaded data must match to the database id of a selected species. 
+
 **7) Submit** 
+
+Click on **Submit** will lock all inputs made above and data will be available for the analysis and visualizations. 
+
 
 # Assign groups
 
