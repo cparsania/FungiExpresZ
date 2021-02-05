@@ -180,7 +180,7 @@ Depending upon size of the data you are analyzing, you may need to assign more c
 
 We recommand users to allocate maximum 4 GB of memory to docker before you run FungiExpresZ docker image.  
 
-### 2.2.6 How to stop container 
+### How to stop container 
 
 Container will be active until it is explicitly stopped. You can stop container using below command on a new terminal window. 
 
@@ -391,47 +391,215 @@ Select sample which is to be shown on the axis-Y in a scatter plot.
 
 **3) Select gene groups**
 
-By default, all the observations / genes will be displayed in a scatter plot. Optionally, selecting gene group(s) allow you to show specific observations / genes in a scatter plot. 
+By default, all the observations / genes will be displayed in a scatter plot. Optionally, selecting gene group(s) allow you to show group specific observations / genes in a scatter plot. 
 
 **4) Plot** 
 
-Hitting plot button will open up a plot panel containing resultant scatter plot and other plot settings. 
+Hitting a button **'Plot'** will open up a plot panel containing resultant scatter plot and other plot settings. 
 
 ### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot
 
-// TO DO 
+Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot require same inputs, which are shown in Fig-7. 
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot. Violin plot and PCA plot input panel" , out.width="100%"  }
+```{r , fig.cap="FIGURE 7: FungiExpresZ Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot. Violin plot and PCA plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_multi_scatter_to_violin_variable_selection.png"))
 ```
 
+**1) Select sample(s)**
+
+You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot. 
+
+**2) Select gene group(s)**
+
+By default, all the observations / genes will be displayed in the resultant plots. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot. 
+
+**3) Plot**
+
+Hitting a button **'Plot'** will open up a plot panel containing resultant plot and other plot settings. 
+
 ### Bar plot inputs
 
-// TO DO 
-```{r , fig.cap="FIGURE XXX:FungiExpresZ Bar plot input panel" , out.width="100%"  }
+The purpose of the bar plot given here is to check the expression of individual gene(s) in multiple samples or sample groups. Bar plot input panel is shown in the Fig-8. 
+
+```{r , fig.cap="FIGURE 8:FungiExpresZ Bar plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_barplot_inputs.png"))
 ```
+**1) Select sample(s)**
 
+You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot. 
+
+**2) Select gene(s)**
+
+Instead of the gene groups like in other plots, in bar plot you can select one or more genes which will be displayed in output bar plot. 
+
+**3) Plot**
+
+Hitting a button **'Plot'** will open up a plot panel containing resultant bar plot and other plot settings. 
 
 ### Line plot inputs
 
-// TO DO 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Line plot input panel" , out.width="100%"  }
+Line plot is a powerful way to show the trends of observations / genes across multiple samples. For example, one of the ways to use this plot is to show expression of genes across several time point samples. FungiExpresZ also allows to cluster  observations / genes both unsupervised and supervised way, and simultaneous visualization of clustered data. Additionally, you can even display average line (mean or median) instead of individual line of each  gene / observation in each cluster. The input panel of the line plot has been shown in the Fig-9.  
+
+```{r , fig.cap="FIGURE 9: FungiExpresZ Line plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_lineplot_inputs.png"))
 ```
+
+**1) Select sample(s)**
+
+You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot. 
+
+
+**2) Select gene group(s)**
+
+By default, all the observations / genes will be displayed in the resultant plot. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot. 
+
+**3) Genes to plot**
+
+This option provide additional filter on top of genes selected under option #2. You can choose between display **'# top variable genes (By standard deviation)'** or display **'All genes'**.
+
++ **# top variable genes (By standard deviation)** 
+
+    Selecting this option will plot number of genes specified in the given numeric input. It calculates  standard deviation of each observation / gene across selected samples in #1 and ranks them from high to low by standard deviation to select and plot number of specified genes / observations.
+
++ **All genes**
+
+    Selecting this option will plot all the genes filtered by #2. 
+
+**4) # top variable genes to show**
+
+Numeric input is required if the option **'# top variable genes (By standard deviation)'** is selected. Input number will be used to select the top variable genes ranked by standard deviation as described in the previous section. 
+
+**5) Gene cluster**
+
+You can cluster observation / genes either by un-supervised (**'K-means'**) or supervised (**'Gene groups'**) way . Simultaneously each cluster can be visualized in the resultant line plot. 
+
++ **K-means**
+
+    K-means clustering is one of the popular methods to perform the un-supervised clustering of gene expression data. While doing un-supervised clustering number of clusters are not known prior to the clustering. Before you do the clustering, number of clusters need to be specified in which you want to group the data. To perform the k-means clustering, FungiExpresZ uses the function `stats::kmeans()` with all default parameters.
+
++ **Gene groups**      
+
+    You can also perform supervised clustering of the genes/observations if prior cluster information is provided as gene groups. As mentioned earlier (In the section **Assign groups**), you can assign gene groups to your data. The same gene groups can be used here to cluster the genes/observations and simultaneously visualized in the line plot.  
+
+      
+**6) # of clusters (K-means)**
+
+For K-means clustering, number of clusters in which data needs to be grouped. 
+
+**7) Cluster by**
+
+You can choose either Z-score or Raw values to cluster the genes/observations. 
+
++ **Raw value** 
+
+    When selecting the option **'Raw value'**, user uploaded values will be used to cluster the genes / observations. 
+
++ **Z-score** 
+
+    When selecting the option **'Z-score'**, FungiExpresZ will use the Z-score calculated from raw values for each observation/gene across selected samples. To calculate the Z-score FungiExpresZ uses the R function `base::scale()` with all default parameters.  
+ 
+**8) Display value**
+
+Likewise parameter **'Cluster by'**, you can use parameter **'Display value'** value to choose which value to be displayed in the plot regardless of value selected in **'Cluster by'**. 
+
++ **Raw value** 
+
+    When selecting the option **'Raw value'**, user uploaded values will be displayed in the output line plot. 
+
++ **Z-score**
+
+    When selecting the option **'Z-score'**, Z-score calcualted for each gene across selected samples will be displayed in the output line plot. 
+
+**9) Display lines for**
+
+Under this parameter, you can choose whether to display individual line for each gene in each cluster or single line showing average of all genes for each cluster in output line plot. 
+
++ **Individual gene**
+
+Selecting this option will display individual line for each gene in each cluster. 
+
++ **Average of gene**
+
+Selecting this option will display average line (mean or median) for all genes in each cluster.
+
+**10) Plot**
+
+Hitting a button **'Plot'** will open up a plot panel containing resultant line plot and other plot settings. 
 
 
 ### Heatmap inputs
 
-// TO DO 
+Heatmap is a very popular way to represent various genomics or transcriptomics data. Very often, heatmap is used to reveal hidden patterns from gene expression data. FungiExpresZ implements one of the very powerful R packages i.e. ComplexHeatmap to create the heatmap. To get most out of the data, there are several Row, Column and Legend specific options provided, which give users lots of flexibility while creating a heatmap. Input panel for the heatmap has been shown in the Fig-10.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Heatmap inputs" , out.width="100%"  }
+```{r , fig.cap="FIGURE 10: FungiExpresZ Heatmap inputs" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_heatmap_inputs.png"))
 ```
 
+**1) Select sample(s)**
+
+You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the output heatmap plot. 
+
+**2) Select gene groups(s)**
+
+By default, all the observations / genes will be displayed in the output heatmap plot. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot. 
+
+**3) Number of genes to plot**
+
+By default, FungiEpxresZ plots heatmap of top 500 most variable genes. However, you can change the number of genes to be shown under the input **# of top variable genes to show**. The selected genes will be from the remaining genes once the genes group(s)(#2) filter is applied. To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples. Higher the standard deviation more the variability and vice versa. You can also choose the option **All genes** to display all the genes remained after gene group(s) filter if applied. 
+
+**4) # of top variable genes to show**
+
+A number to display top variable genes in the heatmap. To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples.
+
+**5) Cluster by**
+
+You can choose either Z-score or Raw values to cluster the genes/observations. 
+
+**6) Display value**
+
+Likewise parameter **'Cluster by'**, you can use parameter **'Display value'** value to choose which value to be displayed in the heatmap plot regardless of value selected in **'Cluster by'**. 
+
+**7) Row options**
+
++**7A) Row names**
++**7B) Row names font size**
++**7C) Row cluster**
++**7D) # row clusters **
++**7E) Row cluster label prefix**
++**7F) Row cluster (within the cluster)**
++**7G) Row dendogram (within the cluster)**
++**7H) Row cluster border (within the cluster)**
++**7I) Add standard deviation heatmap (within the cluster)**
++**7J) Sort by standard deviation**
+
+**8) Column options**
+
++**8A) Column names** 
++**8B) Column names font size**
++**8C) Column cluster**
++**8D) # column clusters(k-means)**
++**8E) Column cluster label prefix**
++**8F) Column cluster (within the cluster)**
++**8G) Column dendogram**
++**8H) Column annotation**
++**8I) Column annotation height**
+
+
+**9) Legend options**
+
++**9A)**
++**9B)**
++**9C)**
++**9D)**
++**9E)**
+
+**10) Plot**
+
+
+
+
 # Plot settings
 
-// TO DO 
 ## Common plot settings
 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ common plot settings : `Theme and Legend` (left), `Labels & Title` (right)" , out.width="30%"  }
