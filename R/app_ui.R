@@ -3847,7 +3847,29 @@ ul.nav.navbar-nav {
                              ")),
                                      #includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
                                      includeHTML("doc/Tutorial.html")
-                            )
+                            ),
+                            
+                          ## step_by_step guide page
+                          tabPanel(title = "Step by step guide", icon = icon("leanpub"),
+                                   
+                                   tags$style(HTML("
+              section.page-header {
+                             display: none;
+                             }      
+                    
+              section.main-content{
+                            max-width: 1000px;
+                            font-size: 100%;
+                             }
+             
+              div#TOC{
+                            max-width: 1024px;
+                             font-size: 100%;
+                             }
+                             ")),
+                                   #includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
+                                   includeHTML("doc/step_by_step_guide.html")
+                          )
                             
                             ## example page 
                             
