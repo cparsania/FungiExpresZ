@@ -34,6 +34,9 @@ knitr::opts_chunk$set(
 ## 2020
 1. **_The Aspergillus fumigatus transcription factor RglT is important for gliotoxin biosynthesis and self-protection, and virulence._** Ries LNA, Pardeshi L, Dong Z, Tan K, Steenwyk JL, Colabardini AC, et al. (2020)  PLoS Pathog 16(7): e1008645. [Article link](https://doi.org/10.1371/journal.ppat.1008645){target="_blank"}  
 
+2. **_Genome-wide characterization of AreA function and regulation in Aspergillus nidulans . University of Macau_** Li, A., & Wong, K. (2020). Thesis (Ph.D.). [Link](https://umlibrary.primo.exlibrisgroup.com/permalink/853UOM_INST/1ug6ab4/alma991009890287006306){target="_blank"}
+
+
  
 ## 2019
 1. **_Transcriptomic analysis reveals global and temporal transcription changes during Candida glabrata adaptation to an oxidative environment._** P Sethiya, MN Rai, R Rai, C Parsania, K Tan, KH Wong - Fungal Biology, 2019. [Article link](https://www.sciencedirect.com/science/article/pii/S1878614619301795){target="_blank"}
