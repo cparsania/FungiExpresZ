@@ -25,11 +25,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-<style>
-body {
-text-align: justify}
-</style>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 # Introduction 
 
@@ -67,257 +62,60 @@ It contains normalized  gene expression values of more than 12,000 NCBI SRA data
   
 The purpose of this document is to explain all the key functionalities and methods used in this website wherever necessary. 
 
+# User manual
 
-# Getting access 
+## Source 
 
 There are three ways in which you can access FungiExpresZ. 
 
-## Online 
+  1) Online 
   
-  FungiExpresZ has been hoisted on shinyapps.io and can be accessed through the link https://cparsania.shinyapps.io/FungiExpresZ/. This is one of the quickest way to access the FungiExpresZ. However, due to limited computational resources, We recommend using this approach only when the size of the data is comparatively small (< 10 MB) and/or you are in a need of quick figure out of the data. Current setup allows approx. 30 concurrent users to access FungiExpresZ via link. Additional traffic may disconnect random users' session and you may end up loosing all analysis performed. Even without access traffic idle session timeout is 30 minutes, and therefore you may loose your analysis if you have thought to continue later. For stable, robust and to have long lasting session it is recommended to use one of the following two approaches.
+  FungiExpresZ has been hoisted on shinyapps.io and can be accessed through the link https://cparsania.shinyapps.io/FungiExpresZ/. This is one of the quickest way to access the FungiExpresZ. However, due to limited computational resources, I would recommend this approach only when the size of the data is comparatively small (< 10 MB) and/or you are in a need of quick figure out of your data. Current setup allows approx. 30 users to concurrently 
   
+  2) As an R package 
   
-## As an R package 
-  
-  
-  FungiExpresZ can be installed as an R package on local computer or server. To do so you need basic skills of R programming language. 
+  3) As a docker container
   
   
-### Prerequisites
+
+## Home screen 
+
   
-   `R version (>= 3.6.1)`
-   
-### Install dependencies 
-
-```
-   install.packages("devtools")
-   install.packages("BiocManager") 
-   install.packages("data.table" , type = "binary") ## installing from source may cause error.  
-```
-  
-### Set repositories (repos) 
-
-``` 
-options(repos = BiocManager::repositories())
-
-```
-
-### Install from package bundle
-  
-
-Download pre-compiled binary for MacOS ( FungiExpresZ<release_version>.tgz ) and source bundle for Windows ( FungiExpresZ<release_version>.tar.gz ) from [latest available release](https://github.com/cparsania/FungiExpresZ/releases/). Open an R terminal and use command below to install either on MacOS or Windows.  
-
-``` 
-devtools::install_local("path/to/.tgz file" , dependencies=TRUE,  build = FALSE, repos=BiocManager::repositories())
-
-```
-### Run
-  
-Once installation completes, it can be run using below command.
-  
-```
-  library(FungiExpresZ);FungiExpresZ::run_app()
-```
-
-Copy and paste URL printed on the console to browser and you are ready to go 🎉🎉🎉🎉.
-  
-
-## Use as a docker container 
-
-This approach is highly recommended because as a user you do not need to worry about any dependency related stuff.
-
-### Install docker desktop
-
-Follow the instructions given below to install docker desktop on ...
-
-+ [Mac](https://docs.docker.com/docker-for-mac/install/)
-+ [Windows](https://docs.docker.com/docker-for-windows/install/) 
-+ [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
-
-### Pull FungiExpresZ docker image to a local computer
-
-Once you installed the docker desktop, next step is to pull the FungiExpresZ's docker image. Before you pull the image make sure your docker desktop is running. Next, to pull the image, open the terminal and enter the below command. 
-
-```
-docker pull cparsania/fungiexpresz:<tagName>
-
-```
-
-Replace `<tagName>` with the version you want to download. For example, command below will download the version `0.0.1` 
-
-```
-docker pull cparsania/fungiexpresz:0.0.1
-```
-
-Possible values for `<tagName>` can be obtained from [here](https://hub.docker.com/r/cparsania/fungiexpresz/tags). We recommand you to pull latest available tag. 
-
-### Run container 
-
-After getting the image on local computer, it can be run as a container. The command below will open the port given as `<port_number>` on local computer and launch the application on same. 
-
-
-```
-docker run -p <port_number>:80 cparsania/fungiexpresz:<tagName>
-
-```
-
-You can give valid TCP `<port_number>` which is not occupied by your system (e.g. 3232, 3233, 5434, ... etc.).
-
-Successful launch will print standard `R` welcome message on terminal with the final the line `http://0.0.0.0:80`. 
-
-
-### Run on browser, Finally ..!!   
-
-After launch, hitting one of these URLs `http://localhost:<port_number>` or `http://127.0.0.1:<port_number>` or `http://<your_ip_address>:<port_number>` should launch the application on your browser. 
-
-Congrats!! 🎉🎉🎉🎉 .Your application will keep running until you  stop  container  explicitly.
-
-### Memory usage for docker 
-
-Depending upon size of the data you are analyzing, you may need to assign more computational resources to docker than the default which is 2 GB of memory and 4 CPUs on a mac with 32GB memory and 8 CPUs. Default behavior can be changed from `Docker -> Preferences -> Advanced`
-
-![](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/docker_cpu_and_memory.png)
-
-We recommand users to allocate maximum 4 GB of memory to docker before you run FungiExpresZ docker image.  
-
-### How to stop container 
-
-Container will be active until it is explicitly stopped. You can stop container using below command on a new terminal window. 
-
-```
-## get container id 
-docker ps
-docker stop <CONTAINER ID>
-```
-
-
-# Home screen 
-
-Once the application loaded fully on a browser, it looks like as shown in the Fig-1. 
-
 
 ```{r , fig.cap="FIGURE 1: FungiExpresZ home screen",out.extra='style="background-color: black; padding:1px;"'}
 knitr::include_graphics("step_by_step_guide_files/screen_shots/01_fe_home.png")
 ```
 
+## Select/Upload data
 
- **1). Inputs** 
- 
- It allows you to either upload or select data from pre-existing SRA data. Depending upon radio button selected (**Select data** or **Upload/Use example data**) submit button toggle between **Select** and **Upload**. Click either of these result in a popup which have been explained in Fig-2 and Fig-3.     
- 
- **2). Assign groups**
- 
- Often genomics and transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts between these groups, which ultimately leads to unfold meaningful biological insights.  **Assign groups** feature allows you to upload user defined **Sample groups** and **Gene groups**. Additional info on file format to assign groups given in the Fig-4 and Fig-5.  Once the groups uploaded, you may color, cluster or facet the expression values in different plots according to groups assigned.
- 
- **3). View active groups**
- 
-  By clicking on  **View active groups** one can check the current active groups (both sample and gene).  
- 
- **4). Usage**
- 
- It displays the locations across the globe, where FungiExpresZ has been used at least once. Blink sign is the indication of "at this moment" access from particular location.  Through the click on anywhere in the map you can get more insights on usage statistics across the globe. 
- 
- **5). - 10). ** 
- 
- Number 5-10 are different tabs i.e. **App**, **About**, **Downloads**, **News & Updates** ,**Citations**, **Contact**. Although one can anticipate content of each tab from the name, details on each has been given later in the tutorial. Current selected tab in Fig-1 is **App**. As you can see, it contains 12 different plot panels (default open is **Scatter plot**). Each plat panel is explained later in the tutorial.  
- 
- 
-# Select/Upload data
+// TO DO 
 
-Once you click on Select/Upload data (Fig-1 #2) relavent pop-up will appear. 
+### Select SRA data
 
-## Select SRA data
-
-FungiExpresZ contains > 13,000 pre-processed NCBI SRA data from 8 different fungal species. The values given are normalized gene expressed values (FPKM / RPKM etc.) Some of these data have been obtained from public resources while remaining ones are processed by us. You can select any of these data for purpose of analysis and visualizations. Once you click on Select data button the pop-up will appear as shown in Fig-2. 
+// TO DO 
 
 ```{r , fig.cap="FIGURE 2: FungiExpresZ select SRA data", out.width="50%",out.extra='style="background-color: black; padding:1px;"' }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_select_data.png"))
 
 ```
 
-**1) Organism **
 
-Dropdown **Organism** allows you to select organism of your choice. Once oranism selected table below will show data of selected organism only. 
+### Upload user data
 
-**2) Strain and 3) Genotype**
-
-Dropdown **Strain** and **Genotype** allows you to filter by stain and genotype respectively for selected Organism. Both of these filters works with AND operator and therefore, while applying them together will only work if both condition satisfy. P.S. Current settings doesn't allow selection of more than one value in each filter. 
-
-**4) Reset Strain** and **5) Reset Genotype**
-
- #4 and #5 are reset options for dropdown **Strain** and dropdown **Genotype** respectively.  
-
-**6) Select all rows**
- 
- Once the data filtered (By organism, strain and genotype) you need to select the row(s) from resultant table to make them available for analysis and visualization. As name suggests click on **Select all rows** will select all the rows being displayed in the table. You may alos use `shift` key from the keyboard to select more than one rows simultaneously.
-
-**7) Copy**
-
-Click on **Copy** button copy data displayed in the table to your clipboard. You may paste them to any spreadsheet like program to better organize and understand.
-
-**8) Download**
-
-Using button **Download** you can even download data being displayed in the table to one of these three formats i.e. .csv, .pdf or excel. 
-
-**9) Column visibility**
-
-Click on **Column visibility** will lists the hidden columns to the table. You may select one or more of them to make them visible in the table being displayed. 
-
-**10) Search**
-
-Besides **Organism**, **Strain** and **Genotype** filters, you can perform free text filter from the text box given under **Search** title. Input text will be matched against all the column being displayed in the table and matching rows will be displayed as a result. 
-
-**11) Clear all**
-
-Click on **Clear all** will deselect rows if selected any. 
-
-**12) Submit**
-
-Once the rows selected hitting button **Submit** will make selected data available for analysis. For selected data, SRA id will be displayed as sample identity in each plot panel. 
-
-
-## Upload user data
-
-Often transcriptomics data found in a tabular like format where columns are samples i.e. replicates, time-points, multiple strain types etc. and rows are genes. Each cell in a table contains normalized gene expression values. You can either upload such a tabular format data in .txt file format or paste in a text box to FungiExpresZ for the purpose of analysis and visualization. Once you click on the button **Upload** (Fig-1 #2), pop-up showed in the Fig-3 will appear. 
+// TO DO 
 
 ```{r , fig.cap="FIGURE 3: FungiExpresZ upload user data",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/03_fe_file_upload.png"))
 
 ```
- 
-**1) Upload example data** 
-
-Upon selection of this check-box example data will be activated. 
-
-**2) Upload data** 
-
-This section allows you to upload your own data. As mentioned above you may either choose uploading tabular format data in .txt file or paste data in a given text box. In both cases column names and row names are necessary requirements. Later, while analyzing data column names will appear as a sample identity in each plot panel, while row names will be used in background to fetch organism's  annotations (gene start, gene end, gene strand,gene description, GO terms etc.). 
-
-**3) Select column separator** 
-
-Selection of correct column separator for the uploaded data is required to upload data successfully. Default is **tab**. You may also select **comma** or **semicolon**. 
-
-**4) Select species**
-
-Selection of a species is optional. However, correct species selection is required to perform gene annotations and GO analysis. Once  the species selected is done, in background FungiExpresZ matches row names of uploaded data to the database id of selected species. For the selected species, you can cross check your id with the database id from the example database id given below the species selection drop-down menu. 
-
-**5) Log transformation**
-
-Due to wide range of RPKM / FPKM / TPM values, often, they need to be log transformed before visualizing the data. Once the data uploaded, FungiExpresZ allows you to log transform  (log2 or log10) uploaded data. To avoid `NAs` from the log transformation of 0s, FungiExpresZ adds constant 1 to all the uploaded values. 
-
-**6) Join data** 
-
-FungiExpresZ allows you to perform combined analysis of uploaded data with pre-existing NCBI-SRA data. To use this functionality, you first need to select the pre-existing NCBI-SRA data of you interest from the FungiExpresZ. To know more about how to select SRA data refer the section **Select SRA data** (Fig-2). Next step is to upload your data, which you want to join with selected NCBI-SRA data. Once both these steps done, you can select **Join data** option to merge both of these data in background. For successful execution of join data operation row names of uploaded data must match to the database id of a selected species. 
-
-**7) Submit** 
-
-Click on **Submit** will lock all inputs made above and data will be available for the analysis and visualizations. 
 
 
-# Assign groups
+## Assign groups
 
-Often genomics and transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts between these groups, which ultimately leads to unfold meaningful biological insights. Assign groups feature allows you to upload user defined Sample groups and Gene groups. In here, we discussed about technicalities of group assignments. 
 
+### Sample groups
+
+// TO DO 
 
 ```{r , fig.cap="FIGURE 4: FungiExpresZ define sample groups" ,out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/05_fe_sample_group.png"))
@@ -325,292 +123,79 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/05_fe_sample_gr
 ```
 
 
-## Sample groups
+### Gene groups
 
-Click on the button **Sample groups** will open up the pop-up showed in the Fig-4. There are three different ways by which you can assign the sample groups for your data. 
-
-**1) Manual**
-
-Using this option you can assign maximum of two sample groups. Under the section **Group name** you can input unique name to each group; default group names are **Group_1** and **Group_2**. Under the drop-down of **Group members** you can select the samples from active data and assign them to one of the two groups. Each sample must be assigned to one of the two groups. 
-
-**2) Upload**
-
-Second option to assign the sample groups is via user data upload. You can either upload groups via .txt file or paste data in the given text box. Both of these ways require identical data format i.e. a matrix of two columns, where first column contains group name and second column contains group members. A tab, a semicolon or a comma can be used as column deliminator. First row of the matrix will be considered as column names, which you can give of your choice. Each group member (column 2) must be assigned to the single group. Group members (column 2), which are used as sample names in the uploaded data will only be used to assign the groups and rest will be discarded. 
-
-**3) Group by BioProject(NCBI)**
-
-While analyzing the samples from NCBI-SRA data alone or along with user uploaded data, it is important to know which are the SRA samples from same study and which are from different. In background, FungiExpresZ clusters NCBI-SRA samples by NCBI-BioProjectID. You can activate sample groups by NCBI-BioProjectID by click on button **Submit** under this panel.
-
-**6) Submit**
-
-Click on the submit button will activate the assigned groups. It is important to note that every time you change the gene expression data, group data will be lost although the groups are same. To reactivate the same groups you need to click **Submit** again or upload groups in case of different groups. 
-
-## Gene groups
-
-Click on the button **Gene groups** will open up the pop-up showed in the Fig-5. You can either upload file or paste data in a given text box to assign the gene group. 
-
+// TO DO 
 
 ```{r , fig.cap="FIGURE 5: FungiExpresZ define gene groups",out.extra='style="background-color: black; padding:1px;"' , out.width="50%"}
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/06_fe_gene_group.png"))
 
 ```
 
-**1) Upload**
+## View active groups
 
-To assign the gene groups, you can either upload groups via .txt file or paste data in the given text box. Both of these ways require identical data format i.e. a matrix of two columns, where first column contains group name and second column contains group members. First row of the matrix will be considered as column names, which you can give of your choice. Each group member (column 2) must be assigned to the single group. Group members (column 2), which are used as gene names in the uploaded data will only be used to assign the groups and rest will be discarded.
+// TO DO 
 
-**2) Column separator**
+## Plot panels
 
-While uploading the groups you can use a tab or a semicolon or a comma as a column deliminator.
+// TO DO 
 
-**3) Example data snap**
+### Plot input panels
 
-The snap shot showing the format for gene groups.
+// TO DO 
 
-# Plot panels
-
-FungiExpresZ allows you to generate 12 data exploratory plots, which are **1)** Scatter plot, **2)** Multi-scatter plot, **3)** CorrHeatBox, **4)** Density plot, **5)** Histogram, **6)** Joy plot, **7)** Box plot, **8)** Violin plot, **9)** Bar plot, **10)** PCA plot, **11)** Line plot and **12)** Heatmap. Each of these have independent panel containing necessary inputs, plot output and other plot settings. Below sections have discussed each plot panel and their options in detail.
-
-## Plot input panels
-
-### Scatter plot 
-
-Fig-6 shows the scatter plot input panel. 
-
-```{r , fig.cap="FIGURE 6: FungiExpresZ Scatter plot input panel" , out.width="100%"  }
+#### Scatter plot 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Scatter plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_scatter_plot_select_variables.png"))
 ```
 
-**1) Select sample (X-axis)** 
+// TO DO 
 
-Select sample which is to be shown on the axis-X in a scatter plot. 
+#### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot
 
-**2) Select sample (Y-axis)** 
+// TO DO 
 
-Select sample which is to be shown on the axis-Y in a scatter plot. 
-
-**3) Select gene groups**
-
-By default, all the observations / genes will be displayed in a scatter plot. Optionally, selecting gene group(s) allow you to show group specific observations / genes in a scatter plot. 
-
-**4) Plot** 
-
-Hitting a button **'Plot'** will open up a plot panel containing resultant scatter plot and other plot settings. 
-
-### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot
-
-Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot require same inputs, which are shown in Fig-7. 
-
-```{r , fig.cap="FIGURE 7: FungiExpresZ Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot. Violin plot and PCA plot input panel" , out.width="100%"  }
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot. Violin plot and PCA plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_multi_scatter_to_violin_variable_selection.png"))
 ```
 
-**1) Select sample(s)**
+#### Bar plot inputs
 
-You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot. 
-
-**2) Select gene group(s)**
-
-By default, all the observations / genes will be displayed in the resultant plots. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot. 
-
-**3) Plot**
-
-Hitting a button **'Plot'** will open up a plot panel containing resultant plot and other plot settings. 
-
-### Bar plot inputs
-
-The purpose of the bar plot given here is to check the expression of individual gene(s) in multiple samples or sample groups. Bar plot input panel is shown in the Fig-8. 
-
-```{r , fig.cap="FIGURE 8:FungiExpresZ Bar plot input panel" , out.width="100%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX:FungiExpresZ Bar plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_barplot_inputs.png"))
 ```
-**1) Select sample(s)**
 
-You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot. 
 
-**2) Select gene(s)**
+#### Line plot inputs
 
-Instead of the gene groups like in other plots, in bar plot you can select one or more genes which will be displayed in output bar plot. 
-
-**3) Plot**
-
-Hitting a button **'Plot'** will open up a plot panel containing resultant bar plot and other plot settings. 
-
-### Line plot inputs
-
-Line plot is a powerful way to show the trends of observations / genes across multiple samples. For example, one of the ways to use this plot is to show expression of genes across several time point samples. FungiExpresZ also allows to cluster  observations / genes both unsupervised and supervised way, and simultaneous visualization of clustered data. Additionally, you can even display average line (mean or median) instead of individual line of each  gene / observation in each cluster. The input panel of the line plot has been shown in the Fig-9.  
-
-```{r , fig.cap="FIGURE 9: FungiExpresZ Line plot input panel" , out.width="100%"  }
+// TO DO 
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Line plot input panel" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_fe_lineplot_inputs.png"))
 ```
 
-**1) Select sample(s)**
 
-You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot. 
+#### Heatmap inputs
 
+// TO DO 
 
-**2) Select gene group(s)**
-
-By default, all the observations / genes will be displayed in the resultant plot. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot. 
-
-**3) Genes to plot**
-
-This option provide additional filter on top of genes selected under option #2. You can choose between display **'# top variable genes (By standard deviation)'** or display **'All genes'**.
-
-+ **# top variable genes (By standard deviation)** 
-
-    Selecting this option will plot number of genes specified in the given numeric input. It calculates  standard deviation of each observation / gene across selected samples in #1 and ranks them from high to low by standard deviation to select and plot number of specified genes / observations.
-
-+ **All genes**
-
-    Selecting this option will plot all the genes filtered by #2. 
-
-**4) # top variable genes to show**
-
-Numeric input is required if the option **'# top variable genes (By standard deviation)'** is selected. Input number will be used to select the top variable genes ranked by standard deviation as described in the previous section. 
-
-**5) Gene cluster**
-
-You can cluster observation / genes either by un-supervised (**'K-means'**) or supervised (**'Gene groups'**) way . Simultaneously each cluster can be visualized in the resultant line plot. 
-
-+ **K-means**
-
-    K-means clustering is one of the popular methods to perform the un-supervised clustering of gene expression data. While doing un-supervised clustering number of clusters are not known prior to the clustering. Before you do the clustering, number of clusters need to be specified in which you want to group the data. To perform the k-means clustering, FungiExpresZ uses the function `stats::kmeans()` with all default parameters.
-
-+ **Gene groups**      
-
-    You can also perform supervised clustering of the genes/observations if prior cluster information is provided as gene groups. As mentioned earlier (In the section **Assign groups**), you can assign gene groups to your data. The same gene groups can be used here to cluster the genes/observations and simultaneously visualized in the line plot.  
-
-      
-**6) # of clusters (K-means)**
-
-For K-means clustering, number of clusters in which data needs to be grouped. 
-
-**7) Cluster by**
-
-You can choose either Z-score or Raw values to cluster the genes/observations. 
-
-+ **Raw value** 
-
-    When selecting the option **'Raw value'**, user uploaded values will be used to cluster the genes / observations. 
-
-+ **Z-score** 
-
-    When selecting the option **'Z-score'**, FungiExpresZ will use the Z-score calculated from raw values for each observation/gene across selected samples. To calculate the Z-score FungiExpresZ uses the R function `base::scale()` with all default parameters.  
- 
-**8) Display value**
-
-Likewise parameter **'Cluster by'**, you can use parameter **'Display value'** value to choose which value to be displayed in the plot regardless of value selected in **'Cluster by'**. 
-
-+ **Raw value** 
-
-    When selecting the option **'Raw value'**, user uploaded values will be displayed in the output line plot. 
-
-+ **Z-score**
-
-    When selecting the option **'Z-score'**, Z-score calcualted for each gene across selected samples will be displayed in the output line plot. 
-
-**9) Display lines for**
-
-Under this parameter, you can choose whether to display individual line for each gene in each cluster or single line showing average of all genes for each cluster in output line plot. 
-
-+ **Individual gene**
-
-Selecting this option will display individual line for each gene in each cluster. 
-
-+ **Average of gene**
-
-Selecting this option will display average line (mean or median) for all genes in each cluster.
-
-**10) Plot**
-
-Hitting a button **'Plot'** will open up a plot panel containing resultant line plot and other plot settings. 
-
-
-### Heatmap inputs
-
-Heatmap is a very popular way to represent various genomics or transcriptomics data. Very often, heatmap is used to reveal hidden patterns from gene expression data. FungiExpresZ implements one of the very powerful R packages i.e. ComplexHeatmap to create the heatmap. To get most out of the data, there are several Row, Column and Legend specific options provided, which give users lots of flexibility while creating a heatmap. Input panel for the heatmap has been shown in the Fig-10.
-
-```{r , fig.cap="FIGURE 10: FungiExpresZ Heatmap inputs" , out.width="100%"  }
+```{r , fig.cap="FIGURE XXX: FungiExpresZ Heatmap inputs" , out.width="100%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/02_heatmap_inputs.png"))
 ```
 
-**1) Select sample(s)**
+## Plot settings
 
-You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the output heatmap plot. 
-
-**2) Select gene groups(s)**
-
-By default, all the observations / genes will be displayed in the output heatmap plot. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot. 
-
-**3) Number of genes to plot**
-
-By default, FungiEpxresZ plots heatmap of top 500 most variable genes. However, you can change the number of genes to be shown under the input **# of top variable genes to show**. The selected genes will be from the remaining genes once the genes group(s)(#2) filter is applied. To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples. Higher the standard deviation more the variability and vice versa. You can also choose the option **All genes** to display all the genes remained after gene group(s) filter if applied. 
-
-**4) # of top variable genes to show**
-
-A number to display top variable genes in the heatmap. To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples.
-
-**5) Cluster by**
-
-You can choose either Z-score or Raw values to cluster the genes/observations. 
-
-**6) Display value**
-
-Likewise parameter **'Cluster by'**, you can use parameter **'Display value'** value to choose which value to be displayed in the heatmap plot regardless of value selected in **'Cluster by'**. 
-
-**7) Row options**
-
-+**7A) Row names**
-+**7B) Row names font size**
-+**7C) Row cluster**
-+**7D) # row clusters **
-+**7E) Row cluster label prefix**
-+**7F) Row cluster (within the cluster)**
-+**7G) Row dendogram (within the cluster)**
-+**7H) Row cluster border (within the cluster)**
-+**7I) Add standard deviation heatmap (within the cluster)**
-+**7J) Sort by standard deviation**
-
-**8) Column options**
-
-+**8A) Column names** 
-+**8B) Column names font size**
-+**8C) Column cluster**
-+**8D) # column clusters(k-means)**
-+**8E) Column cluster label prefix**
-+**8F) Column cluster (within the cluster)**
-+**8G) Column dendogram**
-+**8H) Column annotation**
-+**8I) Column annotation height**
-
-
-**9) Legend options**
-
-+**9A)**
-+**9B)**
-+**9C)**
-+**9D)**
-+**9E)**
-
-**10) Plot**
-
-
-
-
-# Plot settings
-
-## Common plot settings
+// TO DO 
+### Common plot settings
 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ common plot settings : `Theme and Legend` (left), `Labels & Title` (right)" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/10_common_theme_and_legend_settings.png",
                           "step_by_step_guide_files/screen_shots/11_common_labels_and_title.png"))
 ```
 
-## Plot specific settings 
+### Plot specific settings 
 
-### Scatter plot 
-
+#### Scatter plot 
 // TO DO 
 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ Scatter plot advance options" , out.width="30%"  }
@@ -618,7 +203,7 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/09_scatter_plot
 ```
 
 
-### Multi-scatter plot
+#### Multi-scatter plot
 
 // TO DO 
 
@@ -626,7 +211,7 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/09_scatter_plot
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/12_multi_scatter_plot_advance_settings.png"))
 ```
 
-### CorrHeatBox   
+#### CorrHeatBox   
 
 // TO DO 
 
@@ -634,26 +219,26 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/12_multi_scatte
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/13_corr_heat_box_advance_settings.png"))
 ```
 
-### Density plot
+#### Density plot
 
 // TO DO
 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ Density plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/14_density_plot_advance_settings.png"))
 ```
-### Histogram
+#### Histogram
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ  Histogram advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/15_histogram_advance_settings.png"))
 ```
-### Joy plot
+#### Joy plot
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ Joy plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/16_joy_plot_advance_settings.png"))
 ```
-### Box plot
+#### Box plot
 
 // TO DO 
 
@@ -661,7 +246,7 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/16_joy_plot_adv
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/17_boxplot_advance_settings.png"))
 ```
 
-### Violin plot
+#### Violin plot
 
 // TO DO 
 
@@ -669,28 +254,28 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/17_boxplot_adva
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/18_violin_plot_advance_settings.png"))
 ```
 
-### Bar plot
+#### Bar plot
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ Bar plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/19_barplot_advance_settings.png"))
 ```
 
-### PCA plot
+#### PCA plot
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ PCA plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/20_pca_plot_advance_settings.png"))
 ```
 
-### Line plot
+#### Line plot
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ  Line plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/21_line_plot_advance_settings.png"))
 ```
 
-### Heatmap
+#### Heatmap
 
 // TO DO 
 
@@ -698,7 +283,7 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/21_line_plot_ad
 
 ```
 
-# GO analysis and visualizations 
+## GO analysis and visualizations 
 
 // TO DO 
 
@@ -706,18 +291,18 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/21_line_plot_ad
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/27_go_inputs.png"))
 ```
 
-# GO plots specific settings 
+## GO plots specific settings 
 
 // TO DO 
 
-### Dot plot and Bar plot 
+#### Dot plot and Bar plot 
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Dot plot and Bar plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/29_dot_and_bar_plot_advance_settings.png"))
 ```
 
-### EMAP plot
+#### EMAP plot
 
 // TO DO 
 
@@ -725,7 +310,7 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/29_dot_and_bar_
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/28_emap_plot_advance_settings.png"))
 ```
 
-### CNET plot
+#### CNET plot
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ GO CNET plot advance options" , out.width="30%"  }
@@ -733,14 +318,14 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/30_cnet_plot_ad
 ```
 
 
-### UPSET plot
+#### UPSET plot
 
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Upset plot advance options" , out.width="30%"  }
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/31_upset_plot_advance_settings.png"))
 ```
 
-### Heat plot
+#### Heat plot
   
 // TO DO 
 ```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Heat plot advance options" , out.width="30%"  }
@@ -748,11 +333,11 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/33_go_heat_plot
 ```
 
 
-# Other panels
+## Other panels
 
 // TO DO 
 
-## About 
+### About 
 
 // TO DO 
 
@@ -765,7 +350,7 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/39_fe_tutorials
 ```
 
 
-## Downloads 
+### Downloads 
 
 // TO DO 
 
@@ -777,7 +362,8 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/35_fe_gene_expr
 knitr::include_graphics(c("step_by_step_guide_files/screen_shots/35_fe_gene_expression_downloads.png"))
 ```
 
-## News & Updates
+
+### News & Updates
 
 // TO DO 
 
@@ -786,7 +372,7 @@ knitr::include_graphics(c("step_by_step_guide_files/screen_shots/37_fe_news_and_
 ```
 
 
-## Citations
+### Citations
 
 // TO DO 
 ``` {r, fig.cap="FIGURE XXX: FungiExpresZ `Citations` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
