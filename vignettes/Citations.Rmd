@@ -29,7 +29,10 @@ knitr::opts_chunk$set(
 
 ## 2021
 
-1.  ***Carbon Catabolite Repression in Filamentous Fungi Is Regulated by Phosphorylation of the Transcription Factor CreA.*** de Assis LJ, Silva LP, Bayram O, Dowling P, Kniemeyer O, Krüger T, Brakhage AA, Chen Y, Dong L, Tan K, Wong KH, Ries LNA, Goldman GH. 2021. Carbon catabolite repression in filamentous fungi is regulated by phosphorylation of the transcription factor CreA. mBio 12:e03146-20. [Article link](https://doi.org/10.1128/mBio.03146-20.){target="_blank"}
+1.  ***Carbon Catabolite Repression in Filamentous Fungi Is Regulated by Phosphorylation of the Transcription Factor CreA.*** de Assis LJ, Silva LP, Bayram O, Dowling P, *et al*. Carbon catabolite repression in filamentous fungi is regulated by phosphorylation of the transcription factor CreA. mBio 12:e03146-20. [Article link](https://doi.org/10.1128/mBio.03146-20.){target="_blank"}
+2.  ***Chromatin profiling reveals genome stability heterogeneity in clinical isolates of the human pathogen Aspergillus fumigatus.*** AnaCristina Colabardini, Fang Wang, Zhengqiang Miao *et al*. [Article link](https://www.biorxiv.org/content/10.1101/2021.04.19.440431v1.full)
+3.  ***Transcription in fungal conidia before dormancy produces phenotypically variable conidia that maximize survival in different environments.*** Wang, F., Sethiya, P., Hu, X. *et al. Nat Microbiol* **6,** 1066--1081 (2021). [Article link](https://doi.org/10.1038/s41564-021-00922-y)
+4.  ***Temporal transcriptional response of Candida glabrata during macrophage infection reveals a multifaceted transcriptional regulator CgXbp1 important for macrophage response and drug resistance*** Maruti Nandan Rai, Chirag Parsania, Rikky Rai, Niranjan Shirgaonkar, Kaeling Tan, Koon Ho Wong. [Article link](https://doi.org/10.1101/2021.09.28.462173)
 
 ## 2020
 
