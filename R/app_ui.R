@@ -3823,12 +3823,13 @@ ul.nav.navbar-nav {
                              }
                              ")),
                                      #includeHTML(system.file("app","markdown_and_html","About.html" , package = "FungiExpresZ"))
-                                     includeHTML("doc/About.html")
+                                     #includeHTML("doc/About.html")
+                                     includeHTML(system.file("app","rmd_and_html","about.html" , package = "FungiExpresZ"))
                             ),
                             
-                            ## Tutorial page 
+                            ## Video Tutorial page
                             
-                            tabPanel(title = "Tutorial", icon = icon("chalkboard-teacher"),
+                            tabPanel(title = "Video Tutorials", icon = icon("chalkboard-teacher"),
                                      
                                      tags$style(HTML("
               section.page-header {
@@ -3845,31 +3846,31 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                                     #includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
-                                     includeHTML("doc/Tutorial.html")
-                            )
+                                     includeHTML(system.file("app","rmd_and_html","tutorial.html" , package = "FungiExpresZ"))
+                                     
+                            ),
                             
-                            ## example page 
+                            ## Step by step guide page
                             
-                            #               tabPanel(title = "Examples", icon = icon("paperclip"),
-                            #                        
-                            #                        tags$style(HTML("
-                            # section.page-header {
-                            #                display: none;
-                            #                }      
-                            #       
-                            # section.main-content{
-                            #               max-width: 1000px;
-                            #               font-size: 100%;
-                            #                }
-                            # 
-                            # div#TOC{
-                            #               max-width: 1024px;
-                            #                font-size: 100%;
-                            #                }
-                            #                ")),
-                            #                        includeHTML(system.file("app","markdown_and_html","Examples.html" , package = "FungiExpresZ"))
-                            #               )
+                                          tabPanel(title = "Step-by-step tutorial", icon = icon("paperclip"),
+
+                                                   tags$style(HTML("
+                            section.page-header {
+                                           display: none;
+                                           }
+
+                            section.main-content{
+                                          max-width: 1000px;
+                                          font-size: 100%;
+                                           }
+
+                            div#TOC{
+                                          max-width: 1024px;
+                                           font-size: 100%;
+                                           }
+                                           ")),
+                                                   includeHTML(system.file("app","rmd_and_html","step_by_step_guide.html" , package = "FungiExpresZ"))
+                                          )
                             
                             
                  ),
@@ -3916,8 +3917,8 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          #includeHTML(system.file("app","markdown_and_html","newz_and_update.html" , package = "FungiExpresZ"))
-                          includeHTML("doc/newz_and_update.html")
+                          includeHTML(system.file("app","rmd_and_html","newz_and_update.html" , package = "FungiExpresZ"))
+                          #includeHTML("doc/newz_and_update.html")
                           
                  ),
                  
@@ -3943,7 +3944,8 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          includeHTML("doc/Citations.html")
+                          
+                          includeHTML(system.file("app","rmd_and_html","citations.html" , package = "FungiExpresZ"))
                           
                  ),
                  
