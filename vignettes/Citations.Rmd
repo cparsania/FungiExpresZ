@@ -27,9 +27,22 @@ knitr::opts_chunk$set(
 
 ## List of articles cited FungiExpresZ
 
+## 2021
+
+1.  ***Carbon Catabolite Repression in Filamentous Fungi Is Regulated by Phosphorylation of the Transcription Factor CreA.*** de Assis LJ, Silva LP, Bayram O, Dowling P, *et al*. Carbon catabolite repression in filamentous fungi is regulated by phosphorylation of the transcription factor CreA. mBio 12:e03146-20. [Article link](https://doi.org/10.1128/mBio.03146-20.){target="_blank"}
+
+2.  ***Chromatin profiling reveals genome stability heterogeneity in clinical isolates of the human pathogen Aspergillus fumigatus.*** AnaCristina Colabardini, Fang Wang, Zhengqiang Miao *et al*. [Article link](https://www.biorxiv.org/content/10.1101/2021.04.19.440431v1.full)
+
+3.  ***Transcription in fungal conidia before dormancy produces phenotypically variable conidia that maximize survival in different environments.*** Wang, F., Sethiya, P., Hu, X. *et al. Nat Microbiol* **6,** 1066--1081 (2021). [Article link](https://doi.org/10.1038/s41564-021-00922-y)
+
+4.  ***Temporal transcriptional response of Candida glabrata during macrophage infection reveals a multifaceted transcriptional regulator CgXbp1 important for macrophage response and drug resistance*** Maruti Nandan Rai, Chirag Parsania, Rikky Rai, Niranjan Shirgaonkar, Kaeling Tan, Koon Ho Wong. [Article link](https://doi.org/10.1101/2021.09.28.462173)
+
 ## 2020
 
- Coming soon !!
- 
+1.  ***The Aspergillus fumigatus transcription factor RglT is important for gliotoxin biosynthesis and self-protection, and virulence.*** Ries LNA, Pardeshi L, Dong Z, Tan K, Steenwyk JL, Colabardini AC, et al. (2020) PLoS Pathog 16(7): e1008645. [Article link](https://doi.org/10.1371/journal.ppat.1008645){target="_blank"}
+
+2.  ***Genome-wide characterization of AreA function and regulation in Aspergillus nidulans . University of Macau*** Li, A., & Wong, K. (2020). Thesis (Ph.D.). [Link](https://umlibrary.primo.exlibrisgroup.com/permalink/853UOM_INST/1ug6ab4/alma991009890287006306){target="_blank"}
+
 ## 2019
-1. **_Transcriptomic analysis reveals global and temporal transcription changes during Candida glabrata adaptation to an oxidative environment._** P Sethiya, MN Rai, R Rai, C Parsania, K Tan, KH Wong - Fungal Biology, 2019. [Article link](https://www.sciencedirect.com/science/article/pii/S1878614619301795){target="_blank"}
+
+1.  ***Transcriptomic analysis reveals global and temporal transcription changes during Candida glabrata adaptation to an oxidative environment.*** P Sethiya, MN Rai, R Rai, C Parsania, K Tan, KH Wong - Fungal Biology, 2019. [Article link](https://www.sciencedirect.com/science/article/pii/S1878614619301795){target="_blank"}
