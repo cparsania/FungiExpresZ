@@ -69,15 +69,15 @@ app_ui <- function() {
       tags$div(
         #tags$a(img(src="https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , height="150")),
         titlePanel(
-        tags$h1("Fungi", 
-                tags$a(img(src="https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , height="100"),
-                           href = "https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , target= "_blank"),
-                "ExpresZ", 
-                tags$h2("Fungal Gene Expression Data Analysis and Visualization Tool" , style = "font-family: 'Ribeye'") , 
-                align = "center", 
-                style = "font-family: 'Ribeye'; font-size: 80px;"
-        ),
-        windowTitle = "FungiExpresZ") ,
+          tags$h1("Fungi", 
+                  tags$a(img(src="https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , height="100"),
+                         href = "https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/www/hex_sticker.png" , target= "_blank"),
+                  "ExpresZ", 
+                  tags$h2("Fungal Gene Expression Data Analysis and Visualization Tool" , style = "font-family: 'Ribeye'") , 
+                  align = "center", 
+                  style = "font-family: 'Ribeye'; font-size: 80px;"
+          ),
+          windowTitle = "FungiExpresZ") ,
         style = "color:white;
     background-color:#2C3E50;
     text-align: center;
@@ -197,10 +197,10 @@ ul.nav.navbar-nav {
                                           multiple = T, 
                                           width = "100%",
                                           options = shinyWidgets::pickerOptions(liveSearch = TRUE, 
-                                                                  size = 10 , 
-                                                                  selectedTextFormat = "count > 10" ,
-                                                                  maxOptions = 1,
-                                                                  style = "btn-success")
+                                                                                size = 10 , 
+                                                                                selectedTextFormat = "count > 10" ,
+                                                                                maxOptions = 1,
+                                                                                style = "btn-success")
                                           
                                         )
                                         
@@ -215,10 +215,10 @@ ul.nav.navbar-nav {
                                           choices = NULL, choicesOpt = F,
                                           selected = "", multiple = T, width = "100%",
                                           options = shinyWidgets::pickerOptions(liveSearch = TRUE, 
-                                                                  size = 10 , 
-                                                                  selectedTextFormat = "count > 10" ,
-                                                                  maxOptions = 1,
-                                                                  style = "btn-success")
+                                                                                size = 10 , 
+                                                                                selectedTextFormat = "count > 10" ,
+                                                                                maxOptions = 1,
+                                                                                style = "btn-success")
                                         )
                                       )
                                       
@@ -337,155 +337,155 @@ ul.nav.navbar-nav {
                                   
                                   ## upload data trigger
                                   shinyBS::bsModal(size = "large",
-                                          id = "trigger_upload_user_data", title = "Upload Data",
-                                          trigger = "upload_sample_trigger",
-                                          
-                                          ## upload sample data checkbox
-                                          shinyWidgets::materialSwitch(
-                                            inputId = "upload_sample_data",
-                                            label = tags$b("Upload example data"),
-                                            value = FALSE,
-                                            status = "info"
-                                          ),
-                                          shinyWidgets::progressBar(id = "upload_sample_data_pb", value = 0, status = "success", striped = TRUE),
-                                          
-                                          hr(),
-                                          
-                                          ##upload data, either from file or from clipboard 
-                                          tags$div(id = "user_data_upload_section",
+                                                   id = "trigger_upload_user_data", title = "Upload Data",
+                                                   trigger = "upload_sample_trigger",
                                                    
-                                                   tags$h2(tags$b("Step 1: Upload data")),
-                                                   wellPanel(
-                                                     fluidRow(
-                                                       column(width = 12,
-                                                              radioButtons(inputId = "upload_data_source" , label = "",
-                                                                           choices = c("From file" = "upload_from_file", "From clipboard" = "upload_from_clipboard"),
-                                                                           width = "100%",inline = T,
-                                                              )
-                                                       )
-                                                       
-                                                     ),
-                                                     fluidRow(
-                                                       conditionalPanel(condition = "input.upload_data_source == 'upload_from_file'",
-                                                                        column(width = 12,
-                                                                               fileInput(
-                                                                                 inputId = "file1",
-                                                                                 label = "",
-                                                                                 #label = tags$h3(tags$b("Read from file")), #"Choose .txt file",
-                                                                                 multiple = F,width = "100%",placeholder = "Upload .txt file",
-                                                                                 accept = c(
-                                                                                   "text/csv",
-                                                                                   "text/comma-separated-values,text/plain",
-                                                                                   ".csv"
+                                                   ## upload sample data checkbox
+                                                   shinyWidgets::materialSwitch(
+                                                     inputId = "upload_sample_data",
+                                                     label = tags$b("Upload example data"),
+                                                     value = FALSE,
+                                                     status = "info"
+                                                   ),
+                                                   shinyWidgets::progressBar(id = "upload_sample_data_pb", value = 0, status = "success", striped = TRUE),
+                                                   
+                                                   hr(),
+                                                   
+                                                   ##upload data, either from file or from clipboard 
+                                                   tags$div(id = "user_data_upload_section",
+                                                            
+                                                            tags$h2(tags$b("Step 1: Upload data")),
+                                                            wellPanel(
+                                                              fluidRow(
+                                                                column(width = 12,
+                                                                       radioButtons(inputId = "upload_data_source" , label = "",
+                                                                                    choices = c("From file" = "upload_from_file", "From clipboard" = "upload_from_clipboard"),
+                                                                                    width = "100%",inline = T,
+                                                                       )
+                                                                )
+                                                                
+                                                              ),
+                                                              fluidRow(
+                                                                conditionalPanel(condition = "input.upload_data_source == 'upload_from_file'",
+                                                                                 column(width = 12,
+                                                                                        fileInput(
+                                                                                          inputId = "file1",
+                                                                                          label = "",
+                                                                                          #label = tags$h3(tags$b("Read from file")), #"Choose .txt file",
+                                                                                          multiple = F,width = "100%",placeholder = "Upload .txt file",
+                                                                                          accept = c(
+                                                                                            "text/csv",
+                                                                                            "text/comma-separated-values,text/plain",
+                                                                                            ".csv"
+                                                                                          )
+                                                                                        )
+                                                                                 ) 
+                                                                ),
+                                                                
+                                                                conditionalPanel(condition = "input.upload_data_source == 'upload_from_clipboard'",
+                                                                                 column(width = 12,
+                                                                                        textAreaInput(placeholder = "Paste data here",
+                                                                                                      inputId = "user_pasted_data",
+                                                                                                      label = "",cols = 10, rows = 10
+                                                                                                      #label = tags$h3(tags$b("Read from file")), #"Choose .txt file",
+                                                                                                      #multiple = F,width = "100%",placeholder = "Upload .txt file",
+                                                                                        )
                                                                                  )
-                                                                               )
-                                                                        ) 
-                                                       ),
-                                                       
-                                                       conditionalPanel(condition = "input.upload_data_source == 'upload_from_clipboard'",
-                                                                        column(width = 12,
-                                                                               textAreaInput(placeholder = "Paste data here",
-                                                                                             inputId = "user_pasted_data",
-                                                                                             label = "",cols = 10, rows = 10
-                                                                                             #label = tags$h3(tags$b("Read from file")), #"Choose .txt file",
-                                                                                             #multiple = F,width = "100%",placeholder = "Upload .txt file",
-                                                                               )
-                                                                        )
-                                                       )
-                                                       
-                                                     ),
-                                                     
-                                                     tags$div(id = "file_instruct", tags$h4(tags$b("Data uploading instructions")), "While uploding data from file, file must be of .txt format. Columns are variables (e.g. sample names) and rows are observations (e.g. genes). Each column and row must have unique identity given as first row and first column respectively. Same rules also appy while pasting data from clipboard.")
-                                                   ),
-                                                   
-                                                   ## choice of column seperator
-                                                   tags$h2(tags$b("Step 2: Select column separator")),
-                                                   wellPanel(
-                                                     radioButtons(
-                                                       inputId = "sep",
-                                                       label = "",
-                                                       width = "100%",
-                                                       choices = c(
-                                                         Comma = ",",
-                                                         Semicolon = ";",
-                                                         Tab = "\t"
-                                                       ),
-                                                       selected = "\t",
-                                                       inline = T
-                                                     )
-                                                   ),
-                                                   
-                                                   ## select species
-                                                   tags$h2(tags$b("Step 3: Select species (optional)")), 
-                                                   tags$h5(tags$i(
-                                                     "Corrrect species selection is required for gene annotations and GO analysis."
-                                                   )),
-                                                   br(),
-                                                   
-                                                   wellPanel(
-                                                     shinyWidgets::pickerInput(
-                                                       inputId = "user_selected_species",
-                                                       label = "",
-                                                       choices = rlang::set_names(species_table$genome , species_table$species),
-                                                       selected = "FungiDB-42_AnidulansFGSCA4",
-                                                       choicesOpt = list(
-                                                         style = "btn-primary",
-                                                         subtext = species_table$genome),
-                                                       options = list(`showSubtext` = TRUE)
-                                                     ),
-                                                     
-                                                     ## show random gene id  for selected species 
-                                                     tags$div( tags$h4(tags$b("Values in the first column of file being uploaded must have below id type :")) ,
-                                                               textOutput(outputId = "sample_selected_species_gene_id") %>% 
-                                                                 shinycssloaders::withSpinner(color = "#18BC9C")) 
-                                                     
-                                                     
-                                                   ),
-                                                   
-                                                   ## log transformation
-                                                   tags$h2(tags$b("Step 4: Log transformation (optional)")),
-                                                   wellPanel(
-                                                     radioButtons(inputId = "log_transform_user_upload_data" ,
-                                                                  label = "",
-                                                                  choices = c("None" = "none" ,
-                                                                              "Log2(value + 1)" = "log2" ,
-                                                                              "Log10(value + 1)" = "log10"),
-                                                                  selected = "none",inline = T
-                                                     )
-                                                   ),
-                                                   
-                                                   # decide whether user data to join with existing data
-                                                   tags$h2(tags$b("Step 5: Join data (optional)")),
-                                                   wellPanel(
-                                                     shinyWidgets::materialSwitch(
-                                                       inputId = "join_user_data",
-                                                       label = ,
-                                                       value = FALSE,
-                                                       status = "success"
-                                                     ),
-                                                     ## join data
-                                                     tags$div(id = "join_data_instruction",
-                                                              tags$b("Join data"),
-                                                              "feature allows users to merge user uploaded data with pre existing data if selected any. Uploaded dataset will be merge by gene names given in the first column."),
-                                                     br()
-                                                   ),
-                                                   
-                                                   ## submit
-                                                   fluidRow(
-                                                     column(width = 4 , offset = 5,
-                                                            shinyWidgets::actionBttn(inputId = "submit_user_uploaded_data" ,
-                                                                                     label = "Submit" ,
-                                                                                     icon = icon("thumbs-up") ,
-                                                                                     style = "gradient",
-                                                                                     color = "success" ,
-                                                                                     size = "md" ,
-                                                                                     block = F)
-                                                     )
+                                                                )
+                                                                
+                                                              ),
+                                                              
+                                                              tags$div(id = "file_instruct", tags$h4(tags$b("Data uploading instructions")), "While uploding data from file, file must be of .txt format. Columns are variables (e.g. sample names) and rows are observations (e.g. genes). Each column and row must have unique identity given as first row and first column respectively. Same rules also appy while pasting data from clipboard.")
+                                                            ),
+                                                            
+                                                            ## choice of column seperator
+                                                            tags$h2(tags$b("Step 2: Select column separator")),
+                                                            wellPanel(
+                                                              radioButtons(
+                                                                inputId = "sep",
+                                                                label = "",
+                                                                width = "100%",
+                                                                choices = c(
+                                                                  Comma = ",",
+                                                                  Semicolon = ";",
+                                                                  Tab = "\t"
+                                                                ),
+                                                                selected = "\t",
+                                                                inline = T
+                                                              )
+                                                            ),
+                                                            
+                                                            ## select species
+                                                            tags$h2(tags$b("Step 3: Select species (optional)")), 
+                                                            tags$h5(tags$i(
+                                                              "Corrrect species selection is required for gene annotations and GO analysis."
+                                                            )),
+                                                            br(),
+                                                            
+                                                            wellPanel(
+                                                              shinyWidgets::pickerInput(
+                                                                inputId = "user_selected_species",
+                                                                label = "",
+                                                                choices = rlang::set_names(species_table$genome , species_table$species),
+                                                                selected = "FungiDB-42_AnidulansFGSCA4",
+                                                                choicesOpt = list(
+                                                                  style = "btn-primary",
+                                                                  subtext = species_table$genome),
+                                                                options = list(`showSubtext` = TRUE)
+                                                              ),
+                                                              
+                                                              ## show random gene id  for selected species 
+                                                              tags$div( tags$h4(tags$b("Values in the first column of file being uploaded must have below id type :")) ,
+                                                                        textOutput(outputId = "sample_selected_species_gene_id") %>% 
+                                                                          shinycssloaders::withSpinner(color = "#18BC9C")) 
+                                                              
+                                                              
+                                                            ),
+                                                            
+                                                            ## log transformation
+                                                            tags$h2(tags$b("Step 4: Log transformation (optional)")),
+                                                            wellPanel(
+                                                              radioButtons(inputId = "log_transform_user_upload_data" ,
+                                                                           label = "",
+                                                                           choices = c("None" = "none" ,
+                                                                                       "Log2(value + 1)" = "log2" ,
+                                                                                       "Log10(value + 1)" = "log10"),
+                                                                           selected = "none",inline = T
+                                                              )
+                                                            ),
+                                                            
+                                                            # decide whether user data to join with existing data
+                                                            tags$h2(tags$b("Step 5: Join data (optional)")),
+                                                            wellPanel(
+                                                              shinyWidgets::materialSwitch(
+                                                                inputId = "join_user_data",
+                                                                label = ,
+                                                                value = FALSE,
+                                                                status = "success"
+                                                              ),
+                                                              ## join data
+                                                              tags$div(id = "join_data_instruction",
+                                                                       tags$b("Join data"),
+                                                                       "feature allows users to merge user uploaded data with pre existing data if selected any. Uploaded dataset will be merge by gene names given in the first column."),
+                                                              br()
+                                                            ),
+                                                            
+                                                            ## submit
+                                                            fluidRow(
+                                                              column(width = 4 , offset = 5,
+                                                                     shinyWidgets::actionBttn(inputId = "submit_user_uploaded_data" ,
+                                                                                              label = "Submit" ,
+                                                                                              icon = icon("thumbs-up") ,
+                                                                                              style = "gradient",
+                                                                                              color = "success" ,
+                                                                                              size = "md" ,
+                                                                                              block = F)
+                                                              )
+                                                            )
+                                                            
                                                    )
                                                    
-                                          )
-                                          
-                                          
+                                                   
                                   )
                                 )
                               ),
@@ -528,7 +528,7 @@ ul.nav.navbar-nav {
                                                )
                               ),
                               br(),
-                               ## display website statistics in side panel 
+                              ## display website statistics in side panel 
                               shinyBS::bsCollapse(id = "display_live_statistics",
                                                   open = "Usage",
                                                   shinyBS::bsCollapsePanel(title = "Usage", 
@@ -540,7 +540,7 @@ ul.nav.navbar-nav {
                                                   )
                                                   
                               )
-                            
+                              
                               
                               ## upload data ends
                             ),
@@ -3335,179 +3335,179 @@ ul.nav.navbar-nav {
                                                 shinyBS::bsCollapse(
                                                   open = "Column options",
                                                   shinyBS::bsCollapsePanel("Column options",
-                                                                  style = "primary",
-                                                                  
-                                                                  ## heatmap show / hide column names  
-                                                                  shinyWidgets::radioGroupButtons(
-                                                                    inputId = "show_hm_colum_names",
-                                                                    label = tags$h4(tags$b("Column names")),
-                                                                    choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
-                                                                    selected  = TRUE , 
-                                                                    status = "success",
-                                                                    size = "sm", 
-                                                                    direction = "horizontal",
-                                                                    justified = T, 
-                                                                    individual = T,
-                                                                    width = "100%",
-                                                                    checkIcon = list(
-                                                                      yes = icon("ok", 
-                                                                                 lib = "glyphicon"),
-                                                                      no = icon("remove",
-                                                                                lib = "glyphicon"))
-                                                                    
-                                                                  ),
-                                                                  
-                                                                  ## heatmap change font size column names 
-                                                                  sliderInput(
-                                                                    inputId = "hm_column_names_font_size",
-                                                                    label = tags$h4(tags$b("Column names font size")),
-                                                                    min = 0.1,
-                                                                    max = 20,
-                                                                    value = 10, 
-                                                                    step = 0.1,
-                                                                    width = "100%"
-                                                                  ),
-                                                                  
-                                                                  # ## adjust column width
-                                                                  # sliderInput(
-                                                                  #   inputId = "hm_col_width",
-                                                                  #   label = tags$h4(tags$b("Column width")), 
-                                                                  #   min = 0.1,
-                                                                  #   max = 50,
-                                                                  #   value = 0.5,
-                                                                  #   step = 0.1,
-                                                                  #   width = "100%"
-                                                                  # ),
-                                                                  
-                                                                  
-                                                                  ## Column clusters
-                                                                  shinyWidgets::radioGroupButtons(
-                                                                    inputId = "heatmap_column_clusters_choices" ,
-                                                                    label = tags$h4(tags$b("Column cluster")),
-                                                                    choices = c("K-means" = "kmeans" , "Sample groups" ="sample_groups"),
-                                                                    selected = "kmeans",
-                                                                    status = "success",
-                                                                    size = "sm", 
-                                                                    direction = "horizontal",
-                                                                    justified = T, 
-                                                                    individual = T,
-                                                                    width = "100%",
-                                                                    checkIcon = list(
-                                                                      yes = icon("ok", 
-                                                                                 lib = "glyphicon"),
-                                                                      no = icon("remove",
-                                                                                lib = "glyphicon"))
-                                                                  ),
-                                                                  
-                                                                  ## number of column cluster                                                        
-                                                                  conditionalPanel(
-                                                                    condition = "input.heatmap_column_clusters_choices  == 'kmeans'",
-                                                                    numericInput(
-                                                                      width = "100%",
-                                                                      inputId = "heatmap_coulm_nclust", 
-                                                                      label = tags$h4(tags$b("# of column clusters (k-means)")), 
-                                                                      value = 1, 
-                                                                      min = 1, 
-                                                                      max = 10, 
-                                                                      step = 1
-                                                                    )
-                                                                  ),
-                                                                  
-                                                                  ## column cluster prefix 
-                                                                  shiny::textInput(inputId = "hm_column_cluster_prefix" ,
-                                                                                   label = tags$h4(tags$b("Column cluster label prefix")) , value = "Clust_" ,
-                                                                                   width = "100%" , placeholder = "Text will appear as column cluster name prefix" ),
-                                                                  
-                                                                  ## heatmap cluster column with in the cluster 
-                                                                  shinyWidgets::radioGroupButtons(
-                                                                    inputId = "hm_cluster_columns",
-                                                                    label = tags$h4(tags$b("Column cluster (within the cluster)")),
-                                                                    choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
-                                                                    selected  = FALSE ,
-                                                                    status = "success",
-                                                                    size = "sm",
-                                                                    direction = "horizontal",
-                                                                    justified = T,
-                                                                    individual = T,
-                                                                    width = "100%",
-                                                                    checkIcon = list(
-                                                                      yes = icon("ok",
-                                                                                 lib = "glyphicon"),
-                                                                      no = icon("remove",
-                                                                                lib = "glyphicon"))
-                                                                  ),
-                                                                  
-                                                                  # # Cluster column  slices  
-                                                                  # shinyWidgets::radioGroupButtons(
-                                                                  #   inputId = "hm_cluster_column_slice", 
-                                                                  #   label = tags$h4(tags$b("Arrange column cluster slice")),
-                                                                  #   choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
-                                                                  #   selected  = TRUE , 
-                                                                  #   status = "success",
-                                                                  #   size = "sm", 
-                                                                  #   direction = "horizontal",
-                                                                  #   justified = T, 
-                                                                  #   individual = T,
-                                                                  #   width = "100%",
-                                                                  #   checkIcon = list(
-                                                                  #     yes = icon("ok", 
-                                                                  #                lib = "glyphicon"),
-                                                                  #     no = icon("remove",
-                                                                  #               lib = "glyphicon"))
-                                                                  # ),
-                                                                  # 
-                                                                  
-                                                                  
-                                                                  ## show / hide column dendogram 
-                                                                  conditionalPanel("input.hm_cluster_columns == 'TRUE'",
-                                                                                   shinyWidgets::radioGroupButtons(
-                                                                                     inputId = "show_hm_column_dend",
-                                                                                     label = tags$h4(tags$b("Column dendogram")),
-                                                                                     choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
-                                                                                     selected  = FALSE , 
-                                                                                     status = "success",
-                                                                                     size = "sm", 
-                                                                                     direction = "horizontal",
-                                                                                     justified = T, 
-                                                                                     individual = T,
-                                                                                     width = "100%",
-                                                                                     checkIcon = list(
-                                                                                       yes = icon("ok", 
-                                                                                                  lib = "glyphicon"),
-                                                                                       no = icon("remove",
-                                                                                                 lib = "glyphicon"))
-                                                                                   )                 
-                                                                  ),
-                                                                  
-                                                                  
-                                                                  
-                                                                  ## heatmap top annotations 
-                                                                  shinyWidgets::checkboxGroupButtons(
-                                                                    inputId = "heatmap_anno_type",
-                                                                    label = tags$h4(tags$b("Column annotation")),
-                                                                    choices = c("Sample groups" = "show_heatmap_column_groups",
-                                                                                "Boxplot" = "show_heatmap_column_boxplot") ,
-                                                                    status = "success",
-                                                                    size = "sm", 
-                                                                    direction = "horizontal",
-                                                                    justified = T, 
-                                                                    individual = T,
-                                                                    width = "100%",
-                                                                    checkIcon = list(
-                                                                      yes = icon("ok", 
-                                                                                 lib = "glyphicon"),
-                                                                      no = icon("remove",
-                                                                                lib = "glyphicon"))
-                                                                    
-                                                                    
-                                                                  ),
-                                                                  
-                                                                  ## heatmap top annot height 
-                                                                  sliderInput(inputId = "heatmap_top_annot_height" , 
-                                                                              label = tags$h4(tags$b("Column annotaion height")) ,
-                                                                              min = 1 , max = 10, 
-                                                                              step = 0.05 , value = 1 , width = "100%")
-                                                                  
+                                                                           style = "primary",
+                                                                           
+                                                                           ## heatmap show / hide column names  
+                                                                           shinyWidgets::radioGroupButtons(
+                                                                             inputId = "show_hm_colum_names",
+                                                                             label = tags$h4(tags$b("Column names")),
+                                                                             choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
+                                                                             selected  = TRUE , 
+                                                                             status = "success",
+                                                                             size = "sm", 
+                                                                             direction = "horizontal",
+                                                                             justified = T, 
+                                                                             individual = T,
+                                                                             width = "100%",
+                                                                             checkIcon = list(
+                                                                               yes = icon("ok", 
+                                                                                          lib = "glyphicon"),
+                                                                               no = icon("remove",
+                                                                                         lib = "glyphicon"))
+                                                                             
+                                                                           ),
+                                                                           
+                                                                           ## heatmap change font size column names 
+                                                                           sliderInput(
+                                                                             inputId = "hm_column_names_font_size",
+                                                                             label = tags$h4(tags$b("Column names font size")),
+                                                                             min = 0.1,
+                                                                             max = 20,
+                                                                             value = 10, 
+                                                                             step = 0.1,
+                                                                             width = "100%"
+                                                                           ),
+                                                                           
+                                                                           # ## adjust column width
+                                                                           # sliderInput(
+                                                                           #   inputId = "hm_col_width",
+                                                                           #   label = tags$h4(tags$b("Column width")), 
+                                                                           #   min = 0.1,
+                                                                           #   max = 50,
+                                                                           #   value = 0.5,
+                                                                           #   step = 0.1,
+                                                                           #   width = "100%"
+                                                                           # ),
+                                                                           
+                                                                           
+                                                                           ## Column clusters
+                                                                           shinyWidgets::radioGroupButtons(
+                                                                             inputId = "heatmap_column_clusters_choices" ,
+                                                                             label = tags$h4(tags$b("Column cluster")),
+                                                                             choices = c("K-means" = "kmeans" , "Sample groups" ="sample_groups"),
+                                                                             selected = "kmeans",
+                                                                             status = "success",
+                                                                             size = "sm", 
+                                                                             direction = "horizontal",
+                                                                             justified = T, 
+                                                                             individual = T,
+                                                                             width = "100%",
+                                                                             checkIcon = list(
+                                                                               yes = icon("ok", 
+                                                                                          lib = "glyphicon"),
+                                                                               no = icon("remove",
+                                                                                         lib = "glyphicon"))
+                                                                           ),
+                                                                           
+                                                                           ## number of column cluster                                                        
+                                                                           conditionalPanel(
+                                                                             condition = "input.heatmap_column_clusters_choices  == 'kmeans'",
+                                                                             numericInput(
+                                                                               width = "100%",
+                                                                               inputId = "heatmap_coulm_nclust", 
+                                                                               label = tags$h4(tags$b("# of column clusters (k-means)")), 
+                                                                               value = 1, 
+                                                                               min = 1, 
+                                                                               max = 10, 
+                                                                               step = 1
+                                                                             )
+                                                                           ),
+                                                                           
+                                                                           ## column cluster prefix 
+                                                                           shiny::textInput(inputId = "hm_column_cluster_prefix" ,
+                                                                                            label = tags$h4(tags$b("Column cluster label prefix")) , value = "Clust_" ,
+                                                                                            width = "100%" , placeholder = "Text will appear as column cluster name prefix" ),
+                                                                           
+                                                                           ## heatmap cluster column with in the cluster 
+                                                                           shinyWidgets::radioGroupButtons(
+                                                                             inputId = "hm_cluster_columns",
+                                                                             label = tags$h4(tags$b("Column cluster (within the cluster)")),
+                                                                             choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
+                                                                             selected  = FALSE ,
+                                                                             status = "success",
+                                                                             size = "sm",
+                                                                             direction = "horizontal",
+                                                                             justified = T,
+                                                                             individual = T,
+                                                                             width = "100%",
+                                                                             checkIcon = list(
+                                                                               yes = icon("ok",
+                                                                                          lib = "glyphicon"),
+                                                                               no = icon("remove",
+                                                                                         lib = "glyphicon"))
+                                                                           ),
+                                                                           
+                                                                           # # Cluster column  slices  
+                                                                           # shinyWidgets::radioGroupButtons(
+                                                                           #   inputId = "hm_cluster_column_slice", 
+                                                                           #   label = tags$h4(tags$b("Arrange column cluster slice")),
+                                                                           #   choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
+                                                                           #   selected  = TRUE , 
+                                                                           #   status = "success",
+                                                                           #   size = "sm", 
+                                                                           #   direction = "horizontal",
+                                                                           #   justified = T, 
+                                                                           #   individual = T,
+                                                                           #   width = "100%",
+                                                                           #   checkIcon = list(
+                                                                           #     yes = icon("ok", 
+                                                                           #                lib = "glyphicon"),
+                                                                           #     no = icon("remove",
+                                                                           #               lib = "glyphicon"))
+                                                                           # ),
+                                                                           # 
+                                                                           
+                                                                           
+                                                                           ## show / hide column dendogram 
+                                                                           conditionalPanel("input.hm_cluster_columns == 'TRUE'",
+                                                                                            shinyWidgets::radioGroupButtons(
+                                                                                              inputId = "show_hm_column_dend",
+                                                                                              label = tags$h4(tags$b("Column dendogram")),
+                                                                                              choices = c("TRUE" = "TRUE", "FALSE" = "FALSE"),
+                                                                                              selected  = FALSE , 
+                                                                                              status = "success",
+                                                                                              size = "sm", 
+                                                                                              direction = "horizontal",
+                                                                                              justified = T, 
+                                                                                              individual = T,
+                                                                                              width = "100%",
+                                                                                              checkIcon = list(
+                                                                                                yes = icon("ok", 
+                                                                                                           lib = "glyphicon"),
+                                                                                                no = icon("remove",
+                                                                                                          lib = "glyphicon"))
+                                                                                            )                 
+                                                                           ),
+                                                                           
+                                                                           
+                                                                           
+                                                                           ## heatmap top annotations 
+                                                                           shinyWidgets::checkboxGroupButtons(
+                                                                             inputId = "heatmap_anno_type",
+                                                                             label = tags$h4(tags$b("Column annotation")),
+                                                                             choices = c("Sample groups" = "show_heatmap_column_groups",
+                                                                                         "Boxplot" = "show_heatmap_column_boxplot") ,
+                                                                             status = "success",
+                                                                             size = "sm", 
+                                                                             direction = "horizontal",
+                                                                             justified = T, 
+                                                                             individual = T,
+                                                                             width = "100%",
+                                                                             checkIcon = list(
+                                                                               yes = icon("ok", 
+                                                                                          lib = "glyphicon"),
+                                                                               no = icon("remove",
+                                                                                         lib = "glyphicon"))
+                                                                             
+                                                                             
+                                                                           ),
+                                                                           
+                                                                           ## heatmap top annot height 
+                                                                           sliderInput(inputId = "heatmap_top_annot_height" , 
+                                                                                       label = tags$h4(tags$b("Column annotaion height")) ,
+                                                                                       min = 1 , max = 10, 
+                                                                                       step = 0.05 , value = 1 , width = "100%")
+                                                                           
                                                   )
                                                 )
                                               ),
@@ -3518,88 +3518,88 @@ ul.nav.navbar-nav {
                                                 shinyBS::bsCollapse(
                                                   open = "Legend options",
                                                   shinyBS::bsCollapsePanel("Legend options",
-                                                                  style = "primary",
-                                                                  textInput(inputId = "heatmap_legend_name", 
-                                                                            label = tags$h4(tags$b("Legend name")),
-                                                                            value = "Value", 
-                                                                            width = "100%"),
-                                                                  ## heatmap legend position
-                                                                  radioGroupButtons(
-                                                                    width = "100%",
-                                                                    inputId = "heatmap_legend_pos",
-                                                                    label = tags$h4(tags$b("Legend position")),
-                                                                    individual = T,justified = T,
-                                                                    choices = c("T" = "top", "B" = "bottom", "L" = "left", "R" = "right"), 
-                                                                    selected = "right",status = "success" ,
-                                                                    size = "sm",
-                                                                    checkIcon = list(
-                                                                      yes = icon("ok", 
-                                                                                 lib = "glyphicon"),
-                                                                      no = icon("remove",
-                                                                                lib = "glyphicon"))
-                                                                  ),
-                                                                  ## heatmap legend direction
-                                                                  radioGroupButtons(
-                                                                    width = "100%",
-                                                                    inputId = "heatmap_legened_direction",
-                                                                    label = tags$h4(tags$b("Legend direction")), 
-                                                                    individual = T,justified = T,
-                                                                    choices = c("H" = "horizontal", "V" = "vertical"), 
-                                                                    selected = "vertical",
-                                                                    status = "success" , size = "sm",
-                                                                    checkIcon = list(
-                                                                      yes = icon("ok", 
-                                                                                 lib = "glyphicon"),
-                                                                      no = icon("remove",
-                                                                                lib = "glyphicon"))
-                                                                  ),
-                                                                  br(),
-                                                                  tags$h4(tags$b(("Heatmap Colors"))),
-                                                                  
-                                                                  ## heatmap color panel
-                                                                  shiny::wellPanel(
-                                                                    ## heatmap color : low
-                                                                    colourpicker::colourInput(
-                                                                      inputId = "heatmap_col_low",
-                                                                      label = tags$h4(tags$b("Low")),
-                                                                      value = "#004E63",
-                                                                      returnName = TRUE
-                                                                    ),
-                                                                    
-                                                                    ## heatmap color : med
-                                                                    colourpicker::colourInput(
-                                                                      inputId = "heatmap_col_medium",
-                                                                      label = tags$h4(tags$b("Middle")),
-                                                                      value = "white",
-                                                                      returnName = TRUE
-                                                                    ),
-                                                                    
-                                                                    ## heatmap color : high
-                                                                    colourpicker::colourInput(
-                                                                      inputId = "heatmap_col_high",
-                                                                      label = tags$h4(tags$b("High")),
-                                                                      value = "#BD1717",
-                                                                      returnName = TRUE
-                                                                    )
-                                                                    
-                                                                  ),
-                                                                  
-                                                                  ### set legend minimum
-                                                                  br(),
-                                                                  tags$h4(tags$b(("Heatmap scale"))),
-                                                                
-                                                                  ## heatmap scale 
-                                                                  wellPanel(
-                                                                    numericInput(inputId = "heatmap_scale_min" , 
-                                                                                 label = tags$h4(tags$b("Minimum")), 
-                                                                                 value = 0),
-                                                                    
-                                                                    ### set legend maximum
-                                                                    numericInput(inputId = "heatmap_scale_max" , 
-                                                                                 label = tags$h4(tags$b("Maximum")) , 
-                                                                                 value = 20 )
-                                                                  )
-                                                                    
+                                                                           style = "primary",
+                                                                           textInput(inputId = "heatmap_legend_name", 
+                                                                                     label = tags$h4(tags$b("Legend name")),
+                                                                                     value = "Value", 
+                                                                                     width = "100%"),
+                                                                           ## heatmap legend position
+                                                                           radioGroupButtons(
+                                                                             width = "100%",
+                                                                             inputId = "heatmap_legend_pos",
+                                                                             label = tags$h4(tags$b("Legend position")),
+                                                                             individual = T,justified = T,
+                                                                             choices = c("T" = "top", "B" = "bottom", "L" = "left", "R" = "right"), 
+                                                                             selected = "right",status = "success" ,
+                                                                             size = "sm",
+                                                                             checkIcon = list(
+                                                                               yes = icon("ok", 
+                                                                                          lib = "glyphicon"),
+                                                                               no = icon("remove",
+                                                                                         lib = "glyphicon"))
+                                                                           ),
+                                                                           ## heatmap legend direction
+                                                                           radioGroupButtons(
+                                                                             width = "100%",
+                                                                             inputId = "heatmap_legened_direction",
+                                                                             label = tags$h4(tags$b("Legend direction")), 
+                                                                             individual = T,justified = T,
+                                                                             choices = c("H" = "horizontal", "V" = "vertical"), 
+                                                                             selected = "vertical",
+                                                                             status = "success" , size = "sm",
+                                                                             checkIcon = list(
+                                                                               yes = icon("ok", 
+                                                                                          lib = "glyphicon"),
+                                                                               no = icon("remove",
+                                                                                         lib = "glyphicon"))
+                                                                           ),
+                                                                           br(),
+                                                                           tags$h4(tags$b(("Heatmap Colors"))),
+                                                                           
+                                                                           ## heatmap color panel
+                                                                           shiny::wellPanel(
+                                                                             ## heatmap color : low
+                                                                             colourpicker::colourInput(
+                                                                               inputId = "heatmap_col_low",
+                                                                               label = tags$h4(tags$b("Low")),
+                                                                               value = "#004E63",
+                                                                               returnName = TRUE
+                                                                             ),
+                                                                             
+                                                                             ## heatmap color : med
+                                                                             colourpicker::colourInput(
+                                                                               inputId = "heatmap_col_medium",
+                                                                               label = tags$h4(tags$b("Middle")),
+                                                                               value = "white",
+                                                                               returnName = TRUE
+                                                                             ),
+                                                                             
+                                                                             ## heatmap color : high
+                                                                             colourpicker::colourInput(
+                                                                               inputId = "heatmap_col_high",
+                                                                               label = tags$h4(tags$b("High")),
+                                                                               value = "#BD1717",
+                                                                               returnName = TRUE
+                                                                             )
+                                                                             
+                                                                           ),
+                                                                           
+                                                                           ### set legend minimum
+                                                                           br(),
+                                                                           tags$h4(tags$b(("Heatmap scale"))),
+                                                                           
+                                                                           ## heatmap scale 
+                                                                           wellPanel(
+                                                                             numericInput(inputId = "heatmap_scale_min" , 
+                                                                                          label = tags$h4(tags$b("Minimum")), 
+                                                                                          value = 0),
+                                                                             
+                                                                             ### set legend maximum
+                                                                             numericInput(inputId = "heatmap_scale_max" , 
+                                                                                          label = tags$h4(tags$b("Maximum")) , 
+                                                                                          value = 20 )
+                                                                           )
+                                                                           
                                                   )
                                                 )
                                               )
@@ -3823,12 +3823,13 @@ ul.nav.navbar-nav {
                              }
                              ")),
                                      #includeHTML(system.file("app","markdown_and_html","About.html" , package = "FungiExpresZ"))
-                                     includeHTML("doc/About.html")
+                                     #includeHTML("doc/About.html")
+                                     includeHTML(system.file("app","rmd_and_html","about.html" , package = "FungiExpresZ"))
                             ),
                             
-                            ## Tutorial page 
+                            ## Video Tutorial page
                             
-                            tabPanel(title = "Tutorial", icon = icon("chalkboard-teacher"),
+                            tabPanel(title = "Video Tutorials", icon = icon("chalkboard-teacher"),
                                      
                                      tags$style(HTML("
               section.page-header {
@@ -3845,53 +3846,31 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                                     #includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
-                                     includeHTML("doc/Tutorial.html")
+                                     includeHTML(system.file("app","rmd_and_html","tutorial.html" , package = "FungiExpresZ"))
+                                     
                             ),
                             
-                          ## step_by_step guide page
-                          tabPanel(title = "Step by step guide", icon = icon("leanpub"),
-                                   
-                                   tags$style(HTML("
-              section.page-header {
-                             display: none;
-                             }      
-                    
-              section.main-content{
-                            max-width: 1000px;
-                            font-size: 100%;
-                             }
-             
-              div#TOC{
-                            max-width: 1024px;
-                             font-size: 100%;
-                             }
-                             ")),
-                                   #includeHTML(system.file("app","markdown_and_html","Tutorial.html" , package = "FungiExpresZ"))
-                                   includeHTML("doc/step_by_step_guide.html")
-                          )
+                            ## Step by step guide page
                             
-                            ## example page 
-                            
-              #               tabPanel(title = "Examples", icon = icon("paperclip"),
-              #                        
-              #                        tags$style(HTML("
-              # section.page-header {
-              #                display: none;
-              #                }      
-              #       
-              # section.main-content{
-              #               max-width: 1000px;
-              #               font-size: 100%;
-              #                }
-              # 
-              # div#TOC{
-              #               max-width: 1024px;
-              #                font-size: 100%;
-              #                }
-              #                ")),
-              #                        includeHTML(system.file("app","markdown_and_html","Examples.html" , package = "FungiExpresZ"))
-              #               )
+                                          tabPanel(title = "Step-by-step tutorial", icon = icon("paperclip"),
+
+                                                   tags$style(HTML("
+                            section.page-header {
+                                           display: none;
+                                           }
+
+                            section.main-content{
+                                          max-width: 1000px;
+                                          font-size: 100%;
+                                           }
+
+                            div#TOC{
+                                          max-width: 1024px;
+                                           font-size: 100%;
+                                           }
+                                           ")),
+                                                   includeHTML(system.file("app","rmd_and_html","step_by_step_guide.html" , package = "FungiExpresZ"))
+                                          )
                             
                             
                  ),
@@ -3938,8 +3917,8 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          #includeHTML(system.file("app","markdown_and_html","newz_and_update.html" , package = "FungiExpresZ"))
-                          includeHTML("doc/newz_and_update.html")
+                          includeHTML(system.file("app","rmd_and_html","newz_and_update.html" , package = "FungiExpresZ"))
+                          #includeHTML("doc/newz_and_update.html")
                           
                  ),
                  
@@ -3965,20 +3944,24 @@ ul.nav.navbar-nav {
                              font-size: 100%;
                              }
                              ")),
-                          includeHTML("doc/Citations.html")
                           
-                          ),
-                 
-                 ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                 ## github page ----
-                 ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                 #tabPanel(title = "Github", icon = icon("github", "fa-2x")),
+                          includeHTML(system.file("app","rmd_and_html","citations.html" , package = "FungiExpresZ"))
+                          
+                 ),
                  
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                  ## contact page ----
                  ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-                 tabPanel(title = "Contact" ,icon = icon("envelope")
+                 
+                 navbarMenu("Contact", 
+                            icon = icon("envelope"),
+                            tabPanel(title = tags$a(icon("github"),href = "https://github.com/cparsania/FungiExpresZ" ,
+                                                    "GitHub",target="_blank")),
+                            tabPanel(title =  tags$a(icon("at"), href = "mailto:chirag.parsania@gmail.com",
+                                                     "Email"))
+                            
                  )
+                 
       ),
       
       ####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -3987,35 +3970,24 @@ ul.nav.navbar-nav {
       hr(),
       
       tags$style(type='text/css', "#app_footer { text-align: center;}"),
-      tags$div(id = "app_footer",tags$b("FungiExpresZ"), "is developed by ", tags$b("Chirag Parsania"), "from Chris Wong Lab at University of Macau. For any query or suggestions, please contact", a("Chirag Parsania", href = "mailto:chirag.parsania@gmail.com") ,"."),
+      tags$div(id = "app_footer",tags$b("FungiExpresZ"), "is developed by ", 
+               tags$a(tags$b("Chirag Parsania ") , icon("twitter") , 
+                      href= "https://twitter.com/ChiragParsania"), "from ", 
+               tags$a(tags$b("Chris Wong's Lab ") , icon("twitter") , href = "https://twitter.com/ChrisKHWong"), "at University of Macau."), 
+      tags$div(id = "app_footer", "For any query or suggestions, please contact", 
+               tags$a(icon("github"),href = "https://github.com/cparsania/FungiExpresZ" ,
+                                                                     "GitHub",target="_blank"), 
+               tags$a(icon("at"), href = "mailto:chirag.parsania@gmail.com",
+                      "Email"),
+               "."),
       
       br(),
       
       ## display latest release
       
-      tags$div(
-        style = "text-align:center;",
-        
-        ## latest github relaese 
-        tags$a(img(src=badge_github_release_url(url = "cparsania/fungiexpresz" ,col = "blue" ,logo = "github")),
-                   #src="https://img.shields.io/github/v/release/cparsania/fungiexpresz?logo=github"),
-               href = "https://github.com/cparsania/FungiExpresZ/releases", target="_blank"),
-        
-        
-        ## latest github devel
-        tags$a(img(src= badge_custom_url(x = "devel" , 
-                                         y = paste("v",badger::ver_devel("cparsania/fungiexpresz"),sep = "") , 
-                                         col ="red" , add_github_logo = TRUE)) , 
-               href = "https://github.com/cparsania/fungiexpresz", target="_blank")
-      ),
-      
-      # fluidRow(
+      # tags$div(
+      #   style = "text-align:center;",
       #   
-      #   column(width = 12,
-      #          
-      #         
-      #          
-      #          )
       # ),
       
       

@@ -1,0 +1,168 @@
+---
+title: "Tutorials"
+#author: "Chirag Parsania"
+date: "Last update: `r format(Sys.time(), '%d %B, %Y')`"
+output:
+     prettydoc::html_pretty:
+      number_sections: FALSE
+      toc: TRUE
+      fig_caption: TRUE
+      toc_depth: 3
+editor_options: 
+  chunk_output_type: inline
+
+
+params:
+  video_height: 1000 
+  video_width: 1000
+  app_name: "FungiExpresZ"
+  n_sra_data: 13000
+  n_plots: 12
+  n_go_plots: 6
+---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
+      
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# How to use SRA data
+
+`r params$app_name` contains normalised gene expression values for more than `r params$n_sra_data` NCBI SRA data. In this video, we show that how to select any of these data for downstream analysis and visualization purpose.
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/B4hwnLijEB8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+# How to upload user data
+
+Along with NCBI SRA data, user can also upload his own gene expression matrix for data analysis and visualisation. In this video, we show that how user can upload his own data on `r params$app_name` for further analysis and visualizations.
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/4INn1AhEoO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+# How to upload sample groups and gene groups
+
+To address the complexity of gene expression data, `r params$app_name` allows user to integrate gene group and sample group information. In this video, we show that how to upload gene groups and sample groups on the `r params$app_name` to further integrate them in the visualizations.
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/H2gdBGUP9XY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+# How to use predefined NCBI BioProjects as sample groups
+
+[NCBI BioProject](https://www.ncbi.nlm.nih.gov/bioproject){target="_blank"} groups single initiative, originating from a single organization or from a consortium SRA runs under single BioProject ID. Diverse data types generated under single study can be find under single BioProject ID. `r params$app_name` allows user to use BioProject ID as sample groups for selected SRA data. The group information can be used across several plots for comparisons between multiple groups. In this video, we show that how to use given NCBI BioProject IDs as a sample groups.
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/8OeorXH6mUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+# How to merge user data with SRA data
+
+Integrated analysis of user gene expression data and public SRA data is one of the ways to build data driven hypothesis. `r params$app_name` allows user seamlessly integrate his/her own gene expression data with selected SRA data. In this video, we show that how to integrate user gene expression data with selected SRA data.
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/tO-78TTX93M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+# Generate plots
+
+`r params$app_name` can generate `r params$n_plots` different exploratory plots and `r params$n_go_plots` different GO plots. Below several videos show that how to generate different exploratory plots once data uploaded on the `r params$app_name`.
+
+## Scatter plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Z4UVAnI6CJA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Multi-scatter plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/d_TDT46m_v8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## CorrHeat box
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/G8EEwA1PKR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Density plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/RPkpV4vXJU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Histogram
+
+<iframe width="1000" height="1000" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/O_YNFr0Tl5Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Joy plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/_2W1sutAkZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Box plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Qic-ukmEUNQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Violin plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Rta2Nz1DKCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## bar plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/8ekS2Y1oRZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## PCA
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/MEeaJKI5wLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Line plot
+
+<iframe width="1000" height="700" src="https://www.youtube.com/embed/C24WL8rtZIU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Heatmap
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/yZH1ioPjmR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+# Gene Ontology (GO) analysis and gene annotations
+
+Once the genes of similar expression pattern have been found, next step is to perform GO analysis to look for biological insights from gene expression data. `r params$app_name` allows user to select genes and gene cluster(s) of similar expression pattern directly from scatter plot and, line plot and heatmap for GO analysis and gene annotations. In these videos, we show that how to perfom GO analysis from scatter plot and heatmap on `r params$app_name`.
+
+## GO analysis from scatter plot
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/KTIgFVhKPBY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## GO analysis from heatmap
+
+<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Plsat-crwE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## GO analysis from scatter plot

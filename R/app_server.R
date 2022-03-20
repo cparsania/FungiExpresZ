@@ -849,7 +849,7 @@ app_server <- function(input, output,session) {
     }
   })
   
-  
+  ## print final plot data on terminal 
   observe({
     req(plot_data())
     print("plot_data dims")

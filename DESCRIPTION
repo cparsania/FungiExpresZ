@@ -1,6 +1,6 @@
 Package: FungiExpresZ
 Title: FungiExpresZ: Fungal gene expression data analysis and visualizations
-Version: 0.0.5.9000
+Version: 1.0.0
 Authors@R: person('Chirag', 'Parsania', email = 'chirag.parsania@gmail.com', role = c('cre', 'aut'))
 Description: It allows user to generate 12 different ggplot2 based elegant data exploratory visualizations of gene expression data. Use can  1) uploaded his/her own data 2)  select SRA data given in the app, or 3) integrate uploaded data with SRA data. By uploading sample groups and gene groups informations user can even generate complex visualizations such as comparisons between multiple gene groups across multiple sample groups in any given visualization. Further, to get biological insights from the gene expression data gene annotations and, GO analysis and 6 different GO visualizations can also be done.
 License: MIT + file LICENSE
