@@ -3958,7 +3958,9 @@ ul.nav.navbar-nav {
                             tabPanel(title = tags$a(icon("github"),href = "https://github.com/cparsania/FungiExpresZ" ,
                                                     "GitHub",target="_blank")),
                             tabPanel(title =  tags$a(icon("at"), href = "mailto:chirag.parsania@gmail.com",
-                                                     "Email"))
+                                                     "Email")),
+                            tabPanel(title = tags$a(icon("twitter"),href = "https://twitter.com/ChiragParsania" ,
+                                                    "@ChiragParsania",target="_blank"))
                             
                  )
                  
