@@ -232,7 +232,8 @@ required versions of dependency packages.
 [Download package bundle
 here](https://github.com/cparsania/FungiExpresZ/releases)
 
-NOTE: It is highly recommended to download the latest available version.
+> NOTE: It is highly recommended to download the latest available
+> version.
 
 -   Mac : FungiExpresZ\_&lt;version&gt;.tgz
 
@@ -242,7 +243,7 @@ NOTE: It is highly recommended to download the latest available version.
 
 6\) Install R pacakge `renv` from terminal.
 
-NOTE: Open terminal to type below commands
+> NOTE: Open terminal to type below commands
 
 ``` bash
 cd <path/to/installation/directory>
@@ -279,8 +280,8 @@ R -e 'install.packages("devtools")'
 R -e 'devtools::install_local("FungiExpresZ_1.1.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
 ```
 
-NOTE: In above command `FungiExpresZ_1.1.0.tar.gz` is the path to bundle
-file downloaded in the step-4.
+> NOTE: In above command `FungiExpresZ_1.1.0.tar.gz` is the path to
+> bundle file downloaded in the step-4.
 
 10\) Run FungiExpresZ through installed R package.
 
