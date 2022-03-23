@@ -178,19 +178,25 @@ assign more computational resources to docker than the default which is
 2 GB of memory and 4 CPUs on a mac with 32GB memory and 8 CPUs. Default
 behavior can be changed from `Docker -> Preferences -> Advanced`
 
-<img src="inst/app/www/docker_cpu_and_memory.png" width="493"/>
+<img src="inst/app/www/docker_cpu_and_memory.png" width="622"/>
 
 We recommend users to allocate maximum 4 GB of memory to docker before
 you run FungiExpresZ docker image.
 
-#### How to stop container
+#### How to stop container?
 
 Container will be active until it is explicitly stopped. You can stop
 container using below command on a new terminal window.
 
-#### get container id
+``` bash
+#Get container id
 
-`docker ps docker stop <CONTAINER ID>`
+docker ps 
+
+#stop container 
+
+docker stop <CONTAINER ID>
+```
 
 ### Install as an R package
 
@@ -226,7 +232,7 @@ required versions of dependency packages.
 [Download package bundle
 here](https://github.com/cparsania/FungiExpresZ/releases)
 
-    | It is highly recommended to download the latest available version. 
+NOTE: It is highly recommended to download the latest available version.
 
 -   Mac : FungiExpresZ\_&lt;version&gt;.tgz
 
@@ -236,7 +242,7 @@ here](https://github.com/cparsania/FungiExpresZ/releases)
 
 6\) Install R pacakge `renv` from terminal.
 
-    Open terminal to type below commands
+NOTE: Open terminal to type below commands
 
 ``` bash
 cd <path/to/installation/directory>
@@ -258,7 +264,8 @@ R -e 'renv::consent(provided = TRUE)'
 R -e 'renv::restore()'
 ```
 
-\| To run above commands `renv.lock` file must be in the same directory.
+NOTE: To run above commands `renv.lock` file must be in the same
+directory.
 
 9\) Install R package `devtools`
 
@@ -272,7 +279,7 @@ R -e 'install.packages("devtools")'
 R -e 'devtools::install_local("FungiExpresZ_1.1.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
 ```
 
-\| In above command `FungiExpresZ_1.1.0.tar.gz` is the path to bundle
+NOTE: In above command `FungiExpresZ_1.1.0.tar.gz` is the path to bundle
 file downloaded in the step-4.
 
 10\) Run FungiExpresZ through installed R package.
