@@ -39,8 +39,8 @@ It contains normalized gene expression values of more than 12,000 NCBI SRA data 
 3)  CorrHeatBox
 4)  Density plot
 5)  Histogram
-6)  Joy plot
-7)  Box plot
+6)  joy-plot
+7)  box-plot
 8)  Violin plot
 9)  Bar plot
 10) PCA plot
@@ -66,7 +66,7 @@ There are three ways in which you can access FungiExpresZ.
 
 FungiExpresZ has been hoisted on shinyapps.io and can be accessed through the link <https://cparsania.shinyapps.io/FungiExpresZ/>. This is one of the quickest way to access the FungiExpresZ. However, due to limited computational resources, We recommend using this approach only when the size of the data is comparatively small (\< 10 MB) and/or you are in a need of quick figure out of the data. Current setup allows approx. 30 concurrent users to access FungiExpresZ online. Additional traffic may disconnect random users' session and you may end up loosing all analysis performed. Even without access traffic idle session timeout is 30 minutes, and therefore you may loose your analysis if you have thought to continue later. For stable, robust and to have long lasting session it is recommended to use one of the following two approaches.
 
-## Run Locally 
+## Run Locally
 
 ### Use as a docker container
 
@@ -148,7 +148,7 @@ To keep already installed R packages unaffected in local computer, FungiExpresZ 
 
 4)  Download appropriate appropriate package bundle. 👉 [Download package bundle here](https://github.com/cparsania/FungiExpresZ/releases)
 
-    | It is highly recommended to download the latest available version. 
+    | It is highly recommended to download the latest available version.
 
 -   Mac : FungiExpresZ\_\<version\>.tgz
 
@@ -221,15 +221,15 @@ Hit the URL printed on the console to browser and you are ready to go 🎉🎉�
 
 Once the application loaded fully on a browser, it looks like as shown in the Fig-1.
 
-![FIGURE 1: FungiExpresZ home screen](_step_by_step_guide_files/screen_shots/01_fe_home.png)
+![FIGURE 1: FungiExpresZ home screen.](_step_by_step_guide_files/screen_shots/01_fe_home.png)
 
 **1). Inputs**
 
-It allows you to either upload or select data from pre-existing SRA data. Depending upon radio button selected (**Select data** or **Upload/Use example data**) submit button toggle between **Select** and **Upload**. Click either of these result in a popup which have been explained in Fig-2 and Fig-3.
+It allows you to either upload or select data from pre-existing SRA data. Depending upon radio button selected (**Select data** or **Upload/Use example data**) submit button toggle between **Select** and **Upload**. Click either of these result in a pop-up which have been explained in Fig-2 and Fig-3.
 
 **2). Assign groups**
 
-Often genomics and transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts between these groups, which ultimately leads to unfold meaningful biological insights. **Assign groups** feature allows you to upload user defined **Sample groups** and **Gene groups**. Additional info on file format to assign groups given in the Fig-4 and Fig-5. Once the groups uploaded, you may color, cluster or facet the expression values in different plots according to groups assigned.
+Often genomics and transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene-groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts between these groups, which ultimately leads to unfold meaningful biological insights. **Assign groups** feature allows you to upload user defined **Sample groups** and **gene-groups**. Additional info on file format to assign groups given in the Fig-4 and Fig-5. Once the groups uploaded, you may color, cluster or facet the expression values in different plots according to groups assigned.
 
 **3). View active groups**
 
@@ -251,12 +251,7 @@ Once you click on Select/Upload data (Fig-1 \#2) relevant pop-up will appear.
 
 FungiExpresZ contains \> 13,000 pre-processed NCBI SRA data from 8 different fungal species. The values given are normalized gene expressed values (FPKM / RPKM etc.) Some of these data have been obtained from public resources while remaining ones are processed by us. You can select any of these data for purpose of analysis and visualizations. Once you click on Select data button the pop-up will appear as shown in Fig-2.
 
-```{r , fig.cap="FIGURE 2: FungiExpresZ select SRA data", out.width="50%",out.extra='style="background-color: black; padding:1px;"' }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/02_fe_select_data.png"))
-
-```
-
-![FIGURE 2: FungiExpresZ select SRA data](_step_by_step_guide_files/screen_shots/02_fe_select_data.png){width="592"}
+![FIGURE 2: FungiExpresZ select SRA data.](_step_by_step_guide_files/screen_shots/02_fe_select_data.png){width="592"}
 
 **1) Organism**
 
@@ -302,7 +297,7 @@ Once the rows selected hitting button **Submit** will make selected data availab
 
 Often transcriptomics data found in a tabular like format where columns are samples i.e. replicates, time-points, multiple strain types etc. and rows are genes. Each cell in a table contains normalized gene expression values. You can either upload such a tabular format data in .txt file format or paste in a text box to FungiExpresZ for the purpose of analysis and visualization. Once you click on the button **Upload** (Fig-1 \#2), pop-up showed in the Fig-3 will appear.
 
-![FIGURE 3: FungiExpresZ upload user data](_step_by_step_guide_files/screen_shots/03_fe_file_upload.png){width="586"}
+![FIGURE 3: FungiExpresZ upload user data.](_step_by_step_guide_files/screen_shots/03_fe_file_upload.png){width="542"}
 
 **1) Upload example data**
 
@@ -332,9 +327,9 @@ FungiExpresZ allows you to perform combined analysis of uploaded data with pre-e
 
 Click on **Submit** will lock all inputs made above and data will be available for the analysis and visualizations.
 
-# Assign groups
+# Assign groups {#assign-groups}
 
-Often genomics and transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts between these groups, which ultimately leads to unfold meaningful biological insights. Assign groups feature allows you to upload user defined Sample groups and Gene groups. In here, we discussed about technicalities of group assignments.
+Often genomics and transcriptomics data contain sample groups i.e. replicates, strains, time points etc. and gene-groups i.e. differentially expressed genes, genes specific to pathway etc. Comparison between them could reveal similarities and contrasts between these groups, which ultimately leads to unfold meaningful biological insights. Assign groups feature allows you to upload user defined Sample groups and gene-groups. In here, we discussed about technicalities of group assignments.
 
 ![FIGURE 4: FungiExpresZ define sample groups.](_step_by_step_guide_files/screen_shots/05_fe_sample_group.png){width="535"}
 
@@ -360,13 +355,13 @@ Click on the submit button will activate the assigned groups. It is important to
 
 ## Gene groups
 
-Click on the button **Gene groups** will open up the pop-up showed in the Fig-5. You can either upload file or paste data in a given text box to assign the gene group.
+Click on the button **gene-groups** will open up the pop-up showed in the Fig-5. You can either upload file or paste data in a given text box to assign the gene-group.
 
-![FIGURE 5: FungiExpresZ define gene groups.](_step_by_step_guide_files/screen_shots/06_fe_gene_group.png){width="567"}
+![FIGURE 5: FungiExpresZ define gene-groups.](_step_by_step_guide_files/screen_shots/06_fe_gene_group.png){width="567"}
 
 **1) Upload**
 
-To assign the gene groups, you can either upload groups via .txt file or paste data in the given text box. Both of these ways require identical data format i.e. a matrix of two columns, where first column contains group name and second column contains group members. First row of the matrix will be considered as column names, which you can give of your choice. Each group member (column 2) must be assigned to the single group. Group members (column 2), which are used as gene names in the uploaded data will only be used to assign the groups and rest will be discarded.
+To assign the gene-groups, you can either upload groups via .txt file or paste data in the given text box. Both of these ways require identical data format i.e. a matrix of two columns, where first column contains group name and second column contains group members. First row of the matrix will be considered as column names, which you can give of your choice. Each group member (column 2) must be assigned to the single group. Group members (column 2), which are used as gene names in the uploaded data will only be used to assign the groups and rest will be discarded.
 
 **2) Column separator**
 
@@ -374,11 +369,11 @@ While uploading the groups you can use a tab or a semicolon or a comma as a colu
 
 **3) Example data snap**
 
-The snap shot showing the format for gene groups.
+The snap shot showing the format for gene-groups.
 
 # Plot panels
 
-FungiExpresZ allows you to generate 12 data exploratory plots, which are **1)** Scatter plot, **2)** Multi-scatter plot, **3)** CorrHeatBox, **4)** Density plot, **5)** Histogram, **6)** Joy plot, **7)** Box plot, **8)** Violin plot, **9)** Bar plot, **10)** PCA plot, **11)** Line plot and **12)** Heatmap. Each of these have independent panel containing necessary inputs, plot output and other plot settings. Below sections have discussed each plot panel and their options in detail.
+FungiExpresZ allows you to generate 12 data exploratory plots, which are **1)** Scatter plot, **2)** Multi-scatter plot, **3)** CorrHeatBox, **4)** Density plot, **5)** Histogram, **6)** joy-plot, **7)** box-plot, **8)** Violin plot, **9)** Bar plot, **10)** PCA plot, **11)** Line plot and **12)** Heatmap. Each of these have independent panel containing necessary inputs, plot output and other plot settings. Below sections have discussed each plot panel and their options in detail.
 
 ## Plot input panels
 
@@ -396,27 +391,27 @@ Select sample which is to be shown on the axis-X in a scatter plot.
 
 Select sample which is to be shown on the axis-Y in a scatter plot.
 
-**3) Select gene groups**
+**3) Select gene-groups**
 
-By default, all the observations / genes will be displayed in a scatter plot. Optionally, selecting gene group(s) allow you to show group specific observations / genes in a scatter plot.
+By default, all the observations / genes will be displayed in a scatter plot. Optionally, selecting gene-group(s) allow you to show group specific observations / genes in a scatter plot.
 
 **4) Plot**
 
 Hitting a button **'Plot'** will open up a plot panel containing resultant scatter plot and other plot settings.
 
-### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot
+### Multi-scatter plot, CorrHeatBox, Density plot, Histogram, joy-plot, box-plot, Violin plot and PCA plot
 
-Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot, Violin plot and PCA plot require same inputs, which are shown in Fig-7.
+Multi-scatter plot, CorrHeatBox, Density plot, Histogram, joy-plot, box-plot, Violin plot and PCA plot require same inputs, which are shown in Fig-7.
 
-![FIGURE 7: FungiExpresZ Multi-scatter plot, CorrHeatBox, Density plot, Histogram, Joy plot, Box plot. Violin plot and PCA plot input panel.](_step_by_step_guide_files/screen_shots/02_fe_multi_scatter_to_violin_variable_selection.png)
+![FIGURE 7: FungiExpresZ Multi-scatter plot, CorrHeatBox, Density plot, Histogram, joy-plot, box-plot. Violin plot and PCA plot input panel.](_step_by_step_guide_files/screen_shots/02_fe_multi_scatter_to_violin_variable_selection.png)
 
 **1) Select sample(s)**
 
 You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot.
 
-**2) Select gene group(s)**
+**2) Select gene-group(s)**
 
-By default, all the observations / genes will be displayed in the resultant plots. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot.
+By default, all the observations / genes will be displayed in the resultant plots. Optionally, selecting one or more gene-group(s) allow you to show group specific observations / genes set in the output plot.
 
 **3) Plot**
 
@@ -426,10 +421,6 @@ Hitting a button **'Plot'** will open up a plot panel containing resultant plot 
 
 The purpose of the bar plot given here is to check the expression of individual gene(s) in multiple samples or sample groups. Bar plot input panel is shown in the Fig-8.
 
-```{r , fig.cap="FIGURE 8:FungiExpresZ Bar plot input panel" , out.width="100%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/02_fe_barplot_inputs.png"))
-```
-
 ![FIGURE 8:FungiExpresZ Bar plot input panel.](_step_by_step_guide_files/screen_shots/02_fe_barplot_inputs.png)
 
 **1) Select sample(s)**
@@ -438,7 +429,7 @@ You can select one or more samples from the drop down **'Select samples'**. All 
 
 **2) Select gene(s)**
 
-Instead of the gene groups like in other plots, in bar plot you can select one or more genes which will be displayed in output bar plot.
+Instead of the gene-groups like in other plots, in bar plot you can select one or more genes which will be displayed in output bar plot.
 
 **3) Plot**
 
@@ -448,15 +439,15 @@ Hitting a button **'Plot'** will open up a plot panel containing resultant bar p
 
 Line plot is a powerful way to show the trends of observations / genes across multiple samples. For example, one of the ways to use this plot is to show expression of genes across several time point samples. FungiExpresZ also allows to cluster observations / genes both unsupervised and supervised way, and simultaneous visualization of clustered data. Additionally, you can even display average line (mean or median) instead of individual line of each gene / observation in each cluster. The input panel of the line plot has been shown in the Fig-9.
 
-![FIGURE 9: FungiExpresZ Line plot input panel](_step_by_step_guide_files/screen_shots/02_fe_lineplot_inputs.png){width="683"}
+![FIGURE 9: FungiExpresZ Line plot input panel.](_step_by_step_guide_files/screen_shots/02_fe_lineplot_inputs.png){width="683"}
 
 **1) Select sample(s)**
 
 You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the resultant plot.
 
-**2) Select gene group(s)**
+**2) Select gene-group(s)**
 
-By default, all the observations / genes will be displayed in the resultant plot. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot.
+By default, all the observations / genes will be displayed in the resultant plot. Optionally, selecting one or more gene-group(s) allow you to show group specific observations / genes set in the output plot.
 
 **3) Genes to plot**
 
@@ -476,15 +467,15 @@ Numeric input is required if the option **'\# top variable genes (By standard de
 
 **5) Gene cluster**
 
-You can cluster observation / genes either by un-supervised (**'K-means'**) or supervised (**'Gene groups'**) way . Simultaneously each cluster can be visualized in the resultant line plot.
+You can cluster observation / genes either by un-supervised (**'K-means'**) or supervised (**'gene-groups'**) way . Simultaneously each cluster can be visualized in the resultant line plot.
 
 -   **K-means**
 
 K-means clustering is one of the popular methods to perform the un-supervised clustering of gene expression data. While doing un-supervised clustering number of clusters are not known prior to the clustering. Before you do the clustering, number of clusters need to be specified in which you want to group the data. To perform the k-means clustering, FungiExpresZ uses the function `stats::kmeans()` with all default parameters.
 
--   **Gene groups**
+-   **gene-groups**
 
-You can also perform supervised clustering of the genes/observations if prior cluster information is provided as gene groups. As mentioned earlier (In the section **Assign groups**), you can assign gene groups to your data. The same gene groups can be used here to cluster the genes/observations and simultaneously visualized in the line plot.
+You can also perform supervised clustering of the genes/observations if prior cluster information is provided as gene-groups. As mentioned earlier (In the section **Assign groups**), you can assign gene-groups to your data. The same gene-groups can be used here to cluster the genes/observations and simultaneously visualized in the line plot.
 
 **6) \# of clusters (K-means)**
 
@@ -534,324 +525,626 @@ Hitting a button **'Plot'** will open up a plot panel containing resultant line 
 
 Heatmap is a very popular way to represent various genomics or transcriptomics data. Very often, heatmap is used to reveal hidden patterns from gene expression data. FungiExpresZ implements one of the very powerful R packages i.e. ComplexHeatmap to create the heatmap. To get most out of the data, there are several Row, Column and Legend specific options provided, which give users lots of flexibility while creating a heatmap. Input panel for the heatmap has been shown in the Fig-10.
 
-![FIGURE 10: FungiExpresZ Heatmap inputs](_step_by_step_guide_files/screen_shots/02_heatmap_inputs.png "heatmap_inputs"){width="600"}
+![FIGURE 10: FungiExpresZ Heatmap inputs.](_step_by_step_guide_files/screen_shots/02_heatmap_inputs.png "heatmap_inputs"){width="600"}
 
-1.  **Select sample(s)**
+1.  [**Select sample(s)**]{.ul}
 
-You can select one or more samples from the drop down **'Select samples'**. All selected samples will be displayed in the output heatmap plot.
+You can select one or more samples from the drop down **'Select sample(s)'**. All selected samples will be displayed in the output heatmap plot.
 
-2.  **Select gene groups(s)**
+2.  [**Select gene-groups(s)**]{.ul}
 
-By default, all the observations / genes will be displayed in the output heatmap plot. Optionally, selecting one or more gene group(s) allow you to show group specific observations / genes set in the output plot.
+By default, all the observations / genes will be used to generate output heatmap plot. Optionally, selecting one or more gene-group(s) allow you to show group specific observations / genes set in the output plot.
 
-3.  **Number of genes to plot**
+3.  [**Number of genes to plot**]{.ul}
 
-By default, FungiEpxresZ plots heatmap of top 500 most variable genes. However, you can change the number of genes to be shown under the input **\# of top variable genes to show**. The selected genes will be from the remaining genes once the genes group(s)(\#2) filter is applied. To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples. Higher the standard deviation more the variability and vice versa. You can also choose the option **All genes** to display all the genes remained after gene group(s) filter if applied.
+By default, FungiEpxresZ plots heatmap of top 500 most variable genes from all uploaded / selected gene-group(s). However, you can change the number of genes to be shown under the input '**\# of top variable genes to show'**. The genes will be selected from the remaining genes once the '**Select genes group(s)'** (\#2) filter is applied. To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples. Higher the standard deviation more the variability and vice versa. You can also choose the option '**All genes'** to display all the genes remained after '**Select gene-group(s)'** filter if applied.
 
-4.   **\# of top variable genes to show**
+4.  [**\# of top variable genes to show**]{.ul}
 
-A number to display top variable genes in the heatmap. To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples.
+Input a number to display top variable genes in the heatmap (Default 500). To select the top variable genes, FungiEpxresZ uses the standard deviation that is calculated for each gene across selected samples.
 
-5.   **Cluster by**
+5.  [**Cluster by**]{.ul}
 
-You can choose either Z-score or Raw values to cluster the genes/observations.
+Select a value between **'Z-score'** or '**Raw values**' to cluster the genes/observations. If '**Z-score'** is selected, for each gene/observation '**Z-score'** values will be converted to '**Z-score**' prior to cluster genes. To calculate the Z-score FungiExpresZ uses the R function `base::scale()` with all default parameters. While '**Raw value**' uses user uploaded or normalized gene expression values (if samples are selected from FungiExpresZ) to cluster the genes/observations.
 
-6.   **Display value**
+6.  [**Display value**]{.ul}
 
-Likewise parameter **'Cluster by'**, you can use parameter **'Display value'** value to choose which value to be displayed in the heatmap plot regardless of value selected in **'Cluster by'**.
+Likewise parameter **'Cluster by'**, you can use parameter **'Display value'** to choose which value to be displayed in the heatmap plot regardless of value selected in **'Cluster by'**.
 
-7.  **Row options**
+7.  [**Row options**]{.ul}
 
--   **7A. Row names**
--   **7B. Row names font size**
--   **7C. Row cluster**
--   **7D. \# row clusters**
--   **7E. Row cluster label prefix**
--   **7F. Row cluster (within the cluster)**
--   **7G. Row dendogram (within the cluster)**
--   **7H. Row cluster border (within the cluster)**
--   **7I. Add standard deviation heatmap (within the cluster)**
--   **7J. Sort by standard deviation**
+-   **7A. Row names:** If '**TRUE**' row names will be displayed in the heatmap.
+-   **7B. Row names font size:** Adjust size of row names in the heatmap.
+-   **7C. Row cluster:** Cluster heatmap rows either by unsupervised K-means clustering or user uploaded gene-group(s).
+-   **7D. \# row clusters:** Select number of row clusters to display if clustering method is K-means.
+-   **7E. Row cluster label prefix:** Input string, default '**Clust\_**', will be used as a prefix to label each row cluster.
+-   **7F. Row cluster (within the cluster):** If '**TRUE**', additional hierarchical clustering will be performed within each row cluster.
+-   **7G. Row dendrogram (within the cluster):** If '**TRUE**', individual row dendrogram for each cluster will be displayed.
+-   **7H. Row cluster border (within the cluster):** If '**TRUE**', each row cluster will be bordered.
+-   **7I. Add standard deviation heatmap (within the cluster):** If '**TRUE**', an additional single column standard deviation heatmap will be displayed parallel to data heatmap.
+-   **7J. Sort by standard deviation:** If '**TRUE**', data within the heatmap will be ordered by standard deviation of each gene.
 
-**8) Column options**
+8.  [**Column options**]{.ul}
 
--   **8A. Column names**
+-   **8A. Column names:** If '**TRUE**' column names will be displayed in the heatmap.
 
--   **8B. Column names font size**
+-   **8B. Column names font size:** Adjust size of column names in the heatmap.
 
--   **8C. Column cluster**
+-   **8C. Column cluster:** Cluster heatmap columns either by unsupervised K-means clustering or user uploaded sample groups(s). If data are selected from FungiExpresZ, samples will be clustered by NCBI bio-project ID.
 
--   **8D. \# column clusters(k-means)**
+-   **8D. \# column clusters(k-means):** Select number of column clusters to display if clustering method is K-means.
 
--   **8E. Column cluster label prefix**
+-   **8E. Column cluster label prefix:** Input string, default '**Clust\_**', will be used as a prefix to label each column cluster.
 
--   **8F. Column cluster (within the cluster)**
+-   **8F. Column cluster (within the cluster):** If '**TRUE**', additional hierarchical clustering will be performed within each column cluster.
 
--   **8G. Column dendogram**
+-   **8G. Column dendrogram:** If '**TRUE**', individual column dendrogram for each cluster will be displayed.
 
--   **8H. Column annotation**
+-   **8H. Column annotation:** Add column annotations - color for '**sample groups**' or '**box-plot**' for each column, on top of heatmap.
 
--   **8I. Column annotation height**
+-   **8I. Column annotation height:** Adjust height for column annotations.
 
-**9) Legend options**
+9.  [**Legend options**]{.ul}
 
--   **9A.**
+-   **9A. Legend name:** A string, default '**Value**', to label heatmap legend.
 
--   **9B.**
+-   **9B. Legend position:** Adjust position of the legend (T - top, B - bottom, L - left, R - right) with respect to heatmap.
 
--   **9C.**
+-   **9C. Legend direction:** Adjust direction of the legend (H - horizontal, V - vertical) with respect to heatmap.
 
--   **9D.**
+-   **9D. Heatmap colors:** Select heatmap colors for low, middle and high data values.
 
--   **9E.**
+-   **9E. Heatmap scale:** Fix maximum and minimum values
 
-**10) Plot**
+10. [**Plot**]{.ul}
+
+HItting this button will generate a heatmap plot in a separate heatmap panel.
 
 # Plot settings
 
 ## Common plot settings
 
-```{r , fig.cap="FIGURE 11: FungiExpresZ common plot settings : `Theme and Legend` (left), `Labels & Title` (right)" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/10_common_theme_and_legend_settings.png",
-                          "_step_by_step_guide_files/screen_shots/11_common_labels_and_title.png"))
-```
+![FIGURE 11: FungiExpresZ common plot settings : **Theme and Legend** (left), **Labels & Title** (right).](_step_by_step_guide_files/screen_shots/11_common_labels_and_title_2.png "common_plot_Settings")
+
+1.  [**Theme and Legend**]{.ul}
+
+-   **1A. Theme:** A drop-down to select a theme (Grey, Black and White (BW), Line Draw, Minimal, Light, Dark, Classic and Test) for the plot.
+
+-   **1B. Legend Title:** A text-box to set title for the legend.
+
+-   **1C. Font Size: Legend title:** A slide-bar to set font size for the legend title.
+
+-   **1D. Font Size: Legend text:** A slide-bar to set font size for the legend text.
+
+-   **1E. Height: Legend key:** A slide-bar to set height for the legend key.
+
+-   **1F. Width: Legend key:** A slide-bar to set width for the legend key.
+
+-   **1G. Legend position:** Set of choices to set legend position (**N** - None, **T** - Top, **B** - Bottom, **L** - Left, **R** - Right).
+
+-   **1H. Aspect ratio:** A slide-bar to set image aspect ratio.
+
+2.  [**Labels & Title**]{.ul}
+
+-   **2A. Plot title:** A text -box to set title for the plot.
+
+-   **2B. Font size: Title:** A slide-bar to adjust font size of the plot title.
+
+-   **2C. Axis labels:** A text-box to set labels for the X and Y axis.
+
+-   **2D. Font size: X axis labels:** A slide-bar to adjust font size of the X-axis labels.
+
+-   **2E. Font size: Y axis labels:** A slide-bar to adjust font size of the Y-axis labels.
+
+-   **2F. Font size: X tick labels:** A slide-bar to adjust font size of the X-axis tick labels.
+
+-   **2G.Font size Y tick labels:** A slide-bar to adjust font size of the Y-axis tick labels.
+
+-   **2H. Font size Strip text:** A slide-bar to adjust font size of the strip text. Only useful when plots are faceted either by samples, sample groups or gene-groups.
 
 ## Plot specific settings
 
+Besides common plot settings, each plot has plot specific settings provided under the tab "Advanced options".
+
 ### Scatter plot
-
-// TO DO
-
-```{r , fig.cap="FIGURE 12: FungiExpresZ Scatter plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/09_scatter_plot_advance_settings.png"))
-```
 
 ![FIGURE 12: FungiExpresZ Scatter plot advance options.](_step_by_step_guide_files/screen_shots/09_scatter_plot_advance_settings.png){width="313"}
 
+1.  **Axis limits**: Click on \`set\` pops-up a text-box which allows users to set minimum and maximum values for X and Y axis.
+
+2.  **Trend line:** Buttons under this option allow turn on or off trend line.
+
+    -   **Off:** Turn off trend line.
+
+    -   **From data:** Auto generate trend line from the slope and intercept
+
+    -   **Manual:** A trend line will be generated from the user input intercept and slope.
+
+3.  **Color by:** Set color for the dots in the scatter plot.
+
+    -   **Density:** Dots will be colored based according to data density.
+
+    -   **Manual:** This option pops-up color pallets to select colors manually.
+
+    -   **gene-groups:** Color dots by gene-groups. Color by this option require users to upload gene-groups. See [Assign groups]. Selecting this option without any groups color dots uniformly.
+
+4.  **Transparency:** A slide-bar to adjust transparency of the dots.
+
+5.  **Point size:** A slide-bar to adjust size of the dots.
+
 ### Multi-scatter plot
-
-// TO DO
-
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Multi-scatter plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/12_multi_scatter_plot_advance_settings.png"))
-```
 
 ![FIGURE 13: FungiExpresZ Multi-scatter plot advance options.](_step_by_step_guide_files/screen_shots/12_multi_scatter_plot_advance_settings.png){width="351"}
 
+1.  **Corr text color:** Select a color from the palettes or type-in color hex code (e.g. \#FF0000) or name (e.g. red) for the correlation values displayed in the plot.
+
+2.  **Font size: Corr text:** A slide-bar to adjust the size of the correlation values displayed in the plot.
+
 ### CorrHeatBox
-
-// TO DO
-
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Corr heat-box advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/13_corr_heat_box_advance_settings.png"))
-```
 
 ![FIGURE 14: FungiExpresZ Corr heat-box advance options.](_step_by_step_guide_files/screen_shots/13_corr_heat_box_advance_settings.png){width="304"}
 
-### Density plot
+1.  **Number of colors:** A slide-bar to select number of colors the plot.
 
-// TO DO
+2.  **Cluster variables:** Decides whether to cluster samples or not.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Density plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/14_density_plot_advance_settings.png"))
+    -   **TRUE:** Plot samples by hierarchical clustering performed on correlation values.
+
+    -   **FALSE:** Plot samples in default order (No clustering).
+
+```{=html}
+<!-- -->
 ```
+1.  **Method:** Display correlation values either by square or circle.
+
+2.  **Type:** Display plot as **Full,** only **Upper half** or **Lower half**.
+
+3.  **Scale:** Adjust scale to map values to colors.
+
+    -   **Auto:** Colors will be mapped to Maximum and Minimum values selected from the
+
+    -   **Manual:** Colors will be mapped to user given Maximum and Minimum values.
+
+4.  **Show corr value:** Decide whether to show correlation values in the plot.
+
+5.  **Font size: Corr text:** A slide-bar to adjust font size of the correlation values.
+
+6.  **Corr text color:** Select a color form the palette for the corr values.
+
+### Density plot
 
 ![FIGURE 15: FungiExpresZ Density plot advance options.](_step_by_step_guide_files/screen_shots/14_density_plot_advance_settings.png){width="366"}
 
+1.  **Fill by:** A variable choice to fill colors in the density curve.
+
+    -   **Manual:** Select colors manually form the color palette.
+
+    -   **Samples:** Assign unique color to density curve of the each sample.
+
+    -   **Sample group:** Assign unique color to density curves according to sample group(s). It is recommended that sample groups are uploaded. See [Sample groups].
+
+    -   **Gene group:** Assign unique color to density curves according to gene-group(s). It is recommended that gene-groups are uploaded. See [Gene groups].
+
+2.  **Separate by:** A variable choice to separate (or facet) plots.
+
+    -   **None:** No faceting.All density curves will be included within a single plot.
+
+    -   **Samples:** For each sample a separate density plot will be plotted.
+
+    -   **Sample group:** For each sample group a separate density plot will be plotted. It is recommended that sample groups are uploaded. See [Sample groups].
+
+    -   **Gene group:** For each gene group a separate density plot will be plotted. It is recommended that gene groups are uploaded. See [Gene groups].
+
+3.  **Transparency:** A slide-bar to adjust transparency of the plot.
+
 ### Histogram
-
-// TO DO
-
-```{r , fig.cap="FIGURE XXX: FungiExpresZ  Histogram advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/15_histogram_advance_settings.png"))
-```
 
 ![FIGURE 16: FungiExpresZ Histogram advance options.](_step_by_step_guide_files/screen_shots/15_histogram_advance_settings.png){width="368"}
 
-### Joy plot
+1.  **Fill by:** A variable choice to fill colors in the density curve.
 
-// TO DO
+    -   **Manual:** Select colors manually form the color palette.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Joy plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/16_joy_plot_advance_settings.png"))
-```
+    -   **Samples:** Assign unique color to density curve of the each sample.
 
-![FIGURE 17: FungiExpresZ Joy plot advance options.](_step_by_step_guide_files/screen_shots/16_joy_plot_advance_settings.png){width="395"}
+    -   **Sample group:** Assign unique color to density curves according to sample group(s). It is recommended that sample groups are uploaded. See [Sample groups].
 
-### Box plot
+    -   **Gene group:** Assign unique color to density curves according to gene group(s). It is recommended that gene groups are uploaded. See [Gene groups].
 
-// TO DO
+2.  **Separate by:** A variable choice to separate (or facet) plots.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Box plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/17_boxplot_advance_settings.png"))
-```
+    -   **None:** No faceting.All density curves will be included within a single plot.
 
-![FIGURE 18: FungiExpresZ Box plot advance options.](_step_by_step_guide_files/screen_shots/17_boxplot_advance_settings.png){width="344"}
+    -   **Samples:** For each sample a separate density plot will be plotted.
 
-### Violin plot
+    -   **Sample group:** For each sample group a separate density plot will be plotted. It is recommended that sample groups are uploaded. See [Sample groups].
 
-// TO DO
+    -   **Gene group:** For each gene group a separate density plot will be plotted. It is recommended that gene groups are uploaded. See [Gene groups].
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Violin plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/18_violin_plot_advance_settings.png"))
-```
+3.  **Bar position:** Adjust position of the bars in the histogram.
+
+    -   **Dodge:** Bars will be positioned next to each other.
+
+    -   **Stack:** Bars will be stacked on top of each other. Y-Scale will be adjusted to sum of stacked bars.
+
+    -   **Identity**: Same as stack but Y-scale will be adjusted to each bar height.
+
+4.  **Number of bins:** A numeric-input to adjust number of bins/bars to show in the histogram.
+
+5.  **Transparency:** A slide-bar to adjust transparency of the plot.
+
+### Joy-plot
+
+![FIGURE 17: FungiExpresZ joy-plot advance options.](_step_by_step_guide_files/screen_shots/16_joy_plot_advance_settings.png){width="395"}
+
+1.  **Y-axis:** A variable choice to show values on Y-axis.
+
+    -   **Samples:** Plot samples on Y-axis.
+
+    -   **Sample-groups:** Plot sample groups on Y-axis. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+    -   **Gene-groups:** Plot gene-groups on Y-axis. It is recommended that gene-groups are uploaded. See [Gene groups].
+
+2.  **Fill by:** A variable choice to fill colors in the joy-plot.
+
+    -   **Value:** Within each observation, fill colors by data values.
+
+    -   **Probability:** Within each observation, fill colors by probabilities.
+
+    -   **Quantile:** Within each observation, group data by quantile and assign unique color to each quantile.
+
+    -   **Alternative:** Assign different colors to alternative observation.
+
+    -   **Samples:** Assign unique color to each sample.
+
+    -   **Sample group:** Assign unique color to sample group(s). It is recommended that sample groups are uploaded. See [Sample groups].
+
+    -   **Gene group:** Assign unique color to gene group(s). It is recommended that gene groups are uploaded. See [Gene groups].
+
+3.  **Fill Choices:** Choices for Pre-defined color palette.
+
+4.  **Fill reverse:** Whether toreverse color scale.
+
+5.  **Color ridges:** Select a color from palette for ridges.
+
+6.  **Separate by:** A variable choice to separate (or facet) plots.
+
+    -   **None:** No faceting.All observations will be included within a single plot.
+
+    -   **Samples:** For each sample a separate joy-plot will be generated.
+
+    -   **Sample group:** For each sample group a separate joy-plot will be plotted. It is recommended that sample groups are uploaded. See [Sample groups].
+
+    -   **Gene group:** For each gene group a separate joy-plot will be plotted. It is recommended that gene groups are uploaded. See [Gene groups].
+
+### Box-plot
+
+![FIGURE 18: FungiExpresZ box-plot advance options.](_step_by_step_guide_files/screen_shots/17_boxplot_advance_settings.png){width="344"}
+
+1.  **X-axis:** A variable choice to show values on X-axis.
+
+    -   **Samples:** Plot samples on X-axis.
+
+    -   **Sample groups:** Plot sample-groups on X-axis. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+    -   **Gene groups:** Plot gene-groups on X-axis. It is recommended that gene-groups are uploaded. See [Gene groups].
+
+2.  **Fill by:** A variable choice to fill colors in the box-plot.
+
+    -   **Manual:** Select colors manually form the color palette. Selected color will be assigned to each observation.
+
+    ```{=html}
+    <!-- -->
+    ```
+    -   **Samples:** Assign unique color to each sample.
+
+    -   **Sample group:** Assign unique color to sample-groups. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+    -   **Gene-group:** Assign unique color to gene groups. It is recommended that gene-groups are uploaded. See [Gene groups].
+
+3.  **Separate by:** A variable choice to separate (or facet) plots.
+
+    -   **None:** No faceting.All observations will be included within a single box-plot.
+
+    -   **Samples:** For each sample a separate box-plot will be generated.
+
+    -   **Sample-group:** For each sample-group a separate box-plot will be plotted. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+    -   **Gene-group:** For each gene-group a separate box-plot will be plotted. It is recommended that gene-groups are uploaded. See [Gene groups].
+
+4.  **P-value:** Whether to show p-values between observation. User can choice between `t.test` or `wilcox.test` to calculate the pair-wise p-values.
+
+5.  **Dots:** Whether to overlay dots on top of box.
+
+6.  **Box transparency**: A slide-bar to adjust transparency of the each box.
+
+### Violin-plot
 
 ![FIGURE 19: FungiExpresZ Violin plot advance options.](_step_by_step_guide_files/screen_shots/18_violin_plot_advance_settings.png "FIGURE 19: FungiExpresZ Violin plot advance options"){width="346"}
 
-### Bar plot
+1.  **X-axis:** A variable choice to show values on X-axis.
 
-// TO DO
+    -   **Samples:** Plot samples on X-axis.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ Bar plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/19_barplot_advance_settings.png"))
-```
+    -   **Sample groups:** Plot sample-groups on X-axis. It is recommended that sample-groups are uploaded. See [Sample groups].
 
-![FIGURE 20: FungiExpresZ Bar plot advance options](_step_by_step_guide_files/screen_shots/19_barplot_advance_settings.png){width="368"}
+    -   **Gene groups:** Plot gene-groups on X-axis. It is recommended that gene-groups are uploaded. See [Gene groups].
 
-### PCA plot
+2.  **Fill by:** A variable choice to fill colors in the violin-plot.
 
-// TO DO
+    -   **Manual:** Select colors manually form the color palette. Selected color will be assigned to each observation.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ PCA plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/20_pca_plot_advance_settings.png"))
-```
+    ```{=html}
+    <!-- -->
+    ```
+    -   **Samples:** Assign unique color to each sample.
 
-![FIGURE 21: FungiExpresZ PCA plot advance options](_step_by_step_guide_files/screen_shots/20_pca_plot_advance_settings.png){width="378"}
+    -   **Sample group:** Assign unique color to sample-groups. It is recommended that sample-groups are uploaded. See [Sample groups].
 
-### Line plot
+    -   **Gene group:** Assign unique color to gene-groups. It is recommended that gene-groups are uploaded. See [Gene groups].
 
-// TO DO
+3.  **Separate by:** A variable choice to separate (or facet) plots.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ  Line plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/21_line_plot_advance_settings.png"))
-```
+    -   **None:** No faceting.All observations will be included within a single violin-plot.
 
-![FIGURE 22: FungiExpresZ Line plot advance options](_step_by_step_guide_files/screen_shots/21_line_plot_advance_settings.png){width="322"}
+    -   **Samples:** For each sample a separate violin-plot will be generated.
+
+    -   **Sample-group:** For each sample-group a separate violin-plot will be plotted. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+    -   **Gene-group:** For each gene-group a separate box-plot will be plotted. It is recommended that gene-groups are uploaded. See [Gene groups].
+
+4.  **P-value:** Whether to show p-values between observation. User can choice between `t.test` or `wilcox.test` to calculate the pair-wise p-values.
+
+5.  **Show quantile:** For selected quantile values horizontal lines will be plotted within each violin.
+
+6.  **Transparency**: A slide-bar to adjust transparency of the each violin.
+
+### Bar-plot
+
+![FIGURE 20: FungiExpresZ Bar plot advance options.](_step_by_step_guide_files/screen_shots/19_barplot_advance_settings.png){width="368"}
+
+1.  **X-axis:** A choice of variable to show in X-axis.
+
+    -   **Genes:** genes will be plotted on X-axis.
+
+    -   **Samples:** Samples will be plotted X-axis.
+
+2.  **Fill by:** A choice of variable to fill colors in bars.
+
+    -   **Manual:** Select color manually form the color palette. Selected color will be assigned to each bar.
+
+    ```{=html}
+    <!-- -->
+    ```
+    -   **Genes:** Assign unique color to each gene.
+
+    -   **Samples:** Assign unique color to each sample.
+
+    -   **Sample-groups:** Assign unique colors to each sample-group. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+3.  **Select:** Choose colors from palette when "Fill by" selected to "Manual".
+
+4.  **Separate by:** A variable choice to separate (or facet) plots.
+
+    -   **None:** No faceting.All observations will be included within a single bar-plot.
+
+    -   **Genes:** For each gene a separate bar-plot will be generated.
+
+    -   **Samples:** For each sample a separate bar-plot will be generated.
+
+    -   **Sample-group:** For each sample-group a separate bar-plot will be generated. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+5.  **Scale:** Adjust scale for multiple plots. Useful when plots are separated by one of the above variables.
+
+    -   **Fix:** Both X and Y-axis scales will be identical across all faceted bar-plots.
+
+    -   **Free:** Each bar-plot will be scaled individually according to values in X and Y-axis.
+
+    -   **Free X:** Only X-axis in each bar-plot will be scaled individually. Scale in Y-axis will be identical across all faceted bar-plots.
+
+    -   **Free Y:** Only Y-axis in each bar-plot will be scaled individually. Scale in X-axis will be identical across all faceted bar-plots
+
+6.  **Transparency:** A slide-bar to adjust transparency of the each violin.
+
+### PCA-plot
+
+![FIGURE 21: FungiExpresZ PCA plot advance options.](_step_by_step_guide_files/screen_shots/20_pca_plot_advance_settings.png){width="378"}
+
+1.  **Select PCs:** Select any two principle components to plot them on the X and Y-axis.
+
+2.  **Display sample names:** Whether to show sample/variable names in the PCA plot.
+
+3.  **Dot size:** A slide-bar to adjust size of the dots displayed corresponding to each sample/variable in the PCA plot.
+
+4.  **Color by:** Choice of the variable to color dots displayed in the PCA plot.
+
+    -   **Identical:** Color all samples identical.
+
+    -   **Sample-groups:** Color samples by sample-groups. For each sample-group a separate bar-plot will be generated. It is recommended that sample-groups are uploaded. See [Sample groups].
+
+    -   **K-means:** Color samples by K-means clusters.
+
+5.  **Select color:** Select a color from a palette if a choice for `color by` is `Identical`
+
+### Line-plot
+
+![FIGURE 22: FungiExpresZ Line plot advance options.](_step_by_step_guide_files/screen_shots/21_line_plot_advance_settings.png){width="322"}
+
+1.  **Color:** Choice of a variable to color lines in the line-plot.
+
+    -   **Gene groups:** Color lines by gene-groups. It is recommended that gene-groups are uploaded. See [Gene groups].
+
+    -   **Identical:** Color all lines identical. A color choice can be made from the color palette.
+
+2.  **Separate by:** Choice of a variable to separate line plots.
+
+    -   **None:** No separation/faceting. All lines will be plotted in a single plot.
+
+    -   **Gene groups:** Separate/facet line plots by gene-groups. It is recommended that gene-groups are uploaded. See [Gene groups].
+
+3.  **Scale:** Adjust scale for multiple plots. Useful when plots are separated by gene-groups.
+
+    -   **Fix:** Both X and Y-axis scales will be identical across all faceted line-plots.
+
+    -   **Free:** Each line-plot will be scaled individually according to values in X and Y-axis.
+
+    -   **Free X:** Only X-axis in each line-plot will be scaled individually. Scale in Y-axis will be identical across all faceted line-plots.
+
+    -   **Free Y:** Only Y-axis in each line-plot will be scaled individually. Scale in X-axis will be identical across all faceted line-plots.
+
+4.  **Line shape:** A slide-bar to adjust line shapes.
+
+5.  **Transparency:** A slide-bar to adjust transparency of the each line in the line-plot.
+
+6.  **Number of columns:** A numeric input to adjust the plot arrangement in columns. Useful when line-plots are separated/faceted by gene-groups.
+
+7.  **Point size:** A slide-bar to adjust size of the points in the line-plot.
+
+8.  **Line size:** A slide-bar to adjust size (width) of the each line in the line-plot.
 
 ### Heatmap
 
-// TO DO
+Heatmap dimensions are adjusted based on screen resolution. Users can still adjust height of each row and width of each column displayed in the heatmap.
 
-```{r , fig.cap="FIGURE 23: FungiExpresZ Heatmap row options (left), column options (middle) and legend options(right)." , out.width="30%"}
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/22_heat_map_row_options.png","_step_by_step_guide_files/screen_shots/23_heatmap_column_options.png","_step_by_step_guide_files/screen_shots/24_heatmap_legend_options.png))
-```
+![FIGURE 23: FungiExpresZ heatmap figure dimension. ](_step_by_step_guide_files/screen_shots/25_heatmap_fig_dim.png){width="386"}
+
+1.  **Row height:** A slide-bar to adjust the height of the each row in the heatmap.
+2.  **Column width:** A slide-bar to adjust the width of the each column in the heatmap.
 
 # GO analysis and visualizations
 
-// TO DO
+Users can select genes either from scatter-plot, line-plot or heatmap to perform GO analysis and visualizations. From scatter-plot genes can be selected by mouse drag while in line-plot and heatmap gene cluster can be selected. Besides genes, there are few other inputs user can change for GO analysis.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ GO analysis inputs" , out.width="100%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/27_go_inputs.png"))
-```
+![FIGURE 24: FungiExpresZ GO analysis inputs.](_step_by_step_guide_files/screen_shots/27_go_inputs.png)
 
-![FIGURE 24: FungiExpresZ GO analysis inputs](_step_by_step_guide_files/screen_shots/27_go_inputs.png)
+1.  **Ontology:** Select ontology type - Biological Process, Cellular Component, or Molecular Function - for enrichment analysis.
+
+2.  **Gene cluster:** Select a gene cluster for which GO enrichment analysis to be performed.
+
+3.  **View type:** Select a type of plot to visualize enriched GO terms. Choices are...
+
+    -   **Table**
+
+    -   **Dot-plot**
+
+    -   **Bar-plot**
+
+    -   **Emap-plot**
+
+    -   **Cnet-plot**
+
+    -   **Upset-plot**
+
+    -   **Heatplot**
+
+4.  **Background Genes to GO mapping:** It allows user to select type of background data (Genes to GO mapping) to use for GO enrichment analysis.
+
+    -   **Parent + Offsprings**: For a given GO term (e.g. GO-term-A), all the genes from term-A and term-A's offspring GO terms will be considered as a part of term-A (recommended).
+
+    -   **Parent**: For a given GO term-A, all the genes from term-A will be considered as a part of term A.
+
+5.  **\# of minimum genes in a GO term:** User can restrict the GO enrichment output. Only those GO terms will be displayed, which has minimum number of genes more than cutoff value.
+
+6.  **\# of maximum genes in a GO term:** User can restrict the GO enrichment output. Only those GO terms will be displayed, which has maximum number of genes less than cutoff value.
+
+7.  ***p-*****adjust:** Choice of methods to calculate adjusted *p-*value.
 
 # GO plots specific settings
 
-// TO DO
+### Dot-plot and Bar-plot
 
-### Dot plot and Bar plot
+![FIGURE 25: FungiExpresZ GO Dot plot and Bar plot advance options.](_step_by_step_guide_files/screen_shots/29_dot_and_bar_plot_advance_settings.png){width="331"}
 
-// TO DO
-
-```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Dot plot and Bar plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/29_dot_and_bar_plot_advance_settings.png"))
-```
-
-![FIGURE 25: FungiExpresZ GO Dot plot and Bar plot advance options](_step_by_step_guide_files/screen_shots/29_dot_and_bar_plot_advance_settings.png){width="378"}
+1.  **X-axis:** Choice of a variable (Count or Gene Ratio) to show on X-axis.
+2.  **Color by:** Choice of a variable (*P-*value, *P-*adjust or *Q-*value) to color observations.
+3.  **Show terms:** Numeric input to show number of GO terms in the plot. \
 
 ### EMAP plot
 
-// TO DO
+EMAP-plot is a network like plot to visualize GO enrichment results. Each node in the plot denotes to a GO term while connecting edge denotes number of genes overlapped between two terms.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ GO EMAP plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/28_emap_plot_advance_settings.png"))
-```
+![FIGURE 26: FungiExpresZ GO EMAP plot advance options.](_step_by_step_guide_files/screen_shots/28_emap_plot_advance_settings.png){width="334"}
 
-![FIGURE 26: FungiExpresZ GO EMAP plot advance options](_step_by_step_guide_files/screen_shots/28_emap_plot_advance_settings.png){width="401"}
+1.  **Font size: Node label:** A slide-bar to adjust font size of the labels to each node.
+2.  **Color by:** Choice of a variable to color GO-terms.
+3.  **Layout:** Select plot layout.
+4.  **Show terms:** A numeric input to show number of GO-terms.
 
 ### CNET plot
 
-// TO DO
+Like EMAP-plot CNET is also a network type visualization of enriched GO terms.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ GO CNET plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/30_cnet_plot_advance_Settings.png"))
-```
+![FIGURE 27: FungiExpresZ GO CNET plot advance options.](_step_by_step_guide_files/screen_shots/30_cnet_plot_advance_Settings.png){width="360"}
 
-![FIGURE 27: FungiExpresZ GO CNET plot advance options](_step_by_step_guide_files/screen_shots/30_cnet_plot_advance_Settings.png){width="407"}
+1.  **Font size Node label:** A slide-bar to adjust font size of the labels to each node.
+2.  **Layout:** Select plot layout.
+3.  **Show terms:** A numeric input to show number of GO-terms.
 
 ### UPSET plot
 
-// TO DO
+![FIGURE 28: FungiExpresZ GO Upset plot advance options.](_step_by_step_guide_files/screen_shots/31_upset_plot_advance_settings.png){width="267"}
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Upset plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/31_upset_plot_advance_settings.png"))
-```
-
-![FIGURE 28: FungiExpresZ GO Upset plot advance options](_step_by_step_guide_files/screen_shots/31_upset_plot_advance_settings.png){width="267"}
+1.  **Number of terms:** Number of terms to show in the plot.
+2.  **Line size:** A slide-bar to adjust the size of lines.
+3.  **Intersection size title:** A slide-bar to adjust font size of the Y-axis title - "**Intersection size".**
+4.  **Intersection size tick labels:** A slide-bar to adjust font size of the Y-axis tick labels.
+5.  **Set size:** Aslide-bar to adjust font size of the label "**Set size**".
+6.  **Point size:** A slide-bar to adjust point size in the plot.
+7.  **Set size tick labels:** A slide-bar to adjust the tick labels for the axis - "Set size".
+8.  **Set names:** A slide-bar to adjust font size of the set names.
+9.  **Numbers above bars:** A slide-bar to adjust font size for the number above bars.
+10. **Main bar color:** A choice of the color from a color palette for the main bars.
+11. **Sets bar color**: A choice of the color from a color palette for the set bars.
+12. **Matrix color:** A choice of the color from a color palette for the matrix.
 
 ### Heat plot
 
-// TO DO
+![FIGURE 29: FungiExpresZ GO Heat plot advance options.](_step_by_step_guide_files/screen_shots/33_go_heat_plot_advance_settings.png){width="287"}
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ GO Heat plot advance options" , out.width="30%"  }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/33_go_heat_plot_advance_settings.png"))
-```
-
-![FIGURE 29: FungiExpresZ GO Heat plot advance options](_step_by_step_guide_files/screen_shots/33_go_heat_plot_advance_settings.png){width="287"}
+1.  **Select:** Choice of a color to presence of a gene in a GO-term.
+2.  **Show terms:** A numeric input to show number of terms in the plot.
+3.  **Flip axis:** Flip values between X and Y axis.
 
 # Other panels
 
-// TO DO
-
 ## About
 
-// TO DO
+Other than this page, panel about contains two pages - 1) Overview, and 2) Tutorial.
 
-```{r , fig.cap="FIGURE XXX: FungiExpresZ `Overview` page" , out.width="90%" ,out.extra='style="background-color: black; padding:1px;"' }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/38_fe_overview.png"))
-```
+### Overview
 
-![FIGURE 30: FungiExpresZ \`Overview\` page](_step_by_step_guide_files/screen_shots/38_fe_overview.png){width="698"}
+It shows analysis of published RNA-seq data using FungiExpresZ.
 
-```{r, fig.cap="FIGURE XXX: FungiExpresZ `Tutorial` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/39_fe_tutorials.png"))
-```
+![FIGURE 30: FungiExpresZ **Overview** page.](_step_by_step_guide_files/screen_shots/38_fe_overview.png)
 
-![FIGURE 31: FungiExpresZ \`Tutorial\` page](_step_by_step_guide_files/screen_shots/39_fe_tutorials.png)
+### Tutorial
+
+This page contains link to short tutorial videos for various FungiExpresZ functionalities.
+
+![FIGURE 31: FungiExpresZ **Tutorial** page.](_step_by_step_guide_files/screen_shots/39_fe_tutorials.png)
 
 ## Downloads
 
-// TO DO
+### Download gene expression data 
 
-```{r, fig.cap="FIGURE XXX: FungiExpresZ `Downloads --> Gene expression data` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/35_fe_gene_expression_downloads.png"))
-```
+User can download pre-processed public gene expression data included in the FungiExpresZ.
 
-![FIGURE 32: FungiExpresZ \`Downloads --\> Gene expression data\` page](_step_by_step_guide_files/screen_shots/35_fe_gene_expression_downloads.png)
+![FIGURE 32: FungiExpresZ **Downloads --\> Gene expression data** page.](_step_by_step_guide_files/screen_shots/35_fe_gene_expression_downloads.png)
 
-```{r, fig.cap="FIGURE XXX: FungiExpresZ `Download --> GO data` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/36_fe_go_data_downloads.png"))
-```
+### Download GO data. 
 
-![FIGURE 32: FungiExpresZ \`Download --\> GO data\` page](_step_by_step_guide_files/screen_shots/36_fe_go_data_downloads.png)
+User can download gene ontology data for the species included in the FungiExpresZ. The genome column displayed on this page indicates the version of the genome annotation which is obtained from FungiDB.
+
+![FIGURE 32: FungiExpresZ **Download --\> GO data** page.](_step_by_step_guide_files/screen_shots/36_fe_go_data_downloads.png)
 
 ## News & Updates
 
-// TO DO
+All updates, release, improvements, bug fixes etc. displayed on this page.
 
-```{r, fig.cap="FIGURE XXX: FungiExpresZ `News & Updates` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/37_fe_news_and_updates.png"))
-```
-
-![FIGURE 33: FungiExpresZ \`News & Updates\` page](_step_by_step_guide_files/screen_shots/37_fe_news_and_updates.png)
+![FIGURE 33: FungiExpresZ **News & Updates** page.](_step_by_step_guide_files/screen_shots/37_fe_news_and_updates.png){width="978"}
 
 ## Citations
 
-Citation page list all the paper citing FungiExpresZ.
+Citation page list all the papers citing FungiExpresZ.
 
-```{r, fig.cap="FIGURE XXX: FungiExpresZ `Citations` page" , out.width="90%", out.extra='style="background-color: black; padding:1px;"' }
-knitr::include_graphics(c("_step_by_step_guide_files/screen_shots/34_fe_citations.png"))
-```
-
-![FIGURE 34: FungiExpresZ \`Citations\` page](_step_by_step_guide_files/screen_shots/34_fe_citations.png){width="698"}
+![FIGURE 34: FungiExpresZ **Citations** page.](_step_by_step_guide_files/screen_shots/34_fe_citations.png){width="698"}

@@ -773,7 +773,7 @@ ul.nav.navbar-nav {
                                                 ## transparancy
                                                 sliderInput(
                                                   inputId = "scatter_alpha",
-                                                  label = h4(tags$b("Transparancy")), min = 0, max = 1, value = 0.5, step = 0.01, width = "99%"
+                                                  label = h4(tags$b("Transparency")), min = 0, max = 1, value = 0.5, step = 0.01, width = "99%"
                                                 ),
                                                 hr(),
                                                 
@@ -1394,10 +1394,10 @@ ul.nav.navbar-nav {
                                                 ## fill and facet density plot 
                                                 ggplot_fill_and_facet_ui(id = "density_plot_fill_and_facet"),
                                                 
-                                                ## density transparancy 
+                                                ## density transparency 
                                                 sliderInput(
                                                   inputId = "density_plot_alpha",
-                                                  label = tags$h4(tags$b("Transparancy")), min = 0, max = 1, value = 0.5, step = 0.01, width = "99%"
+                                                  label = tags$h4(tags$b("Transparency")), min = 0, max = 1, value = 0.5, step = 0.01, width = "99%"
                                                 )
                                                 
                                               )
@@ -1527,10 +1527,10 @@ ul.nav.navbar-nav {
                                                 ),
                                                 hr(),
                                                 
-                                                ## histogram transparancy 
+                                                ## histogram Transparency 
                                                 sliderInput(
                                                   inputId = "histogram_alpha",
-                                                  label = tags$h4(tags$b("Transparancy")), min = 0, max = 1, value = 0.5, step = 0.01 , width = "99%"
+                                                  label = tags$h4(tags$b("Transparency")), min = 0, max = 1, value = 0.5, step = 0.01 , width = "99%"
                                                 )
                                                 
                                               )
@@ -1828,9 +1828,9 @@ ul.nav.navbar-nav {
                                                                       ),
                                                                       
                                                                       
-                                                                      ## box plot dots transparancy 
+                                                                      ## box plot dots transparency 
                                                                       sliderInput(inputId = "boxplot_dots_transprancy" ,
-                                                                                  label = tags$h4(tags$b("Dots transparancy")),
+                                                                                  label = tags$h4(tags$b("Dots transparency")),
                                                                                   min = 0.1, 
                                                                                   max = 1, 
                                                                                   value = 0.5,
@@ -1848,7 +1848,7 @@ ul.nav.navbar-nav {
                                                      ## Box transparacny 
                                                      sliderInput(
                                                        inputId = "box_plot_alpha",
-                                                       label = tags$h4(tags$b("Box transparancy")) , 
+                                                       label = tags$h4(tags$b("Box transparency")) , 
                                                        min = 0, 
                                                        max = 1, 
                                                        value = 0.5, 
@@ -2090,7 +2090,7 @@ ul.nav.navbar-nav {
                                                      ## alpha
                                                      sliderInput(
                                                        inputId = "violin_plot_alpha",
-                                                       label = tags$h4(tags$b("Transparancy")),
+                                                       label = tags$h4(tags$b("Transparency")),
                                                        min = 0, 
                                                        max = 1, value = 0.5, step = 0.01, width = "99%"
                                                      ),
@@ -2312,7 +2312,7 @@ ul.nav.navbar-nav {
                                                      ## alpha
                                                      sliderInput(
                                                        inputId = "barplot_alpha",
-                                                       label = h4(tags$b("Transparancy")), 
+                                                       label = h4(tags$b("Transparency")), 
                                                        min = 0, 
                                                        max = 1,
                                                        value = 0.5, step = 0.01, width = "99%"
@@ -2892,7 +2892,7 @@ ul.nav.navbar-nav {
                                                 
                                                 ## line plot line transparency 
                                                 sliderInput(inputId = "line_plot_line_transparancy" ,
-                                                            label = tags$h4(tags$b("Transparancy")) ,
+                                                            label = tags$h4(tags$b("Transparency")) ,
                                                             min = 0,
                                                             max = 1,
                                                             step = 0.01 ,
