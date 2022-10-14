@@ -84,6 +84,11 @@ gene_group_selection <- function(input, output, session,  gene_group_info , curr
         left_join(gene_group_info() , by = stats::setNames("gene_group_members" , gene_name_header)) %>% 
         tidyr::replace_na(list(gene_groups = "No groups assigned")) %>% ## NA will be converted to "No groups assigned"
         dplyr::filter(gene_groups %in% user_selected_gene_groups())  
+      
+      # order data by user uploaded gene order 
+      gene_group_specific_data <- gene_group_specific_data %>%
+        dplyr::arrange(factor(!!rlang::sym(gene_name_header),levels = gene_group_info()[[2]]))
+      
     }
     
     ## if for a given group, none of the group member found in the uploaded data return NULL and throw error 

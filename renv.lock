@@ -1322,15 +1322,9 @@
     },
     "shinycssloaders": {
       "Package": "shinycssloaders",
-      "Version": "0.3.0.9003",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "shinycssloaders",
-      "RemoteUsername": "andrewsali",
-      "RemoteRef": "master",
-      "RemoteSha": "cca18ef70c54292b60b8c8bcbcdeba23e27590a7",
-      "Hash": "c4ca0076d12cf1162fc329b3780d840e"
+      "Version": "1.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN"
     },
     "shinyjs": {
       "Package": "shinyjs",

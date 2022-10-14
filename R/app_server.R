@@ -2786,7 +2786,7 @@ app_server <- function(input, output,session) {
                                             nclust = ifelse(input$line_plot_cluster_genes_by == "kmeans",
                                                             as.numeric(input$line_plot_nclust) ,  1 ) ## if user selects cluster by gene groups, value of nclust = 1
         )
-        ## addd count to cluster name 
+        ## add count to cluster name 
         
         
       }, error = function(x){
@@ -2864,9 +2864,12 @@ app_server <- function(input, output,session) {
     
     ### plot
     gp <- line_plot_data() %>% 
-      dplyr::mutate(clust = forcats::fct_relevel(clust, as.numeric(clust) %>% unique %>% sort %>% as.character)) %>% ## numeric cluster to ordered factor 
+      dplyr::mutate(clust = forcats::fct_relevel(clust, as.numeric(clust) %>% 
+                                                   unique %>% 
+                                                   sort %>% as.character)) %>% ## numeric cluster to ordered factor 
       dplyr::mutate(row_num = 1:n()) %>%
-      ggplot(aes(x = variable, y = value, group = row_num , alpha = 1))
+      ggplot2::ggplot(aes(x = variable, 
+                          y = value, group = row_num , alpha = 1))
     
     return(gp)
   })
@@ -2930,20 +2933,21 @@ app_server <- function(input, output,session) {
     # line_plot <- callModule(module = ggplot_fill_colour , "line_plot_color_identical" , 
     #                         gp = line_plot ,  times = input$line_plot_nclust)
     
-    
     return(line_plot)
   })
   
   
   ## render line plot
   output$line_plot <- renderPlot({
-    return(
-      withProgress(message = "Display line plot in progress", {
-        incProgress(0.5)
-        print(final_line_plot())  
-        incProgress(1)
-      })
-    )
+    req(final_line_plot())
+    return(print(final_line_plot()))
+    #return(
+      # withProgress(message = "Display line plot in progress", {
+      #   incProgress(0.5)
+        #print(final_line_plot())  
+        #incProgress(1)
+      #})
+    #)
   }, height = function() {
     return(session$clientData$output_line_plot_width)
   }, width = function() {

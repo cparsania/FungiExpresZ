@@ -280,7 +280,6 @@ ul.nav.navbar-nav {
                                     div(DT::dataTableOutput(outputId = "pre_loaded_data_sra_sample_info" , width = "auto") %>% 
                                           shinycssloaders::withSpinner(color = "#18BC9C") , style = "font-size:80%"),
                                     
-                                    
                                     br(), br(),
                                     
                                     ## Display number of rows selected 
@@ -436,7 +435,7 @@ ul.nav.navbar-nav {
                                                               
                                                               ## show random gene id  for selected species 
                                                               tags$div( tags$h4(tags$b("Values in the first column of file being uploaded must have below id type :")) ,
-                                                                        textOutput(outputId = "sample_selected_species_gene_id") %>% 
+                                                                        textOutput(outputId = "sample_selected_species_gene_id") %>%
                                                                           shinycssloaders::withSpinner(color = "#18BC9C")) 
                                                               
                                                               
@@ -849,7 +848,8 @@ ul.nav.navbar-nav {
                                         open = "Selected points",
                                         shinyBS::bsCollapsePanel(
                                           title = "Selected points", style = "primary",
-                                          DT::dataTableOutput(outputId = "brush_table", width = "auto")  %>% shinycssloaders::withSpinner(color = "#18BC9C")
+                                          DT::dataTableOutput(outputId = "brush_table", width = "auto") %>%
+                                            shinycssloaders::withSpinner( color = "#18BC9C")
                                         )
                                       )
                                     ),
@@ -1286,7 +1286,7 @@ ul.nav.navbar-nav {
                                                      shinyBS::bsCollapsePanel(
                                                        title = "CorrHeatboxData", 
                                                        style = "primary",
-                                                       DT::dataTableOutput(outputId = "corr_heatbox_data", width = "auto") %>% 
+                                                       DT::dataTableOutput(outputId = "corr_heatbox_data", width = "auto") %>%
                                                          shinycssloaders::withSpinner(color = "#18BC9C")
                                                      )
                                                    )
@@ -2404,13 +2404,13 @@ ul.nav.navbar-nav {
                                           
                                           ### show / hide sample groups 
                                           column(width = 3 , 
-                                                 
                                                  shinyWidgets::multiInput(width = "100%",
                                                                           inputId = "pca_plot_hide_sample_groups",
                                                                           label = "Show / Hide sample groups", 
-                                                                          choices = "",
-                                                                          
-                                                 ) %>% shinycssloaders::withSpinner(color = "#18BC9C")
+                                                                          choices = "") %>%
+                                                   
+                                                   shinycssloaders::withSpinner(color = "#18BC9C")
+                                                 
                                                  
                                           )
                                         ),
@@ -2563,7 +2563,8 @@ ul.nav.navbar-nav {
                                                open = "Selected SRA points sample information (Does not apply to user uploaded data)",
                                                shinyBS::bsCollapsePanel(
                                                  title = "Selected SRA points sample information (Does not apply to user uploaded data)", style = "primary",
-                                                 DT::dataTableOutput(outputId = "pca_brushed_datatable", width = "auto")  %>% shinycssloaders::withSpinner(color = "#18BC9C")
+                                                 DT::dataTableOutput(outputId = "pca_brushed_datatable", width = "auto")  %>% 
+                                                   shinycssloaders::withSpinner(color = "#18BC9C")
                                                )
                                              )
                                            )
@@ -2780,8 +2781,9 @@ ul.nav.navbar-nav {
                                           ## display line  plot
                                           column(
                                             width = 10, #style = "overflow-y:auto;",
-                                            plotOutput(outputId = "line_plot", height = "auto", width = "auto")
-                                          ),
+                                            plotOutput(outputId = "line_plot", 
+                                                       height = "auto", 
+                                                       width = "auto")),
                                           column(width = 1) ## empty column
                                         ),
                                         
@@ -2967,7 +2969,8 @@ ul.nav.navbar-nav {
                                         open = "Clustered data",
                                         shinyBS::bsCollapsePanel(
                                           title = "Clustered data", style = "primary",
-                                          DT::dataTableOutput(outputId = "line_plot_clustred_data", width = "auto")%>% shinycssloaders::withSpinner(color = "#18BC9C")
+                                          DT::dataTableOutput(outputId = "line_plot_clustred_data", width = "auto") %>%
+                                            shinycssloaders::withSpinner(color = "#18BC9C")
                                         )
                                       )
                                     ),
@@ -3562,7 +3565,7 @@ ul.nav.navbar-nav {
                                                                              colourpicker::colourInput(
                                                                                inputId = "heatmap_col_low",
                                                                                label = tags$h4(tags$b("Low")),
-                                                                               value = "#004E63",
+                                                                               value = "#032E80",
                                                                                returnName = TRUE
                                                                              ),
                                                                              
@@ -3578,7 +3581,7 @@ ul.nav.navbar-nav {
                                                                              colourpicker::colourInput(
                                                                                inputId = "heatmap_col_high",
                                                                                label = tags$h4(tags$b("High")),
-                                                                               value = "#BD1717",
+                                                                               value = "#910200",
                                                                                returnName = TRUE
                                                                              )
                                                                              
@@ -3636,8 +3639,9 @@ ul.nav.navbar-nav {
                                                  ## display heatmap
                                                  column(
                                                    width = 11, 
-                                                   plotOutput(outputId = "heatmap", height = "auto", width = "auto") %>%
-                                                     shinycssloaders::withSpinner(color = "#18BC9C")
+                                                   shinycssloaders::withSpinner(ui_element = plotOutput(outputId = "heatmap", 
+                                                                                                        height = "auto", width = "auto"),
+                                                                                color = "#18BC9C")
                                                  ),
                                                  column(width = 1) ## empty column
                                         ),
@@ -3747,7 +3751,10 @@ ul.nav.navbar-nav {
                                           ),
                                           hr(),
                                           ## hm cluster data output 
-                                          DT::dataTableOutput(outputId = "heatmap_display_cluster_data", width = "auto") %>% shinycssloaders::withSpinner(color = "#18BC9C")
+                                          shinycssloaders::withSpinner(
+                                            ui_element =   DT::dataTableOutput(outputId = "heatmap_display_cluster_data", 
+                                                                               width = "auto"),
+                                            color = "#18BC9C")
                                           
                                         )
                                       )
@@ -3761,7 +3768,8 @@ ul.nav.navbar-nav {
                                         open = "Heatmap all data + gene annotation",
                                         shinyBS::bsCollapsePanel(
                                           title = "Heatmap all data + gene annotation", style = "primary",
-                                          DT::dataTableOutput(outputId = "heatmap_data", width = "auto")%>% shinycssloaders::withSpinner(color = "#18BC9C")
+                                          DT::dataTableOutput(outputId = "heatmap_data", width = "auto")%>% 
+                                            shinycssloaders::withSpinner(color = "#18BC9C")
                                         )
                                       )
                                     ), 
@@ -3852,9 +3860,9 @@ ul.nav.navbar-nav {
                             
                             ## Step by step guide page
                             
-                                          tabPanel(title = "Step-by-step tutorial", icon = icon("paperclip"),
-
-                                                   tags$style(HTML("
+                            tabPanel(title = "Step-by-step tutorial", icon = icon("paperclip"),
+                                     
+                                     tags$style(HTML("
                             section.page-header {
                                            display: none;
                                            }
@@ -3869,8 +3877,8 @@ ul.nav.navbar-nav {
                                            font-size: 100%;
                                            }
                                            ")),
-                                                   includeHTML(system.file("app","rmd_and_html","step_by_step_guide.html" , package = "FungiExpresZ"))
-                                          )
+                                     includeHTML(system.file("app","rmd_and_html","step_by_step_guide.html" , package = "FungiExpresZ"))
+                            )
                             
                             
                  ),
@@ -3978,7 +3986,7 @@ ul.nav.navbar-nav {
                tags$a(tags$b("Chris Wong's Lab ") , icon("twitter") , href = "https://twitter.com/ChrisKHWong"), "at University of Macau."), 
       tags$div(id = "app_footer", "For any query or suggestions, please contact", 
                tags$a(icon("github"),href = "https://github.com/cparsania/FungiExpresZ" ,
-                                                                     "GitHub",target="_blank"), 
+                      "GitHub",target="_blank"), 
                tags$a(icon("at"), href = "mailto:chirag.parsania@gmail.com",
                       "Email"),
                "."),
@@ -4005,7 +4013,7 @@ golem_add_external_resources <- function(){
   addResourcePath(
     'www', system.file('app/www', package = 'FungiExpresZ')
   )
- 
+  
   tags$head(
     golem::activate_js(),
     golem::favicon(ico = "www/favicon.ico" , rel = "shortcut icon"),
