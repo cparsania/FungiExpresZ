@@ -25,30 +25,32 @@ knitr::opts_chunk$set(
 
 ## 2022
 
-1.  ***Chromatin profiling reveals heterogeneity in clinical isolates of the human pathogen Aspergillus fumigatus*****.** Colabardini AC, Wang F, Miao Z, Pardeshi L, Valero C, de Castro PA, et al. (2022) PLoS Genet 18(1): e1010001. [Article link](https://doi.org/10.1371/journal.pgen.1010001)
+1.  Karahoda B, Pardeshi L, Ulas M *et al.* The KdmB-EcoA-RpdA-SntB chromatin complex binds regulatory genes and coordinates fungal development with mycotoxin synthesis. *Nucleic Acids Research*. 2022;17:9797-9813. [Article link](https://academic.oup.com/nar/article/50/17/9797/6696356)
+
+2.  Colabardini AC, Wang F, Miao Z, Pardeshi L, Valero C, de Castro PA, *et al*. Chromatin profiling reveals heterogeneity in clinical isolates of the human pathogen *Aspergillus fumigatus***.** *PLoS Genet.* 2022;18(1): e1010001. [Article link](https://doi.org/10.1371/journal.pgen.1010001)
 
 ## 2021
 
-1.  ***Carbon Catabolite Repression in Filamentous Fungi Is Regulated by Phosphorylation of the Transcription Factor CreA.*** de Assis LJ, Silva LP, Bayram O, Dowling P, *et al*. mBio 12:e03146-20. [Article link](https://doi.org/10.1128/mBio.03146-20.){target="_blank"}
+1.  Assis LJ, Silva LP, Bayram O, Dowling P, *et al.* Carbon Catabolite Repression in Filamentous Fungi Is Regulated by Phosphorylation of the Transcription Factor CreA***.*** *mBio* 2021;12:e03146-20. [Article link](https://doi.org/10.1128/mBio.03146-20.){target="_blank"}
 
-2.  ***Transcription in fungal conidia before dormancy produces phenotypically variable conidia that maximize survival in different environments.*** Wang, F., Sethiya, P., Hu, X. *et al. Nat Microbiol* **6,** 1066--1081 (2021). [Article link](https://doi.org/10.1038/s41564-021-00922-y)
+2.  Wang, F., Sethiya, P., Hu, X. *et al.* Transcription in fungal conidia before dormancy produces phenotypically variable conidia that maximize survival in different environments *Nat Microbiol.* 2021;6: 1066--1081. [Article link](https://doi.org/10.1038/s41564-021-00922-y)
 
-3.  ***Temporal transcriptional response of Candida glabrata during macrophage infection reveals a multifaceted transcriptional regulator CgXbp1 important for macrophage response and drug resistance*** Maruti Nandan Rai, Chirag Parsania, Rikky Rai, Niranjan Shirgaonkar, Kaeling Tan, Koon Ho Wong. BioRxiv [Article link](https://doi.org/10.1101/2021.09.28.462173)
+3.  Maruti Nandan Rai, Chirag Parsania, Rikky Rai, *et al*. Temporal transcriptional response of *Candida glabrata* during macrophage infection reveals a multifaceted transcriptional regulator CgXbp1 important for macrophage response and drug resistance. *BioRxiv* 2021. [Article link](https://doi.org/10.1101/2021.09.28.462173)
 
-4.  ***Chromatin profiling reveals genome stability heterogeneity in clinical isolates of the human pathogen Aspergillus fumigatus.*** AnaCristina Colabardini, Fang Wang, Zhengqiang Miao *et al*. BioRxiv [Article link](https://www.biorxiv.org/content/10.1101/2021.04.19.440431v1.full)
+4.  Ana Cristina Colabardini, Fang Wang, Zhengqiang Miao *et al*. Chromatin profiling reveals genome stability heterogeneity in clinical isolates of the human pathogen *Aspergillus fumigatus.* *BioRxiv* 2021. [Article link](https://www.biorxiv.org/content/10.1101/2021.04.19.440431v1.full)
 
-5.  ***A bioinformatics-driven study of Candida glabrata response to infection-relevant conditions and antifungal drugs. University of Macau.*** Sethiya, & Wong, K. H. (2021). Thesis (Ph.D).
+5.  A bioinformatics-driven study of *Candida glabrata* response to infection-relevant conditions and antifungal drugs.Sethiya, & Wong, K. H. *University of Macau* 2021. Thesis (Ph.D).
 
-6.  ***Fungal spore transcription activity before dormancy drives phenotypic variation.*** Wang, & Wong, K. H. (2021). Thesis (Ph.D.).
+6.  Fungal spore transcription activity before dormancy drives phenotypic variation***.*** Wang, & Wong, K. H. *University of Macau* 2021. Thesis (Ph.D.).
 
 ## 2020
 
-1.  ***The Aspergillus fumigatus transcription factor RglT is important for gliotoxin biosynthesis and self-protection, and virulence.*** Ries LNA, Pardeshi L, Dong Z, Tan K, Steenwyk JL, Colabardini AC, et al. (2020) PLoS Pathog 16(7): e1008645. [Article link](https://doi.org/10.1371/journal.ppat.1008645){target="_blank"}
+1.  Ries LNA, Pardeshi L, Dong Z, Tan K, Steenwyk JL, Colabardini AC, *et al*. The *Aspergillus fumigatus* transcription factor RglT is important for gliotoxin biosynthesis and self-protection, and virulence. *PLoS Pathog* 2020;16(7): e1008645. [Article link](https://doi.org/10.1371/journal.ppat.1008645){target="_blank"}
 
-2.  ***Systematic activation and characterization of the regulation of secondary metabolism gene clusters in Aspergillus nidulans. University of Macau,*** Guo, & Wong, K. H. (2020). Thesis (Ph.D.).
+2.  Systematic activation and characterization of the regulation of secondary metabolism gene clusters in *Aspergillus nidulans**.*** Guo, & Wong, K. H. *University of Macau*2020. Thesis (Ph.D.).
 
-3.  ***Genome-wide characterization of AreA function and regulation in Aspergillus nidulans. University of Macau*** Li, A., & Wong, K. (2020). Thesis (Ph.D.).
+3.  Genome-wide characterization of AreA function and regulation in *Aspergillus nidulans*. Li, A., & Wong, K. *University of Macau* 2020. Thesis (Ph.D.).
 
 ## 2019
 
-1.  ***Transcriptomic analysis reveals global and temporal transcription changes during Candida glabrata adaptation to an oxidative environment.*** P Sethiya, MN Rai, R Rai, C Parsania, K Tan, KH Wong - Fungal Biology, 2019. [Article link](https://www.sciencedirect.com/science/article/pii/S1878614619301795){target="_blank"}
+1.  P Sethiya, MN Rai, R Rai, C Parsania, K Tan, KH Wong. Transcriptomic analysis reveals global and temporal transcription changes during *Candida glabrata* adaptation to an oxidative environment. *Fungal Biology*, 2019;5:427-439. [Article link](https://www.sciencedirect.com/science/article/pii/S1878614619301795){target="_blank"}
