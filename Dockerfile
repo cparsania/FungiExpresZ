@@ -17,13 +17,13 @@ RUN R -e 'renv::consent(provided = TRUE)'
 RUN R -e 'renv::restore()'
 
 #copy tar.gz file  
-COPY FungiExpresZ_1.1.0.tar.gz /FungiExpresZ
+COPY FungiExpresZ_1.2.0.tar.gz /FungiExpresZ
 
 #install devtools 
 RUN R -e 'install.packages("devtools")'
 
 # install FungiExpresZ
-RUN R -e 'devtools::install_local("/FungiExpresZ/FungiExpresZ_1.1.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
+RUN R -e 'devtools::install_local("/FungiExpresZ/FungiExpresZ_1.2.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
 
 EXPOSE 80
 CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');library(shinyBS);FungiExpresZ::run_app()"
