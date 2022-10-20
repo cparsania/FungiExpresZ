@@ -10,7 +10,7 @@
 
 FungiExpresZ is a browser based user interface (developed in R-shiny) to
 analyse and visualize gene expression data. It allows users to visualize
-their own gene expression data as well as more than 13,000 pre processed
+their own gene expression data as well as more than 16,000 pre processed
 SRA fungal gene expression data. Users can even merge their data with
 SRA data to perform combined analysis and visualizations. Just uploading
 gene expression matrix (.txt file where rows are genes and column are
@@ -24,23 +24,33 @@ analysis and GO visualizations.
 
 ## Key features
 
-### 1.1 More than 13,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 8 different fungal species.
+### 1.1 About 16,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 18 different fungal species.
 
 FungiExpresZ provides normalized gene expression values (FPKM) for more
 than 13,000 SRA samples. User can select one more data for
 visualizations. Data can be searched based on species, genotype, strain
 or free text which will be matched against several SRA columns.
 
-| species                            | sra\_samples |
-|:-----------------------------------|-------------:|
-| *Aspergillus nidulans FGSC A4*     |          151 |
-| *Candida albicans SC5314*          |          639 |
-| *Saccharomyces cerevisiae*         |        11872 |
-| *Aspergillus fumigatus Af293*      |          242 |
-| *Aspergillus niger CBS 513.88*     |          253 |
-| *Candida glabrata CBS 138*         |          126 |
-| *Talaromyces marneffei ATCC 18224* |           26 |
-| *Candida auris B8 441*             |           46 |
+| Species                                         | SRA sample counts |
+|:------------------------------------------------|------------------:|
+| *Aspergillus flavus NRRL3357*                   |               348 |
+| *Aspergillus fumigatus Af293*                   |               242 |
+| *Aspergillus nidulans FGSC A4*                  |               151 |
+| *Aspergillus niger CBS 513.88*                  |               253 |
+| *Botrytis cineria B05.10*                       |               142 |
+| *Candida albicans SC5314*                       |               639 |
+| *Candida auris B8 441*                          |                46 |
+| *Candida glabrata CBS 138*                      |               126 |
+| *Cryptococcus gattii NT-10*                     |                11 |
+| *Cryptococcus neoformans var. neoformans JEC21* |               385 |
+| *Fusarium fujikuroi IMI 58289*                  |                74 |
+| *Fusarium graminearum PH-1*                     |               344 |
+| *Fusarium oxysporum Fo47*                       |               131 |
+| *Fusarium proliferatum ET1*                     |                 4 |
+| *Fusarium verticillioides 7600*                 |               179 |
+| *Saccharomyces cerevisiae*                      |             11872 |
+| *Talaromyces marneffei ATCC 18224*              |                26 |
+| *Ustilago maydis 521*                           |                71 |
 
 > NOTE: We are continuously processing fungal SRA data. This table will
 > be updated as we add new data.
@@ -104,7 +114,7 @@ FungiExpresZ has been hoisted on shinyapps.io and can be accessed
 through the link <https://cparsania.shinyapps.io/FungiExpresZ/>. This is
 one of the quickest way to access the FungiExpresZ. However, due to
 limited computational resources, We recommend using this approach only
-when the size of the data is comparatively small (&lt; 10 MB) and/or you
+when the size of the data is comparatively small (\< 10 MB) and/or you
 are in a need of quick figure out of the data. Current setup allows
 approx. 30 concurrent users to access FungiExpresZ online. Additional
 traffic may disconnect random users’ session and you may end up loosing
@@ -124,9 +134,9 @@ do not need to worry about any dependency related issues.
 
 Follow the instructions given below to install docker desktop on …
 
--   [Mac](https://docs.docker.com/docker-for-mac/install/)
--   [Windows](https://docs.docker.com/docker-for-windows/install/)
--   [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+- [Mac](https://docs.docker.com/docker-for-mac/install/)
+- [Windows](https://docs.docker.com/docker-for-windows/install/)
+- [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
 #### Pull FungiExpresZ docker image to a local computer
 
@@ -189,6 +199,7 @@ Container will be active until it is explicitly stopped. You can stop
 container using below command on a new terminal window.
 
 ``` bash
+
 #Get container id
 
 docker ps 
@@ -218,30 +229,30 @@ FungiExpresZ will be installed in a separate directory.
 
 #### Installation steps
 
-1\) Create a installation directory (`e.g. FungiExpresZ_R_pkg`).
+1)  Create a installation directory (`e.g. FungiExpresZ_R_pkg`).
 
-2\) Download `rlock.env` file from
-[here](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/renv.lock).
+2)  Download `rlock.env` file from
+    [here](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/renv.lock).
 
 `rlock.env` file contains all the information required to install
 required versions of dependency packages.
 
-3\) Move `rlock.env` file to installation directory created in step-1.
+3)  Move `rlock.env` file to installation directory created in step-1.
 
-4\) Download appropriate appropriate package bundle. :point\_right:
-[Download package bundle
-here](https://github.com/cparsania/FungiExpresZ/releases)
+4)  Download appropriate appropriate package bundle. :point_right:
+    [Download package bundle
+    here](https://github.com/cparsania/FungiExpresZ/releases)
 
 > NOTE: It is highly recommended to download the latest available
 > version.
 
--   Mac : FungiExpresZ\_&lt;version&gt;.tgz
+- Mac : FungiExpresZ\_\<version\>.tgz
 
--   Windows: FungiExpresZ\_&lt;version&gt;.tar.gz
+- Windows: FungiExpresZ\_\<version\>.tar.gz
 
-5\) Move package bundle to installation directory created in step-1.
+5)  Move package bundle to installation directory created in step-1.
 
-6\) Install R pacakge `renv` from terminal.
+6)  Install R pacakge `renv` from terminal.
 
 > NOTE: Open terminal to type below commands
 
@@ -252,15 +263,17 @@ R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'
 R -e "remotes::install_github('rstudio/renv@0.9.2')" # 0.9.2 denotes the renv package version. 
 ```
 
-7\) Initiate project in a current directory.
+7)  Initiate project in a current directory.
 
 ``` bash
+
 R -e 'renv::init()'
 ```
 
-8\) Install required versions of dependency packages.
+8)  Install required versions of dependency packages.
 
 ``` bash
+
 R -e 'renv::consent(provided = TRUE)'
 R -e 'renv::restore()'
 ```
@@ -268,28 +281,31 @@ R -e 'renv::restore()'
 NOTE: To run above commands `renv.lock` file must be in the same
 directory.
 
-9\) Install R package `devtools`
+9)  Install R package `devtools`
 
 ``` bash
+
 R -e 'install.packages("devtools")'
 ```
 
-9\) Install FungiExpresZ.
+9)  Install FungiExpresZ.
 
 ``` bash
+
 R -e 'devtools::install_local("FungiExpresZ_1.1.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
 ```
 
 > NOTE: In above command `FungiExpresZ_1.1.0.tar.gz` is the path to
 > bundle file downloaded in the step-4.
 
-10\) Run FungiExpresZ through installed R package.
+10) Run FungiExpresZ through installed R package.
 
 ``` bash
+
 R -e 'library(shinyBS);FungiExpresZ::run_app()'
 ```
 
-11\) Access through browser
+11) Access through browser
 
 Hit the URL printed on the console to browser and you are ready to go
 🎉🎉🎉🎉.
