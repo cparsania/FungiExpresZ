@@ -16,14 +16,14 @@ COPY renv.lock renv.lock
 RUN R -e 'renv::consent(provided = TRUE)'
 RUN R -e 'renv::restore()'
 
-#copy tar.gz file  
-COPY FungiExpresZ_1.2.0.tar.gz /FungiExpresZ
+#install specific version of devtools. Latest version may not be compatible with older R version (v 3.6)
+RUN R -e 'remotes::install_version("devtools", version = "2.2.1")'
 
-#install devtools 
-RUN R -e 'install.packages("devtools")'
+#copy tar.gz file  
+COPY FungiExpresZ_1.3.0.tar.gz /FungiExpresZ
 
 # install FungiExpresZ
-RUN R -e 'devtools::install_local("/FungiExpresZ/FungiExpresZ_1.2.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
+RUN R -e 'devtools::install_local("/FungiExpresZ/FungiExpresZ_1.3.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
 
 EXPOSE 80
 CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');library(shinyBS);FungiExpresZ::run_app()"
