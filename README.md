@@ -127,8 +127,8 @@ session it is recommended to use one of the following two approaches.
 
 ### Use as a docker container
 
-This approach is highly recommended for local run because as a user you
-do not need to worry about any dependency related issues.
+This approach is highly recommended for local run as it saves users from
+worrying about any dependency related issues.
 
 #### Install docker desktop
 
@@ -148,9 +148,9 @@ and enter the below command.
 `docker pull cparsania/fungiexpresz:<tagName>`
 
 Replace `<tagName>` with the version you want to download. For example,
-command below will download the version `1.1.0`
+command below will download the version `1.3.0`
 
-`docker pull cparsania/fungiexpresz:1.1.0`
+`docker pull cparsania/fungiexpresz:1.3.0`
 
 Possible values for `<tagName>` can be obtained from
 [here](https://hub.docker.com/r/cparsania/fungiexpresz/tags). It is
@@ -179,7 +179,7 @@ or [`http://<your_ip_address:<port_number>`](http://%3Cyour_ip_address)
 should launch the application on your browser.
 
 Congrats!! 🎉🎉🎉🎉 .Your application will keep running until you stop
-container explicitly.
+the container explicitly.
 
 #### Memory usage for docker
 
@@ -190,8 +190,8 @@ behavior can be changed from `Docker -> Preferences -> Advanced`
 
 <img src="inst/app/www/docker_cpu_and_memory.png" width="622"/>
 
-We recommend users to allocate maximum 4 GB of memory to docker before
-you run FungiExpresZ docker image.
+We recommend users to allocate at least 4 GB of memory to docker before
+running the FungiExpresZ docker image.
 
 #### How to stop container?
 
@@ -211,7 +211,7 @@ docker stop <CONTAINER ID>
 
 ### Install as an R package
 
-FungiExpresZ can be installed as an R package on local computer or
+FungiExpresZ can be installed as an R package on a local computer or a
 server. To do so basic skills of R programming is required.
 
 #### Prerequisites
@@ -220,30 +220,32 @@ server. To do so basic skills of R programming is required.
 
 Installation of FungiExpresZ as an R package is different than usual. To
 protect potential breakdown of various utilities of FungiExpresZ , it is
-recommended that FungiExpresZ uses same versions of R packages as
-development. Steps below will install required versions of dependency
-packages without affecting already installed packages in your computer.
+recommended that FungiExpresZ uses same versions of dependancy R
+packages as development. Steps below will install the required versions
+of dependency packages without affecting already installed packages in
+your computer.
 
-To keep already installed R packages unaffected in local computer,
+To keep already installed R packages unaffected in lthe ocal computer,
 FungiExpresZ will be installed in a separate directory.
 
 #### Installation steps
 
-1)  Create a installation directory (`e.g. FungiExpresZ_R_pkg`).
+1)  Create an installation directory (`e.g. FungiExpresZ_R_pkg`).
 
-2)  Download `rlock.env` file from
+2)  Download `renv.lock` :point_right:
     [here](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/renv.lock).
 
-`rlock.env` file contains all the information required to install
-required versions of dependency packages.
+`renv.lock` file contains information required to install specific
+version of dependency packages.
 
-3)  Move `rlock.env` file to installation directory created in step-1.
+3)  Move `renv.lock` file into the installation directory created in
+    step-1.
 
-4)  Download appropriate appropriate package bundle. :point_right:
-    [Download package bundle
+4)  Download an appropriate package bundle. :point_right: [Download
+    package bundle
     here](https://github.com/cparsania/FungiExpresZ/releases)
 
-> NOTE: It is highly recommended to download the latest available
+> NOTE: It is highly recommended that you download the latest available
 > version.
 
 - Mac : FungiExpresZ\_\<version\>.tgz
@@ -252,7 +254,7 @@ required versions of dependency packages.
 
 5)  Move package bundle to installation directory created in step-1.
 
-6)  Install R pacakge `renv` from terminal.
+6)  Install an R pacakge `renv` from the terminal.
 
 > NOTE: Open terminal to type below commands
 
@@ -263,7 +265,7 @@ R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'
 R -e "remotes::install_github('rstudio/renv@0.9.2')" # 0.9.2 denotes the renv package version. 
 ```
 
-7)  Initiate project in a current directory.
+7)  Initiate the project in a current directory.
 
 ``` bash
 
@@ -292,10 +294,10 @@ R -e 'install.packages("devtools")'
 
 ``` bash
 
-R -e 'devtools::install_local("FungiExpresZ_1.1.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
+R -e 'devtools::install_local("FungiExpresZ_1.3.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
 ```
 
-> NOTE: In above command `FungiExpresZ_1.1.0.tar.gz` is the path to
+> NOTE: In above command `FungiExpresZ_1.3.0.tar.gz` is the path to
 > bundle file downloaded in the step-4.
 
 10) Run FungiExpresZ through installed R package.
