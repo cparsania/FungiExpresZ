@@ -30,7 +30,7 @@ FungiExpresZ is a web-based platform to analyze and visualize fungal gene expres
 2)  User uploaded gene expression data.
 3)  NCBI SRA data combined with User uploaded data (1+2).
 
-It contains normalized gene expression values of more than 12,000 NCBI SRA data from 8 different fungal species and, gene annotations and GO data of more than 100 different fungal species. For 3 strategies mentioned above, you can generate 12 different data exploratory plots and 6 different GO plots.
+It contains normalized gene expression values of more than 15,000 NCBI SRA data from \> 15 different fungal species and, gene annotations and GO data of more than 100 different fungal species. For 3 strategies mentioned above, you can generate 12 different data exploratory plots and 6 different GO plots.
 
 #### Data exploratory plots
 
