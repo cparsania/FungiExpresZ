@@ -33,6 +33,26 @@ library(kableExtra)
 
 This page is all about notifying users regarding new features, bug fixing, any other important changes or announcements made on `r app_name` over the time.
 
+### **`r lubridate::date(x = "2022/10/21")`**
+
+#### Release v1.3
+
+It includes..
+
+-   About 3,000 new datasets from 10 new fungal species .
+
+-   Line plot random disappearance is fixed.
+
+-   Improved documentation.
+
+-   Bug fixes and performance improvement.
+
+### **`r lubridate::date(x = "2022/10/10")`**
+
+#### New SRA data
+
+We have now added more than 3,000 SRA samples from 10 new fungal species. In total, FungiExpresZ contains \~16,000 SRA data data from 18 different fungal species. Full list of the available species and corresponding datasets can be found under the tab **Downloads** -\> **Gene expression data.**
+
 ### **`r lubridate::date(x = "2022/01/30")`**
 
 #### Introducing Step-by-step guide page.

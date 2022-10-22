@@ -24,42 +24,36 @@ knitr::opts_chunk$set(echo = FALSE, fig.align="center", fig.show="hold" , out.wi
 
 ------------------------------------------------------------------------
 
-FungiExpresZ is a browser based user interface (developed in R-shiny) to analyze and visualize gene expression data. It allows users to visualize their own gene expression data as well as more than 13,000 pre-processed SRA fungal gene expression data. Users can even merge their data with SRA data to perform combined analysis and visualizations. Just uploading gene expression matrix (.txt file where rows are genes and column are samples), a user can generate 12 different exploratory visualizations and 6 different GO visualizations. Optionally, a user can upload multiple gene groups and sample groups to compare between them. A user can select set of genes directly from one of the scatter plot, line plot or heatmap and pass them for GO analysis and GO visualizations. GO analysis and GO visualizations can be done for more than 100 different fungal species, which have been implemented through popular R package ClusterProfiler [@Yu2012].
+FungiExpresZ is a browser based user interface (developed in R-shiny) to analyze and visualize gene expression data. It allows users to visualize their own gene expression data as well \~16,000 pre-processed SRA fungal gene expression data. Users can even merge their data with SRA data to perform combined analysis and visualizations. Just uploading gene expression matrix (.txt file where rows are genes and column are samples), a user can generate 12 different exploratory visualizations and 6 different GO visualizations. Optionally, a user can upload multiple gene groups and sample groups to compare between them. A user can select set of genes directly from one of the scatter plot, line plot or heatmap and pass them for GO analysis and GO visualizations. GO analysis and GO visualizations can be done for more than 100 different fungal species, which have been implemented through popular R package ClusterProfiler [@Yu2012].
 
 # Key features
 
 ------------------------------------------------------------------------
 
-## More than 13,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 8 different fungal species
+## About 16,000 [NCBI-SRA](https://www.ncbi.nlm.nih.gov/sra) data from 18 different fungal species
 
-FungiExpresZ provides normalized gene expression values (FPKM) for more than 13,000 SRA samples. A user can select one or more SRA samples for visualizations. SRA data can be searched based on species, genotype, strain or free text, which will be matched against several SRA columns to find relavent hits.
+FungiExpresZ provides normalized gene expression values (FPKM) for \~16,000 SRA samples. A user can select one or more SRA samples for visualizations. SRA data can be searched based on species, genotype, strain or free text, which will be matched against several SRA columns to find relevant hits.
 
-```{r, eval=TRUE, echo=FALSE}
-library(magrittr)
-dd <- tibble::tribble(
-                                 ~species, ~`#sra_samples`,
-           "Aspergillus nidulans FGSC A4",      151,
-                "Candida albicans SC5314",      639,
-               "Saccharomyces cerevisiae",    11872,
-            "Aspergillus fumigatus Af293",      242,
-           "Aspergillus niger CBS 513.88",      253,
-               "Candida glabrata CBS 138",      126,
-       "Talaromyces marneffei ATCC 18224",       26,
-                   "Candida auris B8 441",       46
-        ) %>% as.data.frame()
-
-```
-
-| species                            | \#sra_samples |
-|:-----------------------------------|--------------:|
-| *Aspergillus nidulans FGSC A4*     |           151 |
-| *Candida albicans SC5314*          |           639 |
-| *Saccharomyces cerevisiae*         |         11872 |
-| *Aspergillus fumigatus Af293*      |           242 |
-| *Aspergillus niger CBS 513.88*     |           253 |
-| *Candida glabrata CBS 138*         |           126 |
-| *Talaromyces marneffei ATCC 18224* |            26 |
-| *Candida auris B8 441*             |            46 |
+| Species                                         | SRA sample counts |
+|:------------------------------------------------|------------------:|
+| *Aspergillus flavus NRRL3357*                   |               348 |
+| *Aspergillus fumigatus Af293*                   |               242 |
+| *Aspergillus nidulans FGSC A4*                  |               151 |
+| *Aspergillus niger CBS 513.88*                  |               253 |
+| *Botrytis cineria B05.10*                       |               142 |
+| *Candida albicans SC5314*                       |               639 |
+| *Candida auris B8 441*                          |                46 |
+| *Candida glabrata CBS 138*                      |               126 |
+| *Cryptococcus gattii NT-10*                     |                11 |
+| *Cryptococcus neoformans var. neoformans JEC21* |               385 |
+| *Fusarium fujikuroi IMI 58289*                  |                74 |
+| *Fusarium graminearum PH-1*                     |               344 |
+| *Fusarium oxysporum Fo47*                       |               131 |
+| *Fusarium proliferatum ET1*                     |                 4 |
+| *Fusarium verticillioides 7600*                 |               179 |
+| *Saccharomyces cerevisiae*                      |             11872 |
+| *Talaromyces marneffei ATCC 18224*              |                26 |
+| *Ustilago maydis 521*                           |                71 |
 
 > NOTE: We are continuously processing fungal SRA data. This table will be updated as we add new data.
 
@@ -142,13 +136,10 @@ Expression matrix can be downloaded from the file given here [[Download](https:/
 
 Sample group file contains two columns.
 
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| Columns                        | Description                                                                                                                                       |
-+:===============================+==================================================================================================================================================:+
-| group_name                     | User given name to each sample (column) group. Values in this column can be redundant.                                                            |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-| group_members                  | Values in this column must be from column names given as sample identity in the expression matrix file. Each value must be unique in this column. |
-+--------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| Columns       |                                                                                                                                       Description |
+|:-----------------|-----------------------------------------------------:|
+| group_name    |                                                            User given name to each sample (column) group. Values in this column can be redundant. |
+| group_members | Values in this column must be from column names given as sample identity in the expression matrix file. Each value must be unique in this column. |
 
 In here, we have grouped samples by replicates. File can be downloaded from here [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_sample_groups_by_cond.txt){target="_blank"}].
 
@@ -156,13 +147,10 @@ In here, we have grouped samples by replicates. File can be downloaded from here
 
 Gene group file contains two columns.
 
-+--------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| Columns                        | Description                                                                                                                                        |
-+:===============================+===================================================================================================================================================:+
-| group_name                     | User given name to each gene (row) group. Values in this column can be redundant.                                                                  |
-+--------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| group_members                  | Values in this column must be from the first column given as row identity in the expression matrix file. Each value must be unique in this column. |
-+--------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| Columns       |                                                                                                                                        Description |
+|:-----------------|-----------------------------------------------------:|
+| group_name    |                                                                  User given name to each gene (row) group. Values in this column can be redundant. |
+| group_members | Values in this column must be from the first column given as row identity in the expression matrix file. Each value must be unique in this column. |
 
 In here, we have grouped genes by ...
 
@@ -190,21 +178,14 @@ In here, we have grouped genes by ...
 
 Gene groups files can be downloaded from the links given in the table below.
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| Gene group files                                                                                                                                                                | Description                                                         |
-+:===============================================================================================================================================================================:+:===================================================================:+
-| gene group file 1 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1.txt){target="_blank"}]        | gene groups by fold change **Treat1/control**                       |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| gene group file 2 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2.txt){target="_blank"}]        | gene groups by fold change **Treat2/control**                       |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| gene group file 3 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat3.txt){target="_blank"}]        | gene groups by fold change **Treat3/control**                       |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
+|                                                                                Gene group files                                                                                 |                             Description                             |
+|:------------------------------------------------:|:--------------------:|
+|    gene group file 1 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1.txt){target="_blank"}]     |            gene groups by fold change **Treat1/control**            |
+|    gene group file 2 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2.txt){target="_blank"}]     |            gene groups by fold change **Treat2/control**            |
+|    gene group file 3 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat3.txt){target="_blank"}]     |            gene groups by fold change **Treat3/control**            |
 | gene group file 4 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat2.txt){target="_blank"}] | gene groups by fold status **Treat1/control** vs **Treat2/control** |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
 | gene group file 5 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat2_treat3.txt){target="_blank"}] | gene groups by fold status **Treat2/control** vs **Treat3/control** |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
 | gene group file 6 [[Download](https://raw.githubusercontent.com/cparsania/FungiExpresZ/master/inst/app/cartoon_data/cartoon_gene_groups_by_treat1_treat3.txt){target="_blank"}] | gene groups by fold status **Treat1/control** vs **Treat3/control** |
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------+
 
 # Exploratory example plots
 
@@ -221,7 +202,7 @@ knitr::include_graphics(c("_about_files/example_plots/scatter_1.png" ,
 
 ## Multi-Scatter plot
 
-Multi-scatter plot can be used to display pairwise correlation between more than 2 samples (Recommanded to show correlation between replicate samples). The lower half of the plot represents scatter plot while upper half represents correlation values. Plot diagonal displays distribution of each sample in form of density plot. As the sample number increases, total number of plots increasese exponentially in a single graphical device, which makes image crowdy and less interpretable. Therefore, we restrict user to include maximum 5 samples in one multi-scatter plot. Correlation heat-box is an alternative to show correlation in form of heat map for more than 5 samples.
+Multi-scatter plot can be used to display pairwise correlation between more than 2 samples (Recommended to show correlation between replicate samples). The lower half of the plot represents scatter plot while upper half represents correlation values. Plot diagonal displays distribution of each sample in form of density plot. As the sample number increases, total number of plots increases exponentially in a single graphical device, which makes image busy and less interpretable. Therefore, we restrict user to include maximum 5 samples in one multi-scatter plot. Correlation heat-box is an alternative to show correlation in form of heat map for more than 5 samples.
 
 ```{r multi_scatter_plot, fig.cap="", out.width="70%" , fig.cap= "Multi scatter plot: pairwise correlation between replicate pairs"}
 knitr::include_graphics(c("_about_files/example_plots/multi_scatter_plot.png"))
@@ -279,7 +260,7 @@ knitr::include_graphics(c("_about_files/example_plots/histogram_4.png" ,
 
 ## Joy plot
 
-Joy plot can be used to display distribution of individual sample, sample groups or gene groups. By separating muliple variables on Y axis, it overcome the limitation of normal density plot.
+Joy plot can be used to display distribution of individual sample, sample groups or gene groups. By separating multiple variables on Y axis, it overcome the limitation of normal density plot.
 
 ```{r joyplot, fig.cap="Joy plot: **multiple samples single gene group** color by probability (left) and color by quantile (right) "}
 
@@ -390,37 +371,37 @@ knitr::include_graphics(c("_about_files/example_plots/heatmap_4.png" ,
 
 User can select genes or gene clusters from one of the scatter plot, lineplot or heatmap and pass them to GO enrichment followed by GO visualizations. If data uploaded by user, geneIds (first column of the file) must match with the geneIds of the selected species.
 
-## GO dotplot
+## GO dot plot
 
 ```{r go_dotplot , out.width="80%" ,fig.cap="GO dotplot" }
 knitr::include_graphics(c("_about_files/example_plots/go_dotplot.png"))
 ```
 
-## GO barplot
+## GO bar plot
 
 ```{r go_barplot , out.width="80%" ,fig.cap="GO barplot" }
 knitr::include_graphics(c("_about_files/example_plots/go_barplot.png"))
 ```
 
-## GO heatplot
+## GO heat plot
 
 ```{r go_heatplot , out.width="60%",fig.cap="GO heatplot" }
 knitr::include_graphics(c("_about_files/example_plots/go_heatplot.png"))
 ```
 
-## GO emapplot
+## GO EMAP plot
 
 ```{r go_emapplot , out.width="80%" ,fig.cap="GO emapplot", out.extra='style="background-color: black; padding:1px;"' }
 knitr::include_graphics(c("_about_files/example_plots/go_emapplot.png"))
 ```
 
-## GO cnetplot
+## GO CNET plot
 
 ```{r go_cnetplot , out.width="80%" ,fig.cap="GO cnetplot " ,out.extra='style="background-color: black; padding:1px;"'}
 knitr::include_graphics(c("_about_files/example_plots/go_cnetplot.png"))
 ```
 
-## GO upsetplot
+## GO UpSet-plot
 
 ```{r Go_plot_3 , out.width="80%" ,fig.cap="GO upsetplot",out.extra='style="background-color: black; padding:1px;"' }
 knitr::include_graphics(c("_about_files/example_plots/go_upsetplot.png"))
