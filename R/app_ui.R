@@ -3813,27 +3813,28 @@ ul.nav.navbar-nav {
                  navbarMenu(title = "About",icon = icon("tag"),
                             
                             ## About  page 
-                            tabPanel(title = "Overview", icon = icon("searchengin"),
-                                     
-                                     tags$style(HTML("
-              section.page-header {
-                             display: none;
-                             }      
-                    
-              section.main-content{
-                            max-width: 1000px;
-                            font-size: 100%;
-                             }
-             
-              div#TOC{
-                            max-width: 1024px;
-                             font-size: 100%;
-                             }
-                             ")),
-                                     #includeHTML(system.file("app","markdown_and_html","About.html" , package = "FungiExpresZ"))
-                                     #includeHTML("doc/About.html")
-                                     includeHTML(system.file("app","rmd_and_html","about.html" , package = "FungiExpresZ"))
-                            ),
+                            
+                            tabPanel(title = tags$a(icon("searchengin"), 
+                                                    icon = icon("searchengin"),
+                                                    href = "https://cparsania.github.io/FungiExpresZ/about.html" ,
+                                                    "Overview",target="_blank")),
+              #                        tags$style(HTML("
+              # section.page-header {
+              #                display: none;
+              #                }      
+              #       
+              # section.main-content{
+              #               max-width: 1000px;
+              #               font-size: 100%;
+              #                }
+              # 
+              # div#TOC{
+              #               max-width: 1024px;
+              #                font-size: 100%;
+              #                }
+              #                ")),
+              #                        includeHTML(system.file("app","rmd_and_html","about.html" , package = "FungiExpresZ"))
+              #               ),
                             
                             ## Video Tutorial page
                             
@@ -3860,27 +3861,35 @@ ul.nav.navbar-nav {
                             
                             ## Step by step guide page
                             
-                            tabPanel(title = "Step-by-step tutorial", icon = icon("paperclip"),
+                            tabPanel(title = tags$a(icon("paperclip"), 
+                                     icon = icon("paperclip"),
+                                     href = "https://cparsania.github.io/FungiExpresZ/step_by_step_guide.html" ,
+                                     "Step-by-step tutorial",target="_blank"))
                                      
-                                     tags$style(HTML("
-                            section.page-header {
-                                           display: none;
-                                           }
-
-                            section.main-content{
-                                          max-width: 1000px;
-                                          font-size: 100%;
-                                           }
-
-                            div#TOC{
-                                          max-width: 1024px;
-                                           font-size: 100%;
-                                           }
-                                           ")),
-                                     includeHTML(system.file("app","rmd_and_html","step_by_step_guide.html" , package = "FungiExpresZ"))
-                            )
+                            #          tags$style(HTML("
+                            # section.page-header {
+                            #                display: none;
+                            #                }
+                            # 
+                            # section.main-content{
+                            #               max-width: 1000px;
+                            #               font-size: 100%;
+                            #                }
+                            # 
+                            # div#TOC{
+                            #               max-width: 1024px;
+                            #                font-size: 100%;
+                            #                }
+                            #                ")),
+                            #          includeHTML(system.file("app","rmd_and_html","step_by_step_guide.html" , package = "FungiExpresZ"))
+                            # )
+                            # 
+                   
+                           
                             
                             
+                            
+                                 
                  ),
                  
                  
