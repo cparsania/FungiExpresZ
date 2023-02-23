@@ -31,47 +31,65 @@ text-align: justify}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+frame_width = 800
+frame_height = 500
 ```
 
 # How to use SRA data
 
 `r params$app_name` contains normalised gene expression values for more than `r params$n_sra_data` NCBI SRA data. In this video, we show that how to select any of these data for downstream analysis and visualization purpose.
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/B4hwnLijEB8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "B4hwnLijEB8",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 # How to upload user data
 
 Along with NCBI SRA data, user can also upload his own gene expression matrix for data analysis and visualisation. In this video, we show that how user can upload his own data on `r params$app_name` for further analysis and visualizations.
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/4INn1AhEoO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "4INn1AhEoO4",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+
+```
 
 # How to upload sample groups and gene groups
 
 To address the complexity of gene expression data, `r params$app_name` allows user to integrate gene group and sample group information. In this video, we show that how to upload gene groups and sample groups on the `r params$app_name` to further integrate them in the visualizations.
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/H2gdBGUP9XY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "H2gdBGUP9XY",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+```
 
 # How to use predefined NCBI BioProjects as sample groups
 
 [NCBI BioProject](https://www.ncbi.nlm.nih.gov/bioproject){target="_blank"} groups single initiative, originating from a single organization or from a consortium SRA runs under single BioProject ID. Diverse data types generated under single study can be find under single BioProject ID. `r params$app_name` allows user to use BioProject ID as sample groups for selected SRA data. The group information can be used across several plots for comparisons between multiple groups. In this video, we show that how to use given NCBI BioProject IDs as a sample groups.
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/8OeorXH6mUk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "8OeorXH6mUk",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+```
 
 # How to merge user data with SRA data
 
 Integrated analysis of user gene expression data and public SRA data is one of the ways to build data driven hypothesis. `r params$app_name` allows user seamlessly integrate his/her own gene expression data with selected SRA data. In this video, we show that how to integrate user gene expression data with selected SRA data.
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/tO-78TTX93M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "tO-78TTX93M",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+
+```
 
 # Generate plots
 
@@ -79,75 +97,103 @@ Integrated analysis of user gene expression data and public SRA data is one of t
 
 ## Scatter plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Z4UVAnI6CJA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "Z4UVAnI6CJA",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 ## Multi-scatter plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/d_TDT46m_v8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "d_TDT46m_v8",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+```
 
 ## CorrHeat box
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/G8EEwA1PKR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "G8EEwA1PKR0",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+```
 
 ## Density plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/RPkpV4vXJU0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "RPkpV4vXJU0",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+```
 
 ## Histogram
 
-<iframe width="1000" height="1000" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/O_YNFr0Tl5Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "O_YNFr0Tl5Y",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+
+```
 
 ## Joy plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/_2W1sutAkZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "_2W1sutAkZE",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 ## Box plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Qic-ukmEUNQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "Qic-ukmEUNQ",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 ## Violin plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Rta2Nz1DKCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "Rta2Nz1DKCw",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
-## bar plot
+## Bar plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/8ekS2Y1oRZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "8ekS2Y1oRZs",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 ## PCA
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/MEeaJKI5wLY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "MEeaJKI5wLY",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 ## Line plot
 
-<iframe width="1000" height="700" src="https://www.youtube.com/embed/C24WL8rtZIU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "C24WL8rtZIU",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 ## Heatmap
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/yZH1ioPjmR0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "yZH1ioPjmR0",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 # Gene Ontology (GO) analysis and gene annotations
 
@@ -155,14 +201,16 @@ Once the genes of similar expression pattern have been found, next step is to pe
 
 ## GO analysis from scatter plot
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/KTIgFVhKPBY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
+vembedr::embed_youtube(id = "KTIgFVhKPBY",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```
 
 ## GO analysis from heatmap
 
-<iframe width="1000" height="700" style="border: 2px solid #000000;" src="https://www.youtube.com/embed/Plsat-crwE0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+```{r, include=TRUE, echo=FALSE}
 
-</iframe>
-
-## GO analysis from scatter plot
+vembedr::embed_youtube("Plsat-crwE0",
+                       width = frame_width, height = frame_height,frameborder = "2px solid #000000",allowfullscreen = TRUE)
+```

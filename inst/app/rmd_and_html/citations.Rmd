@@ -21,7 +21,11 @@ knitr::opts_chunk$set(
 #library(FungiExpresZ)
 ```
 
-## List of articles citing FungiExpresZ
+# Cite FungiExpresZ
+
+-   Chirag Parsania, Ruiwen Chen, Pooja Sethiya, Zhengqiang Miao, Liguo Dong, Koon Ho Wong, FungiExpresZ: an intuitive package for fungal gene expression data analysis, visualization and discovery, *Briefings in Bioinformatics*, 2023;bbad051, <https://doi.org/10.1093/bib/bbad051>
+
+# List of articles citing FungiExpresZ
 
 ## 2022
 
