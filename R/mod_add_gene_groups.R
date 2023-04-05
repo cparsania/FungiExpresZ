@@ -246,7 +246,7 @@ add_gene_groups <- function(input, output, session, gene_names){
   observe({
     tbl <- tibble(gene_groups = "All genes" , gene_group_members = as.list(gene_names())) %>% 
       tidyr::unnest()
-    print("group assignemnt changed ")
+    #print("group assignemnt changed ")
     group_info$final_gene_groups = tbl   
   })
   
