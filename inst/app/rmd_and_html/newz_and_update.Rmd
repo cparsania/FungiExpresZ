@@ -33,13 +33,19 @@ library(kableExtra)
 
 This page is all about notifying users regarding new features, bug fixing, any other important changes or announcements made on `r app_name` over the time.
 
+### **`r lubridate::date(x = "2023/04/04")`**
+
+#### New SRA data
+
+From the species *Aspergillus terreus.*
+
 ### **`r lubridate::date(x = "2022/10/21")`**
 
 #### Release v1.3
 
 It includes..
 
--   About 3,000 new datasets from 10 new fungal species .
+-   About 3,000 new data-sets from 10 new fungal species.
 
 -   Line plot random disappearance is fixed.
 
