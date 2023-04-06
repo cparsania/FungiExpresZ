@@ -173,6 +173,7 @@ ul.nav.navbar-nav {
                                         ## Species 
                                         shinyWidgets::pickerInput(
                                           inputId = "select_species",
+                                          selected = "Aspergillus nidulans",
                                           label = "Organism",
                                           choices = NULL, 
                                           choicesOpt = T,
