@@ -297,7 +297,7 @@ app_server <- function(input, output,session) {
     shinyWidgets::updatePickerInput(session = session, 
                                     inputId = "select_species", 
                                     choices = available_species,
-                                    selected = available_species[1])
+                                    selected = "Aspergillus nidulans")
   })
   
   ## get selected species strain
@@ -4110,7 +4110,7 @@ app_server <- function(input, output,session) {
     
   },rownames = T,
   selection  = "none",  
-  server = F,
+  server = T,
   extensions = "Buttons",
   options = list(
     scrollX = TRUE,
@@ -4214,7 +4214,7 @@ app_server <- function(input, output,session) {
     
   }, rownames = T,
   selection  = "none",
-  server = F,
+  server = T,
   extensions = "Buttons",
   options = list(
     scrollX = TRUE,
