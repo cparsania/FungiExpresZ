@@ -5,10 +5,10 @@ account: cparsania
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 624687
-bundleId: 7050957
+bundleId: 7051108
 url: https://cparsania.shinyapps.io/FungiExpresZ/
-when: 1680666717.10792
-lastSyncTime: 1680666717.10793
+when: 1680669720.87485
+lastSyncTime: 1680669720.87487
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: _Dockerfile|.Rprofile|Dockerfile
