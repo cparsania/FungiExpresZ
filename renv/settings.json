@@ -1,7 +1,5 @@
 {
-
   "bioconductor.version": "3.16",
-
   "external.libraries": [],
   "ignored.packages": [],
   "package.dependency.fields": [
