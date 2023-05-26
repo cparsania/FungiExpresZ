@@ -7,10 +7,20 @@
 \usage{
 plot_title_and_axis_label_ui(id)
 
-plot_title_and_axis_label_server(input, output, session, plot_title = "",
-  axis_x_title = "", axis_y_title = "", color_legend_title = NULL,
-  fill_legend_title = NULL, my_ggplot, aspect_ratio = 1,
-  apply_theme = TRUE, ...)
+plot_title_and_axis_label_server(
+  input,
+  output,
+  session,
+  plot_title = "",
+  axis_x_title = "",
+  axis_y_title = "",
+  color_legend_title = NULL,
+  fill_legend_title = NULL,
+  my_ggplot,
+  aspect_ratio = 1,
+  apply_theme = TRUE,
+  ...
+)
 }
 \arguments{
 \item{id}{shiny id}

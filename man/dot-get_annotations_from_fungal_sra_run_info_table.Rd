@@ -4,8 +4,10 @@
 \alias{.get_annotations_from_fungal_sra_run_info_table}
 \title{Prepare SRA sample annotations from fungal_sra_run_info_table}
 \usage{
-.get_annotations_from_fungal_sra_run_info_table(sra_id,
-  fungal_sra_run_info_object_path)
+.get_annotations_from_fungal_sra_run_info_table(
+  sra_id,
+  fungal_sra_run_info_object_path
+)
 }
 \arguments{
 \item{sra_id}{a character vector denoting valid SRA id.}

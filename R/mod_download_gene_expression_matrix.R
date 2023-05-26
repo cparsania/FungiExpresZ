@@ -49,7 +49,7 @@ download_gene_expression_matrix_server <- function(input, output, session){
     names(expr_files) <- basename(expr_files)
     
     map_df(expr_files , function(x) {
-      readr::read_rds(path = x) %>% 
+      readr::read_rds(file = x) %>% 
         ncol() - 1 %>% ##  -1 because first column is gene names 
         tibble::tibble(`# sra_samples` = .  , )
     }) %>% 

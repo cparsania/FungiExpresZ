@@ -4,10 +4,17 @@
 \alias{perform_go_enrichmet}
 \title{Perform GO enrichment using clusterProfiler}
 \usage{
-perform_go_enrichmet(genome, query_genes, pval_cutoff = 1,
-  qval_cutoff = 1, p_adjust_method = "BH",
-  ontology = "Biological Process", min_gs_size = 10,
-  max_gs_size = 500, cross_ref_go_db = TRUE)
+perform_go_enrichmet(
+  genome,
+  query_genes,
+  pval_cutoff = 1,
+  qval_cutoff = 1,
+  p_adjust_method = "BH",
+  ontology = "Biological Process",
+  min_gs_size = 10,
+  max_gs_size = 500,
+  cross_ref_go_db = TRUE
+)
 }
 \arguments{
 \item{genome}{name of the target species genome. It must match to the genome column of \code{ah_data_summary2} object}

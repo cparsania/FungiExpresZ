@@ -165,7 +165,7 @@ functional_analysis_ui <- function(id){
     hr(),
     
     ####
-    ## GO table panel
+    ## GO table panel ----
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'table' && input['",ns("perform_go_analysis_trigger"),"'] "),
                      DT::dataTableOutput(outputId = ns("functional_out_data") , 
@@ -174,7 +174,7 @@ functional_analysis_ui <- function(id){
     ),
     
     ####
-    ## dotplot panel 
+    ## dotplot panel ----
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'dotplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
                      plotOutput(outputId = ns("go_enrichment_dotplot") , height = "auto") %>% 
@@ -191,7 +191,7 @@ functional_analysis_ui <- function(id){
                                 
                                 dropdownButton(
                                   inputId = ns("dot_plot_advance_settings"),
-                                  icon = icon("settings"),
+                                  icon = icon("gears"),
                                   label = "Advance settings",
                                   size = "sm",
                                   circle = F,
@@ -228,7 +228,7 @@ functional_analysis_ui <- function(id){
     
     
     ####
-    ## barplot panel 
+    ## barplot panel ----
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'barplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
                      plotOutput(outputId = ns("go_enrichment_bar_plot") , height = "auto") %>% 
@@ -245,7 +245,7 @@ functional_analysis_ui <- function(id){
                                 
                                 dropdownButton(
                                   inputId = ns("bar_plot_advance_settings"),
-                                  icon = icon("settings"),
+                                  icon = icon("gears"),
                                   label = "Advance settings",
                                   size = "sm",
                                   circle = F,
@@ -285,7 +285,7 @@ functional_analysis_ui <- function(id){
     
     
     ####
-    ## emapplot panel 
+    ## emapplot panel ----
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'emapplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
                      
@@ -300,7 +300,7 @@ functional_analysis_ui <- function(id){
                          column(width = 3,
                                 dropdownButton(
                                   inputId = ns("emap_plot_advance_settings"),
-                                  icon = icon("settings"),
+                                  icon = icon("gears"),
                                   label = "Advance settings",
                                   size = "sm",
                                   circle = F,
@@ -323,12 +323,23 @@ functional_analysis_ui <- function(id){
                                   ## emap plot layout type
                                   shiny::selectInput(inputId = ns("emap_plot_layout_type") , multiple = F,
                                                      label = "Layout" ,
-                                                     choices = c("Circular" = "circle" ,
-                                                                 "KK" = "kk" , 
-                                                                 "Matrix" ="matrix" , 
-                                                                 "Linear"= "linear",
-                                                                 "Tree" ="tree") , 
-                                                     selected = "kk"),
+                                                     
+                                              
+                                                     
+                                                     choices = c("Star"="star", 
+                                                                 "Circle"= "circle", 
+                                                                 "Gem" = "gem", 
+                                                                 "DH" = "dh", 
+                                                                 "Graphopt" = "graphopt", 
+                                                                 "Grid" = "grid", 
+                                                                 "mds" = "mds", 
+                                                                 "Randomly" = "randomly", 
+                                                                 "FR" = "fr", 
+                                                                 "KK" = "kk", 
+                                                                 "DRL" = "drl",
+                                                                 "LGL" = "lgl") , 
+                                                     
+                                                     selected = "KK"),
                                   
                                   # emap plot number of category to display 
                                   shiny::numericInput(inputId = ns("emap_plot_number_of_category") , 
@@ -345,7 +356,7 @@ functional_analysis_ui <- function(id){
     ),
     
     ####
-    ## cnetplot panel
+    ## cnetplot panel----
     ####
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'cnetplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
                      plotOutput(outputId = ns("go_enrichment_cnetplot") , height = "auto")%>% 
@@ -359,7 +370,7 @@ functional_analysis_ui <- function(id){
                                 
                                 dropdownButton(
                                   inputId = ns("cnet_plot_advance_settings"),
-                                  icon = icon("settings"),
+                                  icon = icon("gears"),
                                   label = "Advance settings",
                                   size = "sm",
                                   circle = F,
@@ -401,7 +412,7 @@ functional_analysis_ui <- function(id){
     
     
     ####
-    ## upsetplot  
+    ## upsetplot  ----
     ####
     
     conditionalPanel(condition =  paste0("input['",ns("view"),"'] == 'upsetplot' && input['",ns("perform_go_analysis_trigger"),"'] "),
@@ -416,7 +427,7 @@ functional_analysis_ui <- function(id){
                                 
                                 dropdownButton(
                                   inputId = ns("upset_plot_advance_settings"),
-                                  icon = icon("settings"),
+                                  icon = icon("gears"),
                                   label = "Advance settings",
                                   size = "sm",
                                   circle = F,
@@ -429,96 +440,99 @@ functional_analysis_ui <- function(id){
                                     inputId = ns("upset_number_of_terms"), label = "Number of terms",
                                     min = 1, max = 30, 
                                     value = 5, step = 1
-                                  ),
-                                  # upset line size 
-                                  sliderInput(inputId = ns("upset_line_size") ,
-                                              label = "Line size", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 1, 
-                                              step = 0.01),
-                                  
-                                  # intersection size title
-                                  sliderInput(inputId = ns("upset_intersection_size_title") ,
-                                              label = "Intersection size title", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 2, 
-                                              step = 0.01),
-                                  
-                                  # intersection size tick labels
-                                  sliderInput(inputId = ns("upset_intersection_size_tick_labels") ,
-                                              label = "Intersection size tick labels", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 2, 
-                                              step = 0.01),
-                                  
-                                  #set size title
-                                  sliderInput(inputId = ns("upset_set_size_title") ,
-                                              label = "Set size", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 2, 
-                                              step = 0.01),
-                                  
-                                  # upset point size 
-                                  sliderInput(inputId = ns("upset_point_size") ,
-                                              label = "point size", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 4, 
-                                              step = 0.01),
-                                  
-                                  #set size tick labels
-                                  sliderInput(inputId = ns("upset_set_size_tick_labels") ,
-                                              label = "Set size tick labels", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 2, 
-                                              step = 0.01),
-                                  
-                                  
-                                  #set names,
-                                  sliderInput(inputId = ns("upset_set_names") ,
-                                              label = "Set names", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 1.5, 
-                                              step = 0.01),
-                                  
-                                  #numbers above bars,
-                                  sliderInput(inputId = ns("upset_number_above_bars") ,
-                                              label = "Numbers above bars", 
-                                              min = 0.1 ,
-                                              max = 10 ,
-                                              value = 2.5, 
-                                              step = 0.01),
-                                  
-                                  # upset main bar color 
-                                  colourpicker::colourInput(
-                                    inputId = ns("upset_plot_mainbar_color"),
-                                    label = "Main bar color",
-                                    value = "#2D3E50",
-                                    returnName = TRUE
-                                  ),
-                                  
-                                  # upset sets.bar.color
-                                  colourpicker::colourInput(
-                                    inputId = ns("upset_sets_bar_color"),
-                                    label = "Sets bar color",
-                                    value = "#23B99A",
-                                    returnName = TRUE
-                                  ),
-                                  
-                                  
-                                  # upset matrix color 
-                                  colourpicker::colourInput(
-                                    inputId = ns("upset_plot_matrix_color"),
-                                    label = "Matrix color",
-                                    value = "#F7A40A",
-                                    returnName = TRUE
                                   )
+                                  
+                                  # latest version of enrichplot doesn't support below arguments
+                                  
+                                  # upset line size 
+                                  # sliderInput(inputId = ns("upset_line_size") ,
+                                  #             label = "Line size", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 1, 
+                                  #             step = 0.01),
+                                  # 
+                                  # # intersection size title
+                                  # sliderInput(inputId = ns("upset_intersection_size_title") ,
+                                  #             label = "Intersection size title", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 2, 
+                                  #             step = 0.01),
+                                  # 
+                                  # # intersection size tick labels
+                                  # sliderInput(inputId = ns("upset_intersection_size_tick_labels") ,
+                                  #             label = "Intersection size tick labels", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 2, 
+                                  #             step = 0.01),
+                                  # 
+                                  # #set size title
+                                  # sliderInput(inputId = ns("upset_set_size_title") ,
+                                  #             label = "Set size", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 2, 
+                                  #             step = 0.01),
+                                  # 
+                                  # # upset point size 
+                                  # sliderInput(inputId = ns("upset_point_size") ,
+                                  #             label = "point size", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 4, 
+                                  #             step = 0.01),
+                                  # 
+                                  # #set size tick labels
+                                  # sliderInput(inputId = ns("upset_set_size_tick_labels") ,
+                                  #             label = "Set size tick labels", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 2, 
+                                  #             step = 0.01),
+                                  # 
+                                  # 
+                                  # #set names,
+                                  # sliderInput(inputId = ns("upset_set_names") ,
+                                  #             label = "Set names", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 1.5, 
+                                  #             step = 0.01),
+                                  # 
+                                  # #numbers above bars,
+                                  # sliderInput(inputId = ns("upset_number_above_bars") ,
+                                  #             label = "Numbers above bars", 
+                                  #             min = 0.1 ,
+                                  #             max = 10 ,
+                                  #             value = 2.5, 
+                                  #             step = 0.01),
+                                  # 
+                                  # # upset main bar color 
+                                  # colourpicker::colourInput(
+                                  #   inputId = ns("upset_plot_mainbar_color"),
+                                  #   label = "Main bar color",
+                                  #   value = "#2D3E50",
+                                  #   returnName = TRUE
+                                  # ),
+                                  # 
+                                  # # upset sets.bar.color
+                                  # colourpicker::colourInput(
+                                  #   inputId = ns("upset_sets_bar_color"),
+                                  #   label = "Sets bar color",
+                                  #   value = "#23B99A",
+                                  #   returnName = TRUE
+                                  # ),
+                                  # 
+                                  # 
+                                  # # upset matrix color 
+                                  # colourpicker::colourInput(
+                                  #   inputId = ns("upset_plot_matrix_color"),
+                                  #   label = "Matrix color",
+                                  #   value = "#F7A40A",
+                                  #   returnName = TRUE
+                                  # )
                                   
                                   
                                   #sets.bar.color = "gray23"
@@ -551,7 +565,7 @@ functional_analysis_ui <- function(id){
                                 
                                 dropdownButton(
                                   inputId = ns("heatplot_advance_settings"),
-                                  icon = icon("settings"),
+                                  icon = icon("gears"),
                                   label = "Advance settings",
                                   size = "sm",
                                   circle = F,
@@ -617,7 +631,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   })
   
   ####
-  ## perform enrichment
+  ## perform enrichment ----
   ####
   
   ## dot plot multiple genesets enrichment 
@@ -684,7 +698,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   })
   
   ####
-  ## GO enrichment data table 
+  ## GO enrichment data table ----
   ####
   
   output$functional_out_data <- DT::renderDataTable({
@@ -715,7 +729,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   )
   
   ####
-  ## create dotplot
+  ## create dotplot ----
   ####
   
   dotplot_out <- reactive({
@@ -796,7 +810,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   
   
   ####
-  ## create barplot 
+  ## create barplot ----
   ####
   
   barplot_out <- reactive({
@@ -849,16 +863,18 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   
   
   ####
-  ## create emapplot
+  ## create emapplot ----
   ####
   emapplot_out <- reactive({
     req(enriched_terms())
     validate(need(is.numeric(input$emap_plot_number_of_category), "Show terms must be a number"))
     validate(need(input$emap_plot_number_of_category > 1, "Show terms must be > 1"))
-    emapplot_out <- emapplot(enriched_terms() , 
+    
+    sim_mat <- enrichplot::pairwise_termsim(x = enriched_terms(),showCategory = input$emap_plot_number_of_category)
+    emapplot_out <- emapplot(sim_mat , 
                              showCategory = input$emap_plot_number_of_category , 
                              color = input$emap_plot_color_by , 
-                             layout = input$emap_plot_layout_type) 
+                             layout.params = list(layout = input$emap_plot_layout_type)) 
     
     ## find GeomTextRepel layer
     geom_text_repel_index <- which(sapply(emapplot_out$layers, function(x) class(x$geom)[1]) == "GeomTextRepel")
@@ -890,16 +906,16 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   callModule(module = export_plot, id = "export_emapplot" , file_name = "emapplot", plot =  emapplot_out)
   
   ####
-  ## create cnetplot
+  ## create cnetplot ----
   ####
   cnetplot_out <- reactive({
     req(enriched_terms())
     validate(need(is.numeric(input$cnet_plot_number_of_category), "Show terms must be a number"))
     
     cnetplot_out <- cnetplot(enriched_terms() , 
-                             node_label = FALSE,
+                             node_label = "none",
                              circular = ifelse(input$cnet_plot_layout_type == "circle", TRUE , FALSE) ,
-                             colorEdge = TRUE , 
+                             color.params = list(edge = TRUE), 
                              showCategory = input$cnet_plot_number_of_category,
                              layout = input$cnet_plot_layout_type)
     
@@ -940,7 +956,7 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   
   
   ####
-  ## create upsetplot 
+  ## create upsetplot ----
   ####
   
   upset_plot_out <- reactive({
@@ -948,18 +964,21 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
     validate(need(is.numeric(input$upset_number_of_terms), "Number of terms must be a number"))
     
     upset_plot_out <- enrichplot::upsetplot(enriched_terms() ,  
-                                            n = input$upset_number_of_terms, 
-                                            matrix.color = input$upset_plot_matrix_color,
-                                            main.bar.color = input$upset_plot_mainbar_color,
-                                            line.size = input$upset_line_size,
-                                            point.size = input$upset_point_size,
-                                            sets.bar.color = input$upset_sets_bar_color,
-                                            text.scale = c(input$upset_intersection_size_title , 
-                                                           input$upset_intersection_size_tick_labels, 
-                                                           input$upset_set_size_title ,
-                                                           input$upset_set_size_tick_labels , 
-                                                           input$upset_set_names , 
-                                                           input$upset_number_above_bars)
+                                            n = input$upset_number_of_terms
+                                            
+                                            ## latest version of enrichplot doesn't support below arguments. 
+                                            
+                                            # matrix.color = input$upset_plot_matrix_color,
+                                            # main.bar.color = input$upset_plot_mainbar_color,
+                                            # line.size = input$upset_line_size,
+                                            # point.size = input$upset_point_size,
+                                            # sets.bar.color = input$upset_sets_bar_color,
+                                            # text.scale = c(input$upset_intersection_size_title , 
+                                            #                input$upset_intersection_size_tick_labels, 
+                                            #                input$upset_set_size_title ,
+                                            #                input$upset_set_size_tick_labels , 
+                                            #                input$upset_set_names , 
+                                            #                input$upset_number_above_bars)
     )
     return(upset_plot_out)
   })
@@ -995,30 +1014,37 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   
   
   ####
-  ## create heatplot
+  ## create heatplot ----
   ####
   
   heatplot_out <- reactive({
     req(enriched_terms())
     validate(need(is.numeric(input$heatplot_number_of_category), "Show terms must be a number"))
     
-    heatplot_out <- heatplot(enriched_terms() , 
-                             showCategory = input$heatplot_number_of_category) + 
-      geom_tile(aes(x = Gene , y = categoryID) , fill= input$heatplot_tile_color ,colour = "white")
+    heatplot_out <- enrichplot::heatplot(enriched_terms() , 
+                              showCategory = input$heatplot_number_of_category, 
+                              label_format = 25) + 
+    geom_tile(aes(x = Gene , y = categoryID) ,
+              fill= input$heatplot_tile_color ,
+              colour = "white")
     
     ## flip axis
     if(input$heatplot_flip_axis) {
       heatplot_out <- heatplot_out + coord_flip()
     }
-    heatplot_out <- callModule(module  = plot_title_and_axis_label_server , id = "heatplot_title_and_legend" ,
+    heatplot_out <- callModule(module  = plot_title_and_axis_label_server , 
+                               id = "heatplot_title_and_legend" ,
                                my_ggplot = heatplot_out , 
                                axis_x_title = shiny::isolate("Genes") , 
-                               axis_y_title = shiny::isolate("Terms") , x_tick_angle =45)  
+                               axis_y_title = shiny::isolate("Terms") , 
+                               x_tick_angle =45)  
     
     ## wrap long text 
-    heatplot_out$data <- heatplot_out$data %>% 
-      as_tibble() %>% 
-      dplyr::mutate(categoryID = factor(stringr::str_wrap(categoryID , 25) , levels = levels(categoryID) %>% stringr::str_wrap(25))) 
+    # heatplot_out$data <- heatplot_out$data %>% 
+    #   as_tibble() %>% 
+    #   dplyr::mutate(categoryID = factor(stringr::str_wrap(categoryID , 25) , 
+    #                                     levels = levels(categoryID) %>% stringr::str_wrap(25))) 
+    
     return(heatplot_out)
   })
   
@@ -1039,7 +1065,10 @@ functional_analysis_server <- function(input, output, session , gene_set = NULL,
   }
   )
   
-  ## export cnetplot
+  
+  
+  
+  ## export heatplot
   callModule(module = export_plot, id = "export_heatplot" , file_name = "heatplot", plot =  heatplot_out)
 }
 

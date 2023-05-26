@@ -150,7 +150,7 @@ add_gene_groups <- function(input, output, session, gene_names){
       return(NULL)
     })
     
-    print(gene_groups_from_user)
+    #print(gene_groups_from_user)
     
     ## show alert/error if error produced while reading file. 
     if(is.null(gene_groups_from_user)){

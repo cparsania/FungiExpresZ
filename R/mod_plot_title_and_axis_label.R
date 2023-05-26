@@ -30,7 +30,7 @@ plot_title_and_axis_label_ui <- function(id) {
           
           ## Title
           h4(tags$b("Plot title")),
-          textInputAddon(inputId = ns("plot_title"), label = "", value = "",addon = ""),
+          textInputIcon(inputId = ns("plot_title"), label = "", value = "",placeholder = ""),
           
           sliderInput(
             inputId = ns("title_labs_size"), label = "Font size: Title",
@@ -40,8 +40,8 @@ plot_title_and_axis_label_ui <- function(id) {
           
           ## Axis labels 
           h4(tags$b("Axis labels")),
-          textInputAddon(inputId = ns("x_axis_title"), label = "", addon = "X :"),
-          textInputAddon(inputId = ns("y_axis_title"), label = "", addon = "Y :"),
+          textInputIcon(inputId = ns("x_axis_title"), label = "", placeholder  = "X :"),
+          textInputIcon(inputId = ns("y_axis_title"), label = "", placeholder  = "Y :"),
           
           ## Axis labels font size 
           # sliderInput(
@@ -109,7 +109,7 @@ plot_title_and_axis_label_ui <- function(id) {
                              multiple = F, width = "100%" ,selected = "theme_bw()"),
           
           ## legend title 
-          textInputAddon(inputId = ns("legend_title"), label = "Legend", addon = "Title :" , width = "100%"),
+          textInputIcon(inputId = ns("legend_title"), label = "Legend", placeholder = "Title :" , width = "100%"),
           
           ## legend title size 
           sliderInput(inputId = ns("legend_title_size") , 
@@ -239,7 +239,7 @@ plot_title_and_axis_label_server <- function(input, output, session,
   
   ## if aspect ratio is NULL means plot dosen't need is 
   if(!is.null(aspect_ratio)) {
-    aspect_ratio = input$plot_aspect_ratio
+    aspect_ratio = input$plot_aspect_ratio %>% as.numeric()
   }
   
   my_ggplot_decorated <- decorate_ggplot(

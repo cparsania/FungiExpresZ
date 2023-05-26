@@ -4,14 +4,29 @@
 \alias{decorate_ggplot}
 \title{Decorate GG plot}
 \usage{
-decorate_ggplot(gplot, x_labs_size, y_labs_size, x_tick_size, y_tick_size,
-  x_tick_angle = 90, title_labs_size, plot_title = "",
-  axis_x_title = "", axis_y_title = "", color_legend_title = "",
-  fill_legend_title = "", legend_text_size = 15,
-  legened_title_size = 15, legend_key_height = 10,
-  strip_text_size = 15, legend_key_width = 10,
-  legend_spacing_x = 0.2, legend_spacing_y = 0.2,
-  guide_legend = TRUE, ...)
+decorate_ggplot(
+  gplot,
+  x_labs_size,
+  y_labs_size,
+  x_tick_size,
+  y_tick_size,
+  x_tick_angle = 90,
+  title_labs_size,
+  plot_title = "",
+  axis_x_title = "",
+  axis_y_title = "",
+  color_legend_title = "",
+  fill_legend_title = "",
+  legend_text_size = 15,
+  legened_title_size = 15,
+  legend_key_height = 10,
+  strip_text_size = 15,
+  legend_key_width = 10,
+  legend_spacing_x = 0.2,
+  legend_spacing_y = 0.2,
+  guide_legend = TRUE,
+  ...
+)
 }
 \arguments{
 \item{gplot}{an object of class ggplot2}

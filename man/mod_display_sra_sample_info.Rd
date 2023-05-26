@@ -7,8 +7,12 @@
 \usage{
 display_sra_sample_info_ui(id)
 
-display_sra_sample_info_server(input, output, session,
-  user_selected_sra_sample_info_tibble)
+display_sra_sample_info_server(
+  input,
+  output,
+  session,
+  user_selected_sra_sample_info_tibble
+)
 }
 \arguments{
 \item{id}{shiny id}

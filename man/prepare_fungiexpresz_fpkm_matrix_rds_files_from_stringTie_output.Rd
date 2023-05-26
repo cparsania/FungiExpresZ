@@ -4,8 +4,10 @@
 \alias{prepare_fungiexpresz_fpkm_matrix_rds_files_from_stringTie_output}
 \title{Prepare FPKM matrix from stringTie output}
 \usage{
-prepare_fungiexpresz_fpkm_matrix_rds_files_from_stringTie_output(data_dir,
-  frac = 0.01)
+prepare_fungiexpresz_fpkm_matrix_rds_files_from_stringTie_output(
+  data_dir,
+  frac = 0.01
+)
 }
 \arguments{
 \item{data_dir}{a character string denoting a valid directory path in which stringTie output and a file of mapping rate is stored. See details.}

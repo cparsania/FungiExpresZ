@@ -7,8 +7,17 @@
 \usage{
 export_base_graphics_ui(id)
 
-export_base_graphics(input, output, session, file_name, plot,
-  legend_pos = reactive({     "top" }), isComplexHeatmap = TRUE)
+export_base_graphics(
+  input,
+  output,
+  session,
+  file_name,
+  plot,
+  legend_pos = reactive({
+     "top"
+ }),
+  isComplexHeatmap = TRUE
+)
 }
 \arguments{
 \item{id}{shiny id}

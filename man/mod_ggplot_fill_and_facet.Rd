@@ -7,8 +7,13 @@
 \usage{
 ggplot_fill_and_facet_ui(id)
 
-ggplot_fill_and_facet(input, output, session, ggplot,
-  allow_x_var_selection = TRUE)
+ggplot_fill_and_facet(
+  input,
+  output,
+  session,
+  ggplot,
+  allow_x_var_selection = TRUE
+)
 }
 \arguments{
 \item{id}{shiny id}

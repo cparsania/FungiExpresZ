@@ -6,7 +6,6 @@
 #' @import clusterProfiler
 #' @import shinycssloaders
 #' @import ggcorrplot
-#' @import jcolors
 #' @import prettydoc
 #' @import svglite
 #' @import circlize
@@ -577,8 +576,10 @@ ul.nav.navbar-nav {
                                                    shinyWidgets::pickerInput(
                                                      inputId = "scatter_x",
                                                      label = "Select sample (X-axis)",
-                                                     choices = NULL, choicesOpt = F,
-                                                     selected = "", multiple = F, width = "100%",
+                                                     choices = NULL, 
+                                                     choicesOpt = F,
+                                                     selected = "", 
+                                                     multiple = F, width = "100%",
                                                      options = list(
                                                        `actions-box` = TRUE,
                                                        style = "btn-success", `live-search` = TRUE
@@ -2549,7 +2550,10 @@ ul.nav.navbar-nav {
                                       id = "pca_plot_edit_titles", title = "Title and labels", trigger = "trigger_pca_plot_edit_titles",
                                       ## plot titles
                                       h4(tags$b("Title")),
-                                      textInputAddon(inputId = "pca_plot_title", label = "", value = "", addon = "Main :"),
+                                      textInputIcon(inputId = "pca_plot_title", 
+                                                    label = "", 
+                                                    value = "", 
+                                                    placeholder  = "Main :"),
                                       hr()
                                     )
                                   ),
