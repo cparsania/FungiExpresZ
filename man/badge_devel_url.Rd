@@ -4,8 +4,11 @@
 \alias{badge_devel_url}
 \title{get github repo version devel bedge}
 \usage{
-badge_devel_url(pkg = "cparsania/fungiexpresz", col = "green",
-  add_github_logo = FALSE)
+badge_devel_url(
+  pkg = "cparsania/fungiexpresz",
+  col = "green",
+  add_github_logo = FALSE
+)
 }
 \arguments{
 \item{pkg}{github repo url}

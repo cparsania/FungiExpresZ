@@ -4,8 +4,7 @@
 \alias{badge_custom_url}
 \title{get custom badge url}
 \usage{
-badge_custom_url(x = "current", y = NULL, col = "red",
-  add_github_logo = FALSE)
+badge_custom_url(x = "current", y = NULL, col = "red", add_github_logo = FALSE)
 }
 \arguments{
 \item{x}{text to show on left panel of badge}

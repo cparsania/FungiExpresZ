@@ -139,7 +139,7 @@
 #' @importFrom readr write_lines
 #' @importFrom readr write_rds
 #' @importFrom readr write_tsv
-#' @importFrom purrr as_function
+#' @importFrom rlang as_function
 #' @importFrom purrr as_mapper
 #' @importFrom purrr as_vector
 #' @importFrom purrr compact
@@ -148,7 +148,6 @@
 #' @importFrom purrr keep
 #' @importFrom purrr map
 #' @importFrom purrr map_at
-#' @importFrom purrr map_call
 #' @importFrom purrr map_chr
 #' @importFrom purrr map_dbl
 #' @importFrom purrr map_depth
@@ -263,6 +262,7 @@
 #' @importFrom broom tidy
 #' @importFrom rio convert
 #' @importFrom scales squish
+#' @import ggupset
 #' @keywords internal
 app_server <- function(input, output,session) {
   # List the first level callModules here
@@ -308,7 +308,7 @@ app_server <- function(input, output,session) {
     available_strains <- strains_by_species() %>% 
       dplyr::filter(species == input$select_species) %>%
       dplyr::select(strain) %>% 
-      tidyr::unnest() %>%
+      tidyr::unnest(cols = strain) %>%
       tidyr::drop_na() %>%
       pull(1) %>%
       unique() %>% 
@@ -343,7 +343,7 @@ app_server <- function(input, output,session) {
     available_genotype <- strains_by_species() %>% 
       dplyr::filter(species == input$select_species) %>%
       dplyr::select(genotype) %>% 
-      tidyr::unnest() %>%
+      tidyr::unnest(cols = genotype) %>%
       tidyr::drop_na() %>%
       pull(1) %>%
       unique() %>% 
@@ -1138,7 +1138,7 @@ app_server <- function(input, output,session) {
   ## Check current annotations 
   observe({
     req(genome_for_annotations())
-    print(paste("User selected geneome", genome_for_annotations() ,sep = " "))
+    #print(paste("User selected geneome", genome_for_annotations() ,sep = " "))
   })
   
   
@@ -1149,7 +1149,7 @@ app_server <- function(input, output,session) {
       ah_data_summary2 %>%  
         dplyr::filter(genome == genome_for_annotations()) %>% 
         dplyr::select(gr_cols) %>% 
-        tidyr::unnest() %>%
+        tidyr::unnest(cols = gr_cols) %>%
         dplyr::pull(ID) %>% sample(20) %>% paste0(collapse = ", ")  
     }, error = function(x){
       return("Trouble to get Ids")
@@ -1176,7 +1176,6 @@ app_server <- function(input, output,session) {
   ## check whether x and y are numeric type
   scatter_vars_validated <- eventReactive(input$generate_scatter, {
     req(input$scatter_x, input$scatter_y, plot_data())
-    
     
     x_vals <- plot_data()[, input$scatter_x][[1]]
     y_vals <- plot_data()[, input$scatter_y][[1]]
@@ -1261,15 +1260,16 @@ app_server <- function(input, output,session) {
   observe({
     
     ## update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "scatter_x",
       choices = base::colnames(plot_data())[-1],
       selected = base::colnames(plot_data())[2]
     )
     
+    
     ## update y
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "scatter_y",
       choices = base::colnames(plot_data())[-1],
@@ -1277,6 +1277,7 @@ app_server <- function(input, output,session) {
     )
   })
   
+ 
   
   ## scatter plot user selected gene group data 
   scatter_plot_data <- callModule(module  = gene_group_selection , 
@@ -1318,7 +1319,7 @@ app_server <- function(input, output,session) {
     gff_feat =  ah_data_summary2 %>% 
       dplyr::filter(genome == current_scatter_plot_genome()) %>% 
       dplyr::select(gr_cols) %>% 
-      tidyr::unnest()
+      tidyr::unnest(cols = gr_cols)
     
     return(list(linear_model_param = linear_model_param, 
                 scatter_xy_corr = scatter_xy_corr, gp = gp, 
@@ -1548,7 +1549,7 @@ app_server <- function(input, output,session) {
   observe({
     req(plot_data())
     ## update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "multi_scatter_vars",
       choices = base::colnames(plot_data())[-1],
@@ -1627,7 +1628,7 @@ app_server <- function(input, output,session) {
   ## update x, y variables
   observe({
     ## update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "corr_heatbox_vars",
       choices = base::colnames(plot_data())[-1],
@@ -1821,7 +1822,7 @@ app_server <- function(input, output,session) {
   ## update x, y variables
   observe({
     ## update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "density_x",
       choices = base::colnames(plot_data())[-1],
@@ -1956,7 +1957,7 @@ app_server <- function(input, output,session) {
   ## update x, y variables
   observe({
     ## update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "histogram_x",
       choices = base::colnames(plot_data())[-1],
@@ -2084,7 +2085,7 @@ app_server <- function(input, output,session) {
   ## update x, y variables
   observe({
     ## update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "joy_plot_x",
       choices = base::colnames(plot_data())[-1],
@@ -2204,7 +2205,7 @@ app_server <- function(input, output,session) {
   
   ## update box plot variables
   observeEvent(plot_data(), {
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "box_x",
       choices = base::colnames(plot_data())[-1],
@@ -2352,7 +2353,7 @@ app_server <- function(input, output,session) {
   
   ## update violin plot variables
   observeEvent(plot_data(), {
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "violin_x",
       choices = base::colnames(plot_data())[-1],
@@ -2507,7 +2508,7 @@ app_server <- function(input, output,session) {
   
   ## update bar plot variables
   observeEvent(plot_data(), {
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "barplot_vars",
       choices = base::colnames(plot_data())[-1],
@@ -2517,7 +2518,7 @@ app_server <- function(input, output,session) {
   
   ## update bar plot genes
   observeEvent(plot_data(), {
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "barplot_select_genes",
       choices = plot_data() %>% dplyr::pull(1), ## first column is gene name 
@@ -2677,7 +2678,7 @@ app_server <- function(input, output,session) {
   ## update x variables
   observe({
     # update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "lineplot_x",
       choices = base::colnames(plot_data())[-1],
@@ -2886,7 +2887,7 @@ app_server <- function(input, output,session) {
       #geom_line(aes(col = clust) , size = input$lineplot_line_size) + 
       ggalt::geom_xspline(aes(col = clust), 
                           spline_shape=input$line_plot_splin_shape, 
-                          size=input$lineplot_line_size ,)+
+                          size=input$lineplot_line_size)+
       theme(legend.position = "none", axis.text.x = element_text(angle = 90, vjust = 0.4))
     
     ## line plot color identical 
@@ -2989,7 +2990,7 @@ app_server <- function(input, output,session) {
       user_selected_species_annot <- ah_data_summary2 %>% 
         dplyr::filter(genome == lineplot_reference_annot())%>%
         dplyr::select(gr_cols) %>% 
-        tidyr::unnest()  
+        tidyr::unnest(cols = gr_cols)  
       
       
       join_col_x <- base::colnames(line_plot_data_disply())[1] ## first column containing geneNames
@@ -3092,7 +3093,7 @@ app_server <- function(input, output,session) {
   observe({
     req(plot_data())
     # update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "pca_plot_vars",
       choices = base::colnames(plot_data())[-1],
@@ -3319,10 +3320,11 @@ app_server <- function(input, output,session) {
       
       ## color by sample kmeans 
       if(input$pca_plot_colour == "kmeans")  {
-        pca_gp <-  pca_gp + aes(color = kmeans_clust) + 
+        
+        pca_gp <-  pca_gp + aes(color = factor(kmeans_clust)) + 
           scale_color_manual(values = get_gg_colors(pr_comp_derieved_tibble() %>%  
-                                                      pull(kmeans_clust) %>% 
-                                                      as_factor() %>% levels()) )
+                                                      dplyr::pull(kmeans_clust) %>% 
+                                                      forcats::as_factor() %>% levels()))
       }
       
       
@@ -3585,7 +3587,7 @@ app_server <- function(input, output,session) {
   observe({
     req(plot_data())
     ## update x
-    updateSelectInput(
+    updatePickerInput(
       session = session,
       inputId = "heatmap_vars",
       choices = base::colnames(plot_data())[-1],
@@ -4095,7 +4097,7 @@ app_server <- function(input, output,session) {
     user_selected_species_annot <- ah_data_summary2 %>% 
       dplyr::filter(genome == heatmap_reference_annot()) %>% 
       dplyr::select(gr_cols) %>% 
-      tidyr::unnest()  
+      tidyr::unnest(cols = gr_cols)  
     
     
     join_col_x <- base::colnames(active_heatmap_data())[1] ## first column containing geneNames
@@ -4169,7 +4171,7 @@ app_server <- function(input, output,session) {
     ## Long format 
     long <- wide %>% 
       dplyr::mutate(column_labels =  colum_chr_to_list(column_labels)) %>% 
-      tidyr::unnest(column_labels)
+      tidyr::unnest(cols = column_labels)
     
     list(wide = wide, long = long)
   })
@@ -4198,7 +4200,7 @@ app_server <- function(input, output,session) {
     
     long <- wide %>% 
       dplyr::mutate(row_labels = colum_chr_to_list(row_labels)) %>% 
-      tidyr::unnest(row_labels)
+      tidyr::unnest(cols = row_labels)
     
     list(wide = wide, long = long )
     

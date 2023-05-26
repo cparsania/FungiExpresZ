@@ -4,9 +4,13 @@
 \alias{prepare_annotations_for_fungiexpres_data_matrix}
 \title{Prepare SRA sample annotations required for FungiExpresZ.}
 \usage{
-prepare_annotations_for_fungiexpres_data_matrix(data_matrix,
-  fungiexpresz_species, fungiexpresz_ref_annotation,
-  fungal_sra_run_info_object_path, path_sra_db_sqlite_file)
+prepare_annotations_for_fungiexpres_data_matrix(
+  data_matrix,
+  fungiexpresz_species,
+  fungiexpresz_ref_annotation,
+  fungal_sra_run_info_object_path,
+  path_sra_db_sqlite_file
+)
 }
 \arguments{
 \item{data_matrix}{a FPKM matrix for which SRA annotations to be obtained. Column names of will be considered as SRA id.}

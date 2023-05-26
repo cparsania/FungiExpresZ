@@ -4,8 +4,12 @@
 \alias{tibble_to_rowwise_sd_zs}
 \title{given the tibble and column indices add columns of  row wise zscore and row wise standard deviation}
 \usage{
-tibble_to_rowwise_sd_zs(x, cols_to_use, std_dev_colname = "sd",
-  zscore_colname_suffix = "_zscore")
+tibble_to_rowwise_sd_zs(
+  x,
+  cols_to_use,
+  std_dev_colname = "sd",
+  zscore_colname_suffix = "_zscore"
+)
 }
 \arguments{
 \item{x}{}

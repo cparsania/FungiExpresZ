@@ -7,8 +7,13 @@
 \usage{
 cluster_wise_sample_information_ui(id)
 
-cluster_wise_sample_information_server(input, output, session, parent_id,
-  cluster_wise_sample_information)
+cluster_wise_sample_information_server(
+  input,
+  output,
+  session,
+  parent_id,
+  cluster_wise_sample_information
+)
 }
 \arguments{
 \item{id}{shiny id}

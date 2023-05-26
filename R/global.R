@@ -494,11 +494,11 @@ tibble_to_row_clusters <- function(x,
         if(use_z_score_for_clustering){
                 for_clust  <- dd %>% 
                         dplyr::select(1,std_dev_colname,dplyr::contains(zscore_colname_suffix))
-                cat("using zscore for clustering\n\n")
+                #cat("using zscore for clustering\n\n")
         }else{
                 for_clust <- dd %>% 
                         dplyr::select(-dplyr::contains(zscore_colname_suffix))
-                cat("using raw value for clustering\n\n")
+                #cat("using raw value for clustering\n\n")
         }
         
         ## subset top variable genes 

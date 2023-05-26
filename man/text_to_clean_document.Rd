@@ -4,10 +4,15 @@
 \alias{text_to_clean_document}
 \title{Convert text into clean document using several functions from the package \code{tm}}
 \usage{
-text_to_clean_document(text, remove_numbers = TRUE,
-  remove_stop_words = TRUE, remove_specific_words = TRUE,
-  remove_punctuation = TRUE, text_stemming = FALSE,
-  specific_words = NULL)
+text_to_clean_document(
+  text,
+  remove_numbers = TRUE,
+  remove_stop_words = TRUE,
+  remove_specific_words = TRUE,
+  remove_punctuation = TRUE,
+  text_stemming = FALSE,
+  specific_words = NULL
+)
 }
 \arguments{
 \item{text}{internal}

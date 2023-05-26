@@ -239,7 +239,7 @@ add_sample_group <- function(input, output, session, sample_names , bioproject_g
                                                  col_names = T, 
                                                  trim_ws = T) %>% 
             tidyr::drop_na()  ## rows will be dropped if value NA found in any column 
-          print(user_sample_group)
+          #print(user_sample_group)
         }else{
           user_sample_group <- text_to_tibble(text = input$upload_groups_from_clipboard , 
                                               sep = input$sample_groups_info_file_sep) %>% 

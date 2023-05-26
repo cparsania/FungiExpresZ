@@ -7,8 +7,14 @@
 \usage{
 gene_group_selection_ui(id)
 
-gene_group_selection(input, output, session, gene_group_info,
-  current_session_data_matrix, generate_plot_action)
+gene_group_selection(
+  input,
+  output,
+  session,
+  gene_group_info,
+  current_session_data_matrix,
+  generate_plot_action
+)
 }
 \arguments{
 \item{id}{shiny id}

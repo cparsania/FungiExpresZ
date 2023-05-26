@@ -219,8 +219,8 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
                          discrete = T)
     
   } else if(input$fill_plot == "samples"){
-    print(input$plot_fill_choice)
-    print(input$plot_fill_direction)
+    #print(input$plot_fill_choice)
+    #print(input$plot_fill_direction)
     joyplot  <- joyplot + 
       ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes( fill = samples) , 
@@ -231,8 +231,8 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
                          discrete = T)
     
   } else if(input$fill_plot == "gene_groups"){
-    print(input$plot_fill_choice)
-    print(input$plot_fill_direction)
+    # print(input$plot_fill_choice)
+    # print(input$plot_fill_direction)
     joyplot  <- joyplot + ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                                               mapping = aes( fill = gene_groups) , 
                                               col = input$plot_ridges_col, scale = 1 ) + 
@@ -269,8 +269,8 @@ joyplot_fill_and_facet <- function(input, output, session, joyplot){
       scale_fill_cyclical(values  = c(input$fill_alt_1 , input$fill_alt_2))
     
   } else if(input$fill_plot == "quantile"){
-    print(input$plot_fill_choice)
-    print(input$plot_fill_direction)
+    # print(input$plot_fill_choice)
+    # print(input$plot_fill_direction)
     joyplot <- joyplot +
       ggridges::stat_density_ridges(geom = "density_ridges_gradient" , 
                           mapping = aes(fill = ..quantile..) , 

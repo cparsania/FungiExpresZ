@@ -4,8 +4,12 @@
 \alias{badge_github_release_url}
 \title{create a custom badge url for github release}
 \usage{
-badge_github_release_url(url = "cparsania/fungiexpresz", col = "red",
-  logo = "github", logo_color = NULL)
+badge_github_release_url(
+  url = "cparsania/fungiexpresz",
+  col = "red",
+  logo = "github",
+  logo_color = NULL
+)
 }
 \arguments{
 \item{url}{github repo url, default : cparsania/fungiexpresz}

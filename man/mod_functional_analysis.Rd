@@ -7,8 +7,14 @@
 \usage{
 functional_analysis_ui(id)
 
-functional_analysis_server(input, output, session, gene_set = NULL,
-  genome = NULL, ui_id = NULL)
+functional_analysis_server(
+  input,
+  output,
+  session,
+  gene_set = NULL,
+  genome = NULL,
+  ui_id = NULL
+)
 }
 \arguments{
 \item{id}{shiny id}
