@@ -27,6 +27,10 @@ knitr::opts_chunk$set(
 
 # List of articles citing FungiExpresZ
 
+## 2023
+
+1. Maruti Nandan Rai, Rikky Rai, Pooja Sethiya, Chirag Parsania. Transcriptome analysis reveals a common adaptive transcriptional response of Candida glabrata to diverse environmental stresses. *Research in Microbiology*. 2023;104073. [Article link](https://doi.org/10.1016/j.resmic.2023.104073)
+
 ## 2022
 
 1.  Karahoda B, Pardeshi L, Ulas M *et al.* The KdmB-EcoA-RpdA-SntB chromatin complex binds regulatory genes and coordinates fungal development with mycotoxin synthesis. *Nucleic Acids Research*. 2022;17:9797-9813. [Article link](https://academic.oup.com/nar/article/50/17/9797/6696356)
