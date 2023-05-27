@@ -13,6 +13,7 @@ Imports:
     processx (>= 3.8.1),
     attempt (>= 0.3.1),
     DT (>= 0.26),
+    DO.db (>= 2.9),
     glue (>= 1.6.2),
     dplyr (>= 1.1.2),
     ggplot2 (>= 3.4.2),

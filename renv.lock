@@ -248,6 +248,17 @@
       ],
       "Hash": "b2866e62bab9378c3cc9476a1954226b"
     },
+    "DO.db": {
+      "Package": "DO.db",
+      "Version": "2.9",
+      "Source": "Bioconductor",
+      "Requirements": [
+        "AnnotationDbi",
+        "R",
+        "methods"
+      ],
+      "Hash": "7d05e00472158bda5f124df351af0a49"
+    },
     "DOSE": {
       "Package": "DOSE",
       "Version": "3.24.2",
