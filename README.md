@@ -6,6 +6,16 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+## FungiExpresZ: an intuitive package for fungal gene expression data analysis, visualization and discovery
+
+For a reference and citation for `FungiExpresZ`:
+
+> Chirag Parsania, Ruiwen Chen,  Pooja Sethiya,  Zhengqiang Miao,
+> LiguoDong, Koon Ho Wong.
+> "FungiExpresZ: an intuitive package for fungal gene expression data analysis, visualization and discovery".
+> *Briefings in Bioinformatics* (2023)
+> [doi: 10.1093/bib/bbad051](https://doi.org/10.1093/bib/bbad051)
+
 ## Overview
 
 FungiExpresZ is a browser based user interface (developed in R-shiny) to
@@ -314,10 +324,4 @@ Hit the URL printed on the console to browser and you are ready to go
 
 ------------------------------------------------------------------------
 
-# Cite FungiExpresZ
 
-Chirag Parsania,  Ruiwen Chen,  Pooja Sethiya,  Zhengqiang Miao,  Liguo
-Dong, Koon Ho Wong, FungiExpresZ: an intuitive package for fungal gene
-expression data analysis, visualization and discovery, *Briefings in
-Bioinformatics*, Volume 24, Issue 2, March 2023,
-bbad051, <https://doi.org/10.1093/bib/bbad051>
