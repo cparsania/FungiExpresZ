@@ -1130,7 +1130,7 @@ app_server <- function(input, output,session) {
   observe({
     genome_for_annotations(input$user_selected_species)
     if(input$upload_sample_data){
-      genome_for_annotations("FungiDB-42_CalbicansSC5314")  
+      genome_for_annotations("FungiDB-64_CalbicansSC5314")  
     }
   })
   

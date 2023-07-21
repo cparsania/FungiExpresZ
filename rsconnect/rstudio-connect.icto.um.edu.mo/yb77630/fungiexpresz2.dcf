@@ -5,9 +5,10 @@ account: yb77630
 server: rstudio-connect.icto.um.edu.mo
 hostUrl: https://rstudio-connect.icto.um.edu.mo/__api__
 appId: 99
-bundleId: 200
+bundleId: 202
 url: https://rstudio-connect.icto.um.edu.mo/content/9c8765c6-91e0-4f9e-afdd-36aed1128be5/
-when: 1685109552.08674
-lastSyncTime: 1685109552.08675
+when: 1685348869.02153
+lastSyncTime: 1685348869.02154
 asMultiple: FALSE
 asStatic: FALSE
+ignoredFiles: _Dockerfile|.gitattributes|.Rbuildignore|.RData|.Rprofile

@@ -12,7 +12,8 @@
 download_go_data_ui <- function(id) {
     ns = NS(id)
     tagList(br(), tags$h2("Download Gene Ontology Data", style = "text-align:center; font-weight: bold;"), hr(), tags$div(fluidRow(column(width = 12, 
-        DT::dataTableOutput(outputId = ns("display_go_data")) %>% shinycssloaders::withSpinner(color = "#18BC9C"))), style = "margin:auto ;  width: 1000px;"))
+        DT::dataTableOutput(outputId = ns("display_go_data")) %>% 
+                shinycssloaders::withSpinner(color = "#18BC9C"))), style = "margin:auto ;  width: 1000px;"))
 }
 
 # Module Server
@@ -34,7 +35,8 @@ download_go_data_server <- function(input, output, session, ah_data) {
     ## subset GO data
     go_data <- reactive({
         ah_data %>% ## columns 1,2,6 are genome,species,orgdb_cols
-        dplyr::select(1, 2, 6) %>% dplyr::mutate(`:=`(!!as.symbol(action_button_column_name), shinyInput(downloadButton, len = dplyr::n(), 
+        dplyr::select(1, 2, 6) %>% 
+                    dplyr::mutate(`:=`(!!as.symbol(action_button_column_name), shinyInput(downloadButton, len = dplyr::n(), 
             id = "button_", label = "Download .txt", ns = ns, onclick = sprintf("Shiny.setInputValue('%s', this.id)", ns("select_button")))  ## add column having download button 
 ))
     })
@@ -42,9 +44,16 @@ download_go_data_server <- function(input, output, session, ah_data) {
     ## Prepare GO data to be displayed
     output$display_go_data <- DT::renderDataTable({
         
-        DT::datatable(go_data() %>% dplyr::select(2, 1, !!as.symbol(action_button_column_name)) %>% janitor::clean_names(case = "snake"), 
-            escape = FALSE, selection = "none", options = list(preDrawCallback = DT::JS("function() { Shiny.unbindAll(this.api().table().node()); }"), 
-                drawCallback = DT::JS("function() { Shiny.bindAll(this.api().table().node()); } "), searchHighlight = TRUE, scrollX = TRUE))
+        DT::datatable(go_data() %>% 
+                              dplyr::select(2, 1, !!as.symbol(action_button_column_name)) %>% 
+                              janitor::clean_names(case = "snake"), 
+            escape = FALSE, 
+            selection = "none",
+            rownames = FALSE,
+            options = list(order = list(list(1, 'asc')),
+                           preDrawCallback = DT::JS("function() { Shiny.unbindAll(this.api().table().node()); }"), 
+                drawCallback = DT::JS("function() { Shiny.bindAll(this.api().table().node()); } "), 
+                searchHighlight = TRUE, scrollX = TRUE))
     })
     
     ## reference :
