@@ -33,6 +33,18 @@ library(kableExtra)
 
 This page is all about notifying users regarding new features, bug fixing, any other important changes or announcements made on `r app_name` over the time.
 
+### **`r lubridate::date(x = "2023/12/01")`**
+
+#### Release version 2.2.0
+
+-   FungiExpresZ annotations have been upgraded to FungiDB v66 from v64.
+
+-   Number of species are increased to 275 from 247.
+
+-   Bug fix and performance improvement.
+
+### 
+
 ### **`r lubridate::date(x = "2023/07/21")`**
 
 #### Release version 2.1.0

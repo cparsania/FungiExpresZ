@@ -29,7 +29,9 @@ knitr::opts_chunk$set(
 
 ## 2023
 
-1. Maruti Nandan Rai, Rikky Rai, Pooja Sethiya, Chirag Parsania. Transcriptome analysis reveals a common adaptive transcriptional response of Candida glabrata to diverse environmental stresses. *Research in Microbiology*. 2023;104073. [Article link](https://doi.org/10.1016/j.resmic.2023.104073)
+1.  Maruti Nandan Rai, Rikky Rai, Pooja Sethiya, Chirag Parsania. Transcriptome analysis reveals a common adaptive transcriptional response of Candida glabrata to diverse environmental stresses. *Research in Microbiology*. 2023;104073. [Article link](https://doi.org/10.1016/j.resmic.2023.104073)
+
+2.  Siddharth Sinha, Jiaheng Li, Benjamin Tam, San Ming Wang. Classification of PTEN missense VUS through exascale simulations. *Briefings in Bioinformatics,2023*; bbad361. [Article link](https://doi.org/10.1093/bib/bbad361)
 
 ## 2022
 

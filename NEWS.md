@@ -1,3 +1,5 @@
+# FungiExpresZ 2.2.0
+
 # FungiExpresZ 2.1.0
 
 # FungiExpresZ 1.5.0

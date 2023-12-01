@@ -426,7 +426,7 @@ ul.nav.navbar-nav {
                                                                 inputId = "user_selected_species",
                                                                 label = "",
                                                                 choices = rlang::set_names(species_table$genome , species_table$species),
-                                                                selected = "FungiDB-64_AnidulansFGSCA4",
+                                                                selected = "FungiDB-66_AnidulansFGSCA4",
                                                                 choicesOpt = list(
                                                                   style = "btn-primary",
                                                                   subtext = species_table$genome),
