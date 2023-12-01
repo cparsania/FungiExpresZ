@@ -21,10 +21,10 @@ RUN apt-get install -y libharfbuzz-dev  libfribidi-dev
 RUN R -e 'install.packages("devtools", dependencies = T)'
 
 #copy tar.gz file  
-COPY FungiExpresZ_2.0.0.tar.gz /FungiExpresZ
+COPY FungiExpresZ_2.2.0.tar.gz /FungiExpresZ
 
 # install FungiExpresZ
-RUN R -e 'devtools::install_local("/FungiExpresZ/FungiExpresZ_2.0.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
+RUN R -e 'devtools::install_local("/FungiExpresZ/FungiExpresZ_2.2.0.tar.gz" , dependencies=FALSE,  build = FALSE)'
 
 EXPOSE 80
 CMD R -e "options('shiny.port'=80,shiny.host='0.0.0.0');library(shinyBS);FungiExpresZ::run_app()"
